@@ -2,6 +2,8 @@ package Level;
 
 import Engine.Config;
 import Engine.GraphicsHandler;
+import Engine.Key;
+import Engine.Keyboard;
 import Engine.ScreenManager;
 import GameObject.Rectangle;
 import Utils.Direction;
@@ -31,6 +33,8 @@ public abstract class Map {
     // width and height of the map in terms of the number of tiles width-wise and height-wise
     protected int width;
     protected int height;
+
+	protected int count = 1;
 
     // the tileset this map uses for its map tiles
     protected Tileset tileset;
@@ -71,6 +75,8 @@ public abstract class Map {
 
     // map's textbox instance
     protected Textbox textbox;
+    
+    protected Inventory inventory;
 
     public Map(String mapFileName, Tileset tileset) {
         this.mapFileName = mapFileName;
@@ -112,6 +118,8 @@ public abstract class Map {
 
         this.camera = new Camera(0, 0, tileset.getScaledSpriteWidth(), tileset.getScaledSpriteHeight(), this);
         this.textbox = new Textbox(this);
+        this.inventory = new Inventory(this);
+        
     }
 
     // reads in a map file to create the map's tilemap
@@ -470,6 +478,7 @@ public abstract class Map {
     }
 
     public void update(Player player) {
+    	
         if (adjustCamera) {
             adjustMovementY(player);
             adjustMovementX(player);
@@ -478,6 +487,28 @@ public abstract class Map {
         if (textbox.isActive()) {
             textbox.update();
         }
+        
+        if (Keyboard.isKeyDown(inventory.getInteractKey()))
+        {
+        	inventory.getKeyLocker().lockKey(inventory.getInteractKey());
+        	if (count == 1) {
+            	inventory.setIsActive(true);
+        	}
+        	else { 
+        		inventory.setIsActive(false); 
+        	}
+        	
+        }
+
+        else if (Keyboard.isKeyUp(inventory.getInteractKey()))
+        {
+        	inventory.getKeyLocker().unlockKey(inventory.getInteractKey());
+        	if (inventory.isActive()) { 
+            	count = 0;
+        	}
+        	else count = 1;
+        }
+        
     }
 
     // based on the player's current X position (which in a level can potentially be updated each frame),
@@ -547,6 +578,10 @@ public abstract class Map {
         if (textbox.isActive()) {
             textbox.draw(graphicsHandler);
         }
+        
+        if(inventory.isActive()) {
+        	inventory.draw(graphicsHandler);
+        }
     }
 
     public FlagManager getFlagManager() { return flagManager; }
@@ -556,6 +591,7 @@ public abstract class Map {
     }
 
     public Textbox getTextbox() { return textbox; }
+    public Inventory getInventory() { return inventory; }
 
     public int getEndBoundX() { return endBoundX; }
     public int getEndBoundY() { return endBoundY; }
