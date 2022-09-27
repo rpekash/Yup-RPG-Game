@@ -8,6 +8,7 @@ import Level.Trigger;
 import NPCs.Dinosaur;
 import NPCs.OJ;
 import NPCs.Walrus;
+import NPCs.UFO;
 import Scripts.SimpleTextScript;
 import Scripts.TestMap.DinoScript;
 import Scripts.TestMap.LostBallScript;
@@ -50,6 +51,9 @@ public class TestMap extends Map {
         OJ oj = new OJ(3, getMapTile(12, 20).getLocation());
         oj.setInteractScript(new OJScript());
         npcs.add(oj);
+        
+        UFO ufo = new UFO(4, getMapTile(10,20).getLocation());
+        npcs.add(ufo);
 
         return npcs;
     }
