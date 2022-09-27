@@ -14,6 +14,7 @@ import Scripts.TestMap.DinoScript;
 import Scripts.TestMap.LostBallScript;
 import Scripts.TestMap.OJScript;
 import Scripts.TestMap.TreeScript;
+import Scripts.TestMap.UFOScript;
 import Scripts.TestMap.WalrusScript;
 import Tilesets.CommonTileset;
 
@@ -53,6 +54,7 @@ public class TestMap extends Map {
         npcs.add(oj);
         
         UFO ufo = new UFO(4, getMapTile(10,20).getLocation());
+        ufo.setInteractScript(new UFOScript());
         npcs.add(ufo);
 
         return npcs;
