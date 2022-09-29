@@ -6,6 +6,7 @@ import Game.GameState;
 import Game.ScreenCoordinator;
 import Level.*;
 import Maps.TestMap;
+import Music.LoopMusicJavaUpdated;
 import Players.Cat;
 import Utils.Direction;
 import Utils.Point;
@@ -18,6 +19,7 @@ public class PlayLevelScreen extends Screen {
     protected PlayLevelScreenState playLevelScreenState;
     protected WinScreen winScreen;
     protected FlagManager flagManager;
+    protected LoopMusicJavaUpdated playMusic;
 
     public PlayLevelScreen(ScreenCoordinator screenCoordinator) {
         this.screenCoordinator = screenCoordinator;
@@ -74,6 +76,9 @@ public class PlayLevelScreen extends Screen {
         }
 
         winScreen = new WinScreen(this);
+        
+		playMusic = new LoopMusicJavaUpdated();
+		playMusic.playMusicInScreen();
     }
 
     public void update() {
