@@ -10,7 +10,7 @@ import java.awt.*;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Inventory {
+public class HealthBar {
     protected boolean isActive;
     protected final int x = 22;
     protected final int bottomY = 460;
@@ -23,9 +23,9 @@ public class Inventory {
 
     private KeyLocker keyLocker = new KeyLocker();
     private Map map;
-    private Key interactKey = Key.I;
+    private Key interactKey = Key.H;
 
-    public Inventory(Map map) {
+    public HealthBar(Map map) {
         this.map = map;
     }
 
@@ -45,10 +45,10 @@ public class Inventory {
         // if camera is at bottom of screen, textbox is drawn at top of screen instead of the bottom like usual
         // to prevent it from covering the player
             if (!map.getCamera().isAtBottomOfMap()) {
-                graphicsHandler.drawFilledRectangleWithBorder(x, bottomY, width, height, Color.white, Color.black, 2);
+                graphicsHandler.drawFilledRectangleWithBorder(x, topY, 350, 30, Color.green, Color.white, 2);
             }
             else {
-                graphicsHandler.drawFilledRectangleWithBorder(x, topY, width, height, Color.white, Color.black, 2);
+                graphicsHandler.drawFilledRectangleWithBorder(x, topY, 350, 30, Color.green, Color.white, 2);
             }
             
     	

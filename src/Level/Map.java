@@ -35,6 +35,8 @@ public abstract class Map {
     protected int height;
 
 	protected int count = 1;
+	protected int count1 = 1;
+
 
     // the tileset this map uses for its map tiles
     protected Tileset tileset;
@@ -77,6 +79,8 @@ public abstract class Map {
     protected Textbox textbox;
     
     protected Inventory inventory;
+    
+    protected HealthBar healthbar;
 
     public Map(String mapFileName, Tileset tileset) {
         this.mapFileName = mapFileName;
@@ -119,6 +123,8 @@ public abstract class Map {
         this.camera = new Camera(0, 0, tileset.getScaledSpriteWidth(), tileset.getScaledSpriteHeight(), this);
         this.textbox = new Textbox(this);
         this.inventory = new Inventory(this);
+        this.healthbar = new HealthBar(this);
+
         
     }
 
@@ -476,6 +482,20 @@ public abstract class Map {
 
         return false;
     }
+    
+    public void updatehealthbar(Player player) {
+    	  
+
+            if (Keyboard.isKeyUp(healthbar.getInteractKey()))
+           {
+           	 
+          	  healthbar.getKeyLocker().unlockKey(healthbar.getInteractKey());
+           	if (healthbar.isActive()) { 
+               	count = 0;
+           	}
+           	else count = 1;
+           }
+    }
 
     public void update(Player player) {
     	
@@ -487,9 +507,34 @@ public abstract class Map {
         if (textbox.isActive()) {
             textbox.update();
         }
-        
+        if (Keyboard.isKeyDown(healthbar.getInteractKey()))
+        {
+        	healthbar.getKeyLocker().lockKey(healthbar.getInteractKey());
+
+        	healthbar.getKeyLocker().lockKey(inventory.getInteractKey());
+        	if (count1 == 1) {
+        		healthbar.setIsActive(true);
+        	}
+        	else { 
+        		healthbar.setIsActive(false); 
+        	}
+        	
+        }
+        if (Keyboard.isKeyUp(healthbar.getInteractKey()))
+        {
+        	 
+       	  healthbar.getKeyLocker().unlockKey(healthbar.getInteractKey());
+        	if (healthbar.isActive()) { 
+            	count1 = 0;
+        	}
+        	else count1 = 1;
+        }
+       
         if (Keyboard.isKeyDown(inventory.getInteractKey()))
         {
+        	
+        	inventory.getKeyLocker().lockKey(inventory.getInteractKey());
+
         	inventory.getKeyLocker().lockKey(inventory.getInteractKey());
         	if (count == 1) {
             	inventory.setIsActive(true);
@@ -500,8 +545,9 @@ public abstract class Map {
         	
         }
 
-        else if (Keyboard.isKeyUp(inventory.getInteractKey()))
+         if (Keyboard.isKeyUp(inventory.getInteractKey()))
         {
+        	 
         	inventory.getKeyLocker().unlockKey(inventory.getInteractKey());
         	if (inventory.isActive()) { 
             	count = 0;
@@ -582,6 +628,10 @@ public abstract class Map {
         if(inventory.isActive()) {
         	inventory.draw(graphicsHandler);
         }
+        
+        if(healthbar.isActive()) {
+        	healthbar.draw(graphicsHandler);
+        }
     }
 
     public FlagManager getFlagManager() { return flagManager; }
@@ -592,6 +642,8 @@ public abstract class Map {
 
     public Textbox getTextbox() { return textbox; }
     public Inventory getInventory() { return inventory; }
+    public HealthBar getHealthbar() { return healthbar; }
+
 
     public int getEndBoundX() { return endBoundX; }
     public int getEndBoundY() { return endBoundY; }
