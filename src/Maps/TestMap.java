@@ -1,6 +1,7 @@
 package Maps;
 
 import EnhancedMapTiles.Rock;
+import EnhancedMapTiles.TextTile;
 import Level.EnhancedMapTile;
 import Level.Map;
 import Level.NPC;
@@ -31,7 +32,9 @@ public class TestMap extends Map {
     @Override
     public ArrayList<EnhancedMapTile> loadEnhancedMapTiles() {
         ArrayList<EnhancedMapTile> enhancedMapTiles = new ArrayList<>();
-        enhancedMapTiles.add(new Rock(getMapTile(2, 7).getLocation()));
+        Rock rock = new Rock(getMapTile(2, 7).getLocation());
+        enhancedMapTiles.add(rock);
+        enhancedMapTiles.add(new TextTile(getMapTile(4, 7).getLocation(), rock));
         return enhancedMapTiles;
     }
 
