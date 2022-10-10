@@ -36,7 +36,7 @@ public class MenuScreen extends Screen {
         testPuzzleOne = new SpriteFont("Test Puzzle One", 200, 250, "Comic Sans", 30, new Color(49, 207, 240));
         testPuzzleOne.setOutlineColor(Color.black);
         testPuzzleOne.setOutlineThickness(3);
-        testPuzzleTwo = new SpriteFont("Test Puzzle One", 200, 350, "Comic Sans", 30, new Color(49, 207, 240));
+        testPuzzleTwo = new SpriteFont("Test Puzzle Two", 200, 350, "Comic Sans", 30, new Color(49, 207, 240));
         testPuzzleTwo.setOutlineColor(Color.black);
         testPuzzleTwo.setOutlineThickness(3);
         credits = new SpriteFont("CREDITS", 200, 450, "Comic Sans", 30, new Color(49, 207, 240));
