@@ -6,6 +6,7 @@ import Engine.Screen;
 import Game.GameState;
 import Game.ScreenCoordinator;
 import Level.*;
+import Maps.PuzzleTwoMap;
 import Maps.TestMap;
 import Players.Cat;
 import Utils.Direction;
@@ -28,7 +29,7 @@ public class PuzzleTwoScreen extends Screen {
         flagManager = new FlagManager();
 
         // define/setup map
-        this.map = new TestMap();
+        this.map = new PuzzleTwoMap();
         map.reset();
         map.setFlagManager(flagManager);
 
