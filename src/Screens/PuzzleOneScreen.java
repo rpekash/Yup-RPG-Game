@@ -1,6 +1,7 @@
 package Screens;
 
 import Engine.GraphicsHandler;
+
 import Engine.Screen;
 import Game.GameState;
 import Game.ScreenCoordinator;
@@ -8,6 +9,7 @@ import Level.*;
 import Maps.TestMap;
 import Music.LoopMusicJavaUpdated;
 import Players.Cat;
+//import Screens.PlayLevelScreen.PlayLevelScreenState;
 import Utils.Direction;
 import Utils.Point;
 
@@ -26,6 +28,9 @@ public class PuzzleOneScreen extends Screen {
     public void initialize() {
         // setup state
         flagManager = new FlagManager();
+        flagManager.addFlag("onRock1", false);
+        flagManager.addFlag("onRock2", false);
+        flagManager.addFlag("onRock3", false);
 
         // define/setup map
         this.map = new TestMap();
@@ -80,6 +85,9 @@ public class PuzzleOneScreen extends Screen {
             // if level has been completed, bring up level cleared screen
             case PUZZLE_COMPLETED:
                 break;
+        }
+        if (map.getFlagManager().isFlagSet("onRock1") && map.getFlagManager().isFlagSet("onRock2") && map.getFlagManager().isFlagSet("onRock3")) {
+            puzzleOneScreenState = PuzzleOneScreenState.PUZZLE_COMPLETED;
         }
     }
 

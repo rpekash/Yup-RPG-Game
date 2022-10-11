@@ -31,6 +31,7 @@ public class TextTile extends EnhancedMapTile {
 	        if (rock.overlaps(this) && flag == false) {
 	            System.out.println("Hi!");
 	            flag = true;
+	            rock.getExistenceFlag();
 	        }
 	    }
 	    
@@ -41,6 +42,12 @@ public class TextTile extends EnhancedMapTile {
 	                .build();
 	        return new GameObject(x, y, frame);
 	    }
+	    
+	    public boolean isOnTile() {
+	    	return flag;
+	    }
+	    
+	    
 	    
 	}
 

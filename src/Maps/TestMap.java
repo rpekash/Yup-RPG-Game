@@ -46,7 +46,6 @@ public class TestMap extends Map {
         Walrus walrus = new Walrus(1, getMapTile(4, 28).getLocation().subtractY(40));
         walrus.setInteractScript(new WalrusScript());
         npcs.add(walrus);
-
         Dinosaur dinosaur = new Dinosaur(2, getMapTile(13, 4).getLocation());
         dinosaur.setExistenceFlag("hasTalkedToDinosaur");
         dinosaur.setInteractScript(new DinoScript());
@@ -84,4 +83,3 @@ public class TestMap extends Map {
         getMapTile(2, 6).setInteractScript(new TreeScript());
     }
 }
-
