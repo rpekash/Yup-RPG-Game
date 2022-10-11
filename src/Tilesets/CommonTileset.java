@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class CommonTileset extends Tileset {
 
     public CommonTileset() {
-        super(ImageLoader.load("CommonTileset.png"), 16, 16, 3);
+        super(ImageLoader.load("CommonTileSet1.png"), 16, 16, 3);
     }
 
     @Override
@@ -284,6 +284,17 @@ public class CommonTileset extends Tileset {
                 .withTileType(TileType.NOT_PASSABLE);
 
         mapTiles.add(doorTile);
+        
+        
+      /*  Frame fenceFrame = new FrameBuilder(getSubImage(6, 0))
+                .withScale(tileScale)
+                .build();
+
+        MapTileBuilder fenceTile = new MapTileBuilder(fenceFrame)
+                .withTileType(TileType.NOT_PASSABLE);
+
+        mapTiles.add(fenceTile);*/
+        
 
         // top water
         Frame[] topWaterFrames = new Frame[] {
