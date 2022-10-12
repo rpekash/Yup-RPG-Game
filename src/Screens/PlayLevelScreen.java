@@ -13,7 +13,7 @@ import Utils.Point;
 
 // This class is for when the platformer game is actually being played
 public class PlayLevelScreen extends Screen {
-    protected ScreenCoordinator screenCoordinator;
+    protected static ScreenCoordinator screenCoordinator;
     protected Map map;
     protected Player player;
     protected PlayLevelScreenState playLevelScreenState;
@@ -122,7 +122,11 @@ public class PlayLevelScreen extends Screen {
     public void resetLevel() {
         initialize();
     }
-
+    
+    public static void goToPuzzleTwo() {
+        screenCoordinator.setGameState(GameState.PUZZLE_2);
+    }
+    
     public void goBackToMenu() {
         screenCoordinator.setGameState(GameState.MENU);
     }

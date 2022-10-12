@@ -13,7 +13,7 @@ import Utils.Point;
 
 // This class is for when the platformer game is actually being played
 public class PuzzleTwoScreen extends Screen {
-    protected ScreenCoordinator screenCoordinator;
+    protected static ScreenCoordinator screenCoordinator;
     protected Map map;
     protected Player player;
     protected PuzzleTwoScreenState puzzleTwoScreenState;
@@ -102,8 +102,8 @@ public class PuzzleTwoScreen extends Screen {
     public void resetPuzzle() {
         initialize();
     }
-
-    public void goBackToLevel() {
+    
+    public static void goBackToLevel() {
         screenCoordinator.setGameState(GameState.LEVEL);
     }
 

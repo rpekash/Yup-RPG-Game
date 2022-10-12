@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class CommonTileset extends Tileset {
 
     public CommonTileset() {
-        super(ImageLoader.load("CommonTileSet2.png"), 16, 16, 3);
+        super(ImageLoader.load("CommonTileset3.png"), 16, 16, 3);
     }
 
     @Override
@@ -302,7 +302,88 @@ public class CommonTileset extends Tileset {
         MapTileBuilder fence2Tile = new MapTileBuilder(fence2Frame)
                 .withTileType(TileType.NOT_PASSABLE);
 
-        mapTiles.add(fenceTile);
+        mapTiles.add(fence2Tile);
+        
+        Frame fence3Frame = new FrameBuilder(getSubImage(6, 2))
+                .withScale(tileScale)
+                .build();
+
+        MapTileBuilder fence3Tile = new MapTileBuilder(fence3Frame)
+                .withTileType(TileType.NOT_PASSABLE);
+
+        mapTiles.add(fence3Tile);
+        
+        Frame fence4Frame = new FrameBuilder(getSubImage(6, 3))
+                .withScale(tileScale)
+                .build();
+
+        MapTileBuilder fence4Tile = new MapTileBuilder(fence4Frame)
+                .withTileType(TileType.NOT_PASSABLE);
+
+        mapTiles.add(fence4Tile);
+        
+        Frame fence5Frame = new FrameBuilder(getSubImage(6, 4))
+                .withScale(tileScale)
+                .build();
+
+        MapTileBuilder fence5Tile = new MapTileBuilder(fence5Frame)
+                .withTileType(TileType.NOT_PASSABLE);
+
+        mapTiles.add(fence5Tile);
+        
+        Frame fence6Frame = new FrameBuilder(getSubImage(7, 0))
+                .withScale(tileScale)
+                .build();
+
+        MapTileBuilder fence6Tile = new MapTileBuilder(fence6Frame)
+                .withTileType(TileType.NOT_PASSABLE);
+
+        mapTiles.add(fence6Tile);
+        
+        Frame fence7Frame = new FrameBuilder(getSubImage(7, 1))
+                .withScale(tileScale)
+                .build();
+
+        MapTileBuilder fence7Tile = new MapTileBuilder(fence7Frame)
+                .withTileType(TileType.NOT_PASSABLE);
+
+        mapTiles.add(fence7Tile);
+        
+        Frame fence8Frame = new FrameBuilder(getSubImage(7, 2))
+                .withScale(tileScale)
+                .build();
+
+        MapTileBuilder fence8Tile = new MapTileBuilder(fence8Frame)
+                .withTileType(TileType.NOT_PASSABLE);
+
+        mapTiles.add(fence8Tile);
+        
+        Frame fence9Frame = new FrameBuilder(getSubImage(7, 3))
+                .withScale(tileScale)
+                .build();
+
+        MapTileBuilder fence9Tile = new MapTileBuilder(fence9Frame)
+                .withTileType(TileType.NOT_PASSABLE);
+
+        mapTiles.add(fence9Tile);
+        
+        Frame fence10Frame = new FrameBuilder(getSubImage(7, 4))
+                .withScale(tileScale)
+                .build();
+
+        MapTileBuilder fence10Tile = new MapTileBuilder(fence10Frame)
+                .withTileType(TileType.NOT_PASSABLE);
+
+        mapTiles.add(fence10Tile);
+        
+        Frame fence11Frame = new FrameBuilder(getSubImage(8, 0))
+                .withScale(tileScale)
+                .build();
+
+        MapTileBuilder fence11Tile = new MapTileBuilder(fence11Frame)
+                .withTileType(TileType.NOT_PASSABLE);
+
+        mapTiles.add(fence11Tile);
         
 
         // top water
