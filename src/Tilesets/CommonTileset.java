@@ -389,6 +389,64 @@ public class CommonTileset extends Tileset {
         Frame sand = new FrameBuilder(getSubImage(8, 1))
                 .withScale(tileScale)
                 .build();
+        
+        // blow up man
+        Frame[] yBlowupFrames = new Frame[] {
+            new FrameBuilder(getSubImage(8, 1), 500)
+                    .withScale(tileScale)
+                    .build(),
+            new FrameBuilder(getSubImage(8, 2), 500)
+                    .withScale(tileScale)
+                    .build(),
+            new FrameBuilder(getSubImage(8, 3), 500)
+                    .withScale(tileScale)
+                    .build(),
+            new FrameBuilder(getSubImage(8, 2), 500)
+                    .withScale(tileScale)
+                    .build(),
+            new FrameBuilder(getSubImage(8, 3), 500)
+                    .withScale(tileScale)
+                    .build(),
+            new FrameBuilder(getSubImage(8, 4), 500)
+                    .withScale(tileScale)
+                    .build(),
+            
+        };
+
+        MapTileBuilder yBlowupTile = new MapTileBuilder(yBlowupFrames)
+                .withTileType(TileType.NOT_PASSABLE);
+
+        mapTiles.add(yBlowupTile);
+        
+     // blow up man
+        Frame[] bBlowupFrames = new Frame[] {
+            new FrameBuilder(getSubImage(9, 0), 500)
+                    .withScale(tileScale)
+                    .build(),
+            new FrameBuilder(getSubImage(9, 1), 500)
+                    .withScale(tileScale)
+                    .build(),
+            new FrameBuilder(getSubImage(9, 2), 500)
+                    .withScale(tileScale)
+                    .build(),
+            new FrameBuilder(getSubImage(9, 1), 500)
+                    .withScale(tileScale)
+                    .build(),
+            new FrameBuilder(getSubImage(9, 2), 500)
+                    .withScale(tileScale)
+                    .build(),
+            new FrameBuilder(getSubImage(9, 3), 500)
+                    .withScale(tileScale)
+                    .build(),
+            
+        };
+
+        MapTileBuilder bBlowupTile = new MapTileBuilder(bBlowupFrames)
+                .withTileType(TileType.NOT_PASSABLE);
+
+        mapTiles.add(bBlowupTile);
+        
+       
 
         MapTileBuilder sandTile1 = new MapTileBuilder(sand)
                 .withTileType(TileType.PASSABLE);
@@ -481,35 +539,6 @@ public class CommonTileset extends Tileset {
                 .withTileType(TileType.NOT_PASSABLE);
 
         mapTiles.add(topWaterTile);
-
-     // blow up man
-        Frame[] bBlowupFrames = new Frame[] {
-            new FrameBuilder(getSubImage(9, 0), 500)
-                    .withScale(tileScale)
-                    .build(),
-            new FrameBuilder(getSubImage(9, 1), 500)
-                    .withScale(tileScale)
-                    .build(),
-            new FrameBuilder(getSubImage(9, 2), 500)
-                    .withScale(tileScale)
-                    .build(),
-            new FrameBuilder(getSubImage(9, 1), 500)
-                    .withScale(tileScale)
-                    .build(),
-            new FrameBuilder(getSubImage(9, 2), 500)
-                    .withScale(tileScale)
-                    .build(),
-            new FrameBuilder(getSubImage(9, 3), 500)
-                    .withScale(tileScale)
-                    .build(),
-            
-        };
-
-        MapTileBuilder bBlowupTile = new MapTileBuilder(bBlowupFrames)
-                .withTileType(TileType.NOT_PASSABLE);
-
-        mapTiles.add(bBlowupTile);
-        
         
         return mapTiles;
     }
