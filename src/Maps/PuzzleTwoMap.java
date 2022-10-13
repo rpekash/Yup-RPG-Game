@@ -14,6 +14,7 @@ import Scripts.SimpleTextScript;
 import Scripts.TestMap.DinoScript;
 import Scripts.TestMap.LostBallScript;
 import Scripts.TestMap.OJScript;
+import Scripts.TestMap.Puzzle2Script;
 import Scripts.TestMap.TreeScript;
 import Scripts.TestMap.UFOScript;
 import Scripts.TestMap.WalrusScript;
@@ -52,26 +53,25 @@ public class PuzzleTwoMap extends Map {
         dinosaur.setInteractScript(new DinoScript());
         npcs.add(dinosaur); */
         
-        OJ oj = new OJ(3, getMapTile(12, 20).getLocation());
+       /* OJ oj = new OJ(3, getMapTile(12, 20).getLocation());
         oj.setInteractScript(new OJScript());
         npcs.add(oj);
         
         UFO ufo = new UFO(4, getMapTile(10,20).getLocation());
         ufo.setInteractScript(new UFOScript());
-        npcs.add(ufo);
+        npcs.add(ufo);*/
 
         return npcs;
     }
 
-    /*
+    
     @Override
     public ArrayList<Trigger> loadTriggers() {
         ArrayList<Trigger> triggers = new ArrayList<>();
-        triggers.add(new Trigger(790, 1030, 100, 10, new LostBallScript(), "hasLostBall"));
-        triggers.add(new Trigger(790, 960, 10, 80, new LostBallScript(), "hasLostBall"));
-        triggers.add(new Trigger(890, 960, 10, 80, new LostBallScript(), "hasLostBall"));
+        triggers.add(new Trigger(96, 1255, 50, 30, new Puzzle2Script(), "hasFinishedMaze"));
+        
         return triggers;
-    } */
+    } 
 
     @Override
     public void loadScripts() {

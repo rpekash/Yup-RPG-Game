@@ -1,4 +1,6 @@
 package Level;
+import Game.GameState;
+import Game.ScreenCoordinator;
 import GameObject.Rectangle;
 import Utils.Direction;
 import Utils.Stopwatch;
@@ -24,9 +26,12 @@ public abstract class Script<T extends MapEntity> {
     protected Player player;
 
     protected Stopwatch stopwatch = new Stopwatch();
+    
+    
 
     public Map getMap() { return map; }
     public void setMap(Map map) { this.map = map; }
+    
     public Player getPlayer() { return player; }
     public void setPlayer(Player player) { this.player = player; }
     public T getEntity() { return entity; }
@@ -123,7 +128,8 @@ public abstract class Script<T extends MapEntity> {
         }
         return null;
     }
-
+    
+   
     // force an npc instance to face the player
     // npc chosen based on its id value
     protected void npcFacePlayer(int npcId) {
