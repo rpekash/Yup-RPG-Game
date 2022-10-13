@@ -41,7 +41,7 @@ public class OJScript extends Script<NPC> {
         }
         
         end();
-        PlayLevelScreen.goToPuzzleTwo();
+        
         return ScriptState.COMPLETED;
     }
     
