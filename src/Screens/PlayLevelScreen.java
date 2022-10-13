@@ -123,9 +123,14 @@ public class PlayLevelScreen extends Screen {
         initialize();
     }
     
+    public static void goToPuzzleOne() {
+        screenCoordinator.setGameState(GameState.PUZZLE_1);
+    }
+    
     public static void goToPuzzleTwo() {
         screenCoordinator.setGameState(GameState.PUZZLE_2);
     }
+    
     
     public void goBackToMenu() {
         screenCoordinator.setGameState(GameState.MENU);

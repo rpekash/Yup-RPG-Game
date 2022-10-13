@@ -3,6 +3,7 @@ package Scripts.TestMap;
 import Level.NPC;
 import Level.Script;
 import Level.ScriptState;
+import Screens.PlayLevelScreen;
 
 // script for talking to OJ npc
 public class UFOScript extends Script<NPC> {
@@ -28,6 +29,7 @@ public class UFOScript extends Script<NPC> {
             return ScriptState.RUNNING;
         }
         end();
+        PlayLevelScreen.goToPuzzleOne();
         return ScriptState.COMPLETED;
     }
 }

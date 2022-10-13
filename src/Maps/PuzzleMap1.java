@@ -14,6 +14,7 @@ import Scripts.SimpleTextScript;
 import Scripts.TestMap.DinoScript;
 import Scripts.TestMap.LostBallScript;
 import Scripts.TestMap.OJScript;
+import Scripts.TestMap.Puzzle1Script;
 import Scripts.TestMap.TreeScript;
 import Scripts.TestMap.UFOScript;
 import Scripts.TestMap.WalrusScript;
@@ -23,10 +24,12 @@ import java.util.ArrayList;
 
 // Represents a test map to be used in a level
 public class PuzzleMap1 extends Map {
+	
+	Puzzle1Script script = new Puzzle1Script();
 
     public PuzzleMap1() {
         super("puzzle1.txt", new CommonTileset());
-        this.playerStartPosition = getMapTile(17, 20).getLocation();
+        this.playerStartPosition = getMapTile(7, 10).getLocation();
     }
 
     @Override
@@ -72,7 +75,7 @@ public class PuzzleMap1 extends Map {
         Dinosaur dinosaur = new Dinosaur(2, getMapTile(13, 4).getLocation());
         dinosaur.setExistenceFlag("hasTalkedToDinosaur");
         dinosaur.setInteractScript(new DinoScript());
-        npcs.add(dinosaur); */
+        npcs.add(dinosaur); 
         
         OJ oj = new OJ(3, getMapTile(12, 20).getLocation());
         oj.setInteractScript(new OJScript());
@@ -80,20 +83,20 @@ public class PuzzleMap1 extends Map {
         
         UFO ufo = new UFO(4, getMapTile(10,20).getLocation());
         ufo.setInteractScript(new UFOScript());
-        npcs.add(ufo);
+        npcs.add(ufo); */
 
         return npcs;
     }
 
-    /*
+    
     @Override
     public ArrayList<Trigger> loadTriggers() {
         ArrayList<Trigger> triggers = new ArrayList<>();
-        triggers.add(new Trigger(790, 1030, 100, 10, new LostBallScript(), "hasLostBall"));
-        triggers.add(new Trigger(790, 960, 10, 80, new LostBallScript(), "hasLostBall"));
-        triggers.add(new Trigger(890, 960, 10, 80, new LostBallScript(), "hasLostBall"));
+        triggers.add(new Trigger(196, 340, 40, 40, script, "RockOnTile1"));
+        triggers.add(new Trigger(530, 387, 40, 40, script, "RockOnTile2"));
+        triggers.add(new Trigger(242, 387, 40, 40, script, "RockOnTile3"));
         return triggers;
-    } */
+    } 
 
     @Override
     public void loadScripts() {

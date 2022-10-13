@@ -16,7 +16,7 @@ import Utils.Point;
 
 // This class is for when the platformer game is actually being played
 public class PuzzleOneScreen extends Screen {
-    protected ScreenCoordinator screenCoordinator;
+    protected static ScreenCoordinator screenCoordinator;
     protected Map map;
     protected Player player;
     protected PuzzleOneScreenState puzzleOneScreenState;
@@ -30,9 +30,9 @@ public class PuzzleOneScreen extends Screen {
     public void initialize() {
         // setup state
         flagManager = new FlagManager();
-        flagManager.addFlag("onRock1", false);
-        flagManager.addFlag("onRock2", false);
-        flagManager.addFlag("onRock3", false);
+        flagManager.addFlag("RockOnTile1", false);
+        flagManager.addFlag("RockOnTile2", false);
+        flagManager.addFlag("RockOnTile3", false);
 
         // define/setup map
         this.map = new PuzzleMap1();
@@ -92,8 +92,8 @@ public class PuzzleOneScreen extends Screen {
             	//winScreen.update();
                 break;
         }
-        if (map.getFlagManager().isFlagSet("onRock1") && 
-        		map.getFlagManager().isFlagSet("onRock2") && map.getFlagManager().isFlagSet("onRock3")) {
+        if (map.getFlagManager().isFlagSet("RockOnTile1") && 
+        		map.getFlagManager().isFlagSet("RockOnTile2") && map.getFlagManager().isFlagSet("RockOnTile3")) {
             puzzleOneScreenState = PuzzleOneScreenState.PUZZLE_COMPLETED;
             System.out.println("Puzzle Complete");
         }
@@ -121,7 +121,7 @@ public class PuzzleOneScreen extends Screen {
         initialize();
     }
 
-    public void goBackToLevel() {
+    public static void goBackToLevel() {
         screenCoordinator.setGameState(GameState.LEVEL);
     }
 
