@@ -16,8 +16,6 @@ public class MenuScreen extends Screen {
     protected int currentMenuItemHovered = 0; // current menu item being "hovered" over
     protected int menuItemSelected = -1;
     protected SpriteFont playGame;
-    protected SpriteFont testPuzzleOne;
-    protected SpriteFont testPuzzleTwo;
     protected SpriteFont credits;
     protected Map background;
     protected Stopwatch keyTimer = new Stopwatch();
@@ -33,13 +31,7 @@ public class MenuScreen extends Screen {
         playGame = new SpriteFont("PLAY GAME", 200, 150, "Comic Sans", 30, new Color(49, 207, 240));
         playGame.setOutlineColor(Color.black);
         playGame.setOutlineThickness(3);
-        testPuzzleOne = new SpriteFont("Test Puzzle One", 200, 250, "Comic Sans", 30, new Color(49, 207, 240));
-        testPuzzleOne.setOutlineColor(Color.black);
-        testPuzzleOne.setOutlineThickness(3);
-        testPuzzleTwo = new SpriteFont("Test Puzzle Two", 200, 350, "Comic Sans", 30, new Color(49, 207, 240));
-        testPuzzleTwo.setOutlineColor(Color.black);
-        testPuzzleTwo.setOutlineThickness(3);
-        credits = new SpriteFont("CREDITS", 200, 450, "Comic Sans", 30, new Color(49, 207, 240));
+        credits = new SpriteFont("CREDITS", 200, 250, "Comic Sans", 30, new Color(49, 207, 240));
         credits.setOutlineColor(Color.black);
         credits.setOutlineThickness(3);
         background = new TitleScreenMap();
@@ -63,7 +55,7 @@ public class MenuScreen extends Screen {
         }
 
         // if down is pressed on last menu item or up is pressed on first menu item, "loop" the selection back around to the beginning/end
-        if (currentMenuItemHovered > 3) {
+        if (currentMenuItemHovered > 1) {
             currentMenuItemHovered = 0;
         } else if (currentMenuItemHovered < 0) {
             currentMenuItemHovered = 1;
@@ -72,35 +64,16 @@ public class MenuScreen extends Screen {
         // sets location for blue square in front of text (pointerLocation) and also sets color of spritefont text based on which menu item is being hovered
         if (currentMenuItemHovered == 0) {
             playGame.setColor(new Color(255, 215, 0));
-            testPuzzleOne.setColor(new Color(49, 207, 240));
-            testPuzzleTwo.setColor(new Color(49, 207, 240));
             credits.setColor(new Color(49, 207, 240));
             pointerLocationX = 170;
             pointerLocationY = 130;
         } if (currentMenuItemHovered == 1) {
             playGame.setColor(new Color(49, 207, 240));
-            testPuzzleOne.setColor(new Color(255, 215, 0));
-            testPuzzleTwo.setColor(new Color(49, 207, 240));
-            credits.setColor(new Color(49, 207, 240));
+            credits.setColor(new Color(255, 215, 0));
             pointerLocationX = 170;
             pointerLocationY = 230;
         }
-        if (currentMenuItemHovered == 2) {
-            playGame.setColor(new Color(49, 207, 240));
-            testPuzzleOne.setColor(new Color(49, 207, 240));
-            testPuzzleTwo.setColor(new Color(255, 215, 0));
-            credits.setColor(new Color(49, 207, 240));
-            pointerLocationX = 170;
-            pointerLocationY = 330;
-        }
-        if (currentMenuItemHovered == 3) {
-            playGame.setColor(new Color(49, 207, 240));
-            testPuzzleOne.setColor(new Color(49, 207, 240));
-            testPuzzleTwo.setColor(new Color(49, 207, 240));
-            credits.setColor(new Color(255, 215, 0));
-            pointerLocationX = 170;
-            pointerLocationY = 430;
-        }
+    
         
 
         // if space is pressed on menu item, change to appropriate screen based on which menu item was chosen
@@ -111,13 +84,8 @@ public class MenuScreen extends Screen {
             menuItemSelected = currentMenuItemHovered;
             if (menuItemSelected == 0) {
                 screenCoordinator.setGameState(GameState.LEVEL);
-            } if (menuItemSelected == 1) {
-                screenCoordinator.setGameState(GameState.PUZZLE_1);
             }
-              if (menuItemSelected == 2) {
-                screenCoordinator.setGameState(GameState.PUZZLE_2);
-            }
-              else if (menuItemSelected == 3) {
+              else if (menuItemSelected == 1) {
                  screenCoordinator.setGameState(GameState.CREDITS);
 
 			}
@@ -127,8 +95,6 @@ public class MenuScreen extends Screen {
     public void draw(GraphicsHandler graphicsHandler) {
         background.draw(graphicsHandler);
         playGame.draw(graphicsHandler);
-        testPuzzleOne.draw(graphicsHandler);
-        testPuzzleTwo.draw(graphicsHandler);
         credits.draw(graphicsHandler);
         graphicsHandler.drawFilledRectangleWithBorder(pointerLocationX, pointerLocationY, 20, 20, new Color(49, 207, 240), Color.black, 2);
     }
