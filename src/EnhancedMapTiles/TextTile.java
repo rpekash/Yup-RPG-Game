@@ -17,7 +17,7 @@ import Utils.Point;
 public class TextTile extends EnhancedMapTile {
 	
 		private Rock rock;
-		private boolean flag;
+		public boolean flag;
 	
 	    public TextTile(Point location, Rock rock) {
 	        super(location.x, location.y, new SpriteSheet(ImageLoader.load("grass-tile.png"), 16, 16), TileType.PASSABLE);
@@ -31,7 +31,6 @@ public class TextTile extends EnhancedMapTile {
 	        if (rock.overlaps(this) && flag == false) {
 	            System.out.println("Hi!");
 	            flag = true;
-	            rock.getExistenceFlag();
 	        }
 	    }
 	    

@@ -6,6 +6,7 @@ import Engine.Screen;
 import Game.GameState;
 import Game.ScreenCoordinator;
 import Level.*;
+import Maps.PuzzleMap1;
 import Maps.TestMap;
 import Music.LoopMusicJavaUpdated;
 import Players.Cat;
@@ -20,6 +21,7 @@ public class PuzzleOneScreen extends Screen {
     protected Player player;
     protected PuzzleOneScreenState puzzleOneScreenState;
     protected FlagManager flagManager;
+    protected WinScreen winScreen;
 
     public PuzzleOneScreen(ScreenCoordinator screenCoordinator) {
         this.screenCoordinator = screenCoordinator;
@@ -33,7 +35,7 @@ public class PuzzleOneScreen extends Screen {
         flagManager.addFlag("onRock3", false);
 
         // define/setup map
-        this.map = new TestMap();
+        this.map = new PuzzleMap1();
         map.reset();
         map.setFlagManager(flagManager);
 
@@ -65,6 +67,7 @@ public class PuzzleOneScreen extends Screen {
                 enhancedMapTile.getInteractScript().setMap(map);
                 enhancedMapTile.getInteractScript().setPlayer(player);
             }
+            
         }
         for (Trigger trigger : map.getTriggers()) {
             if (trigger.getTriggerScript() != null) {
@@ -72,6 +75,8 @@ public class PuzzleOneScreen extends Screen {
                 trigger.getTriggerScript().setPlayer(player);
             }
         }
+        
+        winScreen = new WinScreen(this);
     }
 
     public void update() {
@@ -84,10 +89,13 @@ public class PuzzleOneScreen extends Screen {
                 break;
             // if level has been completed, bring up level cleared screen
             case PUZZLE_COMPLETED:
+            	//winScreen.update();
                 break;
         }
-        if (map.getFlagManager().isFlagSet("onRock1") && map.getFlagManager().isFlagSet("onRock2") && map.getFlagManager().isFlagSet("onRock3")) {
+        if (map.getFlagManager().isFlagSet("onRock1") && 
+        		map.getFlagManager().isFlagSet("onRock2") && map.getFlagManager().isFlagSet("onRock3")) {
             puzzleOneScreenState = PuzzleOneScreenState.PUZZLE_COMPLETED;
+            System.out.println("Puzzle Complete");
         }
     }
 
@@ -98,6 +106,8 @@ public class PuzzleOneScreen extends Screen {
                 map.draw(player, graphicsHandler);
                 break;
             case PUZZLE_COMPLETED:
+            	//winScreen.draw(graphicsHandler);
+            	System.out.println("Puzzle Complete");
                 break;
         }
     }
