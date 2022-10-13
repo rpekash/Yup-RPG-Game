@@ -12,7 +12,7 @@ public class Puzzle2Script extends Script {
         lockPlayer();
         showTextbox();
         addTextToTextboxQueue("You Made it Out!");
-        addTextToTextboxQueue("You Made it Out!");
+        
         
         
     }
