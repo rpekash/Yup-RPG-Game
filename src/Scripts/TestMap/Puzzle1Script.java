@@ -14,9 +14,7 @@ public class Puzzle1Script extends Script {
         addTextToTextboxQueue("You Completed the Puzzle!");
         addTextToTextboxQueue("You Got a Key!");
        
-        if (isFlagSet("RockOnTile1") && isFlagSet("RockOnTile2") && isFlagSet("RockOnTile3")) {
-            setFlag("hasFinishedPuzzle");
-    	}
+        
     }
 
     @Override
@@ -31,7 +29,9 @@ public class Puzzle1Script extends Script {
 
     @Override
     public ScriptState execute() {
-    	
+    	if (isFlagSet("RockOnTile1") && isFlagSet("RockOnTile2") && isFlagSet("RockOnTile3")) {
+            setFlag("hasFinishedPuzzle");
+    	}
         if (!isFlagSet("hasFinishedPuzzle")) {
             start();
             if (!isTextboxQueueEmpty()) {

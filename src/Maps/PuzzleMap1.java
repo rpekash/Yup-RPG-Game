@@ -26,6 +26,7 @@ import java.util.ArrayList;
 public class PuzzleMap1 extends Map {
 	
 	Puzzle1Script script = new Puzzle1Script();
+	
 
     public PuzzleMap1() {
         super("puzzle1.txt", new CommonTileset());
@@ -47,17 +48,17 @@ public class PuzzleMap1 extends Map {
         TextTile tile1 = new TextTile(getMapTile(4, 7).getLocation(), rock1);
         enhancedMapTiles.add(tile1);
         if (tile1.isOnTile()) {
-        	this.flagManager.setFlag("onRock1");
+        	this.flagManager.setFlag("RockOnTile1");
         }
         TextTile tile2 = new TextTile(getMapTile(5, 8).getLocation(), rock2);
         enhancedMapTiles.add(tile2);
         if (tile2.isOnTile()) {
-        	this.flagManager.setFlag("onRock2");
+        	this.flagManager.setFlag("RockOnTile2");
         }
         TextTile tile3 = new TextTile(getMapTile(11, 8).getLocation(), rock3);
         enhancedMapTiles.add(tile3);
         if (tile3.isOnTile()) {
-        	this.flagManager.setFlag("onRock3");
+        	this.flagManager.setFlag("RockOnTile3");
         }
         return enhancedMapTiles;
     }
@@ -108,6 +109,8 @@ public class PuzzleMap1 extends Map {
 
         getMapTile(2, 6).setInteractScript(new TreeScript());
     }
+    
+    
     
    
 }
