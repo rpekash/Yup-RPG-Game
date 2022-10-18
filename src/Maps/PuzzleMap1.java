@@ -1,6 +1,7 @@
 package Maps;
 
 import EnhancedMapTiles.Rock;
+
 import EnhancedMapTiles.TextTile;
 import Level.EnhancedMapTile;
 import Level.Map;
@@ -9,11 +10,16 @@ import Level.Trigger;
 import NPCs.Dinosaur;
 import NPCs.OJ;
 import NPCs.Walrus;
+import Screens.PuzzleOneScreen;
+import Screens.PuzzleOneScreen.PuzzleOneScreenState;
 import NPCs.UFO;
 import Scripts.SimpleTextScript;
 import Scripts.TestMap.DinoScript;
 import Scripts.TestMap.LostBallScript;
 import Scripts.TestMap.OJScript;
+import Scripts.TestMap.P1Script1;
+import Scripts.TestMap.P1Script2;
+import Scripts.TestMap.P1Script3;
 import Scripts.TestMap.Puzzle1Script;
 import Scripts.TestMap.TreeScript;
 import Scripts.TestMap.UFOScript;
@@ -47,19 +53,10 @@ public class PuzzleMap1 extends Map {
         enhancedMapTiles.add(rock3);
         TextTile tile1 = new TextTile(getMapTile(4, 7).getLocation(), rock1);
         enhancedMapTiles.add(tile1);
-        if (tile1.isOnTile()) {
-        	this.flagManager.setFlag("RockOnTile1");
-        }
         TextTile tile2 = new TextTile(getMapTile(5, 8).getLocation(), rock2);
         enhancedMapTiles.add(tile2);
-        if (tile2.isOnTile()) {
-        	this.flagManager.setFlag("RockOnTile2");
-        }
         TextTile tile3 = new TextTile(getMapTile(11, 8).getLocation(), rock3);
         enhancedMapTiles.add(tile3);
-        if (tile3.isOnTile()) {
-        	this.flagManager.setFlag("RockOnTile3");
-        }
         return enhancedMapTiles;
     }
 
@@ -93,21 +90,24 @@ public class PuzzleMap1 extends Map {
     @Override
     public ArrayList<Trigger> loadTriggers() {
         ArrayList<Trigger> triggers = new ArrayList<>();
-        triggers.add(new Trigger(196, 340, 40, 40, script, "RockOnTile1"));
-        triggers.add(new Trigger(530, 387, 40, 40, script, "RockOnTile2"));
-        triggers.add(new Trigger(242, 387, 40, 40, script, "RockOnTile3"));
+        triggers.add(new Trigger(211, 355, 10, 10, new P1Script1(), "RockOnTile1"));
+        triggers.add(new Trigger(545, 402, 10, 10, new P1Script2(), "RockOnTile2"));
+        triggers.add(new Trigger(257, 402, 10, 10, new P1Script3(), "RockOnTile3"));
         return triggers;
     } 
 
     @Override
     public void loadScripts() {
-        getMapTile(21, 19).setInteractScript(new SimpleTextScript("Cat's house"));
+        //getMapTile(21, 19).setInteractScript(new SimpleTextScript("Cat's house"));
 
-        getMapTile(7, 26).setInteractScript(new SimpleTextScript("Walrus's house"));
+        //getMapTile(7, 26).setInteractScript(new SimpleTextScript("Walrus's house"));
 
-        getMapTile(20, 4).setInteractScript(new SimpleTextScript("Dino's house"));
+        //getMapTile(20, 4).setInteractScript(new SimpleTextScript("Dino's house"));
 
-        getMapTile(2, 6).setInteractScript(new TreeScript());
+        //getMapTile(2, 6).setInteractScript(new TreeScript());
+    	
+    	
+    	
     }
     
     

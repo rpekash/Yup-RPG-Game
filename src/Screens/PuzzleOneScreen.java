@@ -10,6 +10,7 @@ import Maps.PuzzleMap1;
 import Maps.TestMap;
 import Music.LoopMusicJavaUpdated;
 import Players.Cat;
+import Scripts.TestMap.Puzzle1Script;
 //import Screens.PlayLevelScreen.PlayLevelScreenState;
 import Utils.Direction;
 import Utils.Point;
@@ -22,6 +23,7 @@ public class PuzzleOneScreen extends Screen {
     protected PuzzleOneScreenState puzzleOneScreenState;
     protected FlagManager flagManager;
     protected WinScreen winScreen;
+    //protected Textbox winBox;
 
     public PuzzleOneScreen(ScreenCoordinator screenCoordinator) {
         this.screenCoordinator = screenCoordinator;
@@ -47,6 +49,8 @@ public class PuzzleOneScreen extends Screen {
         this.puzzleOneScreenState = PuzzleOneScreenState.RUNNING;
         this.player.setFacingDirection(Direction.LEFT);
 
+        //this.winBox.addText("You completed the Puzzle!");
+        
         // let pieces of map know which button to listen for as the "interact" button
         map.getTextbox().setInteractKey(player.getInteractKey());
         
@@ -92,10 +96,14 @@ public class PuzzleOneScreen extends Screen {
             	//winScreen.update();
                 break;
         }
-        if (map.getFlagManager().isFlagSet("RockOnTile1") && 
-        		map.getFlagManager().isFlagSet("RockOnTile2") && map.getFlagManager().isFlagSet("RockOnTile3")) {
+        if (//map.getFlagManager().isFlagSet("RockOnTile1") && 
+        		/*map.getFlagManager().isFlagSet("RockOnTile2") && map.getFlagManager().isFlagSet("RockOnTile3") &&*/ 
+        		map.getActiveEnhancedMapTiles().get(0).overlaps(map.getActiveEnhancedMapTiles().get(3))
+        				&& map.getActiveEnhancedMapTiles().get(1).overlaps(map.getActiveEnhancedMapTiles().get(4))
+        				&& map.getActiveEnhancedMapTiles().get(2).overlaps(map.getActiveEnhancedMapTiles().get(5))) {
+        	new Puzzle1Script();
             puzzleOneScreenState = PuzzleOneScreenState.PUZZLE_COMPLETED;
-            System.out.println("Puzzle Complete");
+            PuzzleOneScreen.goBackToLevel();
         }
     }
 
@@ -106,8 +114,8 @@ public class PuzzleOneScreen extends Screen {
                 map.draw(player, graphicsHandler);
                 break;
             case PUZZLE_COMPLETED:
+            	
             	//winScreen.draw(graphicsHandler);
-            	System.out.println("Puzzle Complete");
                 break;
         }
     }
@@ -126,7 +134,7 @@ public class PuzzleOneScreen extends Screen {
     }
 
     // This enum represents the different states this screen can be in
-    private enum PuzzleOneScreenState {
+    public enum PuzzleOneScreenState {
         RUNNING, PUZZLE_COMPLETED
     }
 }

@@ -1,19 +1,22 @@
 package Scripts.TestMap;
 
+import GameObject.IntersectableRectangle;
+import GameObject.Rectangle;
 import Level.Script;
 import Level.ScriptState;
 import Screens.PlayLevelScreen;
 import Screens.PuzzleOneScreen;
 
 // trigger script at beginning of game to set that heavy emotional plot
-public class Puzzle1Script extends Script {
+public class P1Script2 extends Script {
     @Override
     protected void setup() {
-        lockPlayer();
-        showTextbox();
-        addTextToTextboxQueue("You Completed the Puzzle!");
-        addTextToTextboxQueue("You Got a Key!");
-       
+    	if (isFlagSet("RockOnTile1") && isFlagSet("RockOnTile2") && isFlagSet("RockOnTile3")) {
+        	lockPlayer();
+            showTextbox();
+            addTextToTextboxQueue("You Completed the Puzzle!");
+            addTextToTextboxQueue("You Got a Key!");
+        }
         
     }
 
@@ -25,24 +28,25 @@ public class Puzzle1Script extends Script {
         
         hideTextbox();
         unlockPlayer();
+        setFlag("RockOnTile2");
 
-    	/*if (map.getFlagManager().isFlagSet("RockOnTile1") && map.getFlagManager().isFlagSet("RockOnTile2") 
-    			&& map.getFlagManager().isFlagSet("RockOnTile3")) {
+    	/*if (isFlagSet("RockOnTile1") && isFlagSet("RockOnTile2") && isFlagSet("RockOnTile3")) {
             setFlag("hasFinishedPuzzle");
     	}*/
-        setFlag("hasFinishedPuzzle");
     }
 
     @Override
     public ScriptState execute() {
-        if (!isFlagSet("hasFinishedPuzzle")) {
+        if (!map.getFlagManager().isFlagSet("RockOnTile2")) {
             start();
             if (!isTextboxQueueEmpty()) {
                 return ScriptState.RUNNING;
             }
             end();
-            PuzzleOneScreen.goBackToLevel();
+            map.getFlagManager().setFlag("RockOnTile2");
         }
         return ScriptState.COMPLETED;
     }
+
+	
 }
