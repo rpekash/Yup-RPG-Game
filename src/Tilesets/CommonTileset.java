@@ -442,6 +442,9 @@ public class CommonTileset extends Tileset {
 
         mapTiles.add(bBlowupTile);
         
+        
+     
+        
        
 
         MapTileBuilder sandTile1 = new MapTileBuilder(sand)
@@ -502,6 +505,33 @@ public class CommonTileset extends Tileset {
                 .withTileType(TileType.PASSABLE);
 
         mapTiles.add(sandPathTile6);
+        
+        
+     // spikeTrap
+        Frame[] spikeTrapFrames = new Frame[] {
+            new FrameBuilder(getSubImage(11, 0), 500)
+                    .withScale(tileScale)
+                    .build(),
+            new FrameBuilder(getSubImage(11, 1), 500)
+                    .withScale(tileScale)
+                    .build(),
+            new FrameBuilder(getSubImage(11, 2), 500)
+                    .withScale(tileScale)
+                    .build(),
+            new FrameBuilder(getSubImage(11, 1), 500)
+                    .withScale(tileScale)
+                    .build(),
+            new FrameBuilder(getSubImage(11, 0), 500)
+                    .withScale(tileScale)
+                    .build(),
+            
+            
+        };
+
+        MapTileBuilder spikeTrapTile = new MapTileBuilder(spikeTrapFrames)
+                .withTileType(TileType.NOT_PASSABLE);
+
+        mapTiles.add(spikeTrapTile);
         
         // top water
         Frame[] topWaterFrames = new Frame[] {
