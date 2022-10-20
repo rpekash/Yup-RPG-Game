@@ -392,24 +392,22 @@ public class CommonTileset extends Tileset {
         
         // blow up man
         Frame[] yBlowupFrames = new Frame[] {
-            new FrameBuilder(getSubImage(8, 1), 500)
+            new FrameBuilder(getSubImage(9, 3), 500)
                     .withScale(tileScale)
                     .build(),
-            new FrameBuilder(getSubImage(8, 2), 500)
+            new FrameBuilder(getSubImage(9, 4), 500)
                     .withScale(tileScale)
                     .build(),
-            new FrameBuilder(getSubImage(8, 3), 500)
+            new FrameBuilder(getSubImage(9, 3), 500)
                     .withScale(tileScale)
                     .build(),
-            new FrameBuilder(getSubImage(8, 2), 500)
+            new FrameBuilder(getSubImage(10, 0), 500)
                     .withScale(tileScale)
                     .build(),
-            new FrameBuilder(getSubImage(8, 3), 500)
+            new FrameBuilder(getSubImage(10, 1), 500)
                     .withScale(tileScale)
                     .build(),
-            new FrameBuilder(getSubImage(8, 4), 500)
-                    .withScale(tileScale)
-                    .build(),
+            
             
         };
 
@@ -420,24 +418,22 @@ public class CommonTileset extends Tileset {
         
      // blow up man
         Frame[] bBlowupFrames = new Frame[] {
-            new FrameBuilder(getSubImage(9, 0), 500)
+            new FrameBuilder(getSubImage(10, 2), 500)
                     .withScale(tileScale)
                     .build(),
-            new FrameBuilder(getSubImage(9, 1), 500)
+            new FrameBuilder(getSubImage(10, 3), 500)
                     .withScale(tileScale)
                     .build(),
-            new FrameBuilder(getSubImage(9, 2), 500)
+            new FrameBuilder(getSubImage(10, 2), 500)
                     .withScale(tileScale)
                     .build(),
-            new FrameBuilder(getSubImage(9, 1), 500)
+            new FrameBuilder(getSubImage(10, 3), 500)
                     .withScale(tileScale)
                     .build(),
-            new FrameBuilder(getSubImage(9, 2), 500)
+            new FrameBuilder(getSubImage(10, 4), 500)
                     .withScale(tileScale)
                     .build(),
-            new FrameBuilder(getSubImage(9, 3), 500)
-                    .withScale(tileScale)
-                    .build(),
+            
             
         };
 
