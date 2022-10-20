@@ -11,9 +11,15 @@ public class WinScreen extends Screen {
     protected SpriteFont instructions;
     protected KeyLocker keyLocker = new KeyLocker();
     protected PlayLevelScreen playLevelScreen;
+    protected PuzzleOneScreen puzzleOneScreen;
 
     public WinScreen(PlayLevelScreen playLevelScreen) {
         this.playLevelScreen = playLevelScreen;
+        initialize();
+    }
+    
+    public WinScreen(PuzzleOneScreen puzzleOneScreen) {
+        this.puzzleOneScreen = puzzleOneScreen;
         initialize();
     }
 

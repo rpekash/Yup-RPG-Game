@@ -20,6 +20,7 @@ import Utils.Point;
 public class Rock extends EnhancedMapTile {
     public Rock(Point location) {
         super(location.x, location.y, new SpriteSheet(ImageLoader.load("Rock.png"), 16, 16), TileType.NOT_PASSABLE);
+        this.affectedByTriggers = true;
     }
 
     @Override

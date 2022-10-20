@@ -1,6 +1,7 @@
 package MapEditor;
 
 import Level.Map;
+import Maps.PuzzleMap1;
 import Maps.PuzzleTwoMap;
 import Maps.TestMap;
 import Maps.TitleScreenMap;
@@ -12,6 +13,7 @@ public class EditorMaps {
         return new ArrayList<String>() {{
             add("TestMap");
             add("TitleScreen");
+            add("PuzzleOneScreen");
             add("PuzzleTwoScreen");
         }};
     }
@@ -22,6 +24,8 @@ public class EditorMaps {
                 return new TestMap();
             case "TitleScreen":
                 return new TitleScreenMap();
+            case "PuzzleOneScreen":
+                return new PuzzleMap1();
             case "PuzzleTwoScreen":
                 return new PuzzleTwoMap();
             default:

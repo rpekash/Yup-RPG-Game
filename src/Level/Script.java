@@ -1,4 +1,5 @@
 package Level;
+import EnhancedMapTiles.Rock;
 import Game.GameState;
 import Game.ScreenCoordinator;
 import GameObject.Rectangle;
@@ -25,6 +26,8 @@ public abstract class Script<T extends MapEntity> {
     // reference to the player instance which can be used in any script
     protected Player player;
 
+    protected Rock rock;
+    
     protected Stopwatch stopwatch = new Stopwatch();
     
     
@@ -34,6 +37,10 @@ public abstract class Script<T extends MapEntity> {
     
     public Player getPlayer() { return player; }
     public void setPlayer(Player player) { this.player = player; }
+    
+    public Rock getRock() { return rock; }
+    public void setRock(Rock rock) { this.rock = rock; }
+    
     public T getEntity() { return entity; }
     public void setMapEntity(T entity) {
         this.entity = entity;
@@ -206,5 +213,10 @@ public abstract class Script<T extends MapEntity> {
     protected boolean isPlayerBelowEntity() {
         Rectangle entityBounds = entity.getCalibratedBounds();
         return player.getBounds().getY1() >= entityBounds.getY2();
+    }
+    
+    protected boolean isRockBelowEntity() {
+        Rectangle entityBounds = entity.getCalibratedBounds();
+        return rock.getBounds().getY1() >= entityBounds.getY2();
     }
 }

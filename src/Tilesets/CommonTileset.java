@@ -385,6 +385,10 @@ public class CommonTileset extends Tileset {
 
         mapTiles.add(fence11Tile);
         
+        //sand
+        Frame sand = new FrameBuilder(getSubImage(8, 1))
+                .withScale(tileScale)
+                .build();
         
         // blow up man
         Frame[] yBlowupFrames = new Frame[] {
@@ -442,8 +446,67 @@ public class CommonTileset extends Tileset {
 
         mapTiles.add(bBlowupTile);
         
-        
+       
 
+        MapTileBuilder sandTile1 = new MapTileBuilder(sand)
+                .withTileType(TileType.PASSABLE);
+
+        mapTiles.add(sandTile1);
+        
+        Frame sandPath1 = new FrameBuilder(getSubImage(8, 2))
+                .withScale(tileScale)
+                .build();
+
+        MapTileBuilder sandPathTile1 = new MapTileBuilder(sandPath1)
+                .withTileType(TileType.PASSABLE);
+
+        mapTiles.add(sandPathTile1);
+        
+        Frame sandPath2 = new FrameBuilder(getSubImage(8, 3))
+                .withScale(tileScale)
+                .build();
+
+        MapTileBuilder sandPathTile2 = new MapTileBuilder(sandPath2)
+                .withTileType(TileType.PASSABLE);
+
+        mapTiles.add(sandPathTile2);
+        
+        Frame sandPath3 = new FrameBuilder(getSubImage(8, 4))
+                .withScale(tileScale)
+                .build();
+
+        MapTileBuilder sandPathTile3 = new MapTileBuilder(sandPath3)
+                .withTileType(TileType.PASSABLE);
+
+        mapTiles.add(sandPathTile3);
+        
+        Frame sandPath4 = new FrameBuilder(getSubImage(9, 0))
+                .withScale(tileScale)
+                .build();
+
+        MapTileBuilder sandPathTile4 = new MapTileBuilder(sandPath4)
+                .withTileType(TileType.PASSABLE);
+
+        mapTiles.add(sandPathTile4);
+        
+        Frame sandPath5 = new FrameBuilder(getSubImage(9, 1))
+                .withScale(tileScale)
+                .build();
+
+        MapTileBuilder sandPathTile5 = new MapTileBuilder(sandPath5)
+                .withTileType(TileType.PASSABLE);
+
+        mapTiles.add(sandPathTile5);
+        
+        Frame sandPath6 = new FrameBuilder(getSubImage(9, 2))
+                .withScale(tileScale)
+                .build();
+
+        MapTileBuilder sandPathTile6 = new MapTileBuilder(sandPath6)
+                .withTileType(TileType.PASSABLE);
+
+        mapTiles.add(sandPathTile6);
+        
         // top water
         Frame[] topWaterFrames = new Frame[] {
             new FrameBuilder(getSubImage(5, 0), 500)
@@ -477,10 +540,6 @@ public class CommonTileset extends Tileset {
 
         mapTiles.add(topWaterTile);
         
-        
-        
-
-
         return mapTiles;
     }
 }

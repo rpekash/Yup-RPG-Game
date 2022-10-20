@@ -1,6 +1,7 @@
 package Level;
 
 import Engine.GraphicsHandler;
+import EnhancedMapTiles.Rock;
 import GameObject.GameObject;
 import GameObject.SpriteSheet;
 
@@ -16,6 +17,10 @@ public class EnhancedMapTile extends MapTile {
     }
 
     public void update(Player player) {
+        super.update();
+    }
+    
+    public void updateRock(Rock rock) {
         super.update();
     }
 

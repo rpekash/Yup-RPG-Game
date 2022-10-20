@@ -1,23 +1,29 @@
 package Screens;
 
 import Engine.GraphicsHandler;
+
 import Engine.Screen;
 import Game.GameState;
 import Game.ScreenCoordinator;
 import Level.*;
+import Maps.PuzzleMap1;
 import Maps.TestMap;
 import Music.LoopMusicJavaUpdated;
 import Players.Cat;
+import Scripts.TestMap.Puzzle1Script;
+//import Screens.PlayLevelScreen.PlayLevelScreenState;
 import Utils.Direction;
 import Utils.Point;
 
 // This class is for when the platformer game is actually being played
 public class PuzzleOneScreen extends Screen {
-    protected ScreenCoordinator screenCoordinator;
+    protected static ScreenCoordinator screenCoordinator;
     protected Map map;
     protected Player player;
     protected PuzzleOneScreenState puzzleOneScreenState;
     protected FlagManager flagManager;
+    protected WinScreen winScreen;
+    //protected Textbox winBox;
 
     public PuzzleOneScreen(ScreenCoordinator screenCoordinator) {
         this.screenCoordinator = screenCoordinator;
@@ -26,9 +32,12 @@ public class PuzzleOneScreen extends Screen {
     public void initialize() {
         // setup state
         flagManager = new FlagManager();
+        flagManager.addFlag("RockOnTile1", false);
+        flagManager.addFlag("RockOnTile2", false);
+        flagManager.addFlag("RockOnTile3", false);
 
         // define/setup map
-        this.map = new TestMap();
+        this.map = new PuzzleMap1();
         map.reset();
         map.setFlagManager(flagManager);
 
@@ -40,6 +49,8 @@ public class PuzzleOneScreen extends Screen {
         this.puzzleOneScreenState = PuzzleOneScreenState.RUNNING;
         this.player.setFacingDirection(Direction.LEFT);
 
+        //this.winBox.addText("You completed the Puzzle!");
+        
         // let pieces of map know which button to listen for as the "interact" button
         map.getTextbox().setInteractKey(player.getInteractKey());
         
@@ -60,6 +71,7 @@ public class PuzzleOneScreen extends Screen {
                 enhancedMapTile.getInteractScript().setMap(map);
                 enhancedMapTile.getInteractScript().setPlayer(player);
             }
+            
         }
         for (Trigger trigger : map.getTriggers()) {
             if (trigger.getTriggerScript() != null) {
@@ -67,6 +79,8 @@ public class PuzzleOneScreen extends Screen {
                 trigger.getTriggerScript().setPlayer(player);
             }
         }
+        
+        winScreen = new WinScreen(this);
     }
 
     public void update() {
@@ -79,7 +93,17 @@ public class PuzzleOneScreen extends Screen {
                 break;
             // if level has been completed, bring up level cleared screen
             case PUZZLE_COMPLETED:
+            	//winScreen.update();
                 break;
+        }
+        if (//map.getFlagManager().isFlagSet("RockOnTile1") && 
+        		/*map.getFlagManager().isFlagSet("RockOnTile2") && map.getFlagManager().isFlagSet("RockOnTile3") &&*/ 
+        		map.getActiveEnhancedMapTiles().get(0).overlaps(map.getActiveEnhancedMapTiles().get(3))
+        				&& map.getActiveEnhancedMapTiles().get(1).overlaps(map.getActiveEnhancedMapTiles().get(4))
+        				&& map.getActiveEnhancedMapTiles().get(2).overlaps(map.getActiveEnhancedMapTiles().get(5))) {
+        	new Puzzle1Script();
+            puzzleOneScreenState = PuzzleOneScreenState.PUZZLE_COMPLETED;
+            PuzzleOneScreen.goBackToLevel();
         }
     }
 
@@ -90,6 +114,8 @@ public class PuzzleOneScreen extends Screen {
                 map.draw(player, graphicsHandler);
                 break;
             case PUZZLE_COMPLETED:
+            	
+            	//winScreen.draw(graphicsHandler);
                 break;
         }
     }
@@ -103,12 +129,12 @@ public class PuzzleOneScreen extends Screen {
         initialize();
     }
 
-    public void goBackToLevel() {
+    public static void goBackToLevel() {
         screenCoordinator.setGameState(GameState.LEVEL);
     }
 
     // This enum represents the different states this screen can be in
-    private enum PuzzleOneScreenState {
+    public enum PuzzleOneScreenState {
         RUNNING, PUZZLE_COMPLETED
     }
 }
