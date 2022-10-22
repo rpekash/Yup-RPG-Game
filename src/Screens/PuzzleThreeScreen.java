@@ -1,40 +1,36 @@
 package Screens;
 
 import Engine.GraphicsHandler;
+
 import Engine.Screen;
 import Game.GameState;
 import Game.ScreenCoordinator;
 import Level.*;
+import Maps.PuzzleThreeMap;
+import Maps.PuzzleTwoMap;
 import Maps.TestMap;
-import Music.LoopMusicJavaUpdated;
 import Players.Cat;
 import Utils.Direction;
 import Utils.Point;
 
 // This class is for when the platformer game is actually being played
-public class PlayLevelScreen extends Screen {
+public class PuzzleThreeScreen extends Screen {
     protected static ScreenCoordinator screenCoordinator;
     protected Map map;
     protected Player player;
-    protected PlayLevelScreenState playLevelScreenState;
-    protected WinScreen winScreen;
+    protected PuzzleThreeScreenState puzzleThreeScreenState;
     protected FlagManager flagManager;
-    protected LoopMusicJavaUpdated playMusic;
 
-    public PlayLevelScreen(ScreenCoordinator screenCoordinator) {
+    public PuzzleThreeScreen(ScreenCoordinator screenCoordinator) {
         this.screenCoordinator = screenCoordinator;
     }
 
     public void initialize() {
         // setup state
         flagManager = new FlagManager();
-        flagManager.addFlag("hasLostBall", false);
-        flagManager.addFlag("hasTalkedToWalrus", false);
-        flagManager.addFlag("hasTalkedToDinosaur", false);
-        flagManager.addFlag("hasFoundBall", false);
 
         // define/setup map
-        this.map = new TestMap();
+        this.map = new PuzzleThreeMap();
         map.reset();
         map.setFlagManager(flagManager);
 
@@ -43,13 +39,12 @@ public class PlayLevelScreen extends Screen {
         this.player.setMap(map);
         Point playerStartPosition = map.getPlayerStartPosition();
         this.player.setLocation(playerStartPosition.x, playerStartPosition.y);
-        this.playLevelScreenState = PlayLevelScreenState.RUNNING;
+        this.puzzleThreeScreenState = PuzzleThreeScreenState.RUNNING;
         this.player.setFacingDirection(Direction.LEFT);
 
         // let pieces of map know which button to listen for as the "interact" button
         map.getTextbox().setInteractKey(player.getInteractKey());
-
-        // setup map scripts to have references to the map and player
+        
         for (MapTile mapTile : map.getMapTiles()) {
             if (mapTile.getInteractScript() != null) {
                 mapTile.getInteractScript().setMap(map);
@@ -74,75 +69,49 @@ public class PlayLevelScreen extends Screen {
                 trigger.getTriggerScript().setPlayer(player);
             }
         }
-
-        winScreen = new WinScreen(this);
-        
-		playMusic = new LoopMusicJavaUpdated();
-		playMusic.playMusicInScreen();
     }
 
     public void update() {
         // based on screen state, perform specific actions
-        switch (playLevelScreenState) {
+        switch (puzzleThreeScreenState) {
             // if level is "running" update player and map to keep game logic for the platformer level going
             case RUNNING:
                 player.update();
                 map.update(player);
                 break;
             // if level has been completed, bring up level cleared screen
-            case LEVEL_COMPLETED:
-                winScreen.update();
+            case PUZZLE_COMPLETED:
                 break;
         }
-
-        // if flag is set at any point during gameplay, game is "won"
-        if (map.getFlagManager().isFlagSet("hasFoundBall")) {
-            playLevelScreenState = PlayLevelScreenState.LEVEL_COMPLETED;
-        }
-       
     }
 
     public void draw(GraphicsHandler graphicsHandler) {
         // based on screen state, draw appropriate graphics
-        switch (playLevelScreenState) {
+        switch (puzzleThreeScreenState) {
             case RUNNING:
                 map.draw(player, graphicsHandler);
                 break;
-            case LEVEL_COMPLETED:
-                winScreen.draw(graphicsHandler);
+            case PUZZLE_COMPLETED:
                 break;
         }
     }
 
-    public PlayLevelScreenState getPlayLevelScreenState() {
-        return playLevelScreenState;
+    public PuzzleThreeScreenState getPlayLevelScreenState() {
+        return puzzleThreeScreenState;
     }
 
 
-    public void resetLevel() {
+    public void resetPuzzle() {
         initialize();
     }
     
-    public static void goToPuzzleOne() {
-        screenCoordinator.setGameState(GameState.PUZZLE_1);
-    }
-    
-    public static void goToPuzzleTwo() {
-        screenCoordinator.setGameState(GameState.PUZZLE_2);
-    }
-    
-    public static void goToPuzzleThree() {
-        screenCoordinator.setGameState(GameState.PUZZLE_3);
-    }
-   
-    
-    
-    public void goBackToMenu() {
-        screenCoordinator.setGameState(GameState.MENU);
+    public static void goBackToLevel() {
+        screenCoordinator.setGameState(GameState.LEVEL);
     }
 
     // This enum represents the different states this screen can be in
-    private enum PlayLevelScreenState {
-        RUNNING, LEVEL_COMPLETED
+    private enum PuzzleThreeScreenState {
+        RUNNING, PUZZLE_COMPLETED
     }
 }
+

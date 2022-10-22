@@ -2,6 +2,7 @@ package MapEditor;
 
 import Level.Map;
 import Maps.PuzzleMap1;
+import Maps.PuzzleThreeMap;
 import Maps.PuzzleTwoMap;
 import Maps.TestMap;
 import Maps.TitleScreenMap;
@@ -15,6 +16,7 @@ public class EditorMaps {
             add("TitleScreen");
             add("PuzzleOneScreen");
             add("PuzzleTwoScreen");
+            add("PuzzleThreeScreen");
         }};
     }
 
@@ -28,6 +30,8 @@ public class EditorMaps {
                 return new PuzzleMap1();
             case "PuzzleTwoScreen":
                 return new PuzzleTwoMap();
+            case "PuzzleThreeScreen":
+                return new PuzzleThreeMap();
             default:
                 throw new RuntimeException("Unrecognized map name");
         }
