@@ -23,6 +23,7 @@ public class GamePanel extends JPanel {
 
 	// used to draw graphics to the panel
 	private GraphicsHandler graphicsHandler;
+	
 
 	private boolean doPaint = false;
 	private boolean isGamePaused = false;

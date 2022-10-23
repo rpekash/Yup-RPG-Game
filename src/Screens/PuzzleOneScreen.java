@@ -1,5 +1,14 @@
 package Screens;
 
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
+
+import javax.swing.JLabel;
+import javax.swing.Timer;
+
 import Engine.GraphicsHandler;
 
 import Engine.Screen;
@@ -23,6 +32,13 @@ public class PuzzleOneScreen extends Screen {
     protected PuzzleOneScreenState puzzleOneScreenState;
     protected FlagManager flagManager;
     protected WinScreen winScreen;
+    protected Timer timer;
+    protected JLabel countLabel;
+    protected int minutes, seconds;
+    protected Font cFont = new Font("Arial", Font.PLAIN, 50);
+    protected boolean isRunning;
+    protected String ddSec, ddMin;
+    protected DecimalFormat dForm = new DecimalFormat("00");
     //protected Textbox winBox;
 
     public PuzzleOneScreen(ScreenCoordinator screenCoordinator) {
@@ -32,9 +48,9 @@ public class PuzzleOneScreen extends Screen {
     public void initialize() {
         // setup state
         flagManager = new FlagManager();
-        flagManager.addFlag("RockOnTile1", false);
-        flagManager.addFlag("RockOnTile2", false);
-        flagManager.addFlag("RockOnTile3", false);
+        //flagManager.addFlag("RockOnTile1", false);
+        //flagManager.addFlag("RockOnTile2", false);
+        //flagManager.addFlag("RockOnTile3", false);
 
         // define/setup map
         this.map = new PuzzleMap1();
@@ -48,6 +64,19 @@ public class PuzzleOneScreen extends Screen {
         this.player.setLocation(playerStartPosition.x, playerStartPosition.y);
         this.puzzleOneScreenState = PuzzleOneScreenState.RUNNING;
         this.player.setFacingDirection(Direction.LEFT);
+        
+        this.countLabel = new JLabel("");
+        this.countLabel.setBounds(545, 402, 100, 100);
+        this.countLabel.setHorizontalAlignment(JLabel.CENTER);
+        this.countLabel.setFont(cFont);
+        
+        countLabel.setText("0:30");
+        seconds = 30;
+        minutes = 0;
+        ddSec = dForm.format(seconds);
+        isRunning = true;
+        
+        
 
         //this.winBox.addText("You completed the Puzzle!");
         
@@ -81,6 +110,9 @@ public class PuzzleOneScreen extends Screen {
         }
         
         winScreen = new WinScreen(this);
+        
+        puzzleTimer();
+        timer.start();
     }
 
     public void update() {
@@ -95,6 +127,9 @@ public class PuzzleOneScreen extends Screen {
             case PUZZLE_COMPLETED:
             	//winScreen.update();
                 break;
+            case PUZZLE_FAILED:
+            	//winScreen.update();
+                break;
         }
         if (//map.getFlagManager().isFlagSet("RockOnTile1") && 
         		/*map.getFlagManager().isFlagSet("RockOnTile2") && map.getFlagManager().isFlagSet("RockOnTile3") &&*/ 
@@ -105,6 +140,10 @@ public class PuzzleOneScreen extends Screen {
             puzzleOneScreenState = PuzzleOneScreenState.PUZZLE_COMPLETED;
             PuzzleOneScreen.goBackToLevel();
         }
+        if (!isRunning) {
+        	puzzleOneScreenState = PuzzleOneScreenState.PUZZLE_FAILED;
+        	PuzzleOneScreen.goBackToLevel();
+        }
     }
 
     public void draw(GraphicsHandler graphicsHandler) {
@@ -112,9 +151,12 @@ public class PuzzleOneScreen extends Screen {
         switch (puzzleOneScreenState) {
             case RUNNING:
                 map.draw(player, graphicsHandler);
+                graphicsHandler.drawString(minutes + ":" + ddSec, 100, 100, cFont, Color.BLACK);
                 break;
             case PUZZLE_COMPLETED:
-            	
+            	//winScreen.draw(graphicsHandler);
+                break;
+            case PUZZLE_FAILED:
             	//winScreen.draw(graphicsHandler);
                 break;
         }
@@ -135,6 +177,41 @@ public class PuzzleOneScreen extends Screen {
 
     // This enum represents the different states this screen can be in
     public enum PuzzleOneScreenState {
-        RUNNING, PUZZLE_COMPLETED
+        RUNNING, PUZZLE_COMPLETED, PUZZLE_FAILED
     }
+    
+    public void puzzleTimer() {
+    	timer = new Timer(1000, new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				seconds--;
+				ddSec = dForm.format(seconds);
+				countLabel.setText(minutes + ":" + ddSec);
+				/*if (seconds > 0 && minutes > 0) {
+					seconds--;
+					ddSec = dForm.format(seconds);
+					countLabel.setText(minutes + ":" + ddSec);
+				} else if (seconds == 0 && minutes > 0) {
+					minutes--;
+					seconds = 59;
+					ddSec = dForm.format(seconds);
+					countLabel.setText(minutes + ":" + ddSec);
+				} else if (seconds == 0 && minutes == 0){
+					isRunning = false;
+				}*/
+				if (seconds == -1) {
+					seconds = 59;
+					minutes--;
+					ddSec = dForm.format(seconds);
+					countLabel.setText(minutes + ":" + ddSec);
+				}
+				if (minutes == 0 && seconds == 0) {
+					timer.stop();
+					isRunning = false;
+				}
+				
+			}
+		});
+    }
+    
 }

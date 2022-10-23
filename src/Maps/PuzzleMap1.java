@@ -31,7 +31,7 @@ import java.util.ArrayList;
 // Represents a test map to be used in a level
 public class PuzzleMap1 extends Map {
 	
-	Puzzle1Script script = new Puzzle1Script();
+	//Puzzle1Script script = new Puzzle1Script();
 	
 
     public PuzzleMap1() {
