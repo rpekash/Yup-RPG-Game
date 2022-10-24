@@ -442,6 +442,9 @@ public class CommonTileset extends Tileset {
 
         mapTiles.add(bBlowupTile);
         
+        
+     
+        
        
 
         MapTileBuilder sandTile1 = new MapTileBuilder(sand)
@@ -502,6 +505,53 @@ public class CommonTileset extends Tileset {
                 .withTileType(TileType.PASSABLE);
 
         mapTiles.add(sandPathTile6);
+        
+        
+     // spikeTrap
+        Frame spikeFrame = new FrameBuilder(getSubImage(11, 0))
+                .withScale(tileScale)
+                .build();
+
+        MapTileBuilder spikeTile = new MapTileBuilder(spikeFrame)
+                .withTileType(TileType.PASSABLE);
+
+        mapTiles.add(spikeTile);
+        
+        
+     // arrowTrap
+        Frame arrowTrapFrame = new FrameBuilder(getSubImage(11, 3))
+                .withScale(tileScale)
+                .build();
+
+        MapTileBuilder arrowTrapTile = new MapTileBuilder(arrowTrapFrame)
+                .withTileType(TileType.NOT_PASSABLE);
+
+        mapTiles.add(arrowTrapTile);
+        
+     // shoot arrowTrap
+        Frame arrowSTrapFrame = new FrameBuilder(getSubImage(11, 4))
+                .withScale(tileScale)
+                .build();
+
+        MapTileBuilder arrowSTrapTile = new MapTileBuilder(arrowSTrapFrame)
+                .withTileType(TileType.NOT_PASSABLE);
+
+        mapTiles.add(arrowSTrapTile);
+        
+     // arrow animation
+        Frame[] arrowFrames = new Frame[] {
+                new FrameBuilder(getSubImage(12, 0), 500)
+                        .withScale(tileScale)
+                        .build(),
+                new FrameBuilder(getSubImage(12, 1), 500)
+                        .withScale(tileScale)
+                        .build(),
+            };
+
+            MapTileBuilder arrowTile = new MapTileBuilder(arrowFrames)
+                    .withTileType(TileType.PASSABLE);
+
+            mapTiles.add(arrowTile);
         
         // top water
         Frame[] topWaterFrames = new Frame[] {

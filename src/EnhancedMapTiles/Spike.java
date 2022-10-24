@@ -1,12 +1,13 @@
 package EnhancedMapTiles;
 
+import java.util.HashMap;
+
 import Builders.FrameBuilder;
-
-
-
+import Builders.MapTileBuilder;
 import Engine.ImageLoader;
 import GameObject.Frame;
 import GameObject.GameObject;
+import GameObject.ImageEffect;
 import GameObject.SpriteSheet;
 import Level.EnhancedMapTile;
 import Level.Player;
@@ -15,11 +16,9 @@ import Level.TileType;
 import Utils.Direction;
 import Utils.Point;
 
-// This class is for the end level gold box tile
-// when the player touches it, it will tell the player that the level has been completed
-public class Rock extends EnhancedMapTile {
-    public Rock(Point location) {
-        super(location.x, location.y, new SpriteSheet(ImageLoader.load("Rock.png"), 16, 16), TileType.NOT_PASSABLE);
+public class Spike extends EnhancedMapTile {
+    public Spike(Point location) {
+        super(location.x, location.y, new SpriteSheet(ImageLoader.load("Spike.png"), 16, 16), TileType.PASSABLE);
         this.affectedByTriggers = true;
     }
 
@@ -30,27 +29,27 @@ public class Rock extends EnhancedMapTile {
             if (player.getCurrentWalkingXDirection() == Direction.LEFT) {
             	
                 if (canMoveLeft(player)) {
-                    moveXHandleCollision(-1);
+                   
                 }
             }
             else if (player.getCurrentWalkingXDirection() == Direction.RIGHT) {
                 if (canMoveRight(player)) {
-                    moveXHandleCollision(1);
+                    
                 }
             }
              if (player.getCurrentWalkingYDirection() == Direction.UP) {
                 if (canMoveUp(player)) {
-                    moveYHandleCollision(-1);
+                    
                 }
             }
             else if (player.getCurrentWalkingYDirection() == Direction.DOWN) {
                 if (canMoveDown(player)) {
-                    moveYHandleCollision(1);
+                    
                 }
             }
         }
     }
-
+    
     private boolean canMoveLeft(Player player) {
         return player.getBoundsX1() <= getBoundsX2() && player.getBoundsX2() > getBoundsX2() && canMoveX(player);
     }
@@ -81,9 +80,12 @@ public class Rock extends EnhancedMapTile {
 
     @Override
     protected GameObject loadBottomLayer(SpriteSheet spriteSheet) {
-        Frame frame = new FrameBuilder(spriteSheet.getSubImage(0, 0))
+        Frame frame = new FrameBuilder(spriteSheet.getSprite(0, 0), 200)
                 .withScale(3)
+                .withBounds(6, 12, 12, 7)
                 .build();
+        
+        
         return new GameObject(x, y, frame);
     }
 }
