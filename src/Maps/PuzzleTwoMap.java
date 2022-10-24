@@ -14,6 +14,8 @@ import NPCs.UFO;
 
 import NPCs.SpikeTrap;
 import Scripts.SimpleTextScript;
+import Scripts.TestMap.ArowScript;
+import Scripts.TestMap.Arrow2Script;
 import Scripts.TestMap.DinoScript;
 import Scripts.TestMap.LostBallScript;
 import Scripts.TestMap.OJScript;
@@ -80,6 +82,8 @@ public class PuzzleTwoMap extends Map {
         triggers.add(new Trigger(20, 1190, 30, 70, new Puzzle2Script(), "hasFinishedMaze"));
         triggers.add(new Trigger(865, 960, 30, 30, new SpikeScript(), "hasHitSpike"));
         triggers.add(new Trigger(450, 1200, 30, 30, new Spike2Script(), "hasHitSpike2"));
+        triggers.add(new Trigger(610, 1055, 20, 20, new ArowScript(), "hasHitArrow"));
+        triggers.add(new Trigger(280, 790, 20, 20, new Arrow2Script(), "hasHitArrow2"));
         return triggers;
     } 
 
