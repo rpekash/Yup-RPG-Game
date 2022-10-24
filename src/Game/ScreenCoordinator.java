@@ -7,6 +7,7 @@ import Screens.CreditsScreen;
 import Screens.MenuScreen;
 import Screens.PlayLevelScreen;
 import Screens.PuzzleOneScreen;
+import Screens.PuzzleThreeScreen;
 import Screens.PuzzleTwoScreen;
 
 /*
@@ -54,6 +55,9 @@ public class ScreenCoordinator extends Screen {
 						break;
 					case PUZZLE_2:
 						currentScreen = new PuzzleTwoScreen(this);
+						break;
+					case PUZZLE_3:
+						currentScreen = new PuzzleThreeScreen(this);
 						break;
 					case CREDITS:
 						currentScreen = new CreditsScreen(this);
