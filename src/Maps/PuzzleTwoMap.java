@@ -1,6 +1,7 @@
 package Maps;
 
 import EnhancedMapTiles.Rock;
+import EnhancedMapTiles.Spike;
 import EnhancedMapTiles.TextTile;
 import Level.EnhancedMapTile;
 import Level.Map;
@@ -10,11 +11,15 @@ import NPCs.Dinosaur;
 import NPCs.OJ;
 import NPCs.Walrus;
 import NPCs.UFO;
+
+import NPCs.SpikeTrap;
 import Scripts.SimpleTextScript;
 import Scripts.TestMap.DinoScript;
 import Scripts.TestMap.LostBallScript;
 import Scripts.TestMap.OJScript;
 import Scripts.TestMap.Puzzle2Script;
+import Scripts.TestMap.Spike2Script;
+import Scripts.TestMap.SpikeScript;
 import Scripts.TestMap.TreeScript;
 import Scripts.TestMap.UFOScript;
 import Scripts.TestMap.WalrusScript;
@@ -35,6 +40,7 @@ public class PuzzleTwoMap extends Map {
         ArrayList<EnhancedMapTile> enhancedMapTiles = new ArrayList<>();
         Rock rock = new Rock(getMapTile(2, 7).getLocation());
         enhancedMapTiles.add(rock);
+        
         enhancedMapTiles.add(new TextTile(getMapTile(4, 7).getLocation(), rock));
         return enhancedMapTiles;
     }
@@ -59,8 +65,11 @@ public class PuzzleTwoMap extends Map {
         
         UFO ufo = new UFO(4, getMapTile(10,20).getLocation());
         ufo.setInteractScript(new UFOScript());
-        npcs.add(ufo);*/
-
+        npcs.add(ufo);
+        
+        SpikeTrap spike = new SpikeTrap(4, getMapTile(20,20).getLocation());
+        spike.setInteractScript(new SpikeScript());
+        npcs.add(spike);*/
         return npcs;
     }
 
@@ -68,8 +77,9 @@ public class PuzzleTwoMap extends Map {
     @Override
     public ArrayList<Trigger> loadTriggers() {
         ArrayList<Trigger> triggers = new ArrayList<>();
-        triggers.add(new Trigger(96, 1255, 50, 30, new Puzzle2Script(), "hasFinishedMaze"));
-        
+        triggers.add(new Trigger(20, 1190, 30, 70, new Puzzle2Script(), "hasFinishedMaze"));
+        triggers.add(new Trigger(865, 960, 30, 30, new SpikeScript(), "hasHitSpike"));
+        triggers.add(new Trigger(450, 1200, 30, 30, new Spike2Script(), "hasHitSpike2"));
         return triggers;
     } 
 

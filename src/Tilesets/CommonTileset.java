@@ -508,30 +508,14 @@ public class CommonTileset extends Tileset {
         
         
      // spikeTrap
-        Frame[] spikeTrapFrames = new Frame[] {
-            new FrameBuilder(getSubImage(11, 0), 500)
-                    .withScale(tileScale)
-                    .build(),
-            new FrameBuilder(getSubImage(11, 1), 500)
-                    .withScale(tileScale)
-                    .build(),
-            new FrameBuilder(getSubImage(11, 2), 500)
-                    .withScale(tileScale)
-                    .build(),
-            new FrameBuilder(getSubImage(11, 1), 500)
-                    .withScale(tileScale)
-                    .build(),
-            new FrameBuilder(getSubImage(11, 0), 500)
-                    .withScale(tileScale)
-                    .build(),
-            
-            
-        };
+        Frame spikeFrame = new FrameBuilder(getSubImage(11, 0))
+                .withScale(tileScale)
+                .build();
 
-        MapTileBuilder spikeTrapTile = new MapTileBuilder(spikeTrapFrames)
-                .withTileType(TileType.NOT_PASSABLE);
+        MapTileBuilder spikeTile = new MapTileBuilder(spikeFrame)
+                .withTileType(TileType.PASSABLE);
 
-        mapTiles.add(spikeTrapTile);
+        mapTiles.add(spikeTile);
         
         // top water
         Frame[] topWaterFrames = new Frame[] {
