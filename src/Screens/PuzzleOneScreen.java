@@ -71,8 +71,8 @@ public class PuzzleOneScreen extends Screen {
         this.countLabel.setFont(cFont);
         
         countLabel.setText("0:30");
-        seconds = 30;
-        minutes = 0;
+        seconds = 0;
+        minutes = 1;
         ddSec = dForm.format(seconds);
         isRunning = true;
         
