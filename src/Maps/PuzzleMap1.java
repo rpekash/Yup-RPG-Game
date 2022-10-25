@@ -43,7 +43,7 @@ public class PuzzleMap1 extends Map {
     @Override
     public ArrayList<EnhancedMapTile> loadEnhancedMapTiles() {
         ArrayList<EnhancedMapTile> enhancedMapTiles = new ArrayList<>();
-        Rock rock1 = new Rock(getMapTile(2, 7).getLocation());
+        Rock rock1 = new Rock(getMapTile(4, 10).getLocation());
         //rock1.setExistenceFlag("onRock1");
         enhancedMapTiles.add(rock1);
         Rock rock2 = new Rock(getMapTile(11, 9).getLocation());
