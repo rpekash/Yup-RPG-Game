@@ -36,34 +36,34 @@ import Level.Trigger;
 	    @Override
 	    public ArrayList<EnhancedMapTile> loadEnhancedMapTiles() {
 	        ArrayList<EnhancedMapTile> enhancedMapTiles = new ArrayList<>();
-	        Rock rock = new Rock(getMapTile(2, 7).getLocation());
+	        Rock rock = new Rock(getMapTile(2, 7).getLocation(), "Rock.png");
 	        enhancedMapTiles.add(rock);
 	        
-	        Rock rock1 = new Rock(getMapTile(3, 8).getLocation());
+	        Rock rock1 = new Rock(getMapTile(3, 8).getLocation(), "Rock.png");
 	        enhancedMapTiles.add(rock1);
 	        
-	        Rock rock2 = new Rock(getMapTile(6, 9).getLocation());
+	        Rock rock2 = new Rock(getMapTile(6, 9).getLocation(), "Rock.png");
 	        enhancedMapTiles.add(rock2);
 	        
-	        Rock rock3 = new Rock(getMapTile(7, 7).getLocation());
+	        Rock rock3 = new Rock(getMapTile(7, 7).getLocation(), "Rock.png");
 	        enhancedMapTiles.add(rock3);
 	        
-	        Rock rock4 = new Rock(getMapTile(12, 2).getLocation());
+	        Rock rock4 = new Rock(getMapTile(12, 2).getLocation(), "Rock.png");
 	        enhancedMapTiles.add(rock4);
 	        
-	        Rock rock5 = new Rock(getMapTile(2, 9).getLocation());
+	        Rock rock5 = new Rock(getMapTile(2, 9).getLocation(), "Rock.png");
 	        enhancedMapTiles.add(rock5);
 	        
-	        Rock rock6 = new Rock(getMapTile(5, 8).getLocation());
+	        Rock rock6 = new Rock(getMapTile(5, 8).getLocation(), "Rock.png");
 	        enhancedMapTiles.add(rock6);
 	        
-	        Rock rock7 = new Rock(getMapTile(8, 9).getLocation());
+	        Rock rock7 = new Rock(getMapTile(8, 9).getLocation(), "Rock.png");
 	        enhancedMapTiles.add(rock7);
 	        
-	        Rock rock8 = new Rock(getMapTile(1, 7).getLocation());
+	        Rock rock8 = new Rock(getMapTile(1, 7).getLocation(), "Rock.png");
 	        enhancedMapTiles.add(rock8);
 	        
-	        Rock rock9 = new Rock(getMapTile(12, 9).getLocation());
+	        Rock rock9 = new Rock(getMapTile(12, 9).getLocation(), "Rock.png");
 	        enhancedMapTiles.add(rock9);
 	        //enhancedMapTiles.add(new TextTile(getMapTile(4, 7).getLocation(), rock));
 	        return enhancedMapTiles;
