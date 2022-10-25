@@ -14,8 +14,9 @@ import Utils.Point;
 public class Spike2Script extends Script {
 	 protected void setup() {
 	        lockPlayer();
-	        showTextbox();
-	        addTextToTextboxQueue( "You hit a Spike Trap!");
+	        setWaitTime(1000);
+	      //  showTextbox();
+	       addTextToTextboxQueue( "You hit a Spike Trap!");
 	        Frame[] frame = new Frame[] {
             		new FrameBuilder(map.getTileset().getSubImage(11, 0), 500)
                     .withScale(map.getTileset().getTileScale())
@@ -42,16 +43,18 @@ public class Spike2Script extends Script {
 
             setMapTile(9, 25, mapTile);
 	        unlockPlayer();
+            
 	     // change door to the open door map tile
 
 	        
 	       
 	    }
 
-	    @Override
+	 @Override
 	    protected void cleanup() {
+	    	setFlag("hasHitSpike2");
 	        unlockPlayer();
-	        hideTextbox();
+	       // hideTextbox();
 	        
 
 	        
@@ -59,13 +62,21 @@ public class Spike2Script extends Script {
 
 	    @Override
 	    public ScriptState execute() {
-	        start();
-	        if (!isTextboxQueueEmpty()) {
-	        	
-	            return ScriptState.RUNNING;
+	    	if (!isFlagSet("hasHitSpike2")) {
+	            start();
+	            if (!isTextboxQueueEmpty()) {
+	            	if(isWaitTimeUp()== true) {
+	            		removeText();
+	            	}
+	            	
+	                return ScriptState.RUNNING;
+	                
+	            }
+	            
+	            end();
 	        }
-	        end();
-
+	    	
 	        return ScriptState.COMPLETED;
+	    
 	    }
 	}

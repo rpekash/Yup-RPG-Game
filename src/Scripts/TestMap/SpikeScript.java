@@ -14,7 +14,8 @@ import Utils.Point;
 public class SpikeScript extends Script {
 	 protected void setup() {
 	        lockPlayer();
-	        showTextbox();
+	        //showTextbox();
+	        setWaitTime(1000);
 	        addTextToTextboxQueue( "You hit a Spike Trap!");
 	        Frame[] frame = new Frame[] {
             		new FrameBuilder(map.getTileset().getSubImage(11, 0), 500)
@@ -50,8 +51,9 @@ public class SpikeScript extends Script {
 
 	    @Override
 	    protected void cleanup() {
+	    	setFlag("hasHitSpike");
 	        unlockPlayer();
-	        hideTextbox();
+	       // hideTextbox();
 	        
 
 	        
@@ -59,13 +61,21 @@ public class SpikeScript extends Script {
 
 	    @Override
 	    public ScriptState execute() {
-	        start();
-	        if (!isTextboxQueueEmpty()) {
-	        	
-	            return ScriptState.RUNNING;
+	    	if (!isFlagSet("hasHitSpike")) {
+	            start();
+	            if (!isTextboxQueueEmpty()) {
+	            	if(isWaitTimeUp()== true) {
+	            		removeText();
+	            	}
+	            	
+	                return ScriptState.RUNNING;
+	                
+	            }
+	            
+	            end();
 	        }
-	        end();
-
+	    	
 	        return ScriptState.COMPLETED;
+	    
 	    }
 	}

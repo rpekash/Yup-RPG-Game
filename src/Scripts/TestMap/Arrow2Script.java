@@ -16,8 +16,9 @@ import Utils.Point;
 public class Arrow2Script extends Script {
 	 protected void setup() {
 	        lockPlayer();
-	        showTextbox();
-	        addTextToTextboxQueue( "You hit a Spike Trap!");
+	        //showTextbox();
+	        setWaitTime(1000);
+	        addTextToTextboxQueue("You got hit with an arrow");
 	        
 	        Frame[] trapframe = new Frame[] {
             		new FrameBuilder(map.getTileset().getSubImage(11, 4), 500)
@@ -26,14 +27,20 @@ public class Arrow2Script extends Script {
             		new FrameBuilder(map.getTileset().getSubImage(11, 3), 500)
                     .withScale(map.getTileset().getTileScale())
                     .build()
-            		
             };
             Point location = map.getMapTile(5, 16).getLocation();
-
             MapTile mapTile = new MapTileBuilder(trapframe)
                     .build(location.x, location.y);
-
             setMapTile(5, 16, mapTile);
+            
+            Frame grassFrame = new FrameBuilder(map.getTileset().getSubImage(0, 0), 500)
+                    .withScale(map.getTileset().getTileScale())
+                    .build();
+            Point locs = map.getMapTile(6, 16).getLocation();
+            MapTile mapTile1 = new MapTileBuilder(grassFrame)
+                    .withTileType(TileType.PASSABLE)
+                    .build(locs.x, locs.y);
+            setMapTile(6, 16, mapTile1);
             
 	        Frame[] frame = new Frame[] {
             		new FrameBuilder(map.getTileset().getSubImage(12, 0), 500)
@@ -42,62 +49,73 @@ public class Arrow2Script extends Script {
             		new FrameBuilder(map.getTileset().getSubImage(12, 1), 500)
                     .withScale(map.getTileset().getTileScale())
                     .build()
-            		
             };
-            		
             Point loc = map.getMapTile(6, 16).getLocation();
-
             MapTile mapTiles = new MapTileBuilder(frame)
-            		
                     .build(loc.x, loc.y);
-
             setMapTile(6, 16, mapTiles);
+            
+            
+            
+            
 	        unlockPlayer();
 	     
-
-	        
-	       
 	    }
 
-	    @Override
+	 @Override
 	    protected void cleanup() {
+	    	setFlag("hasHitArrow");
 	        unlockPlayer();
-	        hideTextbox();
+	        
+	       // hideTextbox();
 	        Frame arrowFrame = new FrameBuilder(map.getTileset().getSubImage(11, 3), 0)
-                    .withScale(map.getTileset().getTileScale())
-                    .build();
-            Point location = map.getMapTile(5, 16).getLocation();
-
-            MapTile mapTile = new MapTileBuilder(arrowFrame)
-                    .withTileType(TileType.NOT_PASSABLE)
-                    .build(location.x, location.y);
-
-            setMapTile(5, 16, mapTile);
-            
-            Frame grassFrame = new FrameBuilder(map.getTileset().getSubImage(0, 0), 0)
-                    .withScale(map.getTileset().getTileScale())
-                    .build();
-            Point loc = map.getMapTile(6, 16).getLocation();
-
-            MapTile mapTiles = new MapTileBuilder(grassFrame)
-                    .withTileType(TileType.PASSABLE)
-                    .build(loc.x, loc.y);
-
-            setMapTile(6, 16, mapTiles);
+                 .withScale(map.getTileset().getTileScale())
+                 .build();
+         Point location = map.getMapTile(5, 16).getLocation();
+         MapTile mapTile = new MapTileBuilder(arrowFrame)
+                 .withTileType(TileType.NOT_PASSABLE)
+                 .build(location.x, location.y);
+         setMapTile(5, 16, mapTile);
+         
+         Frame grassFrame = new FrameBuilder(map.getTileset().getSubImage(0, 0), 0)
+                 .withScale(map.getTileset().getTileScale())
+                 .build();
+         Point loc = map.getMapTile(6, 16).getLocation();
+         MapTile mapTiles = new MapTileBuilder(grassFrame)
+                 .withTileType(TileType.PASSABLE)
+                 .build(loc.x, loc.y);
+         setMapTile(6, 16, mapTiles);
+         
+         Frame arrow2Frame = new FrameBuilder(map.getTileset().getSubImage(12, 2), 0)
+                 .withScale(map.getTileset().getTileScale())
+                 .build();
+         Point loc1 = map.getMapTile(7, 16).getLocation();
+         MapTile mapTiles1 = new MapTileBuilder(arrow2Frame)
+                 .withTileType(TileType.PASSABLE)
+                 .build(loc1.x, loc1.y);
+         setMapTile(7, 16, mapTiles1);
+         
+         
 
 	        
 	    }
 
 	    @Override
 	    public ScriptState execute() {
-	        start();
-	        if (!isTextboxQueueEmpty()) {
-	        	
-	            return ScriptState.RUNNING;
+	    	if (!isFlagSet("hasHitArrow")) {
+	            start();
+	            if (!isTextboxQueueEmpty()) {
+	            	if(isWaitTimeUp()== true) {
+	            		removeText();
+	            	}
+	            	
+	                return ScriptState.RUNNING;
+	                
+	            }
+	            
+	            end();
 	        }
-	        end();
-
+	    	
 	        return ScriptState.COMPLETED;
 	    }
 	}
-
