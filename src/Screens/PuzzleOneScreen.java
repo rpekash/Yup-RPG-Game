@@ -53,7 +53,7 @@ public class PuzzleOneScreen extends Screen {
         //flagManager.addFlag("RockOnTile3", false);
 
         // define/setup map
-        this.map = new PuzzleMap1();
+        this.map = new PuzzleMap1(player);
         map.reset();
         map.setFlagManager(flagManager);
 

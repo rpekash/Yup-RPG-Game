@@ -24,9 +24,11 @@ public class HealthBar {
     private KeyLocker keyLocker = new KeyLocker();
     private Map map;
     private Key interactKey = Key.H;
+	private Player player;
 
-    public HealthBar(Map map) {
+    public HealthBar(Map map, Player player) {
         this.map = map;
+        this.player = player;
     }
 
     public void update() {
@@ -42,15 +44,20 @@ public class HealthBar {
     }
 
     public void draw(GraphicsHandler graphicsHandler) {
-        // if camera is at bottom of screen, textbox is drawn at top of screen instead of the bottom like usual
+        // if camera is at bottom of screen, health bar is drawn at top of screen instead of the bottom like usual
         // to prevent it from covering the player
+    	int healthBarY;
             if (!map.getCamera().isAtBottomOfMap()) {
-                graphicsHandler.drawFilledRectangleWithBorder(x, topY, 350, 30, Color.green, Color.white, 2);
+            	healthBarY = bottomY;
             }
             else {
-                graphicsHandler.drawFilledRectangleWithBorder(x, topY, 350, 30, Color.green, Color.white, 2);
+            	healthBarY = topY;
             }
-            
+            int fullLength = 350;
+            int currentLength = fullLength*(player.getHealth());
+            graphicsHandler.drawFilledRectangleWithBorder(x, healthBarY, fullLength, 30, Color.gray, Color.white, 2);
+            graphicsHandler.drawRectangle(x, healthBarY, fullLength, 30, Color.green);
+
     	
     }
 

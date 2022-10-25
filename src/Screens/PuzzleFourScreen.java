@@ -6,6 +6,8 @@ import Engine.Screen;
 import Game.GameState;
 import Game.ScreenCoordinator;
 import Level.*;
+import Maps.PuzzleFourMap;
+import Maps.PuzzleThreeMap;
 import Maps.PuzzleTwoMap;
 import Maps.TestMap;
 import Players.Cat;
@@ -13,14 +15,14 @@ import Utils.Direction;
 import Utils.Point;
 
 // This class is for when the platformer game is actually being played
-public class PuzzleTwoScreen extends Screen {
+public class PuzzleFourScreen extends Screen {
     protected static ScreenCoordinator screenCoordinator;
     protected Map map;
     protected Player player;
-    protected PuzzleTwoScreenState puzzleTwoScreenState;
+    protected PuzzleFourScreenState PuzzleFourScreenState;
     protected FlagManager flagManager;
 
-    public PuzzleTwoScreen(ScreenCoordinator screenCoordinator) {
+    public PuzzleFourScreen(ScreenCoordinator screenCoordinator) {
         this.screenCoordinator = screenCoordinator;
     }
 
@@ -28,19 +30,22 @@ public class PuzzleTwoScreen extends Screen {
         // setup state
         flagManager = new FlagManager();
 
-        // define/setup map
-        this.map = new PuzzleTwoMap(player);
+     // define/setup map
+        this.map = new PuzzleFourMap(null);
         map.reset();
         map.setFlagManager(flagManager);
-
+        
         // setup player
         this.player = new Cat(map.getPlayerStartPosition().x, map.getPlayerStartPosition().y);
         this.player.setMap(map);
         Point playerStartPosition = map.getPlayerStartPosition();
         this.player.setLocation(playerStartPosition.x, playerStartPosition.y);
-        this.puzzleTwoScreenState = PuzzleTwoScreenState.RUNNING;
+        this.PuzzleFourScreenState = PuzzleFourScreenState.RUNNING;
         this.player.setFacingDirection(Direction.LEFT);
 
+       
+        map.setPlayer(player);
+        
         // let pieces of map know which button to listen for as the "interact" button
         map.getTextbox().setInteractKey(player.getInteractKey());
         
@@ -72,7 +77,7 @@ public class PuzzleTwoScreen extends Screen {
 
     public void update() {
         // based on screen state, perform specific actions
-        switch (puzzleTwoScreenState) {
+        switch (PuzzleFourScreenState) {
             // if level is "running" update player and map to keep game logic for the platformer level going
             case RUNNING:
                 player.update();
@@ -86,7 +91,7 @@ public class PuzzleTwoScreen extends Screen {
 
     public void draw(GraphicsHandler graphicsHandler) {
         // based on screen state, draw appropriate graphics
-        switch (puzzleTwoScreenState) {
+        switch (PuzzleFourScreenState) {
             case RUNNING:
                 map.draw(player, graphicsHandler);
                 break;
@@ -95,8 +100,8 @@ public class PuzzleTwoScreen extends Screen {
         }
     }
 
-    public PuzzleTwoScreenState getPlayLevelScreenState() {
-        return puzzleTwoScreenState;
+    public PuzzleFourScreenState getPlayLevelScreenState() {
+        return PuzzleFourScreenState;
     }
 
 
@@ -109,7 +114,7 @@ public class PuzzleTwoScreen extends Screen {
     }
 
     // This enum represents the different states this screen can be in
-    private enum PuzzleTwoScreenState {
+    private enum PuzzleFourScreenState {
         RUNNING, PUZZLE_COMPLETED
     }
 }

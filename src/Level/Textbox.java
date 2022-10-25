@@ -56,6 +56,13 @@ public class Textbox {
     public boolean isTextQueueEmpty() {
         return textQueue.isEmpty();
     }
+    
+    public void remove() {
+        
+            textQueue.poll();
+        
+
+    }
 
     public void update() {
         // if textQueue has more text to display and the interact key button was pressed previously, display new text

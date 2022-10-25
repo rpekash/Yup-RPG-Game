@@ -6,6 +6,7 @@ import Engine.Screen;
 import Game.GameState;
 import Game.ScreenCoordinator;
 import Level.*;
+import Maps.PuzzleThreeMap;
 import Maps.PuzzleTwoMap;
 import Maps.TestMap;
 import Players.Cat;
@@ -13,14 +14,14 @@ import Utils.Direction;
 import Utils.Point;
 
 // This class is for when the platformer game is actually being played
-public class PuzzleTwoScreen extends Screen {
+public class PuzzleThreeScreen extends Screen {
     protected static ScreenCoordinator screenCoordinator;
     protected Map map;
     protected Player player;
-    protected PuzzleTwoScreenState puzzleTwoScreenState;
+    protected PuzzleThreeScreenState puzzleThreeScreenState;
     protected FlagManager flagManager;
 
-    public PuzzleTwoScreen(ScreenCoordinator screenCoordinator) {
+    public PuzzleThreeScreen(ScreenCoordinator screenCoordinator) {
         this.screenCoordinator = screenCoordinator;
     }
 
@@ -29,7 +30,7 @@ public class PuzzleTwoScreen extends Screen {
         flagManager = new FlagManager();
 
         // define/setup map
-        this.map = new PuzzleTwoMap(player);
+        this.map = new PuzzleThreeMap(player);
         map.reset();
         map.setFlagManager(flagManager);
 
@@ -38,7 +39,7 @@ public class PuzzleTwoScreen extends Screen {
         this.player.setMap(map);
         Point playerStartPosition = map.getPlayerStartPosition();
         this.player.setLocation(playerStartPosition.x, playerStartPosition.y);
-        this.puzzleTwoScreenState = PuzzleTwoScreenState.RUNNING;
+        this.puzzleThreeScreenState = PuzzleThreeScreenState.RUNNING;
         this.player.setFacingDirection(Direction.LEFT);
 
         // let pieces of map know which button to listen for as the "interact" button
@@ -72,7 +73,7 @@ public class PuzzleTwoScreen extends Screen {
 
     public void update() {
         // based on screen state, perform specific actions
-        switch (puzzleTwoScreenState) {
+        switch (puzzleThreeScreenState) {
             // if level is "running" update player and map to keep game logic for the platformer level going
             case RUNNING:
                 player.update();
@@ -86,7 +87,7 @@ public class PuzzleTwoScreen extends Screen {
 
     public void draw(GraphicsHandler graphicsHandler) {
         // based on screen state, draw appropriate graphics
-        switch (puzzleTwoScreenState) {
+        switch (puzzleThreeScreenState) {
             case RUNNING:
                 map.draw(player, graphicsHandler);
                 break;
@@ -95,8 +96,8 @@ public class PuzzleTwoScreen extends Screen {
         }
     }
 
-    public PuzzleTwoScreenState getPlayLevelScreenState() {
-        return puzzleTwoScreenState;
+    public PuzzleThreeScreenState getPlayLevelScreenState() {
+        return puzzleThreeScreenState;
     }
 
 
@@ -109,7 +110,8 @@ public class PuzzleTwoScreen extends Screen {
     }
 
     // This enum represents the different states this screen can be in
-    private enum PuzzleTwoScreenState {
+    private enum PuzzleThreeScreenState {
         RUNNING, PUZZLE_COMPLETED
     }
 }
+

@@ -1,20 +1,28 @@
 package Maps;
 
 import EnhancedMapTiles.Rock;
+import EnhancedMapTiles.Spike;
 import EnhancedMapTiles.TextTile;
 import Level.EnhancedMapTile;
 import Level.Map;
 import Level.NPC;
+import Level.Player;
 import Level.Trigger;
 import NPCs.Dinosaur;
 import NPCs.OJ;
 import NPCs.Walrus;
 import NPCs.UFO;
+
+import NPCs.SpikeTrap;
 import Scripts.SimpleTextScript;
+import Scripts.TestMap.ArowScript;
+import Scripts.TestMap.Arrow2Script;
 import Scripts.TestMap.DinoScript;
 import Scripts.TestMap.LostBallScript;
 import Scripts.TestMap.OJScript;
 import Scripts.TestMap.Puzzle2Script;
+import Scripts.TestMap.Spike2Script;
+import Scripts.TestMap.SpikeScript;
 import Scripts.TestMap.TreeScript;
 import Scripts.TestMap.UFOScript;
 import Scripts.TestMap.WalrusScript;
@@ -25,8 +33,8 @@ import java.util.ArrayList;
 // Represents a test map to be used in a level
 public class PuzzleTwoMap extends Map {
 
-    public PuzzleTwoMap() {
-        super("puzzle2.txt", new CommonTileset());
+    public PuzzleTwoMap(Player player) {
+        super("puzzle2.txt", new CommonTileset(), player);
         this.playerStartPosition = getMapTile(17, 20).getLocation();
     }
 
@@ -35,6 +43,7 @@ public class PuzzleTwoMap extends Map {
         ArrayList<EnhancedMapTile> enhancedMapTiles = new ArrayList<>();
         Rock rock = new Rock(getMapTile(2, 7).getLocation());
         enhancedMapTiles.add(rock);
+        
         enhancedMapTiles.add(new TextTile(getMapTile(4, 7).getLocation(), rock));
         return enhancedMapTiles;
     }
@@ -59,8 +68,11 @@ public class PuzzleTwoMap extends Map {
         
         UFO ufo = new UFO(4, getMapTile(10,20).getLocation());
         ufo.setInteractScript(new UFOScript());
-        npcs.add(ufo);*/
-
+        npcs.add(ufo);
+        
+        SpikeTrap spike = new SpikeTrap(4, getMapTile(20,20).getLocation());
+        spike.setInteractScript(new SpikeScript());
+        npcs.add(spike);*/
         return npcs;
     }
 
@@ -68,8 +80,11 @@ public class PuzzleTwoMap extends Map {
     @Override
     public ArrayList<Trigger> loadTriggers() {
         ArrayList<Trigger> triggers = new ArrayList<>();
-        triggers.add(new Trigger(96, 1255, 50, 30, new Puzzle2Script(), "hasFinishedMaze"));
-        
+        triggers.add(new Trigger(20, 1190, 30, 70, new Puzzle2Script(), "hasFinishedMaze"));
+        triggers.add(new Trigger(885, 965, 5, 40, new SpikeScript(), "hasHitSpike"));
+        triggers.add(new Trigger(455, 1205, 5, 40, new Spike2Script(), "hasHitSpike2"));
+        triggers.add(new Trigger(570, 1085, 50, 50, new ArowScript(), "hasHitArrow"));
+        triggers.add(new Trigger(275, 790, 20, 20, new Arrow2Script(), "hasHitArrow2"));
         return triggers;
     } 
 

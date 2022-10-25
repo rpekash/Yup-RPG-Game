@@ -34,7 +34,7 @@ public class PlayLevelScreen extends Screen {
         flagManager.addFlag("hasFoundBall", false);
 
         // define/setup map
-        this.map = new TestMap();
+        this.map = new TestMap(null);
         map.reset();
         map.setFlagManager(flagManager);
 
@@ -46,6 +46,7 @@ public class PlayLevelScreen extends Screen {
         this.playLevelScreenState = PlayLevelScreenState.RUNNING;
         this.player.setFacingDirection(Direction.LEFT);
 
+        map.setPlayer(this.player);
         // let pieces of map know which button to listen for as the "interact" button
         map.getTextbox().setInteractKey(player.getInteractKey());
 
@@ -130,7 +131,14 @@ public class PlayLevelScreen extends Screen {
     public static void goToPuzzleTwo() {
         screenCoordinator.setGameState(GameState.PUZZLE_2);
     }
-   
+    
+    public static void goToPuzzleThree() {
+        screenCoordinator.setGameState(GameState.PUZZLE_3);
+    }
+    
+	public static void goToPuzzleFour() {
+		 screenCoordinator.setGameState(GameState.PUZZLE_4);	
+	}
     
     
     public void goBackToMenu() {
@@ -141,4 +149,6 @@ public class PlayLevelScreen extends Screen {
     private enum PlayLevelScreenState {
         RUNNING, LEVEL_COMPLETED
     }
+
+	
 }

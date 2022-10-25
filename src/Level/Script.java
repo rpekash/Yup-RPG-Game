@@ -120,6 +120,11 @@ public abstract class Script<T extends MapEntity> {
     protected boolean isTextboxQueueEmpty() {
         return map.getTextbox().isTextQueueEmpty();
     }
+    
+ // remove textbox from screen
+    protected void removeText() {
+        map.getTextbox().remove();
+    }
 
     // remove textbox from screen
     protected void hideTextbox() {

@@ -25,7 +25,7 @@ public class CreditsScreen extends Screen {
     @Override
     public void initialize() {
         // setup graphics on screen (background map, spritefont text)
-        background = new TitleScreenMap();
+        background = new TitleScreenMap(null);
         background.setAdjustCamera(false);
         creditsLabel = new SpriteFont("Credits", 15, 35, "Times New Roman", 30, Color.white);
         createdByLabel = new SpriteFont("Created by Alex Thimineur", 130, 140, "Times New Roman", 20, Color.white);
