@@ -46,6 +46,10 @@ public abstract class Map {
 
     // location player should start on when this map is first loaded
     protected Point playerStartPosition;
+    
+    
+    //Current Player
+    protected Player player;
 
     // the location of the "mid point" of the screen
     // this is what tells the game that the player has reached the center of the screen, therefore the camera should move instead of the player
@@ -82,7 +86,8 @@ public abstract class Map {
     
     protected HealthBar healthbar;
 
-    public Map(String mapFileName, Tileset tileset) {
+    public Map(String mapFileName, Tileset tileset, Player player) {
+    	this.player = player;
         this.mapFileName = mapFileName;
         this.tileset = tileset;
         setupMap();
@@ -123,7 +128,7 @@ public abstract class Map {
         this.camera = new Camera(0, 0, tileset.getScaledSpriteWidth(), tileset.getScaledSpriteHeight(), this);
         this.textbox = new Textbox(this);
         this.inventory = new Inventory(this);
-        this.healthbar = new HealthBar(this);
+        this.healthbar = new HealthBar(this, player);
 
         
     }
@@ -647,4 +652,8 @@ public abstract class Map {
 
     public int getEndBoundX() { return endBoundX; }
     public int getEndBoundY() { return endBoundY; }
+
+	public void setPlayer(Player player) {
+		this.player = player;
+	}
 }

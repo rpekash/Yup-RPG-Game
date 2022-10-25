@@ -6,6 +6,7 @@ import EnhancedMapTiles.TextTile;
 import Level.EnhancedMapTile;
 import Level.Map;
 import Level.NPC;
+import Level.Player;
 import Level.Trigger;
 import NPCs.Dinosaur;
 import NPCs.OJ;
@@ -34,8 +35,8 @@ public class PuzzleMap1 extends Map {
 	//Puzzle1Script script = new Puzzle1Script();
 	
 
-    public PuzzleMap1() {
-        super("puzzle1.txt", new CommonTileset());
+    public PuzzleMap1(Player player) {
+        super("puzzle1.txt", new CommonTileset(),player);
         this.playerStartPosition = getMapTile(7, 10).getLocation();
     }
 

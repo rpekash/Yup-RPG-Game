@@ -5,6 +5,7 @@ import EnhancedMapTiles.TextTile;
 import Level.EnhancedMapTile;
 import Level.Map;
 import Level.NPC;
+import Level.Player;
 import Level.Trigger;
 import NPCs.Dinosaur;
 import NPCs.OJ;
@@ -26,8 +27,8 @@ import java.util.ArrayList;
 // Represents a test map to be used in a level
 public class PuzzleThreeMap extends Map {
 
-    public PuzzleThreeMap() {
-        super("puzzle3.txt", new CommonTileset());
+    public PuzzleThreeMap(Player player) {
+        super("puzzle3.txt", new CommonTileset(), player);
         this.playerStartPosition = getMapTile(14, 5).getLocation();
     }
 

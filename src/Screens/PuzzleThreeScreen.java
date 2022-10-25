@@ -30,7 +30,7 @@ public class PuzzleThreeScreen extends Screen {
         flagManager = new FlagManager();
 
         // define/setup map
-        this.map = new PuzzleThreeMap();
+        this.map = new PuzzleThreeMap(player);
         map.reset();
         map.setFlagManager(flagManager);
 

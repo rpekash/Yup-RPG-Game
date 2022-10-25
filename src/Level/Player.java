@@ -11,7 +11,9 @@ import Utils.Direction;
 import java.util.ArrayList;
 
 public abstract class Player extends GameObject {
-    // values that affect player movement
+	
+	private int health;
+	// values that affect player movement
     // these should be set in a subclass
     protected float walkSpeed = 0;
     protected int interactionRange = 5;
@@ -43,6 +45,7 @@ public abstract class Player extends GameObject {
 
     public Player(SpriteSheet spriteSheet, float x, float y, String startingAnimationName) {
         super(spriteSheet, x, y, startingAnimationName);
+        setHealth(100);
         facingDirection = Direction.RIGHT;
         playerState = PlayerState.STANDING;
         previousPlayerState = playerState;
@@ -264,5 +267,17 @@ public abstract class Player extends GameObject {
         else if (direction == Direction.RIGHT) {
             moveX(speed);
         }
+    }
+    
+    public int getHealth() {
+    	return health;
+    }
+    
+    public void setHealth(int newHealthValue) {
+    	health = newHealthValue;
+    }
+    
+    public void takeDamage(int damageValue) {
+    	setHealth(getHealth()-damageValue);
     }
 }

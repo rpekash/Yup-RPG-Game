@@ -5,6 +5,7 @@ import EnhancedMapTiles.TextTile;
 import Level.EnhancedMapTile;
 import Level.Map;
 import Level.NPC;
+import Level.Player;
 import Level.Trigger;
 import NPCs.Dinosaur;
 import NPCs.OJ;
@@ -20,14 +21,15 @@ import Scripts.TestMap.TreeScript;
 import Scripts.TestMap.UFOScript;
 import Scripts.TestMap.WalrusScript;
 import Scripts.TestMap.PortalScript;
+import Scripts.TestMap.Puzzle4Script;
 import Tilesets.CommonTileset;
 import java.util.ArrayList;
 
 // Represents a test map to be used in a level
 public class TestMap extends Map {
 
-    public TestMap() {
-        super("test_map.txt", new CommonTileset());
+    public TestMap(Player player) {
+        super("test_map.txt", new CommonTileset(), player);
         this.playerStartPosition = getMapTile(17, 20).getLocation();
     }
 
@@ -70,6 +72,10 @@ public class TestMap extends Map {
         Portal portal2 = new Portal(5, getMapTile (10, 5).getLocation());
         portal2.setInteractScript(new Portal2Script());
         npcs.add(portal2);
+        
+        Portal portalToPuzzleFour = new Portal(5, getMapTile (10, 15).getLocation());
+        portalToPuzzleFour.setInteractScript(new Puzzle4Script());
+        npcs.add(portalToPuzzleFour);
         
         return npcs;
     }
