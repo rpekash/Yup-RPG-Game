@@ -128,12 +128,6 @@ public abstract class Map {
         this.camera = new Camera(0, 0, tileset.getScaledSpriteWidth(), tileset.getScaledSpriteHeight(), this);
         this.textbox = new Textbox(this);
         this.inventory = new Inventory(this);
-        if(player == null) {
-        	System.out.println("player is null.");
-        }
-        else {
-			System.out.println("player valid");
-		}
         this.healthbar = new HealthBar(this, player);
 
         
@@ -518,37 +512,12 @@ public abstract class Map {
         if (textbox.isActive()) {
             textbox.update();
         }
-//        if (Keyboard.isKeyDown(healthbar.getInteractKey()))
-//        {
-//        	healthbar.getKeyLocker().lockKey(healthbar.getInteractKey());
-//
-//       	healthbar.getKeyLocker().lockKey(inventory.getInteractKey());
-//        	if (count1 == 1) {
-//        		healthbar.setIsActive(true);
-//        	}
-//        	else { 
-//        		healthbar.setIsActive(false); 
-//        	}
-//        	
-//        }
-//        if (Keyboard.isKeyUp(healthbar.getInteractKey()))
-//        {
-//        	 
-//       	  healthbar.getKeyLocker().unlockKey(healthbar.getInteractKey());
-//        	if (healthbar.isActive()) { 
-//            	count1 = 0;
-//        	}
-//        	else {
-//        		count1 = 1;
-//        	}
-//        }
        
         if (Keyboard.isKeyDown(inventory.getInteractKey()))
         {
         	
         	inventory.getKeyLocker().lockKey(inventory.getInteractKey());
 
-//        	inventory.getKeyLocker().lockKey(inventory.getInteractKey());
         	if (count == 1) {
             	inventory.setIsActive(true);
         	}
@@ -643,10 +612,6 @@ public abstract class Map {
         	inventory.draw(graphicsHandler);
         }
         
-//        if(healthbar.isActive()) {
-//        	healthbar.draw(graphicsHandler);
-//        }
-        
         healthbar.draw(graphicsHandler);
     }
 
@@ -665,13 +630,7 @@ public abstract class Map {
     public int getEndBoundY() { return endBoundY; }
 
 	public void setPlayer(Player player) {
-//		if(player == null) {
-//			System.out.println("set player null");
-//		}
-//		else {
-//			System.out.println("set player worked");
-//		}
-//	
+
 		this.player = player;
 	}
 }

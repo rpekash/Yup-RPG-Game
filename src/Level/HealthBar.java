@@ -28,12 +28,6 @@ public class HealthBar {
 
     public HealthBar(Map map, Player player) {
         this.map = map;
-        if(player == null) {
-        	System.out.println("Helath bar constructor not working");
-        }
-        else {
-			System.out.println("health bar constructor works");
-		}
         this.player = player;
     }
 
