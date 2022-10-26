@@ -59,7 +59,7 @@ public class HealthBar {
         // to prevent it from covering the player
     	int healthBarY;
         if (!map.getCamera().isAtBottomOfMap()) {
-        	healthBarY = bottomY;
+        	healthBarY = topY;
         }
         else {
         	healthBarY = topY;
@@ -68,8 +68,9 @@ public class HealthBar {
         graphicsHandler.drawFilledRectangleWithBorder(x, healthBarY, fullLength, 30, Color.gray, Color.white, 2);
         
         if(player != null) {
-        	 int currentLength = fullLength*(player.getHealth()/100);
-             graphicsHandler.drawFilledRectangle(x, healthBarY+4, currentLength, 20, Color.green);
+        	int currentLength = Math.round(fullLength * ((float) player.getHealth()/100));
+
+             graphicsHandler.drawFilledRectangle(x, healthBarY, currentLength, 30, Color.green);
         }
     	
     }

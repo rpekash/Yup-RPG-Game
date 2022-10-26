@@ -19,7 +19,7 @@ public class ArowScript extends Script {
 	        player.takeDamage(10);
 
 	        lockPlayer();
-            showTextbox();
+            //showTextbox();
 	        setWaitTime(1000);
 		      
 

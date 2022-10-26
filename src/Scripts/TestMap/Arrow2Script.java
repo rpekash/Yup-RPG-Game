@@ -15,11 +15,13 @@ import Utils.Point;
 // trigger script at beginning of game to set that heavy emotional plot
 public class Arrow2Script extends Script {
 	 protected void setup() {
+	        player.takeDamage(10);
+
 	        lockPlayer();
 	        //showTextbox();
 	        setWaitTime(1000);
-	        addTextToTextboxQueue("You got hit with an arrow");
-	        
+	        addTextToTextboxQueue(Integer.toString(player.getHealth()));
+
 	        Frame[] trapframe = new Frame[] {
             		new FrameBuilder(map.getTileset().getSubImage(11, 4), 500)
                     .withScale(map.getTileset().getTileScale())
