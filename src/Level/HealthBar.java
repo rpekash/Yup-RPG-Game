@@ -43,12 +43,7 @@ public class HealthBar {
     	 
     }
 
-    public void draw(GraphicsHandler graphicsHandler) {
-//    	if(player == null) {
-//   		System.out.println("Player is null");
-//    		return;
-//    	}
-    
+    public void draw(GraphicsHandler graphicsHandler) {    
         // if camera is at bottom of screen, health bar is drawn at top of screen instead of the bottom like usual
         // to prevent it from covering the player
     	int healthBarY;
