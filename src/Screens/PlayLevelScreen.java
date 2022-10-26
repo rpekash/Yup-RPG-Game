@@ -45,8 +45,10 @@ public class PlayLevelScreen extends Screen {
         this.player.setLocation(playerStartPosition.x, playerStartPosition.y);
         this.playLevelScreenState = PlayLevelScreenState.RUNNING;
         this.player.setFacingDirection(Direction.LEFT);
-
-        map.setPlayer(this.player);
+        
+        map.setPlayer(player);
+        map.getHealthbar().setPlayer(player);
+        
         // let pieces of map know which button to listen for as the "interact" button
         map.getTextbox().setInteractKey(player.getInteractKey());
 

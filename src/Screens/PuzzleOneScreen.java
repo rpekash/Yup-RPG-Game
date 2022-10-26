@@ -53,7 +53,7 @@ public class PuzzleOneScreen extends Screen {
         //flagManager.addFlag("RockOnTile3", false);
 
         // define/setup map
-        this.map = new PuzzleMap1(player);
+        this.map = new PuzzleMap1(null);
         map.reset();
         map.setFlagManager(flagManager);
 
@@ -64,6 +64,9 @@ public class PuzzleOneScreen extends Screen {
         this.player.setLocation(playerStartPosition.x, playerStartPosition.y);
         this.puzzleOneScreenState = PuzzleOneScreenState.RUNNING;
         this.player.setFacingDirection(Direction.LEFT);
+        
+        map.setPlayer(player);
+        map.getHealthbar().setPlayer(player);
         
         this.countLabel = new JLabel("");
         this.countLabel.setBounds(545, 402, 100, 100);
