@@ -11,7 +11,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class HealthBar {
-    protected boolean isActive;
+    protected boolean isActive = true;
     protected final int x = 22;
     protected final int bottomY = 460;
     protected final int topY = 22;
@@ -43,21 +43,24 @@ public class HealthBar {
     	 
     }
 
-    public void draw(GraphicsHandler graphicsHandler) {
+    public void draw(GraphicsHandler graphicsHandler) {    
         // if camera is at bottom of screen, health bar is drawn at top of screen instead of the bottom like usual
         // to prevent it from covering the player
     	int healthBarY;
-            if (!map.getCamera().isAtBottomOfMap()) {
-            	healthBarY = bottomY;
-            }
-            else {
-            	healthBarY = topY;
-            }
-            int fullLength = 350;
-            int currentLength = fullLength*(player.getHealth());
-            graphicsHandler.drawFilledRectangleWithBorder(x, healthBarY, fullLength, 30, Color.gray, Color.white, 2);
-            graphicsHandler.drawRectangle(x, healthBarY, fullLength, 30, Color.green);
+        if (!map.getCamera().isAtBottomOfMap()) {
+        	healthBarY = topY;
+        }
+        else {
+        	healthBarY = topY;
+        }
+        int fullLength = 350;
+        graphicsHandler.drawFilledRectangleWithBorder(x, healthBarY, fullLength, 30, Color.gray, Color.white, 2);
+        
+        if(player != null) {
+        	int currentLength = Math.round(fullLength * ((float) player.getHealth()/100));
 
+             graphicsHandler.drawFilledRectangle(x, healthBarY, currentLength, 30, Color.green);
+        }
     	
     }
 
@@ -81,5 +84,13 @@ public class HealthBar {
     public KeyLocker getKeyLocker()
     {
     	return keyLocker;
+    }
+    
+    public void setPlayer(Player player) {
+    	this.player = player;
+    }
+    
+    public Player getPlayer() {
+    	return this.player;
     }
 }

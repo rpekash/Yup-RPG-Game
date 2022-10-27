@@ -3,6 +3,7 @@ package Players;
 import Builders.FrameBuilder;
 import Engine.GraphicsHandler;
 import Engine.ImageLoader;
+import Game.ScreenCoordinator;
 import GameObject.Frame;
 import GameObject.ImageEffect;
 import GameObject.SpriteSheet;
@@ -15,8 +16,8 @@ import java.util.HashMap;
 public class Cat extends Player {
 	
 
-    public Cat(float x, float y) {
-        super(new SpriteSheet(ImageLoader.load("cat.png"), 24, 24), x, y, "STAND_RIGHT");
+    public Cat(float x, float y, ScreenCoordinator screenCoordinator) {
+        super(new SpriteSheet(ImageLoader.load("cat.png"), 24, 24), x, y, "STAND_RIGHT", screenCoordinator);
         walkSpeed = 2.3f;
     }
 

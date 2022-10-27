@@ -36,15 +36,15 @@ public class PuzzleFourScreen extends Screen {
         map.setFlagManager(flagManager);
         
         // setup player
-        this.player = new Cat(map.getPlayerStartPosition().x, map.getPlayerStartPosition().y);
+        this.player = new Cat(map.getPlayerStartPosition().x, map.getPlayerStartPosition().y,screenCoordinator);
         this.player.setMap(map);
         Point playerStartPosition = map.getPlayerStartPosition();
         this.player.setLocation(playerStartPosition.x, playerStartPosition.y);
         this.PuzzleFourScreenState = PuzzleFourScreenState.RUNNING;
         this.player.setFacingDirection(Direction.LEFT);
 
-       
-        map.setPlayer(player);
+       map.setPlayer(player);
+       map.getHealthbar().setPlayer(player);
         
         // let pieces of map know which button to listen for as the "interact" button
         map.getTextbox().setInteractKey(player.getInteractKey());
@@ -82,6 +82,10 @@ public class PuzzleFourScreen extends Screen {
             case RUNNING:
                 player.update();
                 map.update(player);
+                map.setPlayer(player);
+                map.getHealthbar().setPlayer(player);
+
+
                 break;
             // if level has been completed, bring up level cleared screen
             case PUZZLE_COMPLETED:
