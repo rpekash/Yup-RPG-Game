@@ -3,6 +3,8 @@ package Level;
 import Engine.Key;
 import Engine.KeyLocker;
 import Engine.Keyboard;
+import Game.GameState;
+import Game.ScreenCoordinator;
 import GameObject.GameObject;
 import GameObject.Rectangle;
 import GameObject.SpriteSheet;
@@ -12,6 +14,7 @@ import java.util.ArrayList;
 
 public abstract class Player extends GameObject {
 	
+	private ScreenCoordinator screenCoordinator;
 	private int health;
 	// values that affect player movement
     // these should be set in a subclass
@@ -43,8 +46,9 @@ public abstract class Player extends GameObject {
     protected Key MOVE_DOWN_KEY = Key.DOWN;
     protected Key INTERACT_KEY = Key.SPACE;
 
-    public Player(SpriteSheet spriteSheet, float x, float y, String startingAnimationName) {
+    public Player(SpriteSheet spriteSheet, float x, float y, String startingAnimationName, ScreenCoordinator screenCoordinator) {
         super(spriteSheet, x, y, startingAnimationName);
+        this.screenCoordinator = screenCoordinator;
         setHealth(100);
         facingDirection = Direction.RIGHT;
         playerState = PlayerState.STANDING;
@@ -278,6 +282,10 @@ public abstract class Player extends GameObject {
     }
     
     public void takeDamage(int damageValue) {
-    	setHealth(getHealth()-damageValue);
+        setHealth(getHealth()-damageValue);
+        if(getHealth() <= 0) {	
+            screenCoordinator.setGameState(GameState.LEVEL);
+    	}
+    	
     }
 }

@@ -29,18 +29,21 @@ public class PuzzleTwoScreen extends Screen {
         flagManager = new FlagManager();
 
         // define/setup map
-        this.map = new PuzzleTwoMap(player);
+        this.map = new PuzzleTwoMap(null);
         map.reset();
         map.setFlagManager(flagManager);
 
         // setup player
-        this.player = new Cat(map.getPlayerStartPosition().x, map.getPlayerStartPosition().y);
+        this.player = new Cat(map.getPlayerStartPosition().x, map.getPlayerStartPosition().y, screenCoordinator);
         this.player.setMap(map);
         Point playerStartPosition = map.getPlayerStartPosition();
         this.player.setLocation(playerStartPosition.x, playerStartPosition.y);
         this.puzzleTwoScreenState = PuzzleTwoScreenState.RUNNING;
         this.player.setFacingDirection(Direction.LEFT);
 
+        map.setPlayer(player);
+        map.getHealthbar().setPlayer(player);
+        
         // let pieces of map know which button to listen for as the "interact" button
         map.getTextbox().setInteractKey(player.getInteractKey());
         

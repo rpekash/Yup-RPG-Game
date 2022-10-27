@@ -13,10 +13,12 @@ import Utils.Point;
 // trigger script at beginning of game to set that heavy emotional plot
 public class SpikeScript extends Script {
 	 protected void setup() {
+	        player.takeDamage(10);
+
 	        lockPlayer();
 	        //showTextbox();
 	        setWaitTime(1000);
-	        addTextToTextboxQueue( "You hit a Spike Trap!");
+	        addTextToTextboxQueue(Integer.toString(player.getHealth()));
 	        Frame[] frame = new Frame[] {
             		new FrameBuilder(map.getTileset().getSubImage(11, 0), 500)
                     .withScale(map.getTileset().getTileScale())

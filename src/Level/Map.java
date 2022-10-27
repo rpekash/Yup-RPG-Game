@@ -487,20 +487,20 @@ public abstract class Map {
 
         return false;
     }
-    
-    public void updatehealthbar(Player player) {
-    	  
-
-            if (Keyboard.isKeyUp(healthbar.getInteractKey()))
-           {
-           	 
-          	  healthbar.getKeyLocker().unlockKey(healthbar.getInteractKey());
-           	if (healthbar.isActive()) { 
-               	count = 0;
-           	}
-           	else count = 1;
-           }
-    }
+//    
+//    public void updatehealthbar(Player player) {
+//    	  
+//
+//            if (Keyboard.isKeyUp(healthbar.getInteractKey()))
+//           {
+//           	 
+//          	  healthbar.getKeyLocker().unlockKey(healthbar.getInteractKey());
+//           	if (healthbar.isActive()) { 
+//               	count = 0;
+//           	}
+//           	else count = 1;
+//           }
+//    }
 
     public void update(Player player) {
     	
@@ -512,35 +512,12 @@ public abstract class Map {
         if (textbox.isActive()) {
             textbox.update();
         }
-        if (Keyboard.isKeyDown(healthbar.getInteractKey()))
-        {
-        	healthbar.getKeyLocker().lockKey(healthbar.getInteractKey());
-
-        	healthbar.getKeyLocker().lockKey(inventory.getInteractKey());
-        	if (count1 == 1) {
-        		healthbar.setIsActive(true);
-        	}
-        	else { 
-        		healthbar.setIsActive(false); 
-        	}
-        	
-        }
-        if (Keyboard.isKeyUp(healthbar.getInteractKey()))
-        {
-        	 
-       	  healthbar.getKeyLocker().unlockKey(healthbar.getInteractKey());
-        	if (healthbar.isActive()) { 
-            	count1 = 0;
-        	}
-        	else count1 = 1;
-        }
        
         if (Keyboard.isKeyDown(inventory.getInteractKey()))
         {
         	
         	inventory.getKeyLocker().lockKey(inventory.getInteractKey());
 
-        	inventory.getKeyLocker().lockKey(inventory.getInteractKey());
         	if (count == 1) {
             	inventory.setIsActive(true);
         	}
@@ -559,7 +536,7 @@ public abstract class Map {
         	}
         	else count = 1;
         }
-        
+        setPlayer(player);
     }
 
     // based on the player's current X position (which in a level can potentially be updated each frame),
@@ -617,6 +594,7 @@ public abstract class Map {
     }
 
     public void reset() {
+//    	setPlayer(player);
         setupMap();
     }
 
@@ -634,9 +612,7 @@ public abstract class Map {
         	inventory.draw(graphicsHandler);
         }
         
-        if(healthbar.isActive()) {
-        	healthbar.draw(graphicsHandler);
-        }
+        healthbar.draw(graphicsHandler);
     }
 
     public FlagManager getFlagManager() { return flagManager; }
@@ -654,6 +630,7 @@ public abstract class Map {
     public int getEndBoundY() { return endBoundY; }
 
 	public void setPlayer(Player player) {
+
 		this.player = player;
 	}
 }
