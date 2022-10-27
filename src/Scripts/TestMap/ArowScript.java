@@ -39,7 +39,7 @@ public class ArowScript extends Script {
                     .build(location.x, location.y);
             setMapTile(11, 22, mapTile);
             
-            Frame grassFrame = new FrameBuilder(map.getTileset().getSubImage(0, 0), 500)
+            Frame grassFrame = new FrameBuilder(map.getTileset().getSubImage(12, 3), 500)
                     .withScale(map.getTileset().getTileScale())
                     .build();
             Point locs = map.getMapTile(12, 22).getLocation();
@@ -90,7 +90,7 @@ public class ArowScript extends Script {
                     .build(location.x, location.y);
             setMapTile(11, 22, mapTile);
             
-            Frame grassFrame = new FrameBuilder(map.getTileset().getSubImage(0, 0), 0)
+            Frame grassFrame = new FrameBuilder(map.getTileset().getSubImage(12, 3), 0)
                     .withScale(map.getTileset().getTileScale())
                     .build();
             Point loc = map.getMapTile(12, 22).getLocation();
