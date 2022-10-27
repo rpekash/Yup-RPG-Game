@@ -98,7 +98,7 @@ import Level.Trigger;
 	    @Override
 	    public ArrayList<Trigger> loadTriggers() {
 	        ArrayList<Trigger> triggers = new ArrayList<>();
-	        triggers.add(new Trigger(1, 340, 40, 40, new Puzzle3Script(), "hasFinishedMaze"));
+//	        triggers.add(new Trigger(1, 340, 40, 40, new Puzzle3Script(), "hasFinishedMaze"));
 	        
 	        return triggers;
 	    } 
