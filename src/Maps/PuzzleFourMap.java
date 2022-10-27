@@ -12,7 +12,8 @@ import Level.Trigger;
 	import NPCs.OJ;
 	import NPCs.Walrus;
 	import NPCs.UFO;
-	import Scripts.SimpleTextScript;
+import Scripts.Puzzle4Scriptfinish;
+import Scripts.SimpleTextScript;
 import Scripts.TestMap.ArowScript;
 import Scripts.TestMap.Arrow2Script;
 import Scripts.TestMap.DinoScript;
@@ -95,7 +96,7 @@ import Scripts.TestMap.TreeScript;
 	    @Override
 	    public ArrayList<Trigger> loadTriggers() {
 	        ArrayList<Trigger> triggers = new ArrayList<>();
-	        triggers.add(new Trigger(50, 900, 400, 900, new Puzzle4Script(), "hasFinishedMaze"));
+	        triggers.add(new Trigger(50, 900, 700, 900, new Puzzle4Scriptfinish(), "hasFinishedMaze"));
 //	        triggers.add(new Trigger(885, 965, 5, 40, new SpikeScript(), "hasHitSpike"));
 	        
 	      //7th ROW
@@ -145,11 +146,11 @@ import Scripts.TestMap.TreeScript;
 
 	    @Override
 	    public void loadScripts() {
-	       // getMapTile(21, 19).setInteractScript(new SimpleTextScript("Cat's house"));
-
-	        //getMapTile(7, 26).setInteractScript(new SimpleTextScript("Walrus's house"));
-
-	        //getMapTile(20, 4).setInteractScript(new SimpleTextScript("Dino's house"));
+//	       getMapTile(21, 19).setInteractScript(new SimpleTextScript("Cat's house"));
+//
+//	        getMapTile(7, 26).setInteractScript(new SimpleTextScript("Walrus's house"));
+//
+//	        getMapTile(20, 4).setInteractScript(new SimpleTextScript("Dino's house"));
 
 	        getMapTile(2, 6).setInteractScript(new TreeScript());
 	    }

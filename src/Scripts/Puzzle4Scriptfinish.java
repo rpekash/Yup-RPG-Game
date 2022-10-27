@@ -3,9 +3,8 @@ package Scripts;
 import Level.Script;
 import Level.ScriptState;
 import Screens.PuzzleFourScreen;
-import Screens.PuzzleTwoScreen;
 
-public class Puzzle4Script extends Script {
+public class Puzzle4Scriptfinish extends Script {
     @Override
     protected void setup() {
         lockPlayer();

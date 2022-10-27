@@ -43,8 +43,8 @@ public class PuzzleFourScreen extends Screen {
         this.PuzzleFourScreenState = PuzzleFourScreenState.RUNNING;
         this.player.setFacingDirection(Direction.LEFT);
 
-       map.setPlayer(player);
-       map.getHealthbar().setPlayer(player);
+	       map.setPlayer(player);
+	       map.getHealthbar().setPlayer(player);
         
         // let pieces of map know which button to listen for as the "interact" button
         map.getTextbox().setInteractKey(player.getInteractKey());
