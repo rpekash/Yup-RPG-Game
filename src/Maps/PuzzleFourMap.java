@@ -13,12 +13,17 @@ import Level.Trigger;
 	import NPCs.Walrus;
 	import NPCs.UFO;
 	import Scripts.SimpleTextScript;
-	import Scripts.TestMap.DinoScript;
-	import Scripts.TestMap.LostBallScript;
+import Scripts.TestMap.ArowScript;
+import Scripts.TestMap.Arrow2Script;
+import Scripts.TestMap.DinoScript;
+import Scripts.TestMap.GeneralSpikeScript;
+import Scripts.TestMap.LostBallScript;
 	import Scripts.TestMap.OJScript;
 	import Scripts.TestMap.Puzzle2Script;
 	import Scripts.TestMap.Puzzle3Script;
-	import Scripts.TestMap.TreeScript;
+import Scripts.TestMap.Spike2Script;
+import Scripts.TestMap.SpikeScript;
+import Scripts.TestMap.TreeScript;
 	import Scripts.TestMap.UFOScript;
 	import Scripts.TestMap.WalrusScript;
 	import Tilesets.CommonTileset;
@@ -36,36 +41,7 @@ import Level.Trigger;
 	    @Override
 	    public ArrayList<EnhancedMapTile> loadEnhancedMapTiles() {
 	        ArrayList<EnhancedMapTile> enhancedMapTiles = new ArrayList<>();
-	        Rock rock = new Rock(getMapTile(2, 7).getLocation(), "Rock.png");
-	        enhancedMapTiles.add(rock);
-	        
-	        Rock rock1 = new Rock(getMapTile(3, 8).getLocation(), "Rock.png");
-	        enhancedMapTiles.add(rock1);
-	        
-	        Rock rock2 = new Rock(getMapTile(6, 9).getLocation(), "Rock.png");
-	        enhancedMapTiles.add(rock2);
-	        
-	        Rock rock3 = new Rock(getMapTile(7, 7).getLocation(), "Rock.png");
-	        enhancedMapTiles.add(rock3);
-	        
-	        Rock rock4 = new Rock(getMapTile(12, 2).getLocation(), "Rock.png");
-	        enhancedMapTiles.add(rock4);
-	        
-	        Rock rock5 = new Rock(getMapTile(2, 9).getLocation(), "Rock.png");
-	        enhancedMapTiles.add(rock5);
-	        
-	        Rock rock6 = new Rock(getMapTile(5, 8).getLocation(), "Rock.png");
-	        enhancedMapTiles.add(rock6);
-	        
-	        Rock rock7 = new Rock(getMapTile(8, 9).getLocation(), "Rock.png");
-	        enhancedMapTiles.add(rock7);
-	        
-	        Rock rock8 = new Rock(getMapTile(1, 7).getLocation(), "Rock.png");
-	        enhancedMapTiles.add(rock8);
-	        
-	        Rock rock9 = new Rock(getMapTile(12, 9).getLocation(), "Rock.png");
-	        enhancedMapTiles.add(rock9);
-	        //enhancedMapTiles.add(new TextTile(getMapTile(4, 7).getLocation(), rock));
+
 	        return enhancedMapTiles;
 	    }
 
@@ -98,9 +74,13 @@ import Level.Trigger;
 	    @Override
 	    public ArrayList<Trigger> loadTriggers() {
 	        ArrayList<Trigger> triggers = new ArrayList<>();
-//	        triggers.add(new Trigger(1, 340, 40, 40, new Puzzle3Script(), "hasFinishedMaze"));
-	        
+	        triggers.add(new Trigger(20, 1190, 30, 70, new Puzzle2Script(), "hasFinishedMaze"));
+	        triggers.add(new Trigger(2, 3, 5, 40, new GeneralSpikeScript(), "hasHitSpike"));
+	        triggers.add(new Trigger(455, 1205, 5, 40, new Spike2Script(), "hasHitSpike2"));
+	        triggers.add(new Trigger(570, 1085, 50, 50, new ArowScript(), "hasHitArrow"));
+	        triggers.add(new Trigger(100, 900, 20, 20, new Arrow2Script(), "hasHitArrow2"));
 	        return triggers;
+	        
 	    } 
 
 	    @Override

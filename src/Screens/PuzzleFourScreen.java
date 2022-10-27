@@ -82,10 +82,6 @@ public class PuzzleFourScreen extends Screen {
             case RUNNING:
                 player.update();
                 map.update(player);
-                map.setPlayer(player);
-                map.getHealthbar().setPlayer(player);
-
-
                 break;
             // if level has been completed, bring up level cleared screen
             case PUZZLE_COMPLETED:
