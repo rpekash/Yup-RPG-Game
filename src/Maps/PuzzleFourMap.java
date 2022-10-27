@@ -35,7 +35,7 @@ import Scripts.TestMap.TreeScript;
 
 	    public PuzzleFourMap(Player player) {
 	        super("puzzle4.txt", new CommonTileset(), player);
-	        this.playerStartPosition = getMapTile(14, 5).getLocation();
+	        this.playerStartPosition = getMapTile(7, 1).getLocation();
 	    }
 
 	    @Override

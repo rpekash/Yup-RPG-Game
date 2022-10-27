@@ -54,12 +54,12 @@ public class HealthBar {
         	healthBarY = topY;
         }
         int fullLength = 350;
-        graphicsHandler.drawFilledRectangleWithBorder(x, healthBarY, fullLength, 30, Color.gray, Color.white, 2);
+        graphicsHandler.drawFilledRectangleWithBorder(x, healthBarY, fullLength, 20, Color.gray, Color.white, 2);
         
         if(player != null) {
         	int currentLength = Math.round(fullLength * ((float) player.getHealth()/100));
 
-             graphicsHandler.drawFilledRectangle(x, healthBarY, currentLength, 30, Color.green);
+             graphicsHandler.drawFilledRectangle(x, healthBarY, currentLength, 20, Color.green);
         }
     	
     }
