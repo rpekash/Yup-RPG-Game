@@ -1,18 +1,23 @@
 package Scripts.TestMap;
 
 import Level.NPC;
+import Level.Player;
 import Level.Script;
 import Level.ScriptState;
 import Screens.PlayLevelScreen;
+import Utils.Direction;
 
-// script for talking to OJ npc
 public class UFOScript extends Script<NPC> {
-
-    @Override
+	   
+	private int sequence = 0;
+	private int amountMoved = 0;
+	
+    
+	@Override
     protected void setup() {
         lockPlayer();
         showTextbox();
-        addTextToTextboxQueue( "I'm coming to get you.");
+        addTextToTextboxQueue("I'm coming to get you.");
         entity.facePlayer(player);
     }
 
@@ -20,16 +25,26 @@ public class UFOScript extends Script<NPC> {
     protected void cleanup() {
         unlockPlayer();
         hideTextbox();
+        
     }
-
+    public void update(Player player){
+    	   
+        //float xPosition = player.getX() - x;
+        //float yPosition = player.getY() - y;
+        
+    }
+    
     @Override
     public ScriptState execute() {
         start();
         if (!isTextboxQueueEmpty()) {
+        	
+        	entity.walk(Direction.DOWN, 1);
+        	
             return ScriptState.RUNNING;
         }
         end();
-        PlayLevelScreen.goToPuzzleOne();
+        //PlayLevelScreen.goToPuzzleOne();
         return ScriptState.COMPLETED;
     }
 }

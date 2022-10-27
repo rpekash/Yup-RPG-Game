@@ -12,12 +12,10 @@ import Utils.Point;
 
 import java.util.HashMap;
 
-// This is the class for the Cat player character
-// basically just sets some values for physics and then defines animations
 public class UFO extends NPC {
 
     public UFO(int id, Point location) {
-        super(id, location.x, location.y, new SpriteSheet(ImageLoader.load("Cat.png"), 24, 24), "STAND_LEFT");
+        super(id, location.x, location.y, new SpriteSheet(ImageLoader.load("ufo-sheet.png"), 24, 24), "STAND_LEFT");
       
     }
 
@@ -41,7 +39,31 @@ public class UFO extends NPC {
                            .withBounds(7, 13, 11, 7)
                            .build()
            });
+            put("WALK_LEFT", new Frame[]{
+                    new FrameBuilder(spriteSheet.getSprite(1, 0), 200)
+                            .withScale(3)
+                            .withBounds(4, 5, 5, 10)
+                            .build(),
+                    new FrameBuilder(spriteSheet.getSprite(1, 1), 200)
+                            .withScale(3)
+                            .withBounds(4, 5, 5, 10)
+                            .build()
+            });
+
+            put("WALK_RIGHT", new Frame[]{
+                    new FrameBuilder(spriteSheet.getSprite(1, 0), 200)
+                            .withScale(3)
+                            .withImageEffect(ImageEffect.FLIP_HORIZONTAL)
+                            .withBounds(4, 5, 5, 10)
+                            .build(),
+                    new FrameBuilder(spriteSheet.getSprite(1, 1), 200)
+                            .withScale(3)
+                            .withImageEffect(ImageEffect.FLIP_HORIZONTAL)
+                            .withBounds(4, 5, 5, 10)
+                            .build()
+            });
         }};
+        
     }
 
     @Override

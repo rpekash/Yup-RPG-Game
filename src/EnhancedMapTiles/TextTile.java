@@ -20,7 +20,7 @@ public class TextTile extends EnhancedMapTile {
 		public boolean flag;
 	
 	    public TextTile(Point location, Rock rock) {
-	        super(location.x, location.y, new SpriteSheet(ImageLoader.load("grass-tile.png"), 16, 16), TileType.PASSABLE);
+	        super(location.x, location.y, new SpriteSheet(ImageLoader.load("sand.png"), 16, 16), TileType.PASSABLE);
 	        this.rock = rock;
 	        flag = false;
 	    }

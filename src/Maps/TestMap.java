@@ -46,19 +46,19 @@ public class TestMap extends Map {
     public ArrayList<NPC> loadNPCs() {
         ArrayList<NPC> npcs = new ArrayList<>();
 
-        /*
-        Walrus walrus = new Walrus(1, getMapTile(4, 28).getLocation().subtractY(40));
+        
+        /* 	Walrus walrus = new Walrus(1, getMapTile(4, 28).getLocation().subtractY(40));
         walrus.setInteractScript(new WalrusScript());
         npcs.add(walrus);
+        
         Dinosaur dinosaur = new Dinosaur(2, getMapTile(13, 4).getLocation());
         dinosaur.setExistenceFlag("hasTalkedToDinosaur");
         dinosaur.setInteractScript(new DinoScript());
-        npcs.add(dinosaur); */
-        
-        
+        npcs.add(dinosaur); 
+       
         OJ oj = new OJ(3, getMapTile(12, 20).getLocation());
         oj.setInteractScript(new OJScript());
-        npcs.add(oj);
+        npcs.add(oj);*/
         
         UFO ufo = new UFO(4, getMapTile(10,20).getLocation());
         ufo.setInteractScript(new UFOScript());
