@@ -36,11 +36,25 @@ public class UFOScript extends Script<NPC> {
     
     @Override
     public ScriptState execute() {
+    	int x = 0;
         start();
-        if (!isTextboxQueueEmpty()) {
-        	
-        	entity.walk(Direction.DOWN, 1);
-        	
+        while (!isTextboxQueueEmpty()) {
+        	if (x == 0) {
+        		entity.walk(Direction.LEFT, 1);
+        		x=x++;
+        	}
+        	else if (x == 1) {
+        		entity.walk(Direction.UP, 1);
+            	x=x++;
+        	}
+        	else if (x == 2) {
+        		entity.walk(Direction.RIGHT, 1);
+            	x=x++;
+        	}
+        	else if (x == 3) {
+        		entity.walk(Direction.UP, 1);
+            	x=x++;
+        	}
             return ScriptState.RUNNING;
         }
         end();

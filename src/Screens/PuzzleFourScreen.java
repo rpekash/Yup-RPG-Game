@@ -36,15 +36,15 @@ public class PuzzleFourScreen extends Screen {
         map.setFlagManager(flagManager);
         
         // setup player
-        this.player = new Cat(map.getPlayerStartPosition().x, map.getPlayerStartPosition().y);
+        this.player = new Cat(map.getPlayerStartPosition().x, map.getPlayerStartPosition().y,screenCoordinator);
         this.player.setMap(map);
         Point playerStartPosition = map.getPlayerStartPosition();
         this.player.setLocation(playerStartPosition.x, playerStartPosition.y);
         this.PuzzleFourScreenState = PuzzleFourScreenState.RUNNING;
         this.player.setFacingDirection(Direction.LEFT);
 
-       
-        map.setPlayer(player);
+       map.setPlayer(player);
+       map.getHealthbar().setPlayer(player);
         
         // let pieces of map know which button to listen for as the "interact" button
         map.getTextbox().setInteractKey(player.getInteractKey());

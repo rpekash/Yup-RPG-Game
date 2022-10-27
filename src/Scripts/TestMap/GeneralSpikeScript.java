@@ -11,8 +11,14 @@ import Screens.PuzzleTwoScreen;
 import Utils.Point;
 
 // trigger script at beginning of game to set that heavy emotional plot
-public class SpikeScript extends Script {
-	 protected void setup() {
+public class GeneralSpikeScript extends Script {
+	
+	private int x;
+	private int y;
+	
+	 protected void setup(int x, int y) {
+		 this.x = x;
+		 this.y = y;
 	        player.takeDamage(10);
 
 	        lockPlayer();
@@ -37,13 +43,13 @@ public class SpikeScript extends Script {
                     .build()
             };
             		
-            Point location = map.getMapTile(18, 20).getLocation();
+            Point location = map.getMapTile(x, y).getLocation();
 
             MapTile mapTile = new MapTileBuilder(frame)
             		
                     .build(location.x, location.y);
 
-            setMapTile(18, 20, mapTile);
+            setMapTile(x, y, mapTile);
 	        unlockPlayer();
 	     // change door to the open door map tile
 
@@ -80,4 +86,10 @@ public class SpikeScript extends Script {
 	        return ScriptState.COMPLETED;
 	    
 	    }
+
+		@Override
+		protected void setup() {
+			// TODO Auto-generated method stub
+			
+		}
 	}

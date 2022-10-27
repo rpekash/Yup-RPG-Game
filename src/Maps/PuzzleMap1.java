@@ -43,13 +43,13 @@ public class PuzzleMap1 extends Map {
     @Override
     public ArrayList<EnhancedMapTile> loadEnhancedMapTiles() {
         ArrayList<EnhancedMapTile> enhancedMapTiles = new ArrayList<>();
-        Rock rock1 = new Rock(getMapTile(2, 7).getLocation());
+        Rock rock1 = new Rock(getMapTile(4, 10).getLocation(), "Rock.png");
         //rock1.setExistenceFlag("onRock1");
         enhancedMapTiles.add(rock1);
-        Rock rock2 = new Rock(getMapTile(11, 9).getLocation());
+        Rock rock2 = new Rock(getMapTile(11, 9).getLocation(), "Rock.png");
         //rock1.setExistenceFlag("onRock2");
         enhancedMapTiles.add(rock2);
-        Rock rock3 = new Rock(getMapTile(9, 5).getLocation());
+        Rock rock3 = new Rock(getMapTile(9, 5).getLocation(), "Rock.png");
         //rock1.setExistenceFlag("onRock3");
         enhancedMapTiles.add(rock3);
         TextTile tile1 = new TextTile(getMapTile(4, 7).getLocation(), rock1);
@@ -91,9 +91,9 @@ public class PuzzleMap1 extends Map {
     @Override
     public ArrayList<Trigger> loadTriggers() {
         ArrayList<Trigger> triggers = new ArrayList<>();
-        triggers.add(new Trigger(211, 355, 10, 10, new P1Script1(), "RockOnTile1"));
-        triggers.add(new Trigger(545, 402, 10, 10, new P1Script2(), "RockOnTile2"));
-        triggers.add(new Trigger(257, 402, 10, 10, new P1Script3(), "RockOnTile3"));
+        //triggers.add(new Trigger(211, 355, 10, 10, new P1Script1(), "RockOnTile1"));
+        //triggers.add(new Trigger(545, 402, 10, 10, new P1Script2(), "RockOnTile2"));
+        //triggers.add(new Trigger(257, 402, 10, 10, new P1Script3(), "RockOnTile3"));
         return triggers;
     } 
 

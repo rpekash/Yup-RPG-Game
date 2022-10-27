@@ -30,17 +30,20 @@ public class PuzzleThreeScreen extends Screen {
         flagManager = new FlagManager();
 
         // define/setup map
-        this.map = new PuzzleThreeMap(player);
+        this.map = new PuzzleThreeMap(null);
         map.reset();
         map.setFlagManager(flagManager);
 
         // setup player
-        this.player = new Cat(map.getPlayerStartPosition().x, map.getPlayerStartPosition().y);
+        this.player = new Cat(map.getPlayerStartPosition().x, map.getPlayerStartPosition().y, null);
         this.player.setMap(map);
         Point playerStartPosition = map.getPlayerStartPosition();
         this.player.setLocation(playerStartPosition.x, playerStartPosition.y);
         this.puzzleThreeScreenState = PuzzleThreeScreenState.RUNNING;
         this.player.setFacingDirection(Direction.LEFT);
+        
+        map.setPlayer(player);
+        map.getHealthbar().setPlayer(player);
 
         // let pieces of map know which button to listen for as the "interact" button
         map.getTextbox().setInteractKey(player.getInteractKey());
