@@ -35,7 +35,7 @@ public class Arrow2Script extends Script {
                     .build(location.x, location.y);
             setMapTile(5, 16, mapTile);
             
-            Frame grassFrame = new FrameBuilder(map.getTileset().getSubImage(0, 0), 500)
+            Frame grassFrame = new FrameBuilder(map.getTileset().getSubImage(12, 3), 500)
                     .withScale(map.getTileset().getTileScale())
                     .build();
             Point locs = map.getMapTile(6, 16).getLocation();
@@ -79,7 +79,7 @@ public class Arrow2Script extends Script {
                  .build(location.x, location.y);
          setMapTile(5, 16, mapTile);
          
-         Frame grassFrame = new FrameBuilder(map.getTileset().getSubImage(0, 0), 0)
+         Frame grassFrame = new FrameBuilder(map.getTileset().getSubImage(12, 3), 0)
                  .withScale(map.getTileset().getTileScale())
                  .build();
          Point loc = map.getMapTile(6, 16).getLocation();

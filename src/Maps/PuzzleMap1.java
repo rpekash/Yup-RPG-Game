@@ -91,9 +91,9 @@ public class PuzzleMap1 extends Map {
     @Override
     public ArrayList<Trigger> loadTriggers() {
         ArrayList<Trigger> triggers = new ArrayList<>();
-        triggers.add(new Trigger(211, 355, 10, 10, new P1Script1(), "RockOnTile1"));
-        triggers.add(new Trigger(545, 402, 10, 10, new P1Script2(), "RockOnTile2"));
-        triggers.add(new Trigger(257, 402, 10, 10, new P1Script3(), "RockOnTile3"));
+        //triggers.add(new Trigger(211, 355, 10, 10, new P1Script1(), "RockOnTile1"));
+        //triggers.add(new Trigger(545, 402, 10, 10, new P1Script2(), "RockOnTile2"));
+        //triggers.add(new Trigger(257, 402, 10, 10, new P1Script3(), "RockOnTile3"));
         return triggers;
     } 
 
