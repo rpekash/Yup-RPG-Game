@@ -1,11 +1,17 @@
 package Scripts.TestMap;
 
+import Builders.FrameBuilder;
+import Builders.MapTileBuilder;
+import GameObject.Frame;
+import Level.MapTile;
 import Level.NPC;
 import Level.Player;
 import Level.Script;
 import Level.ScriptState;
+import Level.TileType;
 import Screens.PlayLevelScreen;
 import Utils.Direction;
+import Utils.Point;
 
 public class UFOScript extends Script<NPC> {
 	   
@@ -17,14 +23,57 @@ public class UFOScript extends Script<NPC> {
     protected void setup() {
         lockPlayer();
         showTextbox();
-        addTextToTextboxQueue("I'm coming to get you.");
+        if (sequence == 0) {
+            showTextbox();
+            setWaitTime(500);
+            addTextToTextboxQueue("I'm coming to get you.");
+        }
+        else if (sequence == 1) {
+            setWaitTime(500);
+        }
+        else if (sequence == 2) {
+            setWaitTime(500);
+        }
+        else if (sequence == 3) {
+            setWaitTime(500);
+        }
         entity.facePlayer(player);
     }
 
     @Override
     protected void cleanup() {
-        unlockPlayer();
-        hideTextbox();
+            unlockPlayer();
+            hideTextbox();
+        
+         if (!isFlagSet("hasTalkedToUFO")) {
+            if (sequence == 0) {
+                hideTextbox();
+                sequence++;
+            }
+            else if (sequence == 1) {
+                sequence++;
+            }
+            else if (sequence == 2) {
+                hideTextbox();
+                sequence++;
+            }
+            else if (sequence == 3) {
+                sequence++;
+            }
+            else if (sequence == 4) {
+                sequence++;
+            }
+            else if (sequence == 5) {
+                sequence++;
+
+               
+                Point location = player.getLocation();
+
+               
+                setFlag("hasTalkedToUFO");
+                unlockPlayer();
+            }
+        }
         
     }
     public void update(Player player){
@@ -36,24 +85,31 @@ public class UFOScript extends Script<NPC> {
     
     @Override
     public ScriptState execute() {
-    	int x = 0;
+
         start();
         while (!isTextboxQueueEmpty()) {
-        	if (x == 0) {
-        		entity.walk(Direction.LEFT, 1);
-        		x=x++;
+        	if (sequence == 0) {
+        		entity.walk(Direction.UP, 2);
+        		if (isWaitTimeUp()) {
+        			System.out.println(isWaitTimeUp());
+            		sequence++;
+            	}
         	}
-        	else if (x == 1) {
-        		entity.walk(Direction.UP, 1);
-            	x=x++;
+        	else if (sequence == 1) {
+        		entity.walk(Direction.LEFT, 2);
+        		if (!isWaitTimeUp()) {
+            		sequence++;
+            	}        	}
+        	else if (sequence == 2) {
+        		entity.walk(Direction.DOWN, 2);
+        		if (!isWaitTimeUp()) {
+            		sequence++;
+            	}
+            	
         	}
-        	else if (x == 2) {
-        		entity.walk(Direction.RIGHT, 1);
-            	x=x++;
-        	}
-        	else if (x == 3) {
-        		entity.walk(Direction.UP, 1);
-            	x=x++;
+        	else if (sequence == 3) {
+        		entity.walk(Direction.RIGHT, 10);
+            	sequence++;
         	}
             return ScriptState.RUNNING;
         }
@@ -62,3 +118,4 @@ public class UFOScript extends Script<NPC> {
         return ScriptState.COMPLETED;
     }
 }
+  
