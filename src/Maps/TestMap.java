@@ -17,6 +17,7 @@ import Scripts.TestMap.DinoScript;
 import Scripts.TestMap.LostBallScript;
 import Scripts.TestMap.OJScript;
 import Scripts.TestMap.Portal2Script;
+import Scripts.TestMap.Portal3Script;
 import Scripts.TestMap.TreeScript;
 import Scripts.TestMap.UFOScript;
 import Scripts.TestMap.WalrusScript;
@@ -68,6 +69,9 @@ public class TestMap extends Map {
         portal.setInteractScript(new PortalScript());
         npcs.add(portal);
         
+        Portal p1portal = new Portal(5, getMapTile (7, 8).getLocation());
+        p1portal.setInteractScript(new Portal3Script());
+        npcs.add(p1portal);
         
         Portal portal2 = new Portal(5, getMapTile (10, 5).getLocation());
         portal2.setInteractScript(new Portal2Script());
