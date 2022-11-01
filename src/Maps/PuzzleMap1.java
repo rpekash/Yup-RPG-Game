@@ -52,11 +52,11 @@ public class PuzzleMap1 extends Map {
         Rock rock3 = new Rock(getMapTile(9, 5).getLocation(), "Rock.png");
         //rock1.setExistenceFlag("onRock3");
         enhancedMapTiles.add(rock3);
-        TextTile tile1 = new TextTile(getMapTile(4, 7).getLocation(), rock1);
+        TextTile tile1 = new TextTile(getMapTile(4, 7).getLocation(), rock1, "sand.png");
         enhancedMapTiles.add(tile1);
-        TextTile tile2 = new TextTile(getMapTile(5, 8).getLocation(), rock2);
+        TextTile tile2 = new TextTile(getMapTile(5, 8).getLocation(), rock2, "sand.png");
         enhancedMapTiles.add(tile2);
-        TextTile tile3 = new TextTile(getMapTile(11, 8).getLocation(), rock3);
+        TextTile tile3 = new TextTile(getMapTile(11, 8).getLocation(), rock3, "sand.png");
         enhancedMapTiles.add(tile3);
         return enhancedMapTiles;
     }
