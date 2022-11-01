@@ -57,7 +57,7 @@ public class TestMap extends Map {
         dinosaur.setInteractScript(new DinoScript());
         npcs.add(dinosaur); 
        
-        OJ oj = new OJ(3, getMapTile(12, 20).getLocation());
+        /*OJ oj = new OJ(3, getMapTile(12, 20).getLocation());
         oj.setInteractScript(new OJScript());
         npcs.add(oj);*/
         
