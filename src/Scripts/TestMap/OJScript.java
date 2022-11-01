@@ -21,7 +21,7 @@ public class OJScript extends Script<NPC> {
         addTextToTextboxQueue( "...What do you mean I'm a walrus? Are you insulting \nme?");
         
         
-        entity.facePlayer(player);
+        //entity.facePlayer(player);
         
     }
 
@@ -41,7 +41,7 @@ public class OJScript extends Script<NPC> {
         }
         
         end();
-        PlayLevelScreen.goToPuzzleTwo();
+       
         return ScriptState.COMPLETED;
     }
     
