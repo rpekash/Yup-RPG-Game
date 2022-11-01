@@ -43,20 +43,20 @@ public class PuzzleMap1 extends Map {
     @Override
     public ArrayList<EnhancedMapTile> loadEnhancedMapTiles() {
         ArrayList<EnhancedMapTile> enhancedMapTiles = new ArrayList<>();
-        Rock rock1 = new Rock(getMapTile(4, 10).getLocation(), "Rock.png");
+        Rock rock1 = new Rock(getMapTile(4, 10).getLocation(), "BSpotRock.png");
         //rock1.setExistenceFlag("onRock1");
         enhancedMapTiles.add(rock1);
-        Rock rock2 = new Rock(getMapTile(11, 9).getLocation(), "Rock.png");
+        Rock rock2 = new Rock(getMapTile(11, 9).getLocation(), "GrSpotRock.png");
         //rock1.setExistenceFlag("onRock2");
         enhancedMapTiles.add(rock2);
-        Rock rock3 = new Rock(getMapTile(9, 5).getLocation(), "Rock.png");
+        Rock rock3 = new Rock(getMapTile(9, 5).getLocation(), "RSpotRock.png");
         //rock1.setExistenceFlag("onRock3");
         enhancedMapTiles.add(rock3);
-        TextTile tile1 = new TextTile(getMapTile(4, 7).getLocation(), rock1, "sand.png");
+        TextTile tile1 = new TextTile(getMapTile(4, 7).getLocation(), rock1, "BSandTile.png");
         enhancedMapTiles.add(tile1);
-        TextTile tile2 = new TextTile(getMapTile(5, 8).getLocation(), rock2, "sand.png");
+        TextTile tile2 = new TextTile(getMapTile(5, 8).getLocation(), rock2, "GSandTile.png");
         enhancedMapTiles.add(tile2);
-        TextTile tile3 = new TextTile(getMapTile(11, 8).getLocation(), rock3, "sand.png");
+        TextTile tile3 = new TextTile(getMapTile(11, 8).getLocation(), rock3, "RSandTile.png");
         enhancedMapTiles.add(tile3);
         return enhancedMapTiles;
     }
