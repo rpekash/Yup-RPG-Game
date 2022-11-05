@@ -2,6 +2,7 @@ package Maps;
 
 import EnhancedMapTiles.Rock;
 import EnhancedMapTiles.TextTile;
+import EnhancedMapTiles.Wall;
 import Level.EnhancedMapTile;
 import Level.Map;
 import Level.NPC;
@@ -35,20 +36,20 @@ public class PuzzleThreeMap extends Map {
     @Override
     public ArrayList<EnhancedMapTile> loadEnhancedMapTiles() {
         ArrayList<EnhancedMapTile> enhancedMapTiles = new ArrayList<>();
-        Rock rock = new Rock(getMapTile(2, 7).getLocation(), "Rock.png");
-        enhancedMapTiles.add(rock);
+        Wall wall1 = new Wall(getMapTile(2, 7).getLocation(), "Wall2.png");
+        enhancedMapTiles.add(wall1);
         
-        Rock rock1 = new Rock(getMapTile(3, 8).getLocation(), "Rock.png");
-        enhancedMapTiles.add(rock1);
+        Wall wall2 = new Wall(getMapTile(3, 8).getLocation(), "Wall1.png");
+        enhancedMapTiles.add(wall2);
         
-        Rock rock2 = new Rock(getMapTile(6, 9).getLocation(), "Rock.png");
-        enhancedMapTiles.add(rock2);
+        Wall wall3 = new Wall(getMapTile(6, 9).getLocation(), "Wall2.png");
+        enhancedMapTiles.add(wall3);
         
-        Rock rock3 = new Rock(getMapTile(7, 7).getLocation(), "Rock.png");
-        enhancedMapTiles.add(rock3);
+        Wall wall4 = new Wall(getMapTile(7, 7).getLocation(), "Wall1.png");
+        enhancedMapTiles.add(wall4);
         
-        Rock rock4 = new Rock(getMapTile(12, 2).getLocation(), "Rock.png");
-        enhancedMapTiles.add(rock4);
+        Wall wall5 = new Wall(getMapTile(12, 2).getLocation(), "Wall2.png");
+        enhancedMapTiles.add(wall5);
         //enhancedMapTiles.add(new TextTile(getMapTile(4, 7).getLocation(), rock));
         return enhancedMapTiles;
     }

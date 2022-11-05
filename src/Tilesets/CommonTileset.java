@@ -1013,6 +1013,41 @@ public class CommonTileset extends Tileset {
             mapTiles.add(arena63Tile);
             
            
+            Frame wallFrame = new FrameBuilder(getSubImage(25, 4))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder wallTile = new MapTileBuilder(wallFrame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(wallTile);
+            
+            Frame wall1Frame = new FrameBuilder(getSubImage(26, 0))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder wall1Tile = new MapTileBuilder(wall1Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(wall1Tile);
+            
+            Frame wall2Frame = new FrameBuilder(getSubImage(26, 1))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder wall2Tile = new MapTileBuilder(wall2Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(wall2Tile);
+            
+            Frame wall3Frame = new FrameBuilder(getSubImage(26, 2))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder wall3Tile = new MapTileBuilder(wall3Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(wall3Tile);
+            
+            Frame wall4Frame = new FrameBuilder(getSubImage(26, 3))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder wall4Tile = new MapTileBuilder(wall4Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(wall4Tile);
+            
             
      // top water
         Frame[] topWaterFrames = new Frame[] {
