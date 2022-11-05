@@ -16,7 +16,7 @@ import NPCs.Portal;
 import Scripts.SimpleTextScript;
 import Scripts.TestMap.CowboyScript;
 import Scripts.TestMap.DinoScript;
-import Scripts.TestMap.FinalPortalScript;
+
 import Scripts.TestMap.GoToFinalScript;
 import Scripts.TestMap.LostBallScript;
 import Scripts.TestMap.OJScript;
