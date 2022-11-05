@@ -51,17 +51,17 @@ public class OJ extends NPC {
             });
 
             put("WALK_RIGHT", new Frame[]{
-                    new FrameBuilder(spriteSheet.getSprite(1, 1), 200)
-                            .withScale(3)
-                            .withImageEffect(ImageEffect.FLIP_HORIZONTAL)
-                            .withBounds(4, 5, 5, 10)
-                            .build(),
-                    new FrameBuilder(spriteSheet.getSprite(1, 2), 200)
-                            .withScale(3)
-                            .withImageEffect(ImageEffect.FLIP_HORIZONTAL)
-                            .withBounds(4, 5, 5, 10)
-                            .build()
-            });
+            		new FrameBuilder(spriteSheet.getSprite(1, 0), 500)
+                       .withScale(3)
+                       .withBounds(4, 5, 5, 10)
+                       .withImageEffect(ImageEffect.FLIP_HORIZONTAL)
+                       .build(),
+                    new FrameBuilder(spriteSheet.getSprite(0, 0), 500)
+                       .withScale(3)
+                       .withBounds(4, 5, 5, 10)
+                       .withImageEffect(ImageEffect.FLIP_HORIZONTAL)
+                       .build()
+       });
         }};
     }
 

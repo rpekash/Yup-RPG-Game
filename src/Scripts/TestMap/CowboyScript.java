@@ -140,6 +140,8 @@ public class CowboyScript extends Script<NPC> {
             // pauses
             else if (sequence == 1) {
                 start();
+                entity.stand(Direction.LEFT);
+                
                 if (isWaitTimeUp()) {
                     end();
                 }
