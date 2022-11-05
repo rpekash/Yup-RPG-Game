@@ -17,6 +17,7 @@ import Scripts.SimpleTextScript;
 import Scripts.TestMap.CowboyScript;
 import Scripts.TestMap.DinoScript;
 import Scripts.TestMap.FinalPortalScript;
+import Scripts.TestMap.GoToFinalScript;
 import Scripts.TestMap.LostBallScript;
 import Scripts.TestMap.OJScript;
 import Scripts.TestMap.Portal2Script;
@@ -62,10 +63,9 @@ public class TestMap extends Map {
 
        // OJ oj = new OJ(3, getMapTile(15, 20).getLocation());
 
-      //  OJ oj = new OJ(3, getMapTile(12, 20).getLocation());
-
-       // oj.setInteractScript(new OJScript());
-       // npcs.add(oj);
+        OJ oj = new OJ(3, getMapTile(15, 20).getLocation());
+        oj.setInteractScript(new OJScript());
+        npcs.add(oj);
         
         Cowboy cowboy = new Cowboy(3, getMapTile(12, 20).getLocation());
         cowboy.setInteractScript(new CowboyScript());
@@ -87,26 +87,23 @@ public class TestMap extends Map {
         portal2.setInteractScript(new Portal2Script());
         npcs.add(portal2);
         
-        Portal finalportal = new Portal(5, getMapTile (3, 5).getLocation());
-        finalportal.setInteractScript(new FinalPortalScript());
-        npcs.add(finalportal);
+        Portal portal4 = new Portal(5, getMapTile (10, 15).getLocation());
+        portal4.setInteractScript(new Puzzle4Script());
+        npcs.add(portal4);
         
-        Portal portalToPuzzleFour = new Portal(5, getMapTile (10, 15).getLocation());
-        portalToPuzzleFour.setInteractScript(new Puzzle4Script());
-        npcs.add(portalToPuzzleFour);
+        
         
         return npcs;
     }
 
-    /*
+    
     @Override
     public ArrayList<Trigger> loadTriggers() {
         ArrayList<Trigger> triggers = new ArrayList<>();
-        triggers.add(new Trigger(790, 1030, 100, 10, new LostBallScript(), "hasLostBall"));
-        triggers.add(new Trigger(790, 960, 10, 80, new LostBallScript(), "hasLostBall"));
-        triggers.add(new Trigger(890, 960, 10, 80, new LostBallScript(), "hasLostBall"));
+        triggers.add(new Trigger(200, 140, 40, 0, new GoToFinalScript(), "hasFinishedMaze"));
+       
         return triggers;
-    } */
+    } 
 
     @Override
     public void loadScripts() {

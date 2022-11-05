@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class CommonTileset extends Tileset {
 
     public CommonTileset() {
-        super(ImageLoader.load("CommonTileset.png"), 16, 16, 3);
+        super(ImageLoader.load("CommonTileset3.png"), 16, 16, 3);
     }
 
     @Override
@@ -554,7 +554,7 @@ public class CommonTileset extends Tileset {
             mapTiles.add(arrowTile);
 
         
-      /* 
+       
       //arena
             Frame boxFrame = new FrameBuilder(getSubImage(12, 3))
                     .withScale(tileScale)
@@ -1012,7 +1012,7 @@ public class CommonTileset extends Tileset {
                     .withTileType(TileType.PASSABLE);
             mapTiles.add(arena63Tile);
             
-           */
+           
             
      // top water
         Frame[] topWaterFrames = new Frame[] {
@@ -1042,197 +1042,7 @@ public class CommonTileset extends Tileset {
                     .build()
         };
 
-            /*******************************************************/
-            //desert house
-            /*******************************************************/
-            Frame dhouse1 = new FrameBuilder(getSubImage(12, 3))
-                    .withScale(tileScale)
-                    .build();
-            MapTileBuilder dhouse1Tile = new MapTileBuilder(dhouse1)
-                    .withTileType(TileType.NOT_PASSABLE);
-            mapTiles.add(dhouse1Tile);
-            /*******************************************************/
-            Frame dhouse2 = new FrameBuilder(getSubImage(12, 4))
-                    .withScale(tileScale)
-                    .build();
-            MapTileBuilder dhouse2Tile = new MapTileBuilder(dhouse2)
-                    .withTileType(TileType.NOT_PASSABLE);
-            mapTiles.add(dhouse2Tile);
-            /*******************************************************/
-            Frame dhouse3 = new FrameBuilder(getSubImage(13, 0))
-                    .withScale(tileScale)
-                    .build();
-            MapTileBuilder dhouse3Tile = new MapTileBuilder(dhouse3)
-                    .withTileType(TileType.NOT_PASSABLE);
-            mapTiles.add(dhouse3Tile);
-            /*******************************************************/
-            Frame dhouse4 = new FrameBuilder(getSubImage(13, 1))
-                    .withScale(tileScale)
-                    .build();
-            MapTileBuilder dhouse4Tile = new MapTileBuilder(dhouse4)
-                    .withTileType(TileType.NOT_PASSABLE);
-            mapTiles.add(dhouse4Tile);
-            /*******************************************************/
-            Frame dhouse5 = new FrameBuilder(getSubImage(13, 2))
-                    .withScale(tileScale)
-                    .build();
-            MapTileBuilder dhouse5Tile = new MapTileBuilder(dhouse5)
-                    .withTileType(TileType.NOT_PASSABLE);
-            mapTiles.add(dhouse5Tile);
-            /*******************************************************/
-            Frame dhouse6 = new FrameBuilder(getSubImage(13, 3))
-                    .withScale(tileScale)
-                    .build();
-            MapTileBuilder dhouse6Tile = new MapTileBuilder(dhouse6)
-                    .withTileType(TileType.NOT_PASSABLE);
-            mapTiles.add(dhouse6Tile);
-            /*******************************************************/
-            Frame dhouse7 = new FrameBuilder(getSubImage(13, 4))
-                    .withScale(tileScale)
-                    .build();
-            MapTileBuilder dhouse7Tile = new MapTileBuilder(dhouse7)
-                    .withTileType(TileType.NOT_PASSABLE);
-            mapTiles.add(dhouse7Tile);
-            /*******************************************************/
-            Frame dhouse8 = new FrameBuilder(getSubImage(14, 0))
-                    .withScale(tileScale)
-                    .build();
-            MapTileBuilder dhouse8Tile = new MapTileBuilder(dhouse8)
-                    .withTileType(TileType.NOT_PASSABLE);
-            mapTiles.add(dhouse8Tile);
-            /*******************************************************/
-            Frame dhouse9 = new FrameBuilder(getSubImage(14, 1))
-                    .withScale(tileScale)
-                    .build();
-            MapTileBuilder dhouse9Tile = new MapTileBuilder(dhouse9)
-                    .withTileType(TileType.NOT_PASSABLE);
-            mapTiles.add(dhouse9Tile);
-            /*******************************************************/
-            Frame dhouse10 = new FrameBuilder(getSubImage(14, 2))
-                    .withScale(tileScale)
-                    .build();
-            MapTileBuilder dhouse10Tile = new MapTileBuilder(dhouse10)
-                    .withTileType(TileType.NOT_PASSABLE);
-            mapTiles.add(dhouse10Tile);
-            /*******************************************************/
-            Frame dhouse11 = new FrameBuilder(getSubImage(14, 3))
-                    .withScale(tileScale)
-                    .build();
-            MapTileBuilder dhouse11Tile = new MapTileBuilder(dhouse11)
-                    .withTileType(TileType.NOT_PASSABLE);
-            mapTiles.add(dhouse11Tile);
-            /*******************************************************/
-            Frame dhouse12 = new FrameBuilder(getSubImage(14, 4))
-                    .withScale(tileScale)
-                    .build();
-            MapTileBuilder dhouse12Tile = new MapTileBuilder(dhouse12)
-                    .withTileType(TileType.NOT_PASSABLE);
-            mapTiles.add(dhouse12Tile);
-            /*******************************************************/
-            Frame dhouse13 = new FrameBuilder(getSubImage(15, 0))
-                    .withScale(tileScale)
-                    .build();
-            MapTileBuilder dhouse13Tile = new MapTileBuilder(dhouse13)
-                    .withTileType(TileType.NOT_PASSABLE);
-            mapTiles.add(dhouse13Tile);
-            /*******************************************************/
-            Frame dhouse14 = new FrameBuilder(getSubImage(15, 1))
-                    .withScale(tileScale)
-                    .build();
-            MapTileBuilder dhouse14Tile = new MapTileBuilder(dhouse14)
-                    .withTileType(TileType.NOT_PASSABLE);
-            mapTiles.add(dhouse14Tile);
-            /*******************************************************/
-            Frame dhouse15 = new FrameBuilder(getSubImage(15, 2))
-                    .withScale(tileScale)
-                    .build();
-            MapTileBuilder dhouse15Tile = new MapTileBuilder(dhouse15)
-                    .withTileType(TileType.NOT_PASSABLE);
-            mapTiles.add(dhouse15Tile);
-            /*******************************************************/            
-            Frame dhouse16 = new FrameBuilder(getSubImage(15, 3))
-                    .withScale(tileScale)
-                    .build();
-            MapTileBuilder dhouse16Tile = new MapTileBuilder(dhouse16)
-                    .withTileType(TileType.NOT_PASSABLE);
-            mapTiles.add(dhouse16Tile);
-            /*******************************************************/            
-            Frame dhouse17 = new FrameBuilder(getSubImage(15, 4))
-                    .withScale(tileScale)
-                    .build();
-            MapTileBuilder dhouse17Tile = new MapTileBuilder(dhouse17)
-                    .withTileType(TileType.NOT_PASSABLE);
-            mapTiles.add(dhouse17Tile);
-            /*******************************************************/            
-            Frame dhouse18 = new FrameBuilder(getSubImage(16, 0))
-                    .withScale(tileScale)
-                    .build();
-            MapTileBuilder dhouse18Tile = new MapTileBuilder(dhouse18)
-                    .withTileType(TileType.PASSABLE);
-            mapTiles.add(dhouse18Tile);
-            /*******************************************************/            
-            Frame dhouse19 = new FrameBuilder(getSubImage(16, 1))
-                    .withScale(tileScale)
-                    .build();
-            MapTileBuilder dhouse19Tile = new MapTileBuilder(dhouse19)
-                    .withTileType(TileType.NOT_PASSABLE);
-            mapTiles.add(dhouse19Tile);
-            /*******************************************************/           
-            Frame dhouse20 = new FrameBuilder(getSubImage(16, 2))
-                    .withScale(tileScale)
-                    .build();
-            MapTileBuilder dhouse20Tile = new MapTileBuilder(dhouse20)
-                    .withTileType(TileType.NOT_PASSABLE);
-            mapTiles.add(dhouse20Tile);
-            /*******************************************************/           
-            Frame dhouse21 = new FrameBuilder(getSubImage(16, 3))
-                    .withScale(tileScale)
-                    .build();
-            MapTileBuilder dhouse21Tile = new MapTileBuilder(dhouse21)
-                    .withTileType(TileType.NOT_PASSABLE);
-            mapTiles.add(dhouse21Tile);
-            /*******************************************************/           
-            Frame dhouse22 = new FrameBuilder(getSubImage(16, 4))
-                    .withScale(tileScale)
-                    .build();
-            MapTileBuilder dhouse22Tile = new MapTileBuilder(dhouse22)
-                    .withTileType(TileType.NOT_PASSABLE);
-            mapTiles.add(dhouse22Tile);
-            /*******************************************************/           
-            Frame dhouse23 = new FrameBuilder(getSubImage(17, 0))
-                    .withScale(tileScale)
-                    .build();
-            MapTileBuilder dhouse23Tile = new MapTileBuilder(dhouse23)
-                    .withTileType(TileType.NOT_PASSABLE);
-            mapTiles.add(dhouse23Tile);
-            /*******************************************************/           
-            Frame dhouse24 = new FrameBuilder(getSubImage(17, 1))
-                    .withScale(tileScale)
-                    .build();
-            MapTileBuilder dhouse24Tile = new MapTileBuilder(dhouse24)
-                    .withTileType(TileType.NOT_PASSABLE);
-            mapTiles.add(dhouse24Tile);
-            /*******************************************************/           
-            Frame dhouse25 = new FrameBuilder(getSubImage(17, 2))
-                    .withScale(tileScale)
-                    .build();
-            MapTileBuilder dhouse25Tile = new MapTileBuilder(dhouse25)
-                    .withTileType(TileType.NOT_PASSABLE);
-            mapTiles.add(dhouse25Tile);
-            /*******************************************************/           
-            Frame dhouse26 = new FrameBuilder(getSubImage(17, 3))
-                    .withScale(tileScale)
-                    .build();
-            MapTileBuilder dhouse26Tile = new MapTileBuilder(dhouse26)
-                    .withTileType(TileType.NOT_PASSABLE);
-            mapTiles.add(dhouse26Tile);
-            /*******************************************************/           
-            Frame dhouse27 = new FrameBuilder(getSubImage(17, 4))
-                    .withScale(tileScale)
-                    .build();
-            MapTileBuilder dhouse27Tile = new MapTileBuilder(dhouse27)
-                    .withTileType(TileType.NOT_PASSABLE);
-            mapTiles.add(dhouse27Tile);
+           
             
             
             
