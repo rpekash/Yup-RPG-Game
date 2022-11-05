@@ -42,7 +42,7 @@ public class TestMap extends Map {
         ArrayList<EnhancedMapTile> enhancedMapTiles = new ArrayList<>();
         Rock rock = new Rock(getMapTile(2, 7).getLocation(), "Rock.png");
         enhancedMapTiles.add(rock);
-        enhancedMapTiles.add(new TextTile(getMapTile(4, 7).getLocation(), rock));
+        enhancedMapTiles.add(new TextTile(getMapTile(4, 7).getLocation(), rock, "sand.png"));
         return enhancedMapTiles;
     }
 
@@ -59,10 +59,13 @@ public class TestMap extends Map {
         dinosaur.setExistenceFlag("hasTalkedToDinosaur");
         dinosaur.setInteractScript(new DinoScript());
         npcs.add(dinosaur); */
-       
-        OJ oj = new OJ(3, getMapTile(15, 20).getLocation());
-        oj.setInteractScript(new OJScript());
-        npcs.add(oj);
+
+       // OJ oj = new OJ(3, getMapTile(15, 20).getLocation());
+
+      //  OJ oj = new OJ(3, getMapTile(12, 20).getLocation());
+
+       // oj.setInteractScript(new OJScript());
+       // npcs.add(oj);
         
         Cowboy cowboy = new Cowboy(3, getMapTile(12, 20).getLocation());
         cowboy.setInteractScript(new CowboyScript());

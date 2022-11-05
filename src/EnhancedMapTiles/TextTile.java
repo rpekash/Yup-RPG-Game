@@ -16,11 +16,13 @@ import Utils.Point;
 
 public class TextTile extends EnhancedMapTile {
 	
+		protected String texture;
 		private Rock rock;
 		public boolean flag;
 	
-	    public TextTile(Point location, Rock rock) {
-	        super(location.x, location.y, new SpriteSheet(ImageLoader.load("sand.png"), 16, 16), TileType.PASSABLE);
+	    public TextTile(Point location, Rock rock, String texture) {
+	        super(location.x, location.y, new SpriteSheet(ImageLoader.load(texture), 16, 16), TileType.PASSABLE);
+	        this.texture = texture;
 	        this.rock = rock;
 	        flag = false;
 	    }
