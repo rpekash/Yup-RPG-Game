@@ -6,10 +6,9 @@ import Level.Script;
 import Level.ScriptState;
 import Screens.PlayLevelScreen;
 import Screens.PuzzleOneScreen;
-import Utils.Direction;
 
-// script for talking to OJ npc
-public class OJScript extends Script<NPC> {
+// script for talking to the mysterious portal
+public class FinalPortalScript extends Script<NPC> {
 	
 	//protected ScreenCoordinator screenCoordinator;
     @Override
@@ -17,14 +16,12 @@ public class OJScript extends Script<NPC> {
     	
         lockPlayer();
         showTextbox();
-        addTextToTextboxQueue( "Hey, im Oj. Recently there have been portal appearing randomly and \n"
-        		+ "sucking people into them. Can see whats in them?");
+        addTextToTextboxQueue( "You've discovered a mysterious portal!");
         
-        addTextToTextboxQueue( "I think there is one over there.");
-        entity.walk(Direction.RIGHT, 0);
+        addTextToTextboxQueue( "Uh oh, it's sucking you in");
         
         
-       // entity.facePlayer(player);
+        entity.facePlayer(player);
         
     }
 
@@ -44,7 +41,7 @@ public class OJScript extends Script<NPC> {
         }
         
         end();
-        
+        PlayLevelScreen.goToFinalPuzzle();
         return ScriptState.COMPLETED;
     }
     

@@ -7,13 +7,16 @@ import Level.Map;
 import Level.NPC;
 import Level.Player;
 import Level.Trigger;
+import NPCs.Cowboy;
 import NPCs.Dinosaur;
 import NPCs.OJ;
 import NPCs.Walrus;
 import NPCs.UFO;
 import NPCs.Portal;
 import Scripts.SimpleTextScript;
+import Scripts.TestMap.CowboyScript;
 import Scripts.TestMap.DinoScript;
+import Scripts.TestMap.FinalPortalScript;
 import Scripts.TestMap.LostBallScript;
 import Scripts.TestMap.OJScript;
 import Scripts.TestMap.Portal2Script;
@@ -55,11 +58,18 @@ public class TestMap extends Map {
         Dinosaur dinosaur = new Dinosaur(2, getMapTile(13, 4).getLocation());
         dinosaur.setExistenceFlag("hasTalkedToDinosaur");
         dinosaur.setInteractScript(new DinoScript());
-        npcs.add(dinosaur); 
-       
-        /*OJ oj = new OJ(3, getMapTile(12, 20).getLocation());
-        oj.setInteractScript(new OJScript());
-        npcs.add(oj);*/
+        npcs.add(dinosaur); */
+
+       // OJ oj = new OJ(3, getMapTile(15, 20).getLocation());
+
+      //  OJ oj = new OJ(3, getMapTile(12, 20).getLocation());
+
+       // oj.setInteractScript(new OJScript());
+       // npcs.add(oj);
+        
+        Cowboy cowboy = new Cowboy(3, getMapTile(12, 20).getLocation());
+        cowboy.setInteractScript(new CowboyScript());
+        npcs.add(cowboy);
         
         UFO ufo = new UFO(4, getMapTile(10,20).getLocation());
         ufo.setInteractScript(new UFOScript());
@@ -76,6 +86,10 @@ public class TestMap extends Map {
         Portal portal2 = new Portal(5, getMapTile (10, 5).getLocation());
         portal2.setInteractScript(new Portal2Script());
         npcs.add(portal2);
+        
+        Portal finalportal = new Portal(5, getMapTile (3, 5).getLocation());
+        finalportal.setInteractScript(new FinalPortalScript());
+        npcs.add(finalportal);
         
         Portal portalToPuzzleFour = new Portal(5, getMapTile (10, 15).getLocation());
         portalToPuzzleFour.setInteractScript(new Puzzle4Script());
