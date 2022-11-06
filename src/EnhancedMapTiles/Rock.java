@@ -12,6 +12,8 @@ import Level.EnhancedMapTile;
 import Level.Player;
 import Level.PlayerState;
 import Level.TileType;
+import Music.ClipMusicJavaUpdated;
+import Music.LoopMusicJavaUpdated;
 import Utils.Direction;
 import Utils.Point;
 
@@ -19,6 +21,8 @@ import Utils.Point;
 // when the player touches it, it will tell the player that the level has been completed
 public class Rock extends EnhancedMapTile {
 	protected String tecture;
+	protected ClipMusicJavaUpdated playMusic;
+	protected boolean sFlag;
 	
     public Rock(Point location, String tecture) {
         super(location.x, location.y, new SpriteSheet(ImageLoader.load(tecture), 16, 16), TileType.NOT_PASSABLE);
@@ -31,27 +35,38 @@ public class Rock extends EnhancedMapTile {
         super.update(player);
         if (player.overlaps(this) && player.getPlayerState() == PlayerState.WALKING) {
             if (player.getCurrentWalkingXDirection() == Direction.LEFT) {
-            	
                 if (canMoveLeft(player)) {
                     moveXHandleCollision(-1);
+                    playMusic = new ClipMusicJavaUpdated();
+            		playMusic.playMusicInScreen("src/rockPush.wav");
                 }
             }
+            
             else if (player.getCurrentWalkingXDirection() == Direction.RIGHT) {
                 if (canMoveRight(player)) {
                     moveXHandleCollision(1);
+                    playMusic = new ClipMusicJavaUpdated();
+            		playMusic.playMusicInScreen("src/rockPush.wav");
                 }
             }
              if (player.getCurrentWalkingYDirection() == Direction.UP) {
                 if (canMoveUp(player)) {
                     moveYHandleCollision(-1);
+                    playMusic = new ClipMusicJavaUpdated();
+            		playMusic.playMusicInScreen("src/rockPush.wav");
                 }
             }
             else if (player.getCurrentWalkingYDirection() == Direction.DOWN) {
                 if (canMoveDown(player)) {
                     moveYHandleCollision(1);
+                    playMusic = new ClipMusicJavaUpdated();
+            		playMusic.playMusicInScreen("src/rockPush.wav");
                 }
             }
-        }
+        } else if (player.overlaps(this) && !(player.getPlayerState() == PlayerState.WALKING)) {
+        	playMusic.endMusic();
+      }
+        
     }
 
     private boolean canMoveLeft(Player player) {

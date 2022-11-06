@@ -1,16 +1,15 @@
 package Music;
 
-public class LoopMusicJavaUpdated {
+public class ClipMusicJavaUpdated {
     
     public void playMusicInScreen(String music) {
         String filepath = music; 
 
-        PlayMusic musicObjective = new PlayMusic(); 
-        musicObjective.playMusic(filepath); 
+        ClipMusic musicObjective = new ClipMusic(); 
+        musicObjective.clipMusic(filepath); 
     }
     
     public void endMusic() {
     	
     }
 }
-

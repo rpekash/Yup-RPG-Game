@@ -8,6 +8,7 @@ import Game.ScreenCoordinator;
 import GameObject.GameObject;
 import GameObject.Rectangle;
 import GameObject.SpriteSheet;
+import Music.ClipMusicJavaUpdated;
 import Utils.Direction;
 
 import java.util.ArrayList;
@@ -45,6 +46,8 @@ public abstract class Player extends GameObject {
     protected Key MOVE_UP_KEY = Key.UP;
     protected Key MOVE_DOWN_KEY = Key.DOWN;
     protected Key INTERACT_KEY = Key.SPACE;
+    
+    protected ClipMusicJavaUpdated playMusic;
 
     public Player(SpriteSheet spriteSheet, float x, float y, String startingAnimationName, ScreenCoordinator screenCoordinator) {
         super(spriteSheet, x, y, startingAnimationName);
@@ -180,6 +183,8 @@ public abstract class Player extends GameObject {
         else if (playerState == PlayerState.WALKING) {
             // sets animation to a WALK animation based on which way player is facing
             this.currentAnimationName = facingDirection == Direction.RIGHT ? "WALK_RIGHT" : "WALK_LEFT";
+            this.playMusic = new ClipMusicJavaUpdated();
+    		playMusic.playMusicInScreen("src/walkSound.wav");
         }
         else if (playerState == PlayerState.INTERACTING) {
             // sets animation to STAND when player is interacting
