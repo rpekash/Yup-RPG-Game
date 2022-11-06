@@ -1,40 +1,40 @@
 package Maps;
 
 import EnhancedMapTiles.Rock;
+import EnhancedMapTiles.Spike;
 import EnhancedMapTiles.TextTile;
 import Level.EnhancedMapTile;
 import Level.Map;
 import Level.NPC;
 import Level.Player;
 import Level.Trigger;
-import NPCs.Cowboy;
 import NPCs.Dinosaur;
 import NPCs.OJ;
 import NPCs.Walrus;
 import NPCs.UFO;
-import NPCs.Portal;
-import Scripts.SimpleTextScript;
-import Scripts.TestMap.CowboyScript;
-import Scripts.TestMap.DinoScript;
 
-import Scripts.TestMap.GoToFinalScript;
+import NPCs.SpikeTrap;
+import Scripts.SimpleTextScript;
+import Scripts.TestMap.ArowScript;
+import Scripts.TestMap.Arrow2Script;
+import Scripts.TestMap.DinoScript;
 import Scripts.TestMap.LostBallScript;
 import Scripts.TestMap.OJScript;
-import Scripts.TestMap.Portal2Script;
-import Scripts.TestMap.Portal3Script;
+import Scripts.TestMap.Puzzle2Script;
+import Scripts.TestMap.Spike2Script;
+import Scripts.TestMap.SpikeScript;
 import Scripts.TestMap.TreeScript;
 import Scripts.TestMap.UFOScript;
 import Scripts.TestMap.WalrusScript;
-import Scripts.TestMap.PortalScript;
-import Scripts.TestMap.Puzzle4Script;
 import Tilesets.CommonTileset;
+
 import java.util.ArrayList;
 
 // Represents a test map to be used in a level
-public class TestMap extends Map {
+public class FinalPuzzleMap extends Map {
 
-    public TestMap(Player player) {
-        super("test_map.txt", new CommonTileset(), player);
+    public FinalPuzzleMap(Player player) {
+        super("finalpuzzle.txt", new CommonTileset(), player);
         this.playerStartPosition = getMapTile(17, 20).getLocation();
     }
 
@@ -44,7 +44,7 @@ public class TestMap extends Map {
         Rock rock = new Rock(getMapTile(2, 7).getLocation(), "Rock.png");
         enhancedMapTiles.add(rock);
         
-        enhancedMapTiles.add(new TextTile(getMapTile(4, 7).getLocation(), rock, "sand.png"));
+       // enhancedMapTiles.add(new TextTile(getMapTile(4, 7).getLocation(), rock));
         return enhancedMapTiles;
     }
 
@@ -52,48 +52,27 @@ public class TestMap extends Map {
     public ArrayList<NPC> loadNPCs() {
         ArrayList<NPC> npcs = new ArrayList<>();
 
-        
-        /* 	Walrus walrus = new Walrus(1, getMapTile(4, 28).getLocation().subtractY(40));
+        /*
+        Walrus walrus = new Walrus(1, getMapTile(4, 28).getLocation().subtractY(40));
         walrus.setInteractScript(new WalrusScript());
         npcs.add(walrus);
-        
+
         Dinosaur dinosaur = new Dinosaur(2, getMapTile(13, 4).getLocation());
         dinosaur.setExistenceFlag("hasTalkedToDinosaur");
         dinosaur.setInteractScript(new DinoScript());
         npcs.add(dinosaur); */
-
-       // OJ oj = new OJ(3, getMapTile(15, 20).getLocation());
-
-        OJ oj = new OJ(3, getMapTile(15, 20).getLocation());
+        
+       /* OJ oj = new OJ(3, getMapTile(12, 20).getLocation());
         oj.setInteractScript(new OJScript());
         npcs.add(oj);
-        
-        Cowboy cowboy = new Cowboy(3, getMapTile(12, 20).getLocation());
-        cowboy.setInteractScript(new CowboyScript());
-        npcs.add(cowboy);
         
         UFO ufo = new UFO(4, getMapTile(10,20).getLocation());
         ufo.setInteractScript(new UFOScript());
         npcs.add(ufo);
         
-        Portal portal = new Portal(5, getMapTile (5, 5).getLocation());
-        portal.setInteractScript(new PortalScript());
-        npcs.add(portal);
-        
-        Portal p1portal = new Portal(5, getMapTile (7, 8).getLocation());
-        p1portal.setInteractScript(new Portal3Script());
-        npcs.add(p1portal);
-        
-        Portal portal2 = new Portal(5, getMapTile (10, 5).getLocation());
-        portal2.setInteractScript(new Portal2Script());
-        npcs.add(portal2);
-        
-        Portal portal4 = new Portal(5, getMapTile (10, 15).getLocation());
-        portal4.setInteractScript(new Puzzle4Script());
-        npcs.add(portal4);
-        
-        
-        
+        SpikeTrap spike = new SpikeTrap(4, getMapTile(20,20).getLocation());
+        spike.setInteractScript(new SpikeScript());
+        npcs.add(spike);*/
         return npcs;
     }
 
@@ -101,8 +80,11 @@ public class TestMap extends Map {
     @Override
     public ArrayList<Trigger> loadTriggers() {
         ArrayList<Trigger> triggers = new ArrayList<>();
-        triggers.add(new Trigger(200, 140, 40, 0, new GoToFinalScript(), "hasFinishedMaze"));
-       
+        triggers.add(new Trigger(20, 1190, 30, 70, new Puzzle2Script(), "hasFinishedMaze"));
+        triggers.add(new Trigger(885, 965, 5, 40, new SpikeScript(), "hasHitSpike"));
+        triggers.add(new Trigger(455, 1205, 5, 40, new Spike2Script(), "hasHitSpike2"));
+        triggers.add(new Trigger(570, 1085, 50, 50, new ArowScript(), "hasHitArrow"));
+        triggers.add(new Trigger(275, 790, 20, 20, new Arrow2Script(), "hasHitArrow2"));
         return triggers;
     } 
 
@@ -115,7 +97,6 @@ public class TestMap extends Map {
         getMapTile(20, 4).setInteractScript(new SimpleTextScript("Dino's house"));
 
         getMapTile(2, 6).setInteractScript(new TreeScript());
-        
-        //getMapTile(5,5).setInteractScript(new SimpleTextScript("You've discovered a mysterious portal!"));
     }
 }
+

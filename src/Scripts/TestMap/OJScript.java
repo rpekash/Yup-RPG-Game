@@ -6,6 +6,7 @@ import Level.Script;
 import Level.ScriptState;
 import Screens.PlayLevelScreen;
 import Screens.PuzzleOneScreen;
+import Utils.Direction;
 
 // script for talking to OJ npc
 public class OJScript extends Script<NPC> {
@@ -16,12 +17,14 @@ public class OJScript extends Script<NPC> {
     	
         lockPlayer();
         showTextbox();
-        addTextToTextboxQueue( "Hey, it's me, OJ. Obviously.");
+        addTextToTextboxQueue( "Hey, im Oj. Recently there have been portal appearing randomly and \n"
+        		+ "sucking people into them. Can see whats in them?");
         
-        addTextToTextboxQueue( "...What do you mean I'm a walrus? Are you insulting \nme?");
+        addTextToTextboxQueue( "I think there is one over there.");
+        entity.walk(Direction.RIGHT, 0);
         
         
-        entity.facePlayer(player);
+       // entity.facePlayer(player);
         
     }
 
@@ -41,7 +44,7 @@ public class OJScript extends Script<NPC> {
         }
         
         end();
-        PlayLevelScreen.goToPuzzleTwo();
+        
         return ScriptState.COMPLETED;
     }
     
