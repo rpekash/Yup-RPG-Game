@@ -14,6 +14,7 @@ import Engine.GraphicsHandler;
 
 import Engine.Screen;
 import Game.GameState;
+import Game.PuzzleIndex;
 import Game.ScreenCoordinator;
 import Level.*;
 import Maps.PuzzleThreeMap;
@@ -130,6 +131,7 @@ public class PuzzleThreeScreen extends Screen {
                 graphicsHandler.drawString(minutes + ":" + ddSec, 100, 100, cFont, Color.BLACK);
                 break;
             case PUZZLE_COMPLETED:
+            	player.completedPuzzles[PuzzleIndex.PUZZLE_THREE_INDEX] = true;
                 break;
         }
     }

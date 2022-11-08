@@ -4,6 +4,7 @@ import Engine.GraphicsHandler;
 
 import Engine.Screen;
 import Game.GameState;
+import Game.PuzzleIndex;
 import Game.ScreenCoordinator;
 import Level.*;
 import Maps.FinalPuzzleMap;
@@ -85,6 +86,7 @@ public class FinalPuzzleScreen extends Screen {
                 break;
             // if level has been completed, bring up level cleared screen
             case PUZZLE_COMPLETED:
+            	player.completedPuzzles[PuzzleIndex.PUZZLE_FINAL_INDEX] = true;
                 break;
         }
     }

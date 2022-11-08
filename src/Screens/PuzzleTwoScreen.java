@@ -4,6 +4,7 @@ import Engine.GraphicsHandler;
 
 import Engine.Screen;
 import Game.GameState;
+import Game.PuzzleIndex;
 import Game.ScreenCoordinator;
 import Level.*;
 import Maps.PuzzleTwoMap;
@@ -96,6 +97,7 @@ public class PuzzleTwoScreen extends Screen {
                 map.draw(player, graphicsHandler);
                 break;
             case PUZZLE_COMPLETED:
+            	player.completedPuzzles[PuzzleIndex.PUZZLE_TWO_INDEX] = true;
                 break;
         }
     }

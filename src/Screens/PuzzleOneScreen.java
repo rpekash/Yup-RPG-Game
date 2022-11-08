@@ -13,6 +13,7 @@ import Engine.GraphicsHandler;
 
 import Engine.Screen;
 import Game.GameState;
+import Game.PuzzleIndex;
 import Game.ScreenCoordinator;
 import Level.*;
 import Maps.PuzzleMap1;
@@ -158,6 +159,7 @@ public class PuzzleOneScreen extends Screen {
                 graphicsHandler.drawString(minutes + ":" + ddSec, 100, 100, cFont, Color.BLACK);
                 break;
             case PUZZLE_COMPLETED:
+            	player.completedPuzzles[PuzzleIndex.PUZZLE_ONE_INDEX] = true;
             	//winScreen.draw(graphicsHandler);
                 break;
             case PUZZLE_FAILED:

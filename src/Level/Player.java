@@ -4,6 +4,7 @@ import Engine.Key;
 import Engine.KeyLocker;
 import Engine.Keyboard;
 import Game.GameState;
+import Game.PuzzleIndex;
 import Game.ScreenCoordinator;
 import GameObject.GameObject;
 import GameObject.Rectangle;
@@ -15,7 +16,11 @@ import java.util.ArrayList;
 public abstract class Player extends GameObject {
 	
 	private ScreenCoordinator screenCoordinator;
+	
+	// Values displayed on the screen.
 	private int health;
+	public boolean[] completedPuzzles = new boolean[PuzzleIndex.NUMBER_OF_PUZZLES];
+
 	// values that affect player movement
     // these should be set in a subclass
     protected float walkSpeed = 0;
@@ -288,4 +293,16 @@ public abstract class Player extends GameObject {
     	}
     	
     }
+    
+    public int numberOfPuzzlesCompleted() {
+    	int puzzlesCompletedCounter = 0;
+    	for(int i = 0; i < PuzzleIndex.NUMBER_OF_PUZZLES; i++ ) {
+    		if (completedPuzzles[i] == true) {
+        		puzzlesCompletedCounter++;
+
+    		}
+    	}
+    	return puzzlesCompletedCounter;
+    }
+
 }
