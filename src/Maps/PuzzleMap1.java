@@ -22,6 +22,8 @@ import Scripts.TestMap.P1Script1;
 import Scripts.TestMap.P1Script2;
 import Scripts.TestMap.P1Script3;
 import Scripts.TestMap.Puzzle1Script;
+import Scripts.TestMap.Puzzle1Spike;
+import Scripts.TestMap.SpikeScript;
 import Scripts.TestMap.TreeScript;
 import Scripts.TestMap.UFOScript;
 import Scripts.TestMap.WalrusScript;
@@ -43,13 +45,13 @@ public class PuzzleMap1 extends Map {
     @Override
     public ArrayList<EnhancedMapTile> loadEnhancedMapTiles() {
         ArrayList<EnhancedMapTile> enhancedMapTiles = new ArrayList<>();
-        Rock rock1 = new Rock(getMapTile(4, 10).getLocation(), "BSpotRock.png");
+        Rock rock1 = new Rock(getMapTile(4, 10).getLocation(), "bHorse.png");
         //rock1.setExistenceFlag("onRock1");
         enhancedMapTiles.add(rock1);
-        Rock rock2 = new Rock(getMapTile(11, 9).getLocation(), "GrSpotRock.png");
+        Rock rock2 = new Rock(getMapTile(11, 9).getLocation(), "gHorse.png");
         //rock1.setExistenceFlag("onRock2");
         enhancedMapTiles.add(rock2);
-        Rock rock3 = new Rock(getMapTile(9, 5).getLocation(), "RSpotRock.png");
+        Rock rock3 = new Rock(getMapTile(9, 5).getLocation(), "rHorse.png");
         //rock1.setExistenceFlag("onRock3");
         enhancedMapTiles.add(rock3);
         TextTile tile1 = new TextTile(getMapTile(4, 7).getLocation(), rock1, "BSandTile.png");
@@ -91,9 +93,7 @@ public class PuzzleMap1 extends Map {
     @Override
     public ArrayList<Trigger> loadTriggers() {
         ArrayList<Trigger> triggers = new ArrayList<>();
-        //triggers.add(new Trigger(211, 355, 10, 10, new P1Script1(), "RockOnTile1"));
-        //triggers.add(new Trigger(545, 402, 10, 10, new P1Script2(), "RockOnTile2"));
-        //triggers.add(new Trigger(257, 402, 10, 10, new P1Script3(), "RockOnTile3"));
+        triggers.add(new Trigger(195, 435, 40, 40, new Puzzle1Spike(), "hasHitSpike"));
         return triggers;
     } 
 

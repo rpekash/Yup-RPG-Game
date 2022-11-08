@@ -35,32 +35,32 @@ public class Rock extends EnhancedMapTile {
         super.update(player);
         if (player.overlaps(this) && player.getPlayerState() == PlayerState.WALKING) {
             if (player.getCurrentWalkingXDirection() == Direction.LEFT) {
+                playMusic = new ClipMusicJavaUpdated();
+        		playMusic.playMusicInScreen("src/rockPush.wav");
                 if (canMoveLeft(player)) {
                     moveXHandleCollision(-1);
-                    playMusic = new ClipMusicJavaUpdated();
-            		playMusic.playMusicInScreen("src/rockPush.wav");
                 }
             }
             
             else if (player.getCurrentWalkingXDirection() == Direction.RIGHT) {
+                playMusic = new ClipMusicJavaUpdated();
+        		playMusic.playMusicInScreen("src/rockPush.wav");
                 if (canMoveRight(player)) {
                     moveXHandleCollision(1);
-                    playMusic = new ClipMusicJavaUpdated();
-            		playMusic.playMusicInScreen("src/rockPush.wav");
                 }
             }
              if (player.getCurrentWalkingYDirection() == Direction.UP) {
+                playMusic = new ClipMusicJavaUpdated();
+         		playMusic.playMusicInScreen("src/rockPush.wav");
                 if (canMoveUp(player)) {
                     moveYHandleCollision(-1);
-                    playMusic = new ClipMusicJavaUpdated();
-            		playMusic.playMusicInScreen("src/rockPush.wav");
                 }
             }
             else if (player.getCurrentWalkingYDirection() == Direction.DOWN) {
+                playMusic = new ClipMusicJavaUpdated();
+        		playMusic.playMusicInScreen("src/rockPush.wav");
                 if (canMoveDown(player)) {
                     moveYHandleCollision(1);
-                    playMusic = new ClipMusicJavaUpdated();
-            		playMusic.playMusicInScreen("src/rockPush.wav");
                 }
             }
         } else if (player.overlaps(this) && !(player.getPlayerState() == PlayerState.WALKING)) {

@@ -47,7 +47,7 @@ public abstract class Player extends GameObject {
     protected Key MOVE_DOWN_KEY = Key.DOWN;
     protected Key INTERACT_KEY = Key.SPACE;
     
-    protected ClipMusicJavaUpdated playMusic;
+    protected ClipMusicJavaUpdated playMusic = new ClipMusicJavaUpdated();
 
     public Player(SpriteSheet spriteSheet, float x, float y, String startingAnimationName, ScreenCoordinator screenCoordinator) {
         super(spriteSheet, x, y, startingAnimationName);
@@ -109,6 +109,7 @@ public abstract class Player extends GameObject {
         // if a walk key is pressed, player enters WALKING state
         if (Keyboard.isKeyDown(MOVE_LEFT_KEY) || Keyboard.isKeyDown(MOVE_RIGHT_KEY) || Keyboard.isKeyDown(MOVE_UP_KEY) || Keyboard.isKeyDown(MOVE_DOWN_KEY)) {
             playerState = PlayerState.WALKING;
+    		playMusic.playMusicInScreen("src/croppedWalk.wav");
         }
     }
 
@@ -183,8 +184,6 @@ public abstract class Player extends GameObject {
         else if (playerState == PlayerState.WALKING) {
             // sets animation to a WALK animation based on which way player is facing
             this.currentAnimationName = facingDirection == Direction.RIGHT ? "WALK_RIGHT" : "WALK_LEFT";
-            this.playMusic = new ClipMusicJavaUpdated();
-    		playMusic.playMusicInScreen("src/walkSound.wav");
         }
         else if (playerState == PlayerState.INTERACTING) {
             // sets animation to STAND when player is interacting
