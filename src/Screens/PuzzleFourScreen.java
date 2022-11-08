@@ -21,6 +21,7 @@ public class PuzzleFourScreen extends Screen {
     protected Player player;
     protected PuzzleFourScreenState PuzzleFourScreenState;
     protected FlagManager flagManager;
+    private static Boolean completed = false;
 
     public PuzzleFourScreen(ScreenCoordinator screenCoordinator) {
         this.screenCoordinator = screenCoordinator;
@@ -32,7 +33,7 @@ public class PuzzleFourScreen extends Screen {
 
      // define/setup map
         this.map = new PuzzleFourMap(null);
-        map.reset();
+       // map.reset();
         map.setFlagManager(flagManager);
         
         // setup player
@@ -74,6 +75,13 @@ public class PuzzleFourScreen extends Screen {
             }
         }
     }
+    
+    public static  void setCompleted(Boolean complete) {
+    	completed = complete;
+    }
+    public static boolean getCompleted() {
+    	return completed;
+    }
 
     public void update() {
         // based on screen state, perform specific actions
@@ -100,7 +108,7 @@ public class PuzzleFourScreen extends Screen {
         }
     }
 
-    public PuzzleFourScreenState getPlayLevelScreenState() {
+    public PuzzleFourScreenState getFourLevelScreenState() {
         return PuzzleFourScreenState;
     }
 

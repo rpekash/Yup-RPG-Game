@@ -27,15 +27,17 @@ import Scripts.TestMap.TreeScript;
 import Scripts.TestMap.UFOScript;
 import Scripts.TestMap.WalrusScript;
 import Tilesets.CommonTileset;
+import Utils.Direction;
 
 import java.util.ArrayList;
 
 // Represents a test map to be used in a level
 public class FinalPuzzleMap extends Map {
-
+	Boolean run = true;
     public FinalPuzzleMap(Player player) {
         super("finalpuzzle.txt", new CommonTileset(), player);
-        this.playerStartPosition = getMapTile(17, 20).getLocation();
+        this.playerStartPosition = getMapTile(1, 3).getLocation();
+        
     }
 
     @Override
@@ -52,27 +54,14 @@ public class FinalPuzzleMap extends Map {
     public ArrayList<NPC> loadNPCs() {
         ArrayList<NPC> npcs = new ArrayList<>();
 
-        /*
-        Walrus walrus = new Walrus(1, getMapTile(4, 28).getLocation().subtractY(40));
-        walrus.setInteractScript(new WalrusScript());
-        npcs.add(walrus);
-
-        Dinosaur dinosaur = new Dinosaur(2, getMapTile(13, 4).getLocation());
-        dinosaur.setExistenceFlag("hasTalkedToDinosaur");
-        dinosaur.setInteractScript(new DinoScript());
-        npcs.add(dinosaur); */
         
-       /* OJ oj = new OJ(3, getMapTile(12, 20).getLocation());
-        oj.setInteractScript(new OJScript());
-        npcs.add(oj);
         
-        UFO ufo = new UFO(4, getMapTile(10,20).getLocation());
+        UFO ufo = new UFO(4, getMapTile(4,4).getLocation());
         ufo.setInteractScript(new UFOScript());
         npcs.add(ufo);
         
-        SpikeTrap spike = new SpikeTrap(4, getMapTile(20,20).getLocation());
-        spike.setInteractScript(new SpikeScript());
-        npcs.add(spike);*/
+        
+        
         return npcs;
     }
 
@@ -90,13 +79,7 @@ public class FinalPuzzleMap extends Map {
 
     @Override
     public void loadScripts() {
-        getMapTile(21, 19).setInteractScript(new SimpleTextScript("Cat's house"));
-
-        getMapTile(7, 26).setInteractScript(new SimpleTextScript("Walrus's house"));
-
-        getMapTile(20, 4).setInteractScript(new SimpleTextScript("Dino's house"));
-
-        getMapTile(2, 6).setInteractScript(new TreeScript());
+       
     }
 }
 

@@ -40,6 +40,7 @@ public class Portal3Script extends Script<NPC> {
         }
         
         end();
+        
         PlayLevelScreen.goToPuzzleOne();
         return ScriptState.COMPLETED;
     }

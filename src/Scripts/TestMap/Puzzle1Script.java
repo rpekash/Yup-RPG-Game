@@ -30,12 +30,12 @@ public class Puzzle1Script extends Script {
     			&& map.getFlagManager().isFlagSet("RockOnTile3")) {
             setFlag("hasFinishedPuzzle");
     	}*/
-        setFlag("hasFinishedPuzzle");
+        setFlag("hasFinishedPuzzle1");
     }
 
     @Override
     public ScriptState execute() {
-        if (!isFlagSet("hasFinishedPuzzle")) {
+        if (!isFlagSet("hasFinishedPuzzle1")) {
             start();
             if (!isTextboxQueueEmpty()) {
                 return ScriptState.RUNNING;

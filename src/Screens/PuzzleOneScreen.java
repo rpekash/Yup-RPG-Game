@@ -39,6 +39,7 @@ public class PuzzleOneScreen extends Screen {
     protected boolean isRunning;
     protected String ddSec, ddMin;
     protected DecimalFormat dForm = new DecimalFormat("00");
+    private static Boolean completed = false;
     //protected Textbox winBox;
 
     public PuzzleOneScreen(ScreenCoordinator screenCoordinator) {
@@ -54,7 +55,7 @@ public class PuzzleOneScreen extends Screen {
 
         // define/setup map
         this.map = new PuzzleMap1(null);
-        map.reset();
+       // map.reset();
         map.setFlagManager(flagManager);
 
         // setup player
@@ -165,7 +166,14 @@ public class PuzzleOneScreen extends Screen {
         }
     }
 
-    public PuzzleOneScreenState getPlayLevelScreenState() {
+    public static  void setCompleted(Boolean complete) {
+    	completed = complete;
+    }
+    public static boolean getCompleted() {
+    	return completed;
+    }
+    
+    public PuzzleOneScreenState getoneLevelScreenState() {
         return puzzleOneScreenState;
     }
 

@@ -23,20 +23,14 @@ public class UFOScript extends Script<NPC> {
     protected void setup() {
         lockPlayer();
         showTextbox();
-        if (sequence == 0) {
+       
             showTextbox();
-            setWaitTime(500);
+            
             addTextToTextboxQueue("I'm coming to get you.");
-        }
-        else if (sequence == 1) {
-            setWaitTime(500);
-        }
-        else if (sequence == 2) {
-            setWaitTime(500);
-        }
-        else if (sequence == 3) {
-            setWaitTime(500);
-        }
+            entity.move(Direction.UP,5);
+            entity.move(Direction.DOWN,5);
+           
+       
         entity.facePlayer(player);
     }
 

@@ -27,6 +27,7 @@ public class Portal2Script extends Script<NPC> {
 
     @Override
     protected void cleanup() {
+    	setFlag("hasFinishedPuzzle2");
         unlockPlayer();
         hideTextbox();
     }

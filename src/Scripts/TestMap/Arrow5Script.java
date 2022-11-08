@@ -13,7 +13,7 @@ import Screens.PuzzleTwoScreen;
 import Utils.Point;
 
 // trigger script at beginning of game to set that heavy emotional plot
-public class Arrow2Script extends Script {
+public class Arrow5Script extends Script {
 	 protected void setup() {
 	        player.takeDamage(10);
 
@@ -30,19 +30,19 @@ public class Arrow2Script extends Script {
                     .withScale(map.getTileset().getTileScale())
                     .build()
             };
-            Point location = map.getMapTile(5, 16).getLocation();
+            Point location = map.getMapTile(17, 16).getLocation();
             MapTile mapTile = new MapTileBuilder(trapframe)
                     .build(location.x, location.y);
-            setMapTile(5, 16, mapTile);
+            setMapTile(17, 16, mapTile);
             
             Frame grassFrame = new FrameBuilder(map.getTileset().getSubImage(8, 1), 500)
                     .withScale(map.getTileset().getTileScale())
                     .build();
-            Point locs = map.getMapTile(6, 16).getLocation();
+            Point locs = map.getMapTile(18, 16).getLocation();
             MapTile mapTile1 = new MapTileBuilder(grassFrame)
                     .withTileType(TileType.PASSABLE)
                     .build(locs.x, locs.y);
-            setMapTile(6, 16, mapTile1);
+            setMapTile(18, 16, mapTile1);
             
 	        Frame[] frame = new Frame[] {
             		new FrameBuilder(map.getTileset().getSubImage(12, 0), 500)
@@ -52,10 +52,10 @@ public class Arrow2Script extends Script {
                     .withScale(map.getTileset().getTileScale())
                     .build()
             };
-            Point loc = map.getMapTile(6, 16).getLocation();
+            Point loc = map.getMapTile(18, 16).getLocation();
             MapTile mapTiles = new MapTileBuilder(frame)
                     .build(loc.x, loc.y);
-            setMapTile(6, 16, mapTiles);
+            setMapTile(18, 16, mapTiles);
             
             
             
@@ -73,29 +73,29 @@ public class Arrow2Script extends Script {
 	        Frame arrowFrame = new FrameBuilder(map.getTileset().getSubImage(11, 3), 0)
                  .withScale(map.getTileset().getTileScale())
                  .build();
-         Point location = map.getMapTile(5, 16).getLocation();
+         Point location = map.getMapTile(17, 16).getLocation();
          MapTile mapTile = new MapTileBuilder(arrowFrame)
                  .withTileType(TileType.NOT_PASSABLE)
                  .build(location.x, location.y);
-         setMapTile(5, 16, mapTile);
+         setMapTile(17, 16, mapTile);
          
          Frame grassFrame = new FrameBuilder(map.getTileset().getSubImage(8, 1), 0)
                  .withScale(map.getTileset().getTileScale())
                  .build();
-         Point loc = map.getMapTile(6, 16).getLocation();
+         Point loc = map.getMapTile(18, 16).getLocation();
          MapTile mapTiles = new MapTileBuilder(grassFrame)
                  .withTileType(TileType.PASSABLE)
                  .build(loc.x, loc.y);
-         setMapTile(6, 16, mapTiles);
+         setMapTile(18, 16, mapTiles);
          
          Frame arrow2Frame = new FrameBuilder(map.getTileset().getSubImage(12, 2), 0)
                  .withScale(map.getTileset().getTileScale())
                  .build();
-         Point loc1 = map.getMapTile(7, 16).getLocation();
+         Point loc1 = map.getMapTile(19, 16).getLocation();
          MapTile mapTiles1 = new MapTileBuilder(arrow2Frame)
                  .withTileType(TileType.PASSABLE)
                  .build(loc1.x, loc1.y);
-         setMapTile(7, 16, mapTiles1);
+         setMapTile(19, 16, mapTiles1);
          
          
 
@@ -121,3 +121,4 @@ public class Arrow2Script extends Script {
 	        return ScriptState.COMPLETED;
 	    }
 	}
+

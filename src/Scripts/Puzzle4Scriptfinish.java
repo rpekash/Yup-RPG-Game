@@ -3,6 +3,7 @@ package Scripts;
 import Level.Script;
 import Level.ScriptState;
 import Screens.PuzzleFourScreen;
+import Screens.PuzzleThreeScreen;
 
 public class Puzzle4Scriptfinish extends Script {
     @Override
@@ -30,6 +31,7 @@ public class Puzzle4Scriptfinish extends Script {
                 return ScriptState.RUNNING;
             }
             end();
+            PuzzleFourScreen.setCompleted(true);
             PuzzleFourScreen.goBackToLevel();
         }
         return ScriptState.COMPLETED;

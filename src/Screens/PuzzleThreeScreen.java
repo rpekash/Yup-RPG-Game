@@ -1,5 +1,15 @@
 package Screens;
 
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
+import java.util.Set;
+
+import javax.swing.JLabel;
+import javax.swing.Timer;
+
 import Engine.GraphicsHandler;
 
 import Engine.Screen;
@@ -20,18 +30,28 @@ public class PuzzleThreeScreen extends Screen {
     protected Player player;
     protected PuzzleThreeScreenState puzzleThreeScreenState;
     protected FlagManager flagManager;
+    private static Boolean completed = false;
+    protected Timer timer;
+    protected JLabel countLabel;
+    protected int minutes, seconds;
+    protected Font cFont = new Font("Arial", Font.PLAIN, 50);
+    protected boolean isRunning;
+    protected String ddSec, ddMin;
+    protected DecimalFormat dForm = new DecimalFormat("00");
 
     public PuzzleThreeScreen(ScreenCoordinator screenCoordinator) {
         this.screenCoordinator = screenCoordinator;
     }
 
     public void initialize() {
+    	
+    	
         // setup state
         flagManager = new FlagManager();
-
+        flagManager.addFlag("hasFinishedPuzzle3", false);
         // define/setup map
         this.map = new PuzzleThreeMap(null);
-        map.reset();
+        //map.reset();
         map.setFlagManager(flagManager);
 
         // setup player
@@ -44,6 +64,17 @@ public class PuzzleThreeScreen extends Screen {
         
         map.setPlayer(player);
         map.getHealthbar().setPlayer(player);
+        
+        this.countLabel = new JLabel("");
+        this.countLabel.setBounds(545, 402, 100, 100);
+        this.countLabel.setHorizontalAlignment(JLabel.CENTER);
+        this.countLabel.setFont(cFont);
+        
+        countLabel.setText("0:30");
+        seconds = 0;
+        minutes = 1;
+        ddSec = dForm.format(seconds);
+        isRunning = true;
 
         // let pieces of map know which button to listen for as the "interact" button
         map.getTextbox().setInteractKey(player.getInteractKey());
@@ -72,6 +103,8 @@ public class PuzzleThreeScreen extends Screen {
                 trigger.getTriggerScript().setPlayer(player);
             }
         }
+        puzzleTimer();
+        timer.start();
     }
 
     public void update() {
@@ -93,13 +126,21 @@ public class PuzzleThreeScreen extends Screen {
         switch (puzzleThreeScreenState) {
             case RUNNING:
                 map.draw(player, graphicsHandler);
+                
+                graphicsHandler.drawString(minutes + ":" + ddSec, 100, 100, cFont, Color.BLACK);
                 break;
             case PUZZLE_COMPLETED:
                 break;
         }
     }
 
-    public PuzzleThreeScreenState getPlayLevelScreenState() {
+    public static  void setCompleted(Boolean complete) {
+    	completed = complete;
+    }
+    public static boolean getCompleted() {
+    	return completed;
+    }
+    public PuzzleThreeScreenState getthreeLevelScreenState() {
         return puzzleThreeScreenState;
     }
 
@@ -115,6 +156,31 @@ public class PuzzleThreeScreen extends Screen {
     // This enum represents the different states this screen can be in
     private enum PuzzleThreeScreenState {
         RUNNING, PUZZLE_COMPLETED
+    }
+    
+    public void puzzleTimer() {
+    	timer = new Timer(1000, new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				seconds--;
+				ddSec = dForm.format(seconds);
+				countLabel.setText(minutes + ":" + ddSec);
+				
+				if (seconds == -1) {
+					seconds = 59;
+					minutes--;
+					ddSec = dForm.format(seconds);
+					countLabel.setText(minutes + ":" + ddSec);
+				}
+				if (minutes == 0 && seconds == 0) {
+					timer.stop();
+					isRunning = false;
+					screenCoordinator.setGameState(GameState.LEVEL);
+					
+				}
+				
+			}
+		});
     }
 }
 
