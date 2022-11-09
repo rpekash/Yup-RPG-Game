@@ -1,13 +1,17 @@
 package Screens;
 
+import java.awt.Color;
+
 import Engine.GraphicsHandler;
 import Engine.Screen;
 import Game.GameState;
+import Game.PuzzleIndex;
 import Game.ScreenCoordinator;
 import Level.*;
 import Maps.TestMap;
 import Music.LoopMusicJavaUpdated;
 import Players.Cat;
+import SpriteFont.SpriteFont;
 import Utils.Direction;
 import Utils.Point;
 
@@ -23,10 +27,11 @@ public class PlayLevelScreen extends Screen {
     private static Boolean completed = false;
 
     public PlayLevelScreen(ScreenCoordinator screenCoordinator) {
-        this.screenCoordinator = screenCoordinator;
+        PlayLevelScreen.screenCoordinator = screenCoordinator;
     }
 
     public void initialize() {
+    	  
         // setup state
         flagManager = new FlagManager();
         flagManager.addFlag("hasFinishedPuzzle3", false);
@@ -38,7 +43,7 @@ public class PlayLevelScreen extends Screen {
         flagManager.addFlag("hasFoundBall", false);
 
         // define/setup map
-        this.map = new TestMap(null);
+        this.map = new TestMap(null, screenCoordinator);
        // map.reset();
         map.setFlagManager(flagManager);
 
@@ -52,10 +57,12 @@ public class PlayLevelScreen extends Screen {
         
         map.setPlayer(player);
         map.getHealthbar().setPlayer(player);
+        map.getCompletedPuzzleBar().setScreenCoordinator(screenCoordinator);
         
         // let pieces of map know which button to listen for as the "interact" button
         map.getTextbox().setInteractKey(player.getInteractKey());
 
+        
         // setup map scripts to have references to the map and player
         for (MapTile mapTile : map.getMapTiles()) {
             if (mapTile.getInteractScript() != null) {

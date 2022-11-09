@@ -3,7 +3,8 @@
 
 	import EnhancedMapTiles.Rock;
 	import EnhancedMapTiles.TextTile;
-	import Level.EnhancedMapTile;
+import Game.ScreenCoordinator;
+import Level.EnhancedMapTile;
 	import Level.Map;
 	import Level.NPC;
 import Level.Player;
@@ -55,8 +56,8 @@ import Scripts.TestMap.TreeScript;
 	// Represents a test map to be used in a level
 	public class PuzzleFourMap extends Map {
 
-	    public PuzzleFourMap(Player player) {
-	        super("puzzle4.txt", new CommonTileset(), player);
+	    public PuzzleFourMap(Player player, ScreenCoordinator screenCoordinator) {
+	        super("puzzle4.txt", new CommonTileset(), player, screenCoordinator);
 	        this.playerStartPosition = getMapTile(7, 1).getLocation();
 	    }
 

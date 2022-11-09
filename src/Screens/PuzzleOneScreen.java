@@ -21,6 +21,7 @@ import Maps.TestMap;
 import Music.LoopMusicJavaUpdated;
 import Players.Cat;
 import Scripts.TestMap.Puzzle1Script;
+import SpriteFont.SpriteFont;
 //import Screens.PlayLevelScreen.PlayLevelScreenState;
 import Utils.Direction;
 import Utils.Point;
@@ -48,6 +49,7 @@ public class PuzzleOneScreen extends Screen {
     }
 
     public void initialize() {
+    
         // setup state
         flagManager = new FlagManager();
         //flagManager.addFlag("RockOnTile1", false);
@@ -55,7 +57,7 @@ public class PuzzleOneScreen extends Screen {
         //flagManager.addFlag("RockOnTile3", false);
 
         // define/setup map
-        this.map = new PuzzleMap1(null);
+        this.map = new PuzzleMap1(null, screenCoordinator);
        // map.reset();
         map.setFlagManager(flagManager);
 
@@ -69,6 +71,8 @@ public class PuzzleOneScreen extends Screen {
         
         map.setPlayer(player);
         map.getHealthbar().setPlayer(player);
+        map.getCompletedPuzzleBar().setScreenCoordinator(screenCoordinator);
+
         
         this.countLabel = new JLabel("");
         this.countLabel.setBounds(545, 402, 100, 100);
@@ -143,6 +147,7 @@ public class PuzzleOneScreen extends Screen {
         				&& map.getActiveEnhancedMapTiles().get(2).overlaps(map.getActiveEnhancedMapTiles().get(5))) {
         	new Puzzle1Script();
             puzzleOneScreenState = PuzzleOneScreenState.PUZZLE_COMPLETED;
+        	screenCoordinator.completedPuzzles[PuzzleIndex.PUZZLE_ONE_INDEX] = true;
             PuzzleOneScreen.goBackToLevel();
         }
         if (!isRunning) {
@@ -159,7 +164,6 @@ public class PuzzleOneScreen extends Screen {
                 graphicsHandler.drawString(minutes + ":" + ddSec, 100, 100, cFont, Color.BLACK);
                 break;
             case PUZZLE_COMPLETED:
-            	player.completedPuzzles[PuzzleIndex.PUZZLE_ONE_INDEX] = true;
             	//winScreen.draw(graphicsHandler);
                 break;
             case PUZZLE_FAILED:

@@ -51,7 +51,7 @@ public class PuzzleThreeScreen extends Screen {
         flagManager = new FlagManager();
         flagManager.addFlag("hasFinishedPuzzle3", false);
         // define/setup map
-        this.map = new PuzzleThreeMap(null);
+        this.map = new PuzzleThreeMap(null,screenCoordinator);
         //map.reset();
         map.setFlagManager(flagManager);
 
@@ -65,6 +65,8 @@ public class PuzzleThreeScreen extends Screen {
         
         map.setPlayer(player);
         map.getHealthbar().setPlayer(player);
+        map.getCompletedPuzzleBar().setScreenCoordinator(screenCoordinator);
+
         
         this.countLabel = new JLabel("");
         this.countLabel.setBounds(545, 402, 100, 100);
@@ -127,11 +129,9 @@ public class PuzzleThreeScreen extends Screen {
         switch (puzzleThreeScreenState) {
             case RUNNING:
                 map.draw(player, graphicsHandler);
-                
                 graphicsHandler.drawString(minutes + ":" + ddSec, 100, 100, cFont, Color.BLACK);
                 break;
             case PUZZLE_COMPLETED:
-            	player.completedPuzzles[PuzzleIndex.PUZZLE_THREE_INDEX] = true;
                 break;
         }
     }
@@ -152,6 +152,7 @@ public class PuzzleThreeScreen extends Screen {
     }
     
     public static void goBackToLevel() {
+    	screenCoordinator.completedPuzzles[PuzzleIndex.PUZZLE_THREE_INDEX] = true;
         screenCoordinator.setGameState(GameState.LEVEL);
     }
 

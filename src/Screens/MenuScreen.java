@@ -35,7 +35,7 @@ public class MenuScreen extends Screen {
         credits = new SpriteFont("CREDITS", 200, 250, "Comic Sans", 30, new Color(49, 207, 240));
         credits.setOutlineColor(Color.black);
         credits.setOutlineThickness(3);
-        background = new TitleScreenMap(null);
+        background = new TitleScreenMap(null, screenCoordinator);
         background.setAdjustCamera(false);
         keyTimer.setWaitTime(200);
         menuItemSelected = -1;

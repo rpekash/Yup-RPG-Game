@@ -3,6 +3,7 @@ package Maps;
 import EnhancedMapTiles.Rock;
 
 import EnhancedMapTiles.TextTile;
+import Game.ScreenCoordinator;
 import Level.EnhancedMapTile;
 import Level.Map;
 import Level.NPC;
@@ -35,8 +36,8 @@ public class PuzzleMap1 extends Map {
 	//Puzzle1Script script = new Puzzle1Script();
 	
 
-    public PuzzleMap1(Player player) {
-        super("puzzle1.txt", new CommonTileset(),player);
+    public PuzzleMap1(Player player,ScreenCoordinator screenCoordinator) {
+        super("puzzle1.txt", new CommonTileset(),player, screenCoordinator);
         this.playerStartPosition = getMapTile(7, 10).getLocation();
     }
 
