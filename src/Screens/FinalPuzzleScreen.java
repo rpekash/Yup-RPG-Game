@@ -1,5 +1,6 @@
 package Screens;
 
+import Enemy.UFOs;
 import Engine.GraphicsHandler;
 
 import Engine.Screen;
@@ -19,6 +20,7 @@ public class FinalPuzzleScreen extends Screen {
     protected static ScreenCoordinator screenCoordinator;
     protected Map map;
     protected Player player;
+    protected Enemy enemy;
     protected FinalPuzzleScreenState finalpuzzleScreenState;
     protected FlagManager flagManager;
     private static Boolean completed;
@@ -37,6 +39,8 @@ public class FinalPuzzleScreen extends Screen {
         map.setFlagManager(flagManager);
 
         // setup player
+        
+        
         this.player = new Cat(map.getPlayerStartPosition().x, map.getPlayerStartPosition().y, screenCoordinator);
         this.player.setMap(map);
         Point playerStartPosition = map.getPlayerStartPosition();
@@ -82,6 +86,7 @@ public class FinalPuzzleScreen extends Screen {
             // if level is "running" update player and map to keep game logic for the platformer level going
             case RUNNING:
                 player.update();
+              //  enemy.update();
                 map.update(player);
                 break;
             // if level has been completed, bring up level cleared screen
@@ -96,6 +101,7 @@ public class FinalPuzzleScreen extends Screen {
         switch (finalpuzzleScreenState) {
             case RUNNING:
                 map.draw(player, graphicsHandler);
+                
                 break;
             case PUZZLE_COMPLETED:
                 break;

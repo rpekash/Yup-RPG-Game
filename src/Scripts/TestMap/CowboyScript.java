@@ -4,6 +4,10 @@ import Builders.FrameBuilder;
 import Builders.MapTileBuilder;
 import GameObject.Frame;
 import Level.*;
+import Screens.PuzzleFourScreen;
+import Screens.PuzzleOneScreen;
+import Screens.PuzzleThreeScreen;
+import Screens.PuzzleTwoScreen;
 import Utils.Direction;
 import Utils.Point;
 
@@ -29,118 +33,90 @@ public class CowboyScript extends Script<NPC> {
 		}
 
 		else if (isFlagSet("hasTalkedToOJ") && !isFlagSet("hasTalkedToCowboy")) {
-			if (sequence == 0) {
-				showTextbox();
-				addTextToTextboxQueue("I think there are some more portals try looking over there");
-			} else if (sequence == 1) {
+			showTextbox();
+			addTextToTextboxQueue("I think there are some more portals try looking over there");
+		}
+		if (PuzzleOneScreen.getCompleted() == true) {
+			showTextbox();
+			addTextToTextboxQueue("Hey, you completed a portal.");
+			addTextToTextboxQueue("You almost ran out of time there");
+			addTextToTextboxQueue("There are still more protals!\ntry and find another");
+		}
+		if (PuzzleThreeScreen.getCompleted() == true) {
+			showTextbox();
+			addTextToTextboxQueue("Hey, you made it out. the last guy that tried didn't make it.");
+			addTextToTextboxQueue("I wonder what happends when time runs out,\nit kinda reminds me of when");
+			addTextToTextboxQueue("I was a kid on the show Gordies Home, and the\nmonkey on the show ... anyways long story maybe ill tell you sometime");
+			addTextToTextboxQueue("There are still more protals!\ntry and find another");
+		}
+		
+		if (PuzzleOneScreen.getCompleted() == true && PuzzleTwoScreen.getCompleted() == true
+				&& PuzzleThreeScreen.getCompleted() == false && PuzzleFourScreen.getCompleted() == false) {
+			showTextbox();
+			addTextToTextboxQueue("you have 2 more portals to find! try talking to the guy with the cowboy hat for help.");
+			
 
-			} else if (sequence == 2) {
-				entity.facePlayer(player);
-				showTextbox();
-				addTextToTextboxQueue("Oh, you're still here...");
+		}
+		
+		else if (PuzzleOneScreen.getCompleted() == true && PuzzleTwoScreen.getCompleted() == true
+				&& PuzzleThreeScreen.getCompleted() == true && PuzzleFourScreen.getCompleted() == false) {
+			showTextbox();
+			addTextToTextboxQueue("you have 2 more portals to find! try talking to the guy with the cowboy hat for help.");
+			
 
-			} else if (sequence == 3) {
-				entity.stand(Direction.RIGHT);
-				amountMoved = 0;
-			} else if (sequence == 4) {
-				amountMoved = 0;
-			} else if (sequence == 5) {
-				entity.stand(Direction.LEFT);
+		}
+		
+		else if (PuzzleOneScreen.getCompleted() == false && PuzzleTwoScreen.getCompleted() == false
+				&& PuzzleThreeScreen.getCompleted() == true && PuzzleFourScreen.getCompleted() == true) {
+			showTextbox();
+			addTextToTextboxQueue("you have 2 more portals to find! try talking to the guy with the cowboy hat for help.");
+			
 
-			}
+		}
+		else if (PuzzleOneScreen.getCompleted() == false && PuzzleTwoScreen.getCompleted() == true
+				&& PuzzleThreeScreen.getCompleted() == false && PuzzleFourScreen.getCompleted() == true) {
+			showTextbox();
+			addTextToTextboxQueue("you have 2 more portals to find! try talking to the guy with the cowboy hat for help.");
+			
+
+		}
+		
+		else if (PuzzleOneScreen.getCompleted() == true && PuzzleTwoScreen.getCompleted() == false
+				&& PuzzleThreeScreen.getCompleted() == false && PuzzleFourScreen.getCompleted() == true) {
+			showTextbox();
+			addTextToTextboxQueue("you have 2 more portals to find! try talking to the guy with the cowboy hat for help.");
+			
+
+		}
+		
+		else if (PuzzleOneScreen.getCompleted() == false && PuzzleTwoScreen.getCompleted() == true
+				&& PuzzleThreeScreen.getCompleted() == true && PuzzleFourScreen.getCompleted() == false) {
+			showTextbox();
+			addTextToTextboxQueue("you have 2 more portals to find! try talking to the guy with the cowboy hat for help.");
+			
+
 		}
 	}
 
 	@Override
 	protected void cleanup() {
-		if (isFlagSet("hasTalkedToOJ")) {
-			unlockPlayer();
-			hideTextbox();
-			entity.stand(Direction.LEFT);
-		} else if (isFlagSet("hasTalkedToOJ") && !isFlagSet("hasTalkedToCowboy")) {
-			if (sequence == 0) {
-				hideTextbox();
-				sequence++;
-			} else if (sequence == 1) {
-				sequence++;
-			} else if (sequence == 2) {
-				hideTextbox();
-				sequence++;
-			} else if (sequence == 3) {
-				sequence++;
-			} else if (sequence == 4) {
-				sequence++;
-			} else if (sequence == 5) {
-				sequence++;
-
-				setFlag("hasTalkedToCowboy");
-				unlockPlayer();
-			}
-		}
+		setFlag("hasTalkedToCowboy");
+		entity.stand(Direction.RIGHT);
+		unlockPlayer();
+		hideTextbox();
 	}
 
 	@Override
 	public ScriptState execute() {
-		if (!isFlagSet("hasTalkedToOJ")) {
-			start();
-			if (!isTextboxQueueEmpty()) {
-				return ScriptState.RUNNING;
-			}
-			end();
-			return ScriptState.COMPLETED;
-		} else if (!isFlagSet("hasTalkedToOJ")) {
-			// talks
-			if (sequence == 0) {
-				start();
-				if (isTextboxQueueEmpty()) {
-					end();
-				}
-			}
-			// pauses
-			else if (sequence == 1) {
-				start();
-				entity.stand(Direction.LEFT);
+		start();
+		if (!isTextboxQueueEmpty()) {
 
-				if (isWaitTimeUp()) {
-					end();
-				}
-			}
-			// talks more
-			else if (sequence == 2) {
-				start();
-				if (isTextboxQueueEmpty()) {
-					end();
-				}
-			}
-			// walk downwards
-			else if (sequence == 3) {
-				start();
-				entity.walk(Direction.DOWN, 2);
-				amountMoved += 2;
-				if (amountMoved == 36) {
-					end();
-				}
-			}
-			// walk right
-			else if (sequence == 4) {
-				start();
-				entity.walk(Direction.RIGHT, 2);
-				amountMoved += 2;
-				if (amountMoved == 196) {
-					end();
-				}
-			}
-			// walk up
-			else if (sequence == 5) {
-				start();
-				entity.walk(Direction.UP, 2);
-				amountMoved += 2;
-				if (amountMoved == 50) {
-					end();
-				}
-			}
 			return ScriptState.RUNNING;
+
 		}
+
+		end();
+
 		return ScriptState.COMPLETED;
 	}
 }

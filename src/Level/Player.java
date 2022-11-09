@@ -203,6 +203,9 @@ public abstract class Player extends GameObject {
     public void hurtPlayer(MapEntity mapEntity) {
 
     }
+    
+    public  float getX() { return currentFrame.getX(); }
+	public  float getY() { return currentFrame.getY(); }
 
     public PlayerState getPlayerState() {
         return playerState;
@@ -293,6 +296,8 @@ public abstract class Player extends GameObject {
     	}
     	
     }
+    
+   
     
     public int numberOfPuzzlesCompleted() {
     	int puzzlesCompletedCounter = 0;

@@ -66,6 +66,7 @@ public abstract class Map {
     // lists to hold map entities that are a part of the map
     protected ArrayList<EnhancedMapTile> enhancedMapTiles;
     protected ArrayList<NPC> npcs;
+    protected ArrayList<Enemy> enemy;
     protected ArrayList<Trigger> triggers;
 
     protected Script activeInteractScript;
@@ -118,6 +119,11 @@ public abstract class Map {
         this.npcs = loadNPCs();
         for (NPC npc: this.npcs) {
             npc.setMap(this);
+        }
+        
+        this.enemy = loadEnemys();
+        for (Enemy enemy: this.enemy) {
+            enemy.setMap(this);
         }
 
         this.triggers = loadTriggers();
@@ -302,6 +308,10 @@ public abstract class Map {
 
     // list of npcs defined to be a part of the map, should be overridden in a subclass
     protected ArrayList<NPC> loadNPCs() {
+        return new ArrayList<>();
+    }
+    
+    protected ArrayList<Enemy> loadEnemys() {
         return new ArrayList<>();
     }
 

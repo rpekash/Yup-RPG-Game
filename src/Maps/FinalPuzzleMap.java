@@ -3,6 +3,8 @@ package Maps;
 import EnhancedMapTiles.Rock;
 import EnhancedMapTiles.Spike;
 import EnhancedMapTiles.TextTile;
+import Game.ScreenCoordinator;
+import Level.Enemy;
 import Level.EnhancedMapTile;
 import Level.Map;
 import Level.NPC;
@@ -31,6 +33,8 @@ import Utils.Direction;
 
 import java.util.ArrayList;
 
+import Enemy.UFOs;
+
 // Represents a test map to be used in a level
 public class FinalPuzzleMap extends Map {
 	Boolean run = true;
@@ -49,14 +53,13 @@ public class FinalPuzzleMap extends Map {
        // enhancedMapTiles.add(new TextTile(getMapTile(4, 7).getLocation(), rock));
         return enhancedMapTiles;
     }
-
     @Override
     public ArrayList<NPC> loadNPCs() {
         ArrayList<NPC> npcs = new ArrayList<>();
 
         
         
-        UFO ufo = new UFO(4, getMapTile(4,4).getLocation());
+       UFO ufo = new UFO(4, getMapTile(4,4).getLocation());
         ufo.setInteractScript(new UFOScript());
         npcs.add(ufo);
         
