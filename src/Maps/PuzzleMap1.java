@@ -24,6 +24,10 @@ import Scripts.TestMap.P1Script3;
 import Scripts.TestMap.Puzzle1Script;
 import Scripts.TestMap.Puzzle1Spike;
 import Scripts.TestMap.Puzzle1Spike2;
+import Scripts.TestMap.Puzzle1Spike3;
+import Scripts.TestMap.Puzzle1Spike4;
+import Scripts.TestMap.Puzzle1Spike5;
+import Scripts.TestMap.Puzzle1Spike6;
 import Scripts.TestMap.SpikeScript;
 import Scripts.TestMap.TreeScript;
 import Scripts.TestMap.UFOScript;
@@ -96,10 +100,10 @@ public class PuzzleMap1 extends Map {
         ArrayList<Trigger> triggers = new ArrayList<>();
         triggers.add(new Trigger(195, 435, 40, 40, new Puzzle1Spike(), "hasHitSpike"));
         triggers.add(new Trigger(390, 245, 40, 40, new Puzzle1Spike2(), "hasHitSpike"));
-        triggers.add(new Trigger(530, 485, 40, 40, new Puzzle1Spike2(), "hasHitSpike"));
-        triggers.add(new Trigger(530, 285, 40, 40, new Puzzle1Spike2(), "hasHitSpike"));
-        triggers.add(new Trigger(390, 435, 40, 40, new Puzzle1Spike2(), "hasHitSpike"));
-        triggers.add(new Trigger(390, 340, 40, 40, new Puzzle1Spike2(), "hasHitSpike"));
+        triggers.add(new Trigger(530, 485, 40, 40, new Puzzle1Spike3(), "hasHitSpike"));
+        triggers.add(new Trigger(530, 285, 40, 40, new Puzzle1Spike4(), "hasHitSpike"));
+        triggers.add(new Trigger(390, 435, 40, 40, new Puzzle1Spike5(), "hasHitSpike"));
+        triggers.add(new Trigger(390, 340, 40, 40, new Puzzle1Spike6(), "hasHitSpike"));
         return triggers;
     } 
 
