@@ -23,6 +23,13 @@ import Scripts.TestMap.P1Script1;
 import Scripts.TestMap.P1Script2;
 import Scripts.TestMap.P1Script3;
 import Scripts.TestMap.Puzzle1Script;
+import Scripts.TestMap.Puzzle1Spike;
+import Scripts.TestMap.Puzzle1Spike2;
+import Scripts.TestMap.Puzzle1Spike3;
+import Scripts.TestMap.Puzzle1Spike4;
+import Scripts.TestMap.Puzzle1Spike5;
+import Scripts.TestMap.Puzzle1Spike6;
+import Scripts.TestMap.SpikeScript;
 import Scripts.TestMap.TreeScript;
 import Scripts.TestMap.UFOScript;
 import Scripts.TestMap.WalrusScript;
@@ -44,13 +51,13 @@ public class PuzzleMap1 extends Map {
     @Override
     public ArrayList<EnhancedMapTile> loadEnhancedMapTiles() {
         ArrayList<EnhancedMapTile> enhancedMapTiles = new ArrayList<>();
-        Rock rock1 = new Rock(getMapTile(4, 10).getLocation(), "BSpotRock.png");
+        Rock rock1 = new Rock(getMapTile(4, 10).getLocation(), "bHorse.png");
         //rock1.setExistenceFlag("onRock1");
         enhancedMapTiles.add(rock1);
-        Rock rock2 = new Rock(getMapTile(11, 9).getLocation(), "GrSpotRock.png");
+        Rock rock2 = new Rock(getMapTile(11, 9).getLocation(), "gHorse.png");
         //rock1.setExistenceFlag("onRock2");
         enhancedMapTiles.add(rock2);
-        Rock rock3 = new Rock(getMapTile(9, 5).getLocation(), "RSpotRock.png");
+        Rock rock3 = new Rock(getMapTile(9, 5).getLocation(), "rHorse.png");
         //rock1.setExistenceFlag("onRock3");
         enhancedMapTiles.add(rock3);
         TextTile tile1 = new TextTile(getMapTile(4, 7).getLocation(), rock1, "BSandTile.png");
@@ -92,9 +99,12 @@ public class PuzzleMap1 extends Map {
     @Override
     public ArrayList<Trigger> loadTriggers() {
         ArrayList<Trigger> triggers = new ArrayList<>();
-        //triggers.add(new Trigger(211, 355, 10, 10, new P1Script1(), "RockOnTile1"));
-        //triggers.add(new Trigger(545, 402, 10, 10, new P1Script2(), "RockOnTile2"));
-        //triggers.add(new Trigger(257, 402, 10, 10, new P1Script3(), "RockOnTile3"));
+        triggers.add(new Trigger(195, 435, 40, 40, new Puzzle1Spike(), "hasHitSpike"));
+        triggers.add(new Trigger(390, 245, 40, 40, new Puzzle1Spike2(), "hasHitSpike"));
+        triggers.add(new Trigger(530, 485, 40, 40, new Puzzle1Spike3(), "hasHitSpike"));
+        triggers.add(new Trigger(530, 285, 40, 40, new Puzzle1Spike4(), "hasHitSpike"));
+        triggers.add(new Trigger(390, 435, 40, 40, new Puzzle1Spike5(), "hasHitSpike"));
+        triggers.add(new Trigger(390, 340, 40, 40, new Puzzle1Spike6(), "hasHitSpike"));
         return triggers;
     } 
 

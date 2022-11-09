@@ -92,7 +92,7 @@ public class PlayLevelScreen extends Screen {
         winScreen = new WinScreen(this);
         
 		playMusic = new LoopMusicJavaUpdated();
-		playMusic.playMusicInScreen();
+		playMusic.playMusicInScreen("src/SciFi.wav");
     }
 
     public void update() {

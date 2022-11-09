@@ -2,6 +2,7 @@ package Scripts.TestMap;
 
 import Level.Script;
 import Level.ScriptState;
+import Music.ClipMusicJavaUpdated;
 import Screens.PlayLevelScreen;
 import Screens.PuzzleThreeScreen;
 import Screens.PuzzleTwoScreen;
@@ -33,6 +34,8 @@ public class Puzzle2Script extends Script {
                 return ScriptState.RUNNING;
             }
             end();
+            ClipMusicJavaUpdated playMusic = new ClipMusicJavaUpdated();
+    		playMusic.playMusicInScreen("src/tileSound2.wav");
             PuzzleTwoScreen.setCompleted(true);
             PuzzleTwoScreen.goBackToLevel();
         }
