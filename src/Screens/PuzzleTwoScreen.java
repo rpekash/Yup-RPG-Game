@@ -4,6 +4,7 @@ import Engine.GraphicsHandler;
 
 import Engine.Screen;
 import Game.GameState;
+import Game.PuzzleIndex;
 import Game.ScreenCoordinator;
 import Level.*;
 import Maps.PuzzleTwoMap;
@@ -17,8 +18,9 @@ public class PuzzleTwoScreen extends Screen {
     protected static ScreenCoordinator screenCoordinator;
     protected Map map;
     protected Player player;
-    protected PuzzleTwoScreenState puzzleTwoScreenState;
+    protected static PuzzleTwoScreenState puzzleTwoScreenState;
     protected FlagManager flagManager;
+    private static Boolean completed = false;
 
     public PuzzleTwoScreen(ScreenCoordinator screenCoordinator) {
         this.screenCoordinator = screenCoordinator;
@@ -27,6 +29,7 @@ public class PuzzleTwoScreen extends Screen {
     public void initialize() {
         // setup state
         flagManager = new FlagManager();
+        flagManager.addFlag("hasFinishedPuzzle2", false);
 
         // define/setup map
         this.map = new PuzzleTwoMap(null);
@@ -94,15 +97,23 @@ public class PuzzleTwoScreen extends Screen {
                 map.draw(player, graphicsHandler);
                 break;
             case PUZZLE_COMPLETED:
+            	player.completedPuzzles[PuzzleIndex.PUZZLE_TWO_INDEX] = true;
                 break;
         }
+    }
+    
+    public static  void setCompleted(Boolean complete) {
+    	completed = complete;
+    }
+    public static boolean getCompleted() {
+    	return completed;
     }
 
     public PuzzleTwoScreenState getPlayLevelScreenState() {
         return puzzleTwoScreenState;
     }
 
-
+    
     public void resetPuzzle() {
         initialize();
     }
@@ -111,6 +122,8 @@ public class PuzzleTwoScreen extends Screen {
         screenCoordinator.setGameState(GameState.LEVEL);
     }
 
+   
+    
     // This enum represents the different states this screen can be in
     private enum PuzzleTwoScreenState {
         RUNNING, PUZZLE_COMPLETED

@@ -21,14 +21,14 @@ public class Puzzle3Script extends Script {
 
     @Override
     protected void cleanup() {
-        setFlag("hasFinishedMaze");
+        setFlag("hasFinishedPuzzle3");
         hideTextbox();
         unlockPlayer();
     }
 
     @Override
     public ScriptState execute() {
-        if (!isFlagSet("hasFinishedMaze")) {
+        if (!isFlagSet("hasFinishedPuzzle3")) {
             start();
             if (!isTextboxQueueEmpty()) {
                 return ScriptState.RUNNING;
@@ -36,6 +36,7 @@ public class Puzzle3Script extends Script {
             end();
             ClipMusicJavaUpdated playMusic = new ClipMusicJavaUpdated();
     		playMusic.playMusicInScreen("src/tileSound2.wav");
+            PuzzleThreeScreen.setCompleted(true);
             PuzzleThreeScreen.goBackToLevel();
         }
         return ScriptState.COMPLETED;

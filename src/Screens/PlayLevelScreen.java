@@ -20,6 +20,7 @@ public class PlayLevelScreen extends Screen {
     protected WinScreen winScreen;
     protected FlagManager flagManager;
     protected LoopMusicJavaUpdated playMusic;
+    private static Boolean completed = false;
 
     public PlayLevelScreen(ScreenCoordinator screenCoordinator) {
         this.screenCoordinator = screenCoordinator;
@@ -28,14 +29,17 @@ public class PlayLevelScreen extends Screen {
     public void initialize() {
         // setup state
         flagManager = new FlagManager();
-        flagManager.addFlag("hasLostBall", false);
+        flagManager.addFlag("hasFinishedPuzzle3", false);
+        flagManager.addFlag("hasTalkedToOJ", false);
+        flagManager.addFlag("hasTalkedToCowboy", false);
+        flagManager.addFlag("hasTalkedToEm", false);
         flagManager.addFlag("hasTalkedToWalrus", false);
         flagManager.addFlag("hasTalkedToDinosaur", false);
         flagManager.addFlag("hasFoundBall", false);
 
         // define/setup map
         this.map = new TestMap(null);
-        map.reset();
+       // map.reset();
         map.setFlagManager(flagManager);
 
         // setup player
@@ -121,6 +125,12 @@ public class PlayLevelScreen extends Screen {
         return playLevelScreenState;
     }
 
+    public static  void setCompleted(Boolean complete) {
+    	completed = complete;
+    }
+    public static boolean getCompleted() {
+    	return completed;
+    }
 
     public void resetLevel() {
         initialize();

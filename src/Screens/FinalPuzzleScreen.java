@@ -4,6 +4,7 @@ import Engine.GraphicsHandler;
 
 import Engine.Screen;
 import Game.GameState;
+import Game.PuzzleIndex;
 import Game.ScreenCoordinator;
 import Level.*;
 import Maps.FinalPuzzleMap;
@@ -20,6 +21,7 @@ public class FinalPuzzleScreen extends Screen {
     protected Player player;
     protected FinalPuzzleScreenState finalpuzzleScreenState;
     protected FlagManager flagManager;
+    private static Boolean completed;
 
     public FinalPuzzleScreen(ScreenCoordinator screenCoordinator) {
         this.screenCoordinator = screenCoordinator;
@@ -31,7 +33,7 @@ public class FinalPuzzleScreen extends Screen {
 
         // define/setup map
         this.map = new FinalPuzzleMap(null);
-        map.reset();
+        //map.reset();
         map.setFlagManager(flagManager);
 
         // setup player
@@ -84,6 +86,7 @@ public class FinalPuzzleScreen extends Screen {
                 break;
             // if level has been completed, bring up level cleared screen
             case PUZZLE_COMPLETED:
+            	player.completedPuzzles[PuzzleIndex.PUZZLE_FINAL_INDEX] = true;
                 break;
         }
     }
@@ -98,8 +101,15 @@ public class FinalPuzzleScreen extends Screen {
                 break;
         }
     }
+    
+    public static  void setCompleted(Boolean complete) {
+    	completed = complete;
+    }
+    public static boolean getCompleted() {
+    	return completed;
+    }
 
-    public FinalPuzzleScreenState getPlayLevelScreenState() {
+    public FinalPuzzleScreenState getFinalLevelScreenState() {
         return finalpuzzleScreenState;
     }
 

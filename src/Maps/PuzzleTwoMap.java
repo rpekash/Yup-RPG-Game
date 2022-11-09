@@ -17,11 +17,22 @@ import NPCs.SpikeTrap;
 import Scripts.SimpleTextScript;
 import Scripts.TestMap.ArowScript;
 import Scripts.TestMap.Arrow2Script;
+import Scripts.TestMap.Arrow3Script;
+import Scripts.TestMap.Arrow4Script;
+import Scripts.TestMap.Arrow5Script;
+import Scripts.TestMap.Arrow6Script;
+import Scripts.TestMap.Arrow7Script;
 import Scripts.TestMap.DinoScript;
 import Scripts.TestMap.LostBallScript;
 import Scripts.TestMap.OJScript;
 import Scripts.TestMap.Puzzle2Script;
 import Scripts.TestMap.Spike2Script;
+import Scripts.TestMap.Spike3Script;
+import Scripts.TestMap.Spike4Script;
+import Scripts.TestMap.Spike5Script;
+import Scripts.TestMap.Spike6Script;
+import Scripts.TestMap.Spike7Script;
+import Scripts.TestMap.Spike8Script;
 import Scripts.TestMap.SpikeScript;
 import Scripts.TestMap.TreeScript;
 import Scripts.TestMap.UFOScript;
@@ -41,10 +52,10 @@ public class PuzzleTwoMap extends Map {
     @Override
     public ArrayList<EnhancedMapTile> loadEnhancedMapTiles() {
         ArrayList<EnhancedMapTile> enhancedMapTiles = new ArrayList<>();
-        Rock rock = new Rock(getMapTile(2, 7).getLocation(), "Rock.png");
-        enhancedMapTiles.add(rock);
+       // Rock rock = new Rock(getMapTile(2, 7).getLocation(), "Rock.png");
+       // enhancedMapTiles.add(rock);
         
-        enhancedMapTiles.add(new TextTile(getMapTile(4, 7).getLocation(), rock, "sand.png"));
+       // enhancedMapTiles.add(new TextTile(getMapTile(4, 7).getLocation(), rock, "sand.png"));
         return enhancedMapTiles;
     }
 
@@ -81,10 +92,25 @@ public class PuzzleTwoMap extends Map {
     public ArrayList<Trigger> loadTriggers() {
         ArrayList<Trigger> triggers = new ArrayList<>();
         triggers.add(new Trigger(20, 1190, 30, 70, new Puzzle2Script(), "hasFinishedMaze"));
-        triggers.add(new Trigger(885, 965, 5, 40, new SpikeScript(), "hasHitSpike"));
-        triggers.add(new Trigger(455, 1205, 5, 40, new Spike2Script(), "hasHitSpike2"));
+        
+        triggers.add(new Trigger(870, 965, 40, 40, new SpikeScript(), "hasHitSpike"));
+        triggers.add(new Trigger(435, 1205, 40, 40, new Spike2Script(), "hasHitSpike2"));
+        triggers.add(new Trigger(675, 580, 40, 40, new Spike3Script(), "hasHitSpike2"));
+        triggers.add(new Trigger(868, 627, 40, 40, new Spike4Script(), "hasHitSpike2"));
+        triggers.add(new Trigger(965, 100, 40, 40, new Spike5Script(), "hasHitSpike2"));
+        triggers.add(new Trigger(580, 290, 40, 40, new Spike6Script(), "hasHitSpike2"));
+        triggers.add(new Trigger(100, 245, 40, 40, new Spike7Script(), "hasHitSpike2"));
+        triggers.add(new Trigger(195, 1348, 40, 40, new Spike8Script(), "hasHitSpike2"));
+        
+        
         triggers.add(new Trigger(570, 1085, 50, 50, new ArowScript(), "hasHitArrow"));
-        triggers.add(new Trigger(275, 790, 20, 20, new Arrow2Script(), "hasHitArrow2"));
+        triggers.add(new Trigger(275, 790, 20, 20, new Arrow2Script(), "hasHitArrow"));
+        triggers.add(new Trigger(175, 400, 50, 50, new Arrow3Script(), "hasHitArrow"));
+        triggers.add(new Trigger(80, 970, 50, 50, new Arrow4Script(), "hasHitArrow"));
+        triggers.add(new Trigger(830, 770, 50, 50, new Arrow5Script(), "hasHitArrow"));
+        triggers.add(new Trigger(740, 1360, 50, 50, new Arrow6Script(), "hasHitArrow"));
+        triggers.add(new Trigger(550, 60, 50, 50, new Arrow7Script(), "hasHitArrow"));
+       
         return triggers;
     } 
 

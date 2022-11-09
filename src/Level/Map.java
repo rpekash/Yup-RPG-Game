@@ -85,6 +85,8 @@ public abstract class Map {
     protected Inventory inventory;
     
     protected HealthBar healthbar;
+    
+    protected completedPuzzleBar completedPuzzleBar;
 
     public Map(String mapFileName, Tileset tileset, Player player) {
     	this.player = player;
@@ -129,6 +131,7 @@ public abstract class Map {
         this.textbox = new Textbox(this);
         this.inventory = new Inventory(this);
         this.healthbar = new HealthBar(this, player);
+        this.completedPuzzleBar = new completedPuzzleBar(this, player);
 
         
     }
@@ -613,6 +616,8 @@ public abstract class Map {
         }
         
         healthbar.draw(graphicsHandler);
+        
+        completedPuzzleBar.draw(graphicsHandler);
     }
 
     public FlagManager getFlagManager() { return flagManager; }

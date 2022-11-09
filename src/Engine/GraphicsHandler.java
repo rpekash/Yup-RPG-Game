@@ -1,11 +1,14 @@
 package Engine;
 
 import GameObject.ImageEffect;
+import Level.Player;
 
 import java.awt.*;
 import java.awt.font.GlyphVector;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
+
+import Game.PuzzleIndex;
 
 
 public class GraphicsHandler {
@@ -99,4 +102,12 @@ public class GraphicsHandler {
         g.setStroke(originalStroke);
         g.setRenderingHints(originalHints);
     }
+    
+//    public void puzzlesCompleted(int x, int y, Player player) {
+//    	g.setColor(Color.black);
+//    	Font myFont=new Font("TimesRoman",Font.BOLD,30);
+//    	g.setFont(myFont);
+//    	g.drawString(player.numberOfPuzzlesCompleted()+"/"+player.completedPuzzles[PuzzleIndex.NUMBER_OF_PUZZLES], x, y);
+//
+//    }
 }

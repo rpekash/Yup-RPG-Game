@@ -9,6 +9,8 @@ import Level.Player;
 import Level.Trigger;
 import NPCs.Cowboy;
 import NPCs.Dinosaur;
+import NPCs.Emerald;
+import NPCs.Filmer;
 import NPCs.OJ;
 import NPCs.Walrus;
 import NPCs.UFO;
@@ -16,7 +18,8 @@ import NPCs.Portal;
 import Scripts.SimpleTextScript;
 import Scripts.TestMap.CowboyScript;
 import Scripts.TestMap.DinoScript;
-
+import Scripts.TestMap.EmeraldScript;
+import Scripts.TestMap.FilmerScript;
 import Scripts.TestMap.GoToFinalScript;
 import Scripts.TestMap.LostBallScript;
 import Scripts.TestMap.OJScript;
@@ -68,7 +71,15 @@ public class TestMap extends Map {
         oj.setInteractScript(new OJScript());
         npcs.add(oj);
         
-        Cowboy cowboy = new Cowboy(3, getMapTile(12, 20).getLocation());
+        Filmer filmer = new Filmer(3, getMapTile(11, 11).getLocation());
+        filmer.setInteractScript(new FilmerScript());
+        npcs.add(filmer);
+        
+        Emerald em = new Emerald(3, getMapTile(4, 25).getLocation());
+        em.setInteractScript(new EmeraldScript());
+        npcs.add(em);
+        
+        Cowboy cowboy = new Cowboy(3, getMapTile(6, 9).getLocation());
         cowboy.setInteractScript(new CowboyScript());
         npcs.add(cowboy);
         
@@ -80,7 +91,7 @@ public class TestMap extends Map {
         portal.setInteractScript(new PortalScript());
         npcs.add(portal);
         
-        Portal p1portal = new Portal(5, getMapTile (7, 8).getLocation());
+        Portal p1portal = new Portal(5, getMapTile (10, 25).getLocation());
         p1portal.setInteractScript(new Portal3Script());
         npcs.add(p1portal);
         
@@ -101,7 +112,7 @@ public class TestMap extends Map {
     @Override
     public ArrayList<Trigger> loadTriggers() {
         ArrayList<Trigger> triggers = new ArrayList<>();
-        triggers.add(new Trigger(200, 140, 40, 0, new GoToFinalScript(), "hasFinishedMaze"));
+        triggers.add(new Trigger(200, 140, 40, 40, new GoToFinalScript(), "hasFinishedMaze"));
        
         return triggers;
     } 
