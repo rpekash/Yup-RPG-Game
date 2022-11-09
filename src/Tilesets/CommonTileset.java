@@ -26,7 +26,8 @@ public class CommonTileset extends Tileset {
                 .withScale(tileScale)
                 .build();
 
-        MapTileBuilder grassTile = new MapTileBuilder(grassFrame);
+        MapTileBuilder grassTile = new MapTileBuilder(grassFrame)
+        		.withTileType(TileType.NOT_PASSABLE);
 
         mapTiles.add(grassTile);
 
@@ -45,7 +46,8 @@ public class CommonTileset extends Tileset {
                 .withScale(tileScale)
                 .build();
 
-        MapTileBuilder sandTile = new MapTileBuilder(sandFrame);
+        MapTileBuilder sandTile = new MapTileBuilder(sandFrame)
+        		.withTileType(TileType.NOT_PASSABLE);
 
         mapTiles.add(sandTile);
 
@@ -100,9 +102,9 @@ public class CommonTileset extends Tileset {
                 .withScale(tileScale)
                 .build();
 
-        MapTileBuilder treeTrunkTile = new MapTileBuilder(grassFrame)
-                .withTopLayer(treeTrunkFrame)
-                .withTileType(TileType.PASSABLE);
+        MapTileBuilder treeTrunkTile = new MapTileBuilder(treeTrunkFrame)
+        		.withTileType(TileType.NOT_PASSABLE);
+                
 
         mapTiles.add(treeTrunkTile);
 
@@ -111,9 +113,9 @@ public class CommonTileset extends Tileset {
                 .withScale(tileScale)
                 .build();
 
-        MapTileBuilder treeTopLeavesTile = new MapTileBuilder(grassFrame)
-                .withTopLayer(treeTopLeavesFrame)
-                .withTileType(TileType.PASSABLE);
+        MapTileBuilder treeTopLeavesTile = new MapTileBuilder(treeTopLeavesFrame)
+        		.withTileType(TileType.NOT_PASSABLE);
+                
 
         mapTiles.add(treeTopLeavesTile);
         
