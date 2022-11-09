@@ -1,6 +1,6 @@
 package Screens;
 
-import Enemy.UFOs;
+
 import Engine.GraphicsHandler;
 
 import Engine.Screen;
@@ -20,7 +20,7 @@ public class FinalPuzzleScreen extends Screen {
     protected static ScreenCoordinator screenCoordinator;
     protected Map map;
     protected Player player;
-    protected Enemy enemy;
+
     protected FinalPuzzleScreenState finalpuzzleScreenState;
     protected FlagManager flagManager;
     private static Boolean completed;
@@ -34,7 +34,7 @@ public class FinalPuzzleScreen extends Screen {
         flagManager = new FlagManager();
 
         // define/setup map
-        this.map = new FinalPuzzleMap(null);
+        this.map = new FinalPuzzleMap(null, screenCoordinator);
         //map.reset();
         map.setFlagManager(flagManager);
 
@@ -50,6 +50,8 @@ public class FinalPuzzleScreen extends Screen {
 
         map.setPlayer(player);
         map.getHealthbar().setPlayer(player);
+        map.getCompletedPuzzleBar().setScreenCoordinator(screenCoordinator);
+
         
         // let pieces of map know which button to listen for as the "interact" button
         map.getTextbox().setInteractKey(player.getInteractKey());
@@ -91,7 +93,6 @@ public class FinalPuzzleScreen extends Screen {
                 break;
             // if level has been completed, bring up level cleared screen
             case PUZZLE_COMPLETED:
-            	player.completedPuzzles[PuzzleIndex.PUZZLE_FINAL_INDEX] = true;
                 break;
         }
     }
@@ -125,6 +126,7 @@ public class FinalPuzzleScreen extends Screen {
     }
     
     public static void goBackToLevel() {
+    	screenCoordinator.completedPuzzles[PuzzleIndex.PUZZLE_FINAL_INDEX] = true;
         screenCoordinator.setGameState(GameState.LEVEL);
     }
 

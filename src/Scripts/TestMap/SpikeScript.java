@@ -6,6 +6,7 @@ import GameObject.Frame;
 import Level.MapTile;
 import Level.Script;
 import Level.ScriptState;
+import Music.ClipMusicJavaUpdated;
 import Screens.PlayLevelScreen;
 import Screens.PuzzleTwoScreen;
 import Utils.Point;
@@ -73,8 +74,10 @@ public class SpikeScript extends Script {
 	                return ScriptState.RUNNING;
 	                
 	            }
-	            
+	            ClipMusicJavaUpdated playMusic = new ClipMusicJavaUpdated();
+	    		playMusic.playMusicInScreen("src/spikeSound.wav");
 	            end();
+	            
 	        }
 	    	
 	        return ScriptState.COMPLETED;

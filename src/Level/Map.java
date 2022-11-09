@@ -5,6 +5,7 @@ import Engine.GraphicsHandler;
 import Engine.Key;
 import Engine.Keyboard;
 import Engine.ScreenManager;
+import Game.ScreenCoordinator;
 import GameObject.Rectangle;
 import Utils.Direction;
 import Utils.Point;
@@ -66,7 +67,7 @@ public abstract class Map {
     // lists to hold map entities that are a part of the map
     protected ArrayList<EnhancedMapTile> enhancedMapTiles;
     protected ArrayList<NPC> npcs;
-    protected ArrayList<Enemy> enemy;
+
     protected ArrayList<Trigger> triggers;
 
     protected Script activeInteractScript;
@@ -87,9 +88,12 @@ public abstract class Map {
     
     protected HealthBar healthbar;
     
-    protected completedPuzzleBar completedPuzzleBar;
+    protected CompletedPuzzleBar completedPuzzleBar;
+    
+    protected ScreenCoordinator screenCoordinator;
 
-    public Map(String mapFileName, Tileset tileset, Player player) {
+
+    public Map(String mapFileName, Tileset tileset, Player player, ScreenCoordinator screenCoordinator) {
     	this.player = player;
         this.mapFileName = mapFileName;
         this.tileset = tileset;
@@ -101,6 +105,7 @@ public abstract class Map {
         this.xMidPoint = ScreenManager.getScreenWidth() / 2;
         this.yMidPoint = (ScreenManager.getScreenHeight() / 2);
         this.playerStartPosition = new Point(0, 0);
+        this.screenCoordinator = screenCoordinator;
     }
 
     // sets up map by reading in the map file to create the tile map
@@ -120,11 +125,7 @@ public abstract class Map {
         for (NPC npc: this.npcs) {
             npc.setMap(this);
         }
-        
-        this.enemy = loadEnemys();
-        for (Enemy enemy: this.enemy) {
-            enemy.setMap(this);
-        }
+     
 
         this.triggers = loadTriggers();
         for (Trigger trigger: this.triggers) {
@@ -137,7 +138,7 @@ public abstract class Map {
         this.textbox = new Textbox(this);
         this.inventory = new Inventory(this);
         this.healthbar = new HealthBar(this, player);
-        this.completedPuzzleBar = new completedPuzzleBar(this, player);
+        this.completedPuzzleBar = new CompletedPuzzleBar(this,screenCoordinator);
 
         
     }
@@ -311,9 +312,7 @@ public abstract class Map {
         return new ArrayList<>();
     }
     
-    protected ArrayList<Enemy> loadEnemys() {
-        return new ArrayList<>();
-    }
+    
 
     protected ArrayList<Trigger> loadTriggers() {
         return new ArrayList<>();
@@ -627,7 +626,8 @@ public abstract class Map {
         
         healthbar.draw(graphicsHandler);
         
-        completedPuzzleBar.draw(graphicsHandler);
+        completedPuzzleBar.draw(graphicsHandler, screenCoordinator);
+        
     }
 
     public FlagManager getFlagManager() { return flagManager; }
@@ -639,6 +639,7 @@ public abstract class Map {
     public Textbox getTextbox() { return textbox; }
     public Inventory getInventory() { return inventory; }
     public HealthBar getHealthbar() { return healthbar; }
+    public CompletedPuzzleBar getCompletedPuzzleBar() { return completedPuzzleBar; }
 
 
     public int getEndBoundX() { return endBoundX; }

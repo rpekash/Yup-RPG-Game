@@ -9,6 +9,7 @@ import Game.ScreenCoordinator;
 import GameObject.GameObject;
 import GameObject.Rectangle;
 import GameObject.SpriteSheet;
+import Music.ClipMusicJavaUpdated;
 import Utils.Direction;
 
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ public abstract class Player extends GameObject {
 	
 	// Values displayed on the screen.
 	private int health;
-	public boolean[] completedPuzzles = new boolean[PuzzleIndex.NUMBER_OF_PUZZLES];
+//	public boolean[] completedPuzzles = new boolean[PuzzleIndex.NUMBER_OF_PUZZLES];
 
 	// values that affect player movement
     // these should be set in a subclass
@@ -50,6 +51,8 @@ public abstract class Player extends GameObject {
     protected Key MOVE_UP_KEY = Key.UP;
     protected Key MOVE_DOWN_KEY = Key.DOWN;
     protected Key INTERACT_KEY = Key.SPACE;
+    
+    protected ClipMusicJavaUpdated playMusic = new ClipMusicJavaUpdated();
 
     public Player(SpriteSheet spriteSheet, float x, float y, String startingAnimationName, ScreenCoordinator screenCoordinator) {
         super(spriteSheet, x, y, startingAnimationName);
@@ -111,6 +114,7 @@ public abstract class Player extends GameObject {
         // if a walk key is pressed, player enters WALKING state
         if (Keyboard.isKeyDown(MOVE_LEFT_KEY) || Keyboard.isKeyDown(MOVE_RIGHT_KEY) || Keyboard.isKeyDown(MOVE_UP_KEY) || Keyboard.isKeyDown(MOVE_DOWN_KEY)) {
             playerState = PlayerState.WALKING;
+    		playMusic.playMusicInScreen("src/croppedWalk.wav");
         }
     }
 
@@ -296,9 +300,9 @@ public abstract class Player extends GameObject {
     	}
     	
     }
-    
+
    
-    
+    /*
     public int numberOfPuzzlesCompleted() {
     	int puzzlesCompletedCounter = 0;
     	for(int i = 0; i < PuzzleIndex.NUMBER_OF_PUZZLES; i++ ) {
@@ -309,5 +313,17 @@ public abstract class Player extends GameObject {
     	}
     	return puzzlesCompletedCounter;
     }
+*/
+//    public int numberOfPuzzlesCompleted() {
+//    	int puzzlesCompletedCounter = 0;
+//    	for(int i = 0; i < PuzzleIndex.NUMBER_OF_PUZZLES; i++ ) {
+//    		if (completedPuzzles[i] == true) {
+//        		puzzlesCompletedCounter++;
+//
+//    		}
+//    	}
+//    	return puzzlesCompletedCounter;
+//    }
+
 
 }

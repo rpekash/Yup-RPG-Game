@@ -12,7 +12,7 @@ import Screens.PuzzleTwoScreen;
 import Utils.Point;
 
 // trigger script at beginning of game to set that heavy emotional plot
-public class PuzzleTrap2 extends Script {
+public class Puzzle1Spike6 extends Script {
 	 protected void setup() {
 		 
 	        player.takeDamage(10);
@@ -39,7 +39,7 @@ public class PuzzleTrap2 extends Script {
                     .build()
             };
             		
-            Point location = map.getMapTile(7, 3).getLocation();
+            Point location = map.getMapTile(8, 7).getLocation();
 
 
 
@@ -48,7 +48,7 @@ public class PuzzleTrap2 extends Script {
                     .build(location.x, location.y);
             
             
-            setMapTile(7, 3, mapTile);
+            setMapTile(8, 7, mapTile);
 
          
 
