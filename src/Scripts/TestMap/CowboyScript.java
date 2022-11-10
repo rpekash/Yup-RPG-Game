@@ -22,10 +22,34 @@ public class CowboyScript extends Script<NPC> {
 	protected void setup() {
 		lockPlayer();
 
-		if (isFlagSet("hasTalkedToEm")) {
+		if (!isFlagSet("hasTalkedToCowboy")) {
 			showTextbox();
 			entity.walk(Direction.LEFT, amountMoved);
 			addTextToTextboxQueue("Hi there.");
+			addTextToTextboxQueue("What if I told you, in about an hour you'll leave here\n different"
+					+ "ly? see, every Friday for the last six months.");
+			
+			addTextToTextboxQueue(" My family and I have borne witness to an absolutely\nspectacle one that you'll be seeing here today.");
+			addTextToTextboxQueue("So let me take you back to that first night. Right\nhere in this exact spot,"
+					+ " id come over to wrangle a");
+			
+			addTextToTextboxQueue("chestnut horse named trigger.");
+			addTextToTextboxQueue("Now, I could barely see my hand in front of my face for\nthe fog,but I swear on my wife's and children's");
+			addTextToTextboxQueue("lives that at 6:13 pm");
+			addTextToTextboxQueue("I see … a flying saucer descend through the mist.\nOld trigger took off straight into the gulch.");
+			addTextToTextboxQueue("and, well … it's like he was going home. Now just to be\nclear what we saw was a flying saucer");
+			addTextToTextboxQueue("no doubt about that.");
+			addTextToTextboxQueue("slightly flatter in the front, with a circular hole\nin the bottom about two school bus lengths wide.");
+			addTextToTextboxQueue("I kid you not we are being surveilled by\nan alien species I call “the Viewers”");
+			addTextToTextboxQueue("and though they have yet to emerge from\ntheir ship, i believe they trust me");
+			addTextToTextboxQueue("if they didn't I dont believe we would be here right now.");
+			addTextToTextboxQueue("Have you seen it?");
+			
+		}
+		if (isFlagSet("hasTalkedToEm")) {
+			showTextbox();
+			//entity.walk(Direction.LEFT, amountMoved);
+			//addTextToTextboxQueue("Hi there.");
 			addTextToTextboxQueue("these portals are all over the place");
 			addTextToTextboxQueue("just press the space bar to enter one");
 			addTextToTextboxQueue("can you find one?");

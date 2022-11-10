@@ -65,18 +65,7 @@ public class UFO extends NPC {
 		// instance of random class
 		moveRHit(speed);
 		
-			if(getX() >= map.getEndBoundX()) {
-				moveRight(speed);
-			}
-			else if(getX()<= 0) {
-				moveLeft(speed);
-			}
-			else if(getY() <= 0) {
-				moveDown(speed);
-			}
-			else if(getY() >= map.getEndBoundY()) {
-				moveUp(speed);
-			}
+			
 			
 		
 		
