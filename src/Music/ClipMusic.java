@@ -25,7 +25,7 @@ public class ClipMusic {
                 Clip clip = AudioSystem.getClip();
                 clip.open(audioInput);
                 clip.start();
-                if (clip.isActive()) {
+                if (clip.isRunning()) {
                 	playing = true;
                 } else {
                 	playing = false;
@@ -41,6 +41,7 @@ public class ClipMusic {
         	System.out.println("Error"); 
             ex.printStackTrace(); 
         }
+        
     }
     
     public boolean check() {

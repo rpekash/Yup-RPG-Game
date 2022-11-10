@@ -1,5 +1,10 @@
 package EnhancedMapTiles;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.Timer;
+
 import Builders.FrameBuilder;
 
 
@@ -23,6 +28,7 @@ public class Rock extends EnhancedMapTile {
 	protected String tecture;
 	protected ClipMusicJavaUpdated playMusic = new ClipMusicJavaUpdated();
 	public boolean sFlag;
+	protected Timer timer;
 	
     public Rock(Point location, String tecture) {
         super(location.x, location.y, new SpriteSheet(ImageLoader.load(tecture), 16, 16), TileType.NOT_PASSABLE);
@@ -35,16 +41,12 @@ public class Rock extends EnhancedMapTile {
     public void update(Player player) {
         super.update(player);
         if (player.overlaps(this) && player.getPlayerState() == PlayerState.WALKING) {
-        	if (!playMusic.isPlaying()) {
-        		playMusic.playMusicInScreen("src/rockPush.wav");
-        	} else {
-        		
-        	}
-        	/*if (playMusic.isPlaying()) {
-        		sFlag = true;
-        	} else {
-        		sFlag = false;
-        	}*/
+    			rockTimer();
+        		if (sFlag == false) {
+        			playMusic.playMusicInScreen("src/rockPush.wav");
+            		timer.start();
+        			sFlag = true;
+        		}	
             if (player.getCurrentWalkingXDirection() == Direction.LEFT) {
                 if (canMoveLeft(player)) {
                     moveXHandleCollision(-1);
@@ -66,8 +68,9 @@ public class Rock extends EnhancedMapTile {
                     moveYHandleCollision(1);
                 }
             }
-        } 
-        
+        } else {
+        	sFlag = false;
+        }
     }
 
     private boolean canMoveLeft(Player player) {
@@ -105,4 +108,19 @@ public class Rock extends EnhancedMapTile {
                 .build();
         return new GameObject(x, y, frame);
     }
+    
+    public void rockTimer() {
+    	timer = new Timer(5000, new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (sFlag = true) {
+					sFlag = false;
+				} else {
+					sFlag = true;
+				}
+				
+			}
+		});
+    }
+   
 }
