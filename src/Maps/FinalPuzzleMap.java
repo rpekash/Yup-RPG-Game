@@ -47,8 +47,8 @@ public class FinalPuzzleMap extends Map {
     @Override
     public ArrayList<EnhancedMapTile> loadEnhancedMapTiles() {
         ArrayList<EnhancedMapTile> enhancedMapTiles = new ArrayList<>();
-        Rock rock = new Rock(getMapTile(2, 7).getLocation(), "Rock.png");
-        enhancedMapTiles.add(rock);
+//        Rock rock = new Rock(getMapTile(2, 7).getLocation(), "Rock.png");
+//        enhancedMapTiles.add(rock);
         
        // enhancedMapTiles.add(new TextTile(getMapTile(4, 7).getLocation(), rock));
         return enhancedMapTiles;

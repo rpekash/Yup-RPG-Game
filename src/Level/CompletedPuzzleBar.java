@@ -33,6 +33,7 @@ public class CompletedPuzzleBar {
     private Key interactKey = Key.L;
 	private Player player;
     protected JLabel countLabel;
+    protected Font bigFont = new Font("Serif", Font.BOLD, 18);
 
 
 	public CompletedPuzzleBar(Map map, ScreenCoordinator screenCoordinator) {
@@ -63,23 +64,24 @@ public class CompletedPuzzleBar {
         	completedPuzzleY = topY;
         }
 	 
-    	graphicsHandler.drawFilledRectangleWithBorder(545, completedPuzzleY, 200, 35, Color.black, Color.white, 2);
+//    	graphicsHandler.drawFilledRectangleWithBorder(545, completedPuzzleY, 200, 35, Color.cyan, Color.black, 2);
 	        	
     	if (screenCoordinator != null) {
-		    completedPuzzles = new SpriteFont("PuzzleTracker \n"+screenCoordinator.numberOfPuzzlesCompleted()+"/"+PuzzleIndex.NUMBER_OF_PUZZLES, 555, 50, "Helvetica", 30, new Color(49, 207, 240));
+		    completedPuzzles = new SpriteFont("PuzzleTracker \n"+screenCoordinator.numberOfPuzzlesCompleted()+"/"+PuzzleIndex.NUMBER_OF_PUZZLES, 552, 47, "Monospaced", 30, new Color(49, 207, 240));
 	        completedPuzzles.setOutlineColor(Color.black);
-	        completedPuzzles.setOutlineThickness(3);
+	        completedPuzzles.setOutlineThickness(10);
 		    completedPuzzles.setColor(Color.white);
-		    completedPuzzles.setFontSize(23);
+		    completedPuzzles.setFontSize(20);
 		    completedPuzzles.draw(graphicsHandler);
 		}
 		else {
-			completedPuzzles = new SpriteFont("PuzzleTracker \n"+"Null"+"/"+PuzzleIndex.NUMBER_OF_PUZZLES, 555, 50, "Helvetica", 30, new Color(49, 207, 240));
+			completedPuzzles = new SpriteFont("PuzzleTracker \n"+"Null"+"/"+PuzzleIndex.NUMBER_OF_PUZZLES, 552, 47, "Monospaced", 30, new Color(49, 207, 240));
 	        completedPuzzles.setOutlineColor(Color.black);
-	        completedPuzzles.setOutlineThickness(3);
+	        completedPuzzles.setOutlineThickness(10);
 		    completedPuzzles.setColor(Color.white);
-		    completedPuzzles.setFontSize(23);
+		    completedPuzzles.setFontSize(20);
 		    completedPuzzles.draw(graphicsHandler);
+		    
 		}
 
 	 }
