@@ -134,10 +134,10 @@ import Scripts.TestMap.TreeScript;
 	        triggers.add(new Trigger(440, 250, 30, 30, new Puzzle4Trap5(), "hasHitSpike2"));
 	        triggers.add(new Trigger(390, 250, 30, 30, new Puzzle4Trap4(), "hasHitSpike2"));
 	        
-	        //1nd ROW
-	        triggers.add(new Trigger(435, 153, 30, 30, new Puzzle4Trap3(), "hasHitSpike2"));
-	        triggers.add(new Trigger(345, 153, 30, 30, new PuzzleTrap2(), "hasHitSpike2"));
-	        triggers.add(new Trigger(295, 153, 30, 30, new Puzzle4Trap1(), "hasHitSpike2"));
+//	        //1nd ROW
+//	        triggers.add(new Trigger(435, 153, 30, 30, new Puzzle4Trap3(), "hasHitSpike2"));
+//	        triggers.add(new Trigger(345, 153, 30, 30, new PuzzleTrap2(), "hasHitSpike2"));
+//	        triggers.add(new Trigger(295, 153, 30, 30, new Puzzle4Trap1(), "hasHitSpike2"));
 
 
 

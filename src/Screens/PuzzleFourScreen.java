@@ -78,12 +78,6 @@ public class PuzzleFourScreen extends Screen {
         }
     }
     
-    public static  void setCompleted(Boolean complete) {
-    	completed = complete;
-    }
-    public static boolean getCompleted() {
-    	return completed;
-    }
 
     public void update() {
         // based on screen state, perform specific actions
@@ -108,6 +102,13 @@ public class PuzzleFourScreen extends Screen {
             case PUZZLE_COMPLETED:
                 break;
         }
+    }
+    
+    public static  void setCompleted(Boolean complete) {
+    	completed = complete;
+    }
+    public static boolean getCompleted() {
+    	return completed;
     }
 
     public PuzzleFourScreenState getFourLevelScreenState() {
