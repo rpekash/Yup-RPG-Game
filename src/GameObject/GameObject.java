@@ -7,6 +7,7 @@ import Utils.ImageUtils;
 import Utils.MathUtils;
 
 import java.awt.*;
+import java.security.PublicKey;
 import java.util.HashMap;
 
 /*
@@ -112,6 +113,243 @@ public class GameObject extends AnimatedSprite {
 			return dy;
 		}
 	}
+	
+	public float moveRHit(float dx) {
+		if (map != null) {
+			return handleCollisionMoveR(dx);
+		} else {
+			super.moveX(dx);
+			return dx;
+		}
+	}
+	
+	
+
+	// move game object along the y axis
+	// will stop object from moving based on map collision logic (such as if it hits a solid tile)
+	public float moveUHit(float dy) {
+		if (map != null) {
+			return handleCollisionMoveU(-dy);
+		} else {
+			super.moveY(-dy);
+			return dy;
+		}
+	}
+	
+	public float moveLHit(float dx) {
+		if (map != null) {
+			return handleCollisionMoveL(-dx);
+		} else {
+			super.moveX(-dx);
+			return dx;
+		}
+	}
+	
+	
+
+	// move game object along the y axis
+	// will stop object from moving based on map collision logic (such as if it hits a solid tile)
+	public float moveDHit(float dy) {
+		if (map != null) {
+			return handleCollisionMoveD(dy);
+		} else {
+			super.moveY(dy);
+			return dy;
+		}
+	}
+	
+	
+	public float handleCollisionMoveR(float moveAmountX) {
+		
+		int amountToMove = (int)Math.abs(moveAmountX);
+
+		float moveAmountXRemainder = MathUtils.getRemainder(moveAmountX);
+
+		Direction direction = moveAmountX < 0 ? Direction.LEFT : Direction.RIGHT;
+
+		float amountMoved = 0;
+		boolean hasCollided = false;
+		MapEntity entityCollidedWith = null;
+		for (int i = 0; i < 1; i++) {
+			moveX(direction.getVelocity());
+			MapCollisionCheckResult collisionCheckResult = MapCollisionHandler.getAdjustedPositionAfterCollisionCheckX(this, map, direction);
+			if (collisionCheckResult.getAdjustedLocation() != null) {
+				hasCollided = true;
+				
+				entityCollidedWith = collisionCheckResult.getEntityCollidedWith();
+				if (!(entityCollidedWith instanceof Trigger)) {
+					setX(collisionCheckResult.getAdjustedLocation());
+				}
+				break;
+			}
+			amountMoved = (i + 1) * direction.getVelocity();
+		}
+		if(hasCollided == true) {
+			moveUHit(2);
+		}
+
+
+		if (isAffectedByTriggers() && entityCollidedWith instanceof Trigger) {
+			Trigger trigger = (Trigger)entityCollidedWith;
+			if (trigger.getTriggerScript() != null) {
+				trigger.getTriggerScript().setIsActive(true);
+			}
+		}
+		else {
+			
+			onEndCollisionCheckX(hasCollided, direction, entityCollidedWith);
+		}
+
+		
+		return amountMoved + (moveAmountXRemainder * direction.getVelocity());
+	}
+
+	
+	
+	
+	
+	
+		public float handleCollisionMoveL(float moveAmountX) {
+			
+			int amountToMove = (int)Math.abs(moveAmountX);
+
+			float moveAmountXRemainder = MathUtils.getRemainder(moveAmountX);
+
+			Direction direction = moveAmountX < 0 ? Direction.LEFT : Direction.RIGHT;
+
+			float amountMoved = 0;
+			boolean hasCollided = false;
+			MapEntity entityCollidedWith = null;
+			for (int i = 0; i < 1; i++) {
+				moveX(direction.getVelocity());
+				MapCollisionCheckResult collisionCheckResult = MapCollisionHandler.getAdjustedPositionAfterCollisionCheckX(this, map, direction);
+				if (collisionCheckResult.getAdjustedLocation() != null) {
+					hasCollided = true;
+					
+					entityCollidedWith = collisionCheckResult.getEntityCollidedWith();
+					if (!(entityCollidedWith instanceof Trigger)) {
+						setX(collisionCheckResult.getAdjustedLocation());
+					}
+					break;
+				}
+				amountMoved = (i + 1) * direction.getVelocity();
+			}
+			if(hasCollided == true) {
+				moveUHit(2);
+			}
+
+
+			if (isAffectedByTriggers() && entityCollidedWith instanceof Trigger) {
+				Trigger trigger = (Trigger)entityCollidedWith;
+				if (trigger.getTriggerScript() != null) {
+					trigger.getTriggerScript().setIsActive(true);
+				}
+			}
+			else {
+				
+				onEndCollisionCheckX(hasCollided, direction, entityCollidedWith);
+			}
+
+			
+			return amountMoved + (moveAmountXRemainder * direction.getVelocity());
+		}
+
+		public float handleCollisionMoveU(float moveAmountY) {
+			
+			int amountToMove = (int)Math.abs(moveAmountY);
+
+			
+			float moveAmountYRemainder = MathUtils.getRemainder(moveAmountY);
+
+			
+			Direction direction = moveAmountY < 0 ? Direction.UP : Direction.DOWN;
+
+			
+			float amountMoved = 0;
+			boolean hasCollided = false;
+			MapEntity entityCollidedWith = null;
+			for (int i = 0; i < 1; i++) {
+				moveY(direction.getVelocity());
+				MapCollisionCheckResult collisionCheckResult = MapCollisionHandler.getAdjustedPositionAfterCollisionCheckY(this, map, direction);
+				if (collisionCheckResult.getAdjustedLocation() != null) {
+					hasCollided = true;
+					//moveXHit(-2);
+					entityCollidedWith = collisionCheckResult.getEntityCollidedWith();
+					if (!(entityCollidedWith instanceof Trigger)) {
+						setY(collisionCheckResult.getAdjustedLocation());
+					}
+					break;
+				}
+				amountMoved = (i + 1) * direction.getVelocity();
+			}
+			if(hasCollided == true) {
+				moveLHit(2);
+			}
+			
+			
+			
+
+			if (isAffectedByTriggers() && entityCollidedWith instanceof Trigger) {
+				Trigger trigger = (Trigger)entityCollidedWith;
+				if (trigger.getTriggerScript() != null) {
+					trigger.getTriggerScript().setIsActive(true);
+				}
+			}
+			else {
+				
+				onEndCollisionCheckY(hasCollided, direction, entityCollidedWith);
+			}
+
+			return amountMoved + (moveAmountYRemainder * direction.getVelocity());
+		}
+		public float handleCollisionMoveD(float moveAmountY) {
+			
+			int amountToMove = (int)Math.abs(moveAmountY);
+
+			
+			float moveAmountYRemainder = MathUtils.getRemainder(moveAmountY);
+
+			
+			Direction direction = moveAmountY < 0 ? Direction.UP : Direction.DOWN;
+
+			
+			float amountMoved = 0;
+			boolean hasCollided = false;
+			MapEntity entityCollidedWith = null;
+			for (int i = 0; i < 1; i++) {
+				moveY(direction.getVelocity());
+				MapCollisionCheckResult collisionCheckResult = MapCollisionHandler.getAdjustedPositionAfterCollisionCheckY(this, map, direction);
+				if (collisionCheckResult.getAdjustedLocation() != null) {
+					hasCollided = true;
+					//moveXHit(-2);
+					entityCollidedWith = collisionCheckResult.getEntityCollidedWith();
+					if (!(entityCollidedWith instanceof Trigger)) {
+						setY(collisionCheckResult.getAdjustedLocation());
+					}
+					break;
+				}
+				amountMoved = (i + 1) * direction.getVelocity();
+			}
+			if(hasCollided == true) {
+				moveRHit(2);
+			}
+			
+			
+			
+
+			if (isAffectedByTriggers() && entityCollidedWith instanceof Trigger) {
+				Trigger trigger = (Trigger)entityCollidedWith;
+				if (trigger.getTriggerScript() != null) {
+					trigger.getTriggerScript().setIsActive(true);
+				}
+			}
+			else {
+				
+				onEndCollisionCheckY(hasCollided, direction, entityCollidedWith);
+			}
+
+			return amountMoved + (moveAmountYRemainder * direction.getVelocity());
+		}
 
 	// performs collision check logic for moving along the x axis against the map's tiles
 	public float handleCollisionX(float moveAmountX) {
@@ -244,6 +482,26 @@ public class GameObject extends AnimatedSprite {
 
 	// game object subclass can override this method to listen for y axis collision events and react accordingly after calling "moveYHandleCollision"
 	public void onEndCollisionCheckY(boolean hasCollided, Direction direction, MapEntity entityCollidedWith) { }
+	
+	public void onEndCollisionMoveCheckX(boolean hasCollided, Direction direction, MapEntity entityCollidedWith) {
+		 if (direction == Direction.LEFT) {
+	            moveX(-2);
+	        }
+	        else if (direction == Direction.RIGHT) {
+	            moveX(2);
+	        }
+		
+	}
+
+	// game object subclass can override this method to listen for y axis collision events and react accordingly after calling "moveYHandleCollision"
+	public void onEndCollisionMoveCheckY(boolean hasCollided, Direction direction, MapEntity entityCollidedWith) { 
+		 if (direction == Direction.UP) {
+	            moveY(-2);
+	        }
+	        else if (direction == Direction.DOWN) {
+	            moveY(2);
+	        }
+	}
 
 	// gets x location taking into account map camera position
 	public float getCalibratedXLocation() {

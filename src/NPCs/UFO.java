@@ -31,7 +31,7 @@ public class UFO extends NPC {
 	}
 
 	public void update(Player player) {
-		move(5);
+		move(1);
 		super.update(player);
 
 	}
@@ -63,24 +63,23 @@ public class UFO extends NPC {
 
 	public void move(float speed) {
 		// instance of random class
-		float_random = rand.nextFloat();
+		moveRHit(speed);
 		
-		if (float_random > 50 && float_random > 75) {
-			moveLeft(speed);
-
-		} else if (float_random < 50 && float_random < 25) {
-			moveRight(speed);
-
-		} else if (float_random > 50 && float_random < 75) {
-			moveUp(speed);
-
-		} else if (float_random < 50 && float_random > 25) {
-			moveDown(speed);
-
-		}
-		if(getX()> map.getEndBoundX() && getY()> map.getEndBoundY()) {
-			moveRight(speed);
-		}
+			if(getX() >= map.getEndBoundX()) {
+				moveRight(speed);
+			}
+			else if(getX()<= 0) {
+				moveLeft(speed);
+			}
+			else if(getY() <= 0) {
+				moveDown(speed);
+			}
+			else if(getY() >= map.getEndBoundY()) {
+				moveUp(speed);
+			}
+			
+		
+		
 	}
 
 	@Override
