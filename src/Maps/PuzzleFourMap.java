@@ -25,6 +25,10 @@ import Scripts.TestMap.LostBallScript;
 	import Scripts.TestMap.Puzzle3Script;
 import Scripts.TestMap.Puzzle4Script;
 import Scripts.TestMap.Puzzle4Spike;
+import Scripts.TestMap.Puzzle4Spike21;
+import Scripts.TestMap.Puzzle4Spike22;
+import Scripts.TestMap.Puzzle4Spike23;
+import Scripts.TestMap.Puzzle4Spike24;
 import Scripts.TestMap.Puzzle4Trap1;
 import Scripts.TestMap.Puzzle4Trap10;
 import Scripts.TestMap.Puzzle4Trap11;
@@ -36,6 +40,7 @@ import Scripts.TestMap.Puzzle4Trap16;
 import Scripts.TestMap.Puzzle4Trap17;
 import Scripts.TestMap.Puzzle4Trap18;
 import Scripts.TestMap.Puzzle4Trap19;
+import Scripts.TestMap.Puzzle4Trap20;
 import Scripts.TestMap.Puzzle4Trap3;
 import Scripts.TestMap.Puzzle4Trap4;
 import Scripts.TestMap.Puzzle4Trap5;
@@ -100,44 +105,47 @@ import Scripts.TestMap.TreeScript;
 	        triggers.add(new Trigger(50, 900, 700, 900, new Puzzle4Scriptfinish(), "hasFinishedMaze"));
 //	        triggers.add(new Trigger(885, 965, 5, 40, new SpikeScript(), "hasHitSpike"));
 	        
-	      //7th ROW
-	        triggers.add(new Trigger(145, 825, 30, 30, new Puzzle4Spike(), "hasHitSpike2"));
-	        triggers.add(new Trigger(195, 825, 30, 30, new Puzzle4Spike(), "hasHitSpike2"));
-	        triggers.add(new Trigger(530, 825, 30, 30, new Puzzle4Spike(), "hasHitSpike2"));
-	        triggers.add(new Trigger(350, 825, 30, 30, new Puzzle4Spike(), "hasHitSpike2"));
+	        // 1st ROW
+	        triggers.add(new Trigger(150, 250, 30, 30, new Puzzle4Trap4(), "hasHitSpike"));
+	        triggers.add(new Trigger(390, 250, 30, 30, new Puzzle4Trap5(), "hasHitSpike"));
+	        triggers.add(new Trigger(440, 250, 30, 30, new Puzzle4Trap6(), "hasHitSpike"));
 	        
-	     // 6th ROW
-	        triggers.add(new Trigger(100, 630, 30, 30, new Puzzle4Spike(), "hasHitSpike2"));
-	        triggers.add(new Trigger(290, 630, 30, 30, new Puzzle4Trap19(), "hasHitSpike2"));
-	        triggers.add(new Trigger(443, 630, 30, 30, new Puzzle4Trap18(), "hasHitSpike2"));
-	        
-	     // 5th ROW
-	        triggers.add(new Trigger(195, 534, 30, 30, new Puzzle4Trap17(), "hasHitSpike2"));
-	        triggers.add(new Trigger(290, 534, 30, 30, new Puzzle4Trap16(), "hasHitSpike2"));
-	        triggers.add(new Trigger(340, 534, 30, 30, new Puzzle4Trap15(), "hasHitSpike2"));
-	        triggers.add(new Trigger(578, 534, 30, 30, new Puzzle4Trap14(), "hasHitSpike2"));
-
-	        
-	        // 4th ROW
-	        triggers.add(new Trigger(145, 444, 30, 30, new Puzzle4Trap13(), "hasHitSpike2"));
-	        triggers.add(new Trigger(245, 444, 30, 30, new Puzzle4Trap12(), "hasHitSpike2"));
-	        triggers.add(new Trigger(340, 444, 30, 30, new Puzzle4Trap11(), "hasHitSpike2"));
+	        // 2th ROW
+	        triggers.add(new Trigger(527, 345, 30, 30, new Puzzle4Trap10(), "hasHitSpike"));
+	        triggers.add(new Trigger(440, 345, 30, 30, new Puzzle4Trap9(), "hasHitSpike"));
+	        triggers.add(new Trigger(145, 345, 30, 30, new Puzzle4Trap8(), "hasHitSpike"));
+	        triggers.add(new Trigger(100, 345, 30, 30, new Puzzle4Trap7(), "hasHitSpike"));
 	        
 	        // 3th ROW
-	        triggers.add(new Trigger(145, 345, 30, 30, new Puzzle4Trap10(), "hasHitSpike2"));
-	        triggers.add(new Trigger(100, 345, 30, 30, new Puzzle4Trap9(), "hasHitSpike2"));
-	        triggers.add(new Trigger(527, 345, 30, 30, new Puzzle4Trap8(), "hasHitSpike2"));
-	        triggers.add(new Trigger(440, 345, 30, 30, new Puzzle4Trap7(), "hasHitSpike2"));
+	        triggers.add(new Trigger(145, 444, 30, 30, new Puzzle4Trap11(), "hasHitSpike"));
+	        triggers.add(new Trigger(245, 444, 30, 30, new Puzzle4Trap12(), "hasHitSpike"));
+	        triggers.add(new Trigger(340, 444, 30, 30, new Puzzle4Trap13(), "hasHitSpike"));
+
+	        // 4th ROW
+	        triggers.add(new Trigger(195, 534, 30, 30, new Puzzle4Trap14(), "hasHitSpike"));
+	        triggers.add(new Trigger(290, 534, 30, 30, new Puzzle4Trap15(), "hasHitSpike"));
+	        triggers.add(new Trigger(340, 534, 30, 30, new Puzzle4Trap16(), "hasHitSpike"));
+	        triggers.add(new Trigger(578, 534, 30, 30, new Puzzle4Trap17(), "hasHitSpike"));
 	        
-	        //2nd ROW
-	        triggers.add(new Trigger(150, 250, 30, 30, new Puzzle4Trap6(), "hasHitSpike2"));
-	        triggers.add(new Trigger(440, 250, 30, 30, new Puzzle4Trap5(), "hasHitSpike2"));
-	        triggers.add(new Trigger(390, 250, 30, 30, new Puzzle4Trap4(), "hasHitSpike2"));
+	        // 5th ROW
+	        triggers.add(new Trigger(100, 630, 30, 30, new Puzzle4Trap18(), "hasHitSpike"));
+	        triggers.add(new Trigger(290, 630, 30, 30, new Puzzle4Trap19(), "hasHitSpike"));
+	        triggers.add(new Trigger(443, 630, 30, 30, new Puzzle4Trap20(), "hasHitSpike"));
 	        
-	        //1nd ROW
-	        triggers.add(new Trigger(435, 153, 30, 30, new Puzzle4Trap3(), "hasHitSpike2"));
-	        triggers.add(new Trigger(345, 153, 30, 30, new PuzzleTrap2(), "hasHitSpike2"));
-	        triggers.add(new Trigger(295, 153, 30, 30, new Puzzle4Trap1(), "hasHitSpike2"));
+	        // 6th ROW
+	        triggers.add(new Trigger(145, 825, 30, 30, new Puzzle4Spike21(), "hasHitSpike"));
+	        triggers.add(new Trigger(195, 825, 30, 30, new Puzzle4Spike22(), "hasHitSpike"));
+	        triggers.add(new Trigger(530, 825, 30, 30, new Puzzle4Spike24(), "hasHitSpike"));
+	        triggers.add(new Trigger(350, 825, 30, 30, new Puzzle4Spike23(), "hasHitSpike"));
+	        
+	   
+
+	        
+	   
+	        
+	       
+	       
+	        
 
 
 
