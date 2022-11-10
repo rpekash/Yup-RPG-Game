@@ -1,6 +1,8 @@
 package Screens;
 
 
+import java.nio.charset.StandardCharsets;
+
 import Engine.GraphicsHandler;
 
 import Engine.Screen;
@@ -11,6 +13,7 @@ import Level.*;
 import Maps.FinalPuzzleMap;
 import Maps.PuzzleTwoMap;
 import Maps.TestMap;
+import NPCs.UFO;
 import Players.Cat;
 import Utils.Direction;
 import Utils.Point;
@@ -20,6 +23,8 @@ public class FinalPuzzleScreen extends Screen {
     protected static ScreenCoordinator screenCoordinator;
     protected Map map;
     protected Player player;
+    protected NPC ufo;
+    
 
     protected FinalPuzzleScreenState finalpuzzleScreenState;
     protected FlagManager flagManager;
@@ -88,6 +93,7 @@ public class FinalPuzzleScreen extends Screen {
             // if level is "running" update player and map to keep game logic for the platformer level going
             case RUNNING:
                 player.update();
+          
               //  enemy.update();
                 map.update(player);
                 break;
