@@ -99,12 +99,11 @@ public class PuzzleMap1 extends Map {
     @Override
     public ArrayList<Trigger> loadTriggers() {
         ArrayList<Trigger> triggers = new ArrayList<>();
-        triggers.add(new Trigger(205, 445, 30, 30, new Puzzle1Spike(), "hasHitSpike"));
-        triggers.add(new Trigger(400, 255, 30, 30, new Puzzle1Spike2(), "hasHitSpike"));
-        triggers.add(new Trigger(540, 495, 30, 30, new Puzzle1Spike3(), "hasHitSpike"));
-        triggers.add(new Trigger(540, 295, 30, 30, new Puzzle1Spike4(), "hasHitSpike"));
-        triggers.add(new Trigger(400, 445, 30, 30, new Puzzle1Spike5(), "hasHitSpike"));
-        triggers.add(new Trigger(400, 350, 30, 30, new Puzzle1Spike6(), "hasHitSpike"));
+        triggers.add(new Trigger(205, 445, 20, 20, new Puzzle1Spike(), "hasHitSpike"));
+        triggers.add(new Trigger(400, 255, 20, 20, new Puzzle1Spike2(), "hasHitSpike"));
+        triggers.add(new Trigger(540, 295, 20, 20, new Puzzle1Spike4(), "hasHitSpike"));
+        triggers.add(new Trigger(400, 445, 20, 20, new Puzzle1Spike5(), "hasHitSpike"));
+        triggers.add(new Trigger(400, 350, 20, 20, new Puzzle1Spike6(), "hasHitSpike"));
         return triggers;
     } 
 
