@@ -64,7 +64,7 @@ public class PuzzleMap1 extends Map {
         enhancedMapTiles.add(tile1);
         TextTile tile2 = new TextTile(getMapTile(5, 8).getLocation(), rock2, "GSandTile.png");
         enhancedMapTiles.add(tile2);
-        TextTile tile3 = new TextTile(getMapTile(11, 8).getLocation(), rock3, "RSandTile.png");
+        TextTile tile3 = new TextTile(getMapTile(12, 8).getLocation(), rock3, "RSandTile.png");
         enhancedMapTiles.add(tile3);
         return enhancedMapTiles;
     }
