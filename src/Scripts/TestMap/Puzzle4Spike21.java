@@ -11,15 +11,16 @@ import Screens.PlayLevelScreen;
 import Screens.PuzzleTwoScreen;
 import Utils.Point;
 
+
 // trigger script at beginning of game to set that heavy emotional plot
-public class Puzzle4Trap8 extends Script {
+public class Puzzle4Spike21 extends Script {
 	 protected void setup() {
 		 
 	        player.takeDamage(10);
 	        lockPlayer();
 
 	        //showTextbox();
-	        setWaitTime(100);
+	        setWaitTime(1000);
 	        addTextToTextboxQueue(Integer.toString(player.getHealth()));
 	        Frame[] frame = new Frame[] {
             		new FrameBuilder(map.getTileset().getSubImage(11, 0), 500)
@@ -39,7 +40,7 @@ public class Puzzle4Trap8 extends Script {
                     .build()
             };
             		
-            Point location = map.getMapTile(3,7).getLocation();
+            Point location = map.getMapTile(3, 17).getLocation();
 
 
 
@@ -48,7 +49,7 @@ public class Puzzle4Trap8 extends Script {
                     .build(location.x, location.y);
             
             
-            setMapTile(3,7, mapTile);
+            setMapTile(3, 17, mapTile);
 
          
 
