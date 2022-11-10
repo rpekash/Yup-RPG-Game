@@ -2,6 +2,7 @@ package Scripts;
 
 import Level.Script;
 import Level.ScriptState;
+import Music.ClipMusicJavaUpdated;
 import Screens.PuzzleFourScreen;
 import Screens.PuzzleThreeScreen;
 
@@ -30,6 +31,8 @@ public class Puzzle4Scriptfinish extends Script {
             if (!isTextboxQueueEmpty()) {
                 return ScriptState.RUNNING;
             }
+            ClipMusicJavaUpdated playMusic = new ClipMusicJavaUpdated();
+    		playMusic.playMusicInScreen("src/tileSound2.wav");
             end();
             PuzzleFourScreen.setCompleted(true);
             PuzzleFourScreen.goBackToLevel();

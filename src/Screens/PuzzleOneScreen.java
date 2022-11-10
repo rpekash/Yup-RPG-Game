@@ -18,6 +18,7 @@ import Game.ScreenCoordinator;
 import Level.*;
 import Maps.PuzzleMap1;
 import Maps.TestMap;
+import Music.ClipMusicJavaUpdated;
 import Music.LoopMusicJavaUpdated;
 import Players.Cat;
 import Scripts.TestMap.Puzzle1Script;
@@ -146,6 +147,8 @@ public class PuzzleOneScreen extends Screen {
         				&& map.getActiveEnhancedMapTiles().get(1).overlaps(map.getActiveEnhancedMapTiles().get(4))
         				&& map.getActiveEnhancedMapTiles().get(2).overlaps(map.getActiveEnhancedMapTiles().get(5))) {
         	new Puzzle1Script();
+        	ClipMusicJavaUpdated playMusic = new ClipMusicJavaUpdated();
+    		playMusic.playMusicInScreen("src/tileSound2.wav");
             puzzleOneScreenState = PuzzleOneScreenState.PUZZLE_COMPLETED;
         	screenCoordinator.completedPuzzles[PuzzleIndex.PUZZLE_ONE_INDEX] = true;
             PuzzleOneScreen.goBackToLevel();
