@@ -3,6 +3,7 @@ package Maps;
 import EnhancedMapTiles.Rock;
 import EnhancedMapTiles.Spike;
 import EnhancedMapTiles.TextTile;
+import Game.ScreenCoordinator;
 import Level.EnhancedMapTile;
 import Level.Map;
 import Level.NPC;
@@ -44,8 +45,8 @@ import java.util.ArrayList;
 // Represents a test map to be used in a level
 public class PuzzleTwoMap extends Map {
 
-    public PuzzleTwoMap(Player player) {
-        super("puzzle2.txt", new CommonTileset(), player);
+    public PuzzleTwoMap(Player player, ScreenCoordinator screenCoordinator) {
+        super("puzzle2.txt", new CommonTileset(), player, screenCoordinator);
         this.playerStartPosition = getMapTile(17, 20).getLocation();
     }
 

@@ -1,5 +1,8 @@
 package Screens;
 
+
+import java.nio.charset.StandardCharsets;
+
 import Engine.GraphicsHandler;
 
 import Engine.Screen;
@@ -10,6 +13,7 @@ import Level.*;
 import Maps.FinalPuzzleMap;
 import Maps.PuzzleTwoMap;
 import Maps.TestMap;
+import NPCs.UFO;
 import Players.Cat;
 import Utils.Direction;
 import Utils.Point;
@@ -19,6 +23,9 @@ public class FinalPuzzleScreen extends Screen {
     protected static ScreenCoordinator screenCoordinator;
     protected Map map;
     protected Player player;
+    protected NPC ufo;
+    
+
     protected FinalPuzzleScreenState finalpuzzleScreenState;
     protected FlagManager flagManager;
     private static Boolean completed;
@@ -32,11 +39,13 @@ public class FinalPuzzleScreen extends Screen {
         flagManager = new FlagManager();
 
         // define/setup map
-        this.map = new FinalPuzzleMap(null);
+        this.map = new FinalPuzzleMap(null, screenCoordinator);
         //map.reset();
         map.setFlagManager(flagManager);
 
         // setup player
+        
+        
         this.player = new Cat(map.getPlayerStartPosition().x, map.getPlayerStartPosition().y, screenCoordinator);
         this.player.setMap(map);
         Point playerStartPosition = map.getPlayerStartPosition();
@@ -46,6 +55,8 @@ public class FinalPuzzleScreen extends Screen {
 
         map.setPlayer(player);
         map.getHealthbar().setPlayer(player);
+        map.getCompletedPuzzleBar().setScreenCoordinator(screenCoordinator);
+
         
         // let pieces of map know which button to listen for as the "interact" button
         map.getTextbox().setInteractKey(player.getInteractKey());
@@ -82,11 +93,12 @@ public class FinalPuzzleScreen extends Screen {
             // if level is "running" update player and map to keep game logic for the platformer level going
             case RUNNING:
                 player.update();
+          
+              //  enemy.update();
                 map.update(player);
                 break;
             // if level has been completed, bring up level cleared screen
             case PUZZLE_COMPLETED:
-            	player.completedPuzzles[PuzzleIndex.PUZZLE_FINAL_INDEX] = true;
                 break;
         }
     }
@@ -96,6 +108,7 @@ public class FinalPuzzleScreen extends Screen {
         switch (finalpuzzleScreenState) {
             case RUNNING:
                 map.draw(player, graphicsHandler);
+                
                 break;
             case PUZZLE_COMPLETED:
                 break;
@@ -119,6 +132,7 @@ public class FinalPuzzleScreen extends Screen {
     }
     
     public static void goBackToLevel() {
+    	screenCoordinator.completedPuzzles[PuzzleIndex.PUZZLE_FINAL_INDEX] = true;
         screenCoordinator.setGameState(GameState.LEVEL);
     }
 

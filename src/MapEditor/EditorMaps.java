@@ -28,19 +28,19 @@ public class EditorMaps {
     public static Map getMapByName(String mapName) {
         switch(mapName) {
             case "TestMap":
-                return new TestMap(null);
+                return new TestMap(null, null);
             case "TitleScreen":
-                return new TitleScreenMap(null);
+                return new TitleScreenMap(null, null);
             case "PuzzleOneScreen":
-                return new PuzzleMap1(null);
+                return new PuzzleMap1(null, null);
             case "PuzzleTwoScreen":
-                return new PuzzleTwoMap(null);
+                return new PuzzleTwoMap(null, null);
             case "PuzzleThreeScreen":
-                return new PuzzleThreeMap(null);
+                return new PuzzleThreeMap(null, null);
             case "PuzzleFourScreen":
-                return new PuzzleFourMap(null);
+                return new PuzzleFourMap(null, null);
             case "FinalPuzzleScreen":
-                return new FinalPuzzleMap(null);
+                return new FinalPuzzleMap(null, null);
             default:
                 throw new RuntimeException("Unrecognized map name");
         }

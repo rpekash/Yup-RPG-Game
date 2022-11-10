@@ -32,7 +32,7 @@ public class PuzzleTwoScreen extends Screen {
         flagManager.addFlag("hasFinishedPuzzle2", false);
 
         // define/setup map
-        this.map = new PuzzleTwoMap(null);
+        this.map = new PuzzleTwoMap(null,screenCoordinator);
         map.reset();
         map.setFlagManager(flagManager);
 
@@ -46,6 +46,8 @@ public class PuzzleTwoScreen extends Screen {
 
         map.setPlayer(player);
         map.getHealthbar().setPlayer(player);
+        map.getCompletedPuzzleBar().setScreenCoordinator(screenCoordinator);
+
         
         // let pieces of map know which button to listen for as the "interact" button
         map.getTextbox().setInteractKey(player.getInteractKey());
@@ -97,7 +99,6 @@ public class PuzzleTwoScreen extends Screen {
                 map.draw(player, graphicsHandler);
                 break;
             case PUZZLE_COMPLETED:
-            	player.completedPuzzles[PuzzleIndex.PUZZLE_TWO_INDEX] = true;
                 break;
         }
     }
@@ -119,6 +120,7 @@ public class PuzzleTwoScreen extends Screen {
     }
     
     public static void goBackToLevel() {
+    	screenCoordinator.completedPuzzles[PuzzleIndex.PUZZLE_TWO_INDEX] = true;
         screenCoordinator.setGameState(GameState.LEVEL);
     }
 

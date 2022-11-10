@@ -562,13 +562,13 @@ public class CommonTileset extends Tileset {
                     .withScale(tileScale)
                     .build();
             MapTileBuilder boxTile = new MapTileBuilder(boxFrame)
-                    .withTileType(TileType.NOT_PASSABLE);
+                    .withTileType(TileType.PASSABLE);
             mapTiles.add(boxTile);
             Frame box1Frame = new FrameBuilder(getSubImage(12, 4))
                     .withScale(tileScale)
                     .build();
             MapTileBuilder box1Tile = new MapTileBuilder(box1Frame)
-                    .withTileType(TileType.NOT_PASSABLE);
+                    .withTileType(TileType.PASSABLE);
             mapTiles.add(box1Tile);
             
             Frame arenaFrame = new FrameBuilder(getSubImage(13, 0))

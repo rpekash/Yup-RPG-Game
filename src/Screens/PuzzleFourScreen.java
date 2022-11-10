@@ -33,7 +33,7 @@ public class PuzzleFourScreen extends Screen {
         flagManager = new FlagManager();
 
      // define/setup map
-        this.map = new PuzzleFourMap(null);
+        this.map = new PuzzleFourMap(null, screenCoordinator);
        // map.reset();
         map.setFlagManager(flagManager);
         
@@ -47,7 +47,8 @@ public class PuzzleFourScreen extends Screen {
 
 	       map.setPlayer(player);
 	       map.getHealthbar().setPlayer(player);
-        
+	       map.getCompletedPuzzleBar().setScreenCoordinator(screenCoordinator);
+
         // let pieces of map know which button to listen for as the "interact" button
         map.getTextbox().setInteractKey(player.getInteractKey());
         
@@ -94,7 +95,6 @@ public class PuzzleFourScreen extends Screen {
                 break;
             // if level has been completed, bring up level cleared screen
             case PUZZLE_COMPLETED:
-            	player.completedPuzzles[PuzzleIndex.PUZZLE_FOUR_INDEX] = true;
                 break;
         }
     }
@@ -120,6 +120,7 @@ public class PuzzleFourScreen extends Screen {
     }
     
     public static void goBackToLevel() {
+    	screenCoordinator.completedPuzzles[PuzzleIndex.PUZZLE_FOUR_INDEX] = true;
         screenCoordinator.setGameState(GameState.LEVEL);
     }
 

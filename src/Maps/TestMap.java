@@ -2,6 +2,7 @@ package Maps;
 
 import EnhancedMapTiles.Rock;
 import EnhancedMapTiles.TextTile;
+import Game.ScreenCoordinator;
 import Level.EnhancedMapTile;
 import Level.Map;
 import Level.NPC;
@@ -36,8 +37,8 @@ import java.util.ArrayList;
 // Represents a test map to be used in a level
 public class TestMap extends Map {
 
-    public TestMap(Player player) {
-        super("test_map.txt", new CommonTileset(), player);
+    public TestMap(Player player, ScreenCoordinator screenCoordinator) {
+        super("test_map.txt", new CommonTileset(), player, screenCoordinator);
         this.playerStartPosition = getMapTile(17, 20).getLocation();
     }
 

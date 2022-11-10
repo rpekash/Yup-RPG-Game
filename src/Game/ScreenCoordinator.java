@@ -23,7 +23,8 @@ public class ScreenCoordinator extends Screen {
 	// keep track of gameState so ScreenCoordinator knows which Screen to show
 	protected GameState gameState;
 	protected GameState previousGameState;
-
+	public boolean[] completedPuzzles = new boolean[PuzzleIndex.NUMBER_OF_PUZZLES];
+	
 	public GameState getGameState() {
 		return gameState;
 	}
@@ -79,6 +80,18 @@ public class ScreenCoordinator extends Screen {
 			currentScreen.update();
 		} while (previousGameState != gameState);
 	}
+	
+	   public int numberOfPuzzlesCompleted() {
+	    	int puzzlesCompletedCounter = 0;
+	    	for(int i = 0; i < PuzzleIndex.NUMBER_OF_PUZZLES; i++ ) {
+	    		if (completedPuzzles[i] == true) {
+	        		puzzlesCompletedCounter++;
+
+	    		}
+	    	}
+	    	return puzzlesCompletedCounter;
+	    }
+
 
 	@Override
 	public void draw(GraphicsHandler graphicsHandler) {

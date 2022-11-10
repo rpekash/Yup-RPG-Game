@@ -145,8 +145,8 @@ public class AnimatedSprite implements IntersectableRectangle {
 		currentFrame.drawBounds(graphicsHandler, color);
     }
 
-	public float getX() { return currentFrame.getX(); }
-	public float getY() { return currentFrame.getY(); }
+	public  float getX() { return currentFrame.getX(); }
+	public  float getY() { return currentFrame.getY(); }
 	public float getX1() { return currentFrame.getX1(); }
 	public float getY1() { return currentFrame.getY1(); }
 	public float getX2() { return currentFrame.getX2(); }

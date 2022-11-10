@@ -3,6 +3,8 @@ package Maps;
 import EnhancedMapTiles.Rock;
 import EnhancedMapTiles.Spike;
 import EnhancedMapTiles.TextTile;
+import Game.ScreenCoordinator;
+
 import Level.EnhancedMapTile;
 import Level.Map;
 import Level.NPC;
@@ -31,11 +33,13 @@ import Utils.Direction;
 
 import java.util.ArrayList;
 
+
+
 // Represents a test map to be used in a level
 public class FinalPuzzleMap extends Map {
 	Boolean run = true;
-    public FinalPuzzleMap(Player player) {
-        super("finalpuzzle.txt", new CommonTileset(), player);
+    public FinalPuzzleMap(Player player, ScreenCoordinator screenCoordinator ) {
+        super("finalpuzzle.txt", new CommonTileset(), player, screenCoordinator);
         this.playerStartPosition = getMapTile(1, 3).getLocation();
         
     }
@@ -43,20 +47,19 @@ public class FinalPuzzleMap extends Map {
     @Override
     public ArrayList<EnhancedMapTile> loadEnhancedMapTiles() {
         ArrayList<EnhancedMapTile> enhancedMapTiles = new ArrayList<>();
-        Rock rock = new Rock(getMapTile(2, 7).getLocation(), "Rock.png");
-        enhancedMapTiles.add(rock);
+//        Rock rock = new Rock(getMapTile(2, 7).getLocation(), "Rock.png");
+//        enhancedMapTiles.add(rock);
         
        // enhancedMapTiles.add(new TextTile(getMapTile(4, 7).getLocation(), rock));
         return enhancedMapTiles;
     }
-
     @Override
     public ArrayList<NPC> loadNPCs() {
         ArrayList<NPC> npcs = new ArrayList<>();
 
         
         
-        UFO ufo = new UFO(4, getMapTile(4,4).getLocation());
+       UFO ufo = new UFO(4, getMapTile(4,8).getLocation());
         ufo.setInteractScript(new UFOScript());
         npcs.add(ufo);
         
