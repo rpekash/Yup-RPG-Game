@@ -94,7 +94,7 @@ import Scripts.TestMap.TreeScript;
 	        UFO ufo = new UFO(4, getMapTile(10,20).getLocation());
 	        ufo.setInteractScript(new UFOScript());
 	        npcs.add(ufo);*/
-
+//"" comment added
 	        return npcs;
 	    }
 
