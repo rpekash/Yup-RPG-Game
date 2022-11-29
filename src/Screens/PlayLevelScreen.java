@@ -19,7 +19,7 @@ import Utils.Point;
 public class PlayLevelScreen extends Screen {
     protected static ScreenCoordinator screenCoordinator;
     protected Map map;
-    protected Player player;
+    protected static Player player;
     protected PlayLevelScreenState playLevelScreenState;
     protected WinScreen winScreen;
     protected FlagManager flagManager;
@@ -159,7 +159,13 @@ public class PlayLevelScreen extends Screen {
 		 screenCoordinator.setGameState(GameState.PUZZLE_4);	
 	}
 	public static void goToFinalPuzzle() {
+		if(player.hasCompletedPuzzles() == true) {
 		 screenCoordinator.setGameState(GameState.PUZZLE_final);	
+		}
+		else {
+			// Add Message For user to complete all puzzles.
+			 screenCoordinator.setGameState(GameState.LEVEL);	
+		}
 	}
     
     

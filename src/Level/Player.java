@@ -300,6 +300,17 @@ public abstract class Player extends GameObject {
     	}
     	
     }
+    
+    public boolean hasCompletedPuzzles() {
+    	if (screenCoordinator.completedPuzzles[PuzzleIndex.PUZZLE_ONE_INDEX] == true && 
+    		screenCoordinator.completedPuzzles[PuzzleIndex.PUZZLE_TWO_INDEX] == true && 
+    		screenCoordinator.completedPuzzles[PuzzleIndex.PUZZLE_THREE_INDEX] == true &&
+    		screenCoordinator.completedPuzzles[PuzzleIndex.PUZZLE_FOUR_INDEX] == true)
+    	{
+    		return true;
+    	}
+    	return false;
+    }
 
    
     /*
