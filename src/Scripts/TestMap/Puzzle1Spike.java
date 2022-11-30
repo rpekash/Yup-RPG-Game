@@ -2,6 +2,7 @@ package Scripts.TestMap;
 
 import Builders.FrameBuilder;
 import Builders.MapTileBuilder;
+import Game.PuzzleIndex;
 import GameObject.Frame;
 import Level.MapTile;
 import Level.Script;

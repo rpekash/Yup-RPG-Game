@@ -151,6 +151,7 @@ public class PuzzleOneScreen extends Screen {
     		playMusic.playMusicInScreen("src/tileSound2.wav");
             puzzleOneScreenState = PuzzleOneScreenState.PUZZLE_COMPLETED;
         	screenCoordinator.completedPuzzles[PuzzleIndex.PUZZLE_ONE_INDEX] = true;
+        	screenCoordinator.puzzleCompleted(PuzzleIndex.PUZZLE_ONE_INDEX);
             PuzzleOneScreen.goBackToLevel();
         }
         if (!isRunning) {

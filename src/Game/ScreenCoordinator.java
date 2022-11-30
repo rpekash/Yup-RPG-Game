@@ -94,15 +94,11 @@ public class ScreenCoordinator extends Screen {
 	    	return puzzlesCompletedCounter;
 	    }
 	   
-	   public int puzzleCompleted() {
-	    	int puzzlesCompletedCounter = 0;
+	   public void puzzleCompleted(int puzzle) {
 	    	for(int i = 0; i < PuzzleIndex.NUMBER_OF_PUZZLES; i++ ) {
-	    		if (completedPuzzles[i] == true) {
-	        		puzzlesCompletedCounter++;
-
-	    		}
+	    		puzzleJustCompleted[i] = false;
 	    	}
-	    	return puzzlesCompletedCounter;
+	    	puzzleJustCompleted[puzzle] = true;
 	    }
 
 

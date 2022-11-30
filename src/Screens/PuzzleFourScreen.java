@@ -20,7 +20,7 @@ public class PuzzleFourScreen extends Screen {
     protected static ScreenCoordinator screenCoordinator;
     protected Map map;
     protected Player player;
-    protected PuzzleFourScreenState PuzzleFourScreenState;
+    protected PuzzleFourScreenState puzzleFourScreenState;
     protected FlagManager flagManager;
     private static Boolean completed = false;
 
@@ -42,7 +42,7 @@ public class PuzzleFourScreen extends Screen {
         this.player.setMap(map);
         Point playerStartPosition = map.getPlayerStartPosition();
         this.player.setLocation(playerStartPosition.x, playerStartPosition.y);
-        this.PuzzleFourScreenState = PuzzleFourScreenState.RUNNING;
+        this.puzzleFourScreenState = PuzzleFourScreenState.RUNNING;
         this.player.setFacingDirection(Direction.LEFT);
 
 	       map.setPlayer(player);
@@ -81,7 +81,7 @@ public class PuzzleFourScreen extends Screen {
 
     public void update() {
         // based on screen state, perform specific actions
-        switch (PuzzleFourScreenState) {
+        switch (puzzleFourScreenState) {
             // if level is "running" update player and map to keep game logic for the platformer level going
             case RUNNING:
                 player.update();
@@ -95,7 +95,7 @@ public class PuzzleFourScreen extends Screen {
 
     public void draw(GraphicsHandler graphicsHandler) {
         // based on screen state, draw appropriate graphics
-        switch (PuzzleFourScreenState) {
+        switch (puzzleFourScreenState) {
             case RUNNING:
                 map.draw(player, graphicsHandler);
                 break;
@@ -112,7 +112,7 @@ public class PuzzleFourScreen extends Screen {
     }
 
     public PuzzleFourScreenState getFourLevelScreenState() {
-        return PuzzleFourScreenState;
+        return puzzleFourScreenState;
     }
 
 
@@ -122,6 +122,7 @@ public class PuzzleFourScreen extends Screen {
     
     public static void goBackToLevel() {
     	screenCoordinator.completedPuzzles[PuzzleIndex.PUZZLE_FOUR_INDEX] = true;
+    	screenCoordinator.puzzleCompleted(PuzzleIndex.PUZZLE_FOUR_INDEX);
         screenCoordinator.setGameState(GameState.LEVEL);
     }
 

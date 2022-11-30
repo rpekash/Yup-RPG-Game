@@ -121,6 +121,7 @@ public class PuzzleTwoScreen extends Screen {
     
     public static void goBackToLevel() {
     	screenCoordinator.completedPuzzles[PuzzleIndex.PUZZLE_TWO_INDEX] = true;
+    	screenCoordinator.puzzleCompleted(PuzzleIndex.PUZZLE_TWO_INDEX);
         screenCoordinator.setGameState(GameState.LEVEL);
     }
 
