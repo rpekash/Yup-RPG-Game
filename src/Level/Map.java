@@ -65,6 +65,7 @@ public abstract class Map {
     protected String mapFileName;
 
     // lists to hold map entities that are a part of the map
+    protected ArrayList<Enemy> enemies;
     protected ArrayList<EnhancedMapTile> enhancedMapTiles;
     protected ArrayList<NPC> npcs;
 
@@ -115,6 +116,11 @@ public abstract class Map {
         animatedMapTiles = new ArrayList<>();
 
         loadMapFile();
+        
+        this.enemies = loadEnemies();
+        for (Enemy enemy: this.enemies) {
+            enemy.setMap(this);
+        }
 
         this.enhancedMapTiles = loadEnhancedMapTiles();
         for (EnhancedMapTile enhancedMapTile: this.enhancedMapTiles) {
@@ -312,7 +318,9 @@ public abstract class Map {
         return new ArrayList<>();
     }
     
-    
+    protected ArrayList<Enemy> loadEnemies() {
+        return new ArrayList<>();
+    }
 
     protected ArrayList<Trigger> loadTriggers() {
         return new ArrayList<>();
@@ -325,7 +333,9 @@ public abstract class Map {
     public ArrayList<EnhancedMapTile> getEnhancedMapTiles() {
         return enhancedMapTiles;
     }
-
+    public ArrayList<Enemy> getEnemies() {
+        return enemies;
+    }
     public ArrayList<NPC> getNPCs() {
         return npcs;
     }
@@ -333,6 +343,9 @@ public abstract class Map {
 
     public ArrayList<MapTile> getAnimatedMapTiles() {
         return animatedMapTiles;
+    }
+    public ArrayList<Enemy> getActiveEnemies() {
+        return camera.getActiveEnemies();
     }
 
     public Script getActiveInteractScript() {
@@ -384,7 +397,10 @@ public abstract class Map {
         trigger.setMap(this);
         this.triggers.add(trigger);
     }
-
+    public void addEnemy(Enemy enemy) {
+        enemy.setMap(this);
+        this.enemies.add(enemy);
+    }
     public void setAdjustCamera(boolean adjustCamera) {
         this.adjustCamera = adjustCamera;
     }

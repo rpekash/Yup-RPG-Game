@@ -23,6 +23,7 @@ public class Camera extends Rectangle {
     private int leftoverSpaceX, leftoverSpaceY;
 
     // current map entities that are to be included in this frame's update/draw cycle
+    private ArrayList<Enemy> activeEnemies = new ArrayList<>();
     private ArrayList<EnhancedMapTile> activeEnhancedMapTiles = new ArrayList<>();
     private ArrayList<NPC> activeNPCs = new ArrayList<>();
     private ArrayList<Trigger> activeTriggers = new ArrayList<>();
@@ -63,9 +64,12 @@ public class Camera extends Rectangle {
     // update map entities currently a part of the update/draw cycle
     // active entities are calculated each frame using the loadActiveEntity methods below
     public void updateMapEntities(Player player) {
+    	activeEnemies = loadActiveEnemies();
         activeEnhancedMapTiles = loadActiveEnhancedMapTiles();
         activeNPCs = loadActiveNPCs();
-
+        for (Enemy enemy : activeEnemies) {
+            enemy.update(player);
+        }
         for (EnhancedMapTile enhancedMapTile : activeEnhancedMapTiles) {
             enhancedMapTile.update(player);
         }
@@ -73,6 +77,27 @@ public class Camera extends Rectangle {
         for (NPC npc : activeNPCs) {
             npc.update(player);
         }
+    }
+    private ArrayList<Enemy> loadActiveEnemies() {
+        ArrayList<Enemy> activeEnemies = new ArrayList<>();
+        for (int i = map.getEnemies().size() - 1; i >= 0; i--) {
+            Enemy enemy = map.getEnemies().get(i);
+
+            if (isMapEntityActive(enemy)) {
+                activeEnemies.add(enemy);
+                if (enemy.mapEntityStatus == MapEntityStatus.INACTIVE) {
+                    enemy.setMapEntityStatus(MapEntityStatus.ACTIVE);
+                }
+            } else if (enemy.getMapEntityStatus() == MapEntityStatus.ACTIVE) {
+                enemy.setMapEntityStatus(MapEntityStatus.INACTIVE);
+                if (enemy.isRespawnable()) {
+                    enemy.initialize();
+                }
+            } else if (enemy.getMapEntityStatus() == MapEntityStatus.REMOVED) {
+                map.getEnemies().remove(i);
+            }
+        }
+        return activeEnemies;
     }
 
     // updates any currently running script
@@ -222,6 +247,12 @@ public class Camera extends Rectangle {
         // goes through each active npc and determines if it should be drawn at this time based on their location relative to the player
         // if drawn here, npc will later be "overlapped" by player
         // if drawn later, npc will "cover" player
+        
+        for (Enemy enemy : activeEnemies) {
+            if (containsDraw(enemy)) {
+                enemy.draw(graphicsHandler);
+            }
+        }
         for (NPC npc : activeNPCs) {
             if (containsDraw(npc)) {
                 if (npc.getBounds().getY() < player.getBounds().getY1()  + (player.getBounds().getHeight() / 2f)) {
@@ -268,6 +299,9 @@ public class Camera extends Rectangle {
                 getY1() - tileHeight <  gameObject.getY() + gameObject.getHeight() && getEndBoundY() + tileHeight >  gameObject.getY();
     }
 
+    public ArrayList<Enemy> getActiveEnemies() {
+        return activeEnemies;
+    }
     public ArrayList<EnhancedMapTile> getActiveEnhancedMapTiles() {
         return activeEnhancedMapTiles;
     }
@@ -296,5 +330,10 @@ public class Camera extends Rectangle {
 
     public boolean isAtBottomOfMap() {
         return this.getEndBoundY() >= map.getEndBoundY();
+    }
+    public boolean isAtRightOfMap() { return this.getEndBoundX() >= map.getEndBoundX(); }
+
+    public boolean isAtLeftOfMap() {
+        return this.getX() <= 0;
     }
 }
