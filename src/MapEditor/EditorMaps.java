@@ -2,12 +2,16 @@ package MapEditor;
 
 import Level.Map;
 import Maps.FinalPuzzleMap;
+import Maps.LosingMap;
 import Maps.PuzzleFourMap;
 import Maps.PuzzleMap1;
 import Maps.PuzzleThreeMap;
 import Maps.PuzzleTwoMap;
 import Maps.TestMap;
 import Maps.TitleScreenMap;
+import Maps.WinningMap;
+import Screens.LosingScreen;
+import Screens.WinningScreen;
 
 import java.util.ArrayList;
 
@@ -21,6 +25,8 @@ public class EditorMaps {
             add("PuzzleThreeScreen");
             add("PuzzleFourScreen");
             add("FinalPuzzleScreen");
+            add("WinningScreen");
+            add("LosingScreen");
 
         }};
     }
@@ -41,6 +47,10 @@ public class EditorMaps {
                 return new PuzzleFourMap(null, null);
             case "FinalPuzzleScreen":
                 return new FinalPuzzleMap(null, null);
+            case "WinningScreen":
+                return new WinningMap(null, null);
+            case "LosingScreen":
+                return new LosingMap(null, null);
             default:
                 throw new RuntimeException("Unrecognized map name");
         }

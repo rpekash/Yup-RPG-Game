@@ -153,7 +153,7 @@ public class PuzzleThreeScreen extends Screen {
     
     public static void goBackToLevel() {
     	screenCoordinator.completedPuzzles[PuzzleIndex.PUZZLE_THREE_INDEX] = true;
-        screenCoordinator.setGameState(GameState.LEVEL);
+        screenCoordinator.setGameState(GameState.WINNING_SCREEN);
     }
 
     // This enum represents the different states this screen can be in

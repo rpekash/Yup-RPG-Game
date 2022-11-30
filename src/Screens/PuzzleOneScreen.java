@@ -151,11 +151,11 @@ public class PuzzleOneScreen extends Screen {
     		playMusic.playMusicInScreen("src/tileSound2.wav");
             puzzleOneScreenState = PuzzleOneScreenState.PUZZLE_COMPLETED;
         	screenCoordinator.completedPuzzles[PuzzleIndex.PUZZLE_ONE_INDEX] = true;
-            PuzzleOneScreen.goBackToLevel();
+            screenCoordinator.setGameState(GameState.WINNING_SCREEN);
         }
         if (!isRunning) {
         	puzzleOneScreenState = PuzzleOneScreenState.PUZZLE_FAILED;
-        	PuzzleOneScreen.goBackToLevel();
+            screenCoordinator.setGameState(GameState.LOSING_SCREEN);
         }
     }
 

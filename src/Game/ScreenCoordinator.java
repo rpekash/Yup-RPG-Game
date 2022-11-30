@@ -5,12 +5,14 @@ import Engine.GraphicsHandler;
 import Engine.Screen;
 import Screens.CreditsScreen;
 import Screens.FinalPuzzleScreen;
+import Screens.LosingScreen;
 import Screens.MenuScreen;
 import Screens.PlayLevelScreen;
 import Screens.PuzzleFourScreen;
 import Screens.PuzzleOneScreen;
 import Screens.PuzzleThreeScreen;
 import Screens.PuzzleTwoScreen;
+import Screens.WinningScreen;
 
 /*
  * Based on the current game state, this class determines which Screen should be shown
@@ -70,6 +72,12 @@ public class ScreenCoordinator extends Screen {
 						break;
 					case CREDITS:
 						currentScreen = new CreditsScreen(this);
+						break;
+					case LOSING_SCREEN:
+						currentScreen = new LosingScreen(this);
+						break;
+					case WINNING_SCREEN:
+						currentScreen = new WinningScreen(this);
 						break;
 				}
 				currentScreen.initialize();
