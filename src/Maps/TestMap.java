@@ -90,15 +90,15 @@ public class TestMap extends Map {
         portal.setInteractScript(new PortalScript());
         npcs.add(portal);
         
-        Portal p1portal = new Portal(5, getMapTile (10, 25).getLocation());
+        Portal p1portal = new Portal(5, getMapTile (10, 20).getLocation());
         p1portal.setInteractScript(new Portal3Script());
         npcs.add(p1portal);
         
-        Portal portal2 = new Portal(5, getMapTile (10, 5).getLocation());
+        Portal portal2 = new Portal(5, getMapTile (10, 10).getLocation());
         portal2.setInteractScript(new Portal2Script());
         npcs.add(portal2);
         
-        Portal portal4 = new Portal(5, getMapTile (10, 15).getLocation());
+        Portal portal4 = new Portal(5, getMapTile (10, 5).getLocation());
         portal4.setInteractScript(new Puzzle4Script());
         npcs.add(portal4);
         

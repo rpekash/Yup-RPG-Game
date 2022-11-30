@@ -178,7 +178,7 @@ public class PuzzleThreeScreen extends Screen {
 				if (minutes == 0 && seconds == 0) {
 					timer.stop();
 					isRunning = false;
-					screenCoordinator.setGameState(GameState.LEVEL);
+					screenCoordinator.setGameState(GameState.LOSING_SCREEN);
 					
 				}
 				
