@@ -84,9 +84,7 @@ public class TestMap extends Map {
         cowboy.setInteractScript(new CowboyScript());
         npcs.add(cowboy);
         
-        UFO ufo = new UFO(4, getMapTile(10,20).getLocation());
-        ufo.setInteractScript(new UFOScript());
-        npcs.add(ufo);
+       
         
         Portal portal = new Portal(5, getMapTile (5, 5).getLocation());
         portal.setInteractScript(new PortalScript());
@@ -113,7 +111,7 @@ public class TestMap extends Map {
     @Override
     public ArrayList<Trigger> loadTriggers() {
         ArrayList<Trigger> triggers = new ArrayList<>();
-        triggers.add(new Trigger(200, 140, 40, 40, new GoToFinalScript(), "hasFinishedMaze"));
+        triggers.add(new Trigger(245, 140, 40, 40, new GoToFinalScript(), "hasFinishedMaze"));
        
         return triggers;
     } 

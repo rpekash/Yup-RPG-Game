@@ -4,7 +4,7 @@ import EnhancedMapTiles.Rock;
 import EnhancedMapTiles.Spike;
 import EnhancedMapTiles.TextTile;
 import Game.ScreenCoordinator;
-
+import Level.Enemy;
 import Level.EnhancedMapTile;
 import Level.Map;
 import Level.NPC;
@@ -34,6 +34,9 @@ import Utils.Direction;
 import java.util.ArrayList;
 
 
+import Enemies.Ufo;
+
+
 
 // Represents a test map to be used in a level
 public class FinalPuzzleMap extends Map {
@@ -42,6 +45,13 @@ public class FinalPuzzleMap extends Map {
         super("finalpuzzle.txt", new CommonTileset(), player, screenCoordinator);
         this.playerStartPosition = getMapTile(1, 3).getLocation();
         
+    }
+    @Override
+    public ArrayList<Enemy> loadEnemies() {
+        ArrayList<Enemy> enemies = new ArrayList<>();
+        enemies.add(new Ufo(getMapTile(4, 7).getLocation().addY(30), Direction.LEFT));
+        
+        return enemies;
     }
 
     @Override
@@ -59,9 +69,9 @@ public class FinalPuzzleMap extends Map {
 
         
         
-       UFO ufo = new UFO(4, getMapTile(4,8).getLocation());
+      /* UFO ufo = new UFO(4, getMapTile(4,8).getLocation());
         ufo.setInteractScript(new UFOScript());
-        npcs.add(ufo);
+        npcs.add(ufo);*/
         
         
         

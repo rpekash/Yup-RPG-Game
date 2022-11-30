@@ -30,7 +30,8 @@ public class CommonTileset extends Tileset {
         		.withTileType(TileType.NOT_PASSABLE);
 
         mapTiles.add(grassTile);
-
+        
+        
         // sign
         Frame signFrame = new FrameBuilder(getSubImage(3, 0))
                 .withScale(tileScale)
@@ -940,7 +941,7 @@ public class CommonTileset extends Tileset {
                     .build();
             MapTileBuilder arena52Tile = new MapTileBuilder(arena52Frame)
                     .withTileType(TileType.NOT_PASSABLE);
-            mapTiles.add(arena12Tile);
+            mapTiles.add(arena52Tile);
             
             Frame arena53Frame = new FrameBuilder(getSubImage(23, 3))
                     .withScale(tileScale)
@@ -1191,41 +1192,1007 @@ public class CommonTileset extends Tileset {
                     .withTileType(TileType.NOT_PASSABLE);
             mapTiles.add(house20Tile); 
             
+     // bank
+            Frame bankFrame = new FrameBuilder(getSubImage(31, 0))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder bankTile = new MapTileBuilder(bankFrame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(bankTile);
+            
+            Frame bank1Frame = new FrameBuilder(getSubImage(31, 1))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder bank1Tile = new MapTileBuilder(bank1Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(bank1Tile);
+            
+            Frame bank2Frame = new FrameBuilder(getSubImage(31, 2))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder bank2Tile = new MapTileBuilder(bank2Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(bank2Tile);
+            
+            Frame bank3Frame = new FrameBuilder(getSubImage(32, 0))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder bank3Tile = new MapTileBuilder(bank3Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(bank3Tile);
+            
+            Frame bank4Frame = new FrameBuilder(getSubImage(32, 1))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder bank4Tile = new MapTileBuilder(bank4Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(bank4Tile);
+            
+            Frame bank5Frame = new FrameBuilder(getSubImage(32, 2))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder bank5Tile = new MapTileBuilder(bank5Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(bank5Tile);
+            
+            Frame bank6Frame = new FrameBuilder(getSubImage(33, 0))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder bank6Tile = new MapTileBuilder(bank6Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(bank6Tile);
+            
+            Frame bank7Frame = new FrameBuilder(getSubImage(33, 1))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder bank7Tile = new MapTileBuilder(bank7Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(bank7Tile);
+            
+            Frame bank8Frame = new FrameBuilder(getSubImage(33, 2))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder bank8Tile = new MapTileBuilder(bank8Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(bank8Tile);
+            
+      //office
+            Frame offFrame = new FrameBuilder(getSubImage(31, 3))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder offTile = new MapTileBuilder(offFrame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(offTile);
+            
+            Frame off1Frame = new FrameBuilder(getSubImage(31, 4))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder off1Tile = new MapTileBuilder(off1Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(off1Tile);
+            
+            Frame off2Frame = new FrameBuilder(getSubImage(32, 3))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder off2Tile = new MapTileBuilder(off2Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(off2Tile);
+            
+            Frame off3Frame = new FrameBuilder(getSubImage(32, 4))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder off3Tile = new MapTileBuilder(off3Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(off3Tile);
+            
+            Frame off4Frame = new FrameBuilder(getSubImage(33, 3))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder off4Tile = new MapTileBuilder(off4Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(off4Tile);
+            
+            Frame off5Frame = new FrameBuilder(getSubImage(33, 4))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder off5Tile = new MapTileBuilder(off5Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(off5Tile);
+            
+            Frame off6Frame = new FrameBuilder(getSubImage(34, 0))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder off6Tile = new MapTileBuilder(off6Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(off6Tile);
+            
+            Frame off7Frame = new FrameBuilder(getSubImage(34, 1))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder off7Tile = new MapTileBuilder(off7Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(off7Tile);
+            
+            Frame off8Frame = new FrameBuilder(getSubImage(34, 2))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder off8Tile = new MapTileBuilder(off8Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(off8Tile);
+            
+            Frame off9Frame = new FrameBuilder(getSubImage(34, 3))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder off9Tile = new MapTileBuilder(off9Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(off9Tile);
+            
+      //barber 
+            Frame barbFrame = new FrameBuilder(getSubImage(34, 4))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder barbTile = new MapTileBuilder(barbFrame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(barbTile);
+            
+            Frame barb1Frame = new FrameBuilder(getSubImage(38, 2))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder barb1Tile = new MapTileBuilder(barb1Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(barb1Tile);
+            
+            Frame barb2Frame = new FrameBuilder(getSubImage(38, 3))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder barb2Tile = new MapTileBuilder(barb2Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(barb2Tile);
+            
+            Frame barb3Frame = new FrameBuilder(getSubImage(38, 4))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder barb3Tile = new MapTileBuilder(barb3Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(barb3Tile);
+            
+      //candy
+            Frame canFrame = new FrameBuilder(getSubImage(35, 0))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder canTile = new MapTileBuilder(canFrame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(canTile);
+            
+            Frame can1Frame = new FrameBuilder(getSubImage(35, 1))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder can1Tile = new MapTileBuilder(can1Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(can1Tile);
+            
+            Frame can2Frame = new FrameBuilder(getSubImage(35, 2))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder can2Tile = new MapTileBuilder(can2Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(can2Tile);
+            
+            Frame can3Frame = new FrameBuilder(getSubImage(36, 0))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder can3Tile = new MapTileBuilder(can3Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(can3Tile);
+            
+            Frame can4Frame = new FrameBuilder(getSubImage(36, 1))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder can4Tile = new MapTileBuilder(can4Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(can4Tile);
+            
+            Frame can5Frame = new FrameBuilder(getSubImage(36, 2))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder can5Tile = new MapTileBuilder(can5Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(can5Tile);
+            
+            Frame can6Frame = new FrameBuilder(getSubImage(37, 0))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder can6Tile = new MapTileBuilder(can6Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(can6Tile);
+            
+            Frame can7Frame = new FrameBuilder(getSubImage(37, 1))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder can7Tile = new MapTileBuilder(can7Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(can7Tile);
+            
+            Frame can8Frame = new FrameBuilder(getSubImage(37, 2))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder can8Tile = new MapTileBuilder(can8Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(can8Tile);
+     
+     //jupes store
+            
+            Frame jupFrame = new FrameBuilder(getSubImage(35, 3))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder jupTile = new MapTileBuilder(jupFrame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(jupTile);
+            
+            Frame jup1Frame = new FrameBuilder(getSubImage(35, 4))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder jup1Tile = new MapTileBuilder(jup1Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(jup1Tile);
+            
+            Frame jup2Frame = new FrameBuilder(getSubImage(36, 3))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder jup2Tile = new MapTileBuilder(jup2Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(jup2Tile);
+            
+            Frame jup3Frame = new FrameBuilder(getSubImage(36, 4))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder jup3Tile = new MapTileBuilder(jup3Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(jup3Tile);
+            
+            Frame jup4Frame = new FrameBuilder(getSubImage(37, 3))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder jup4Tile = new MapTileBuilder(jup4Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(jup4Tile);
+            
+            Frame jup5Frame = new FrameBuilder(getSubImage(37, 4))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder jup5Tile = new MapTileBuilder(jup5Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(jup5Tile);
+            
+            Frame jup6Frame = new FrameBuilder(getSubImage(38, 0))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder jup6Tile = new MapTileBuilder(jup6Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(jup6Tile);
+            
+            Frame jup7Frame = new FrameBuilder(getSubImage(38, 1))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder jup7Tile = new MapTileBuilder(jup7Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(jup7Tile);
+            
+            Frame jup8Frame = new FrameBuilder(getSubImage(39, 0))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder jup8Tile = new MapTileBuilder(jup8Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(jup8Tile);
+            
+     //salloon 
+            Frame salFrame = new FrameBuilder(getSubImage(40, 0))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder salTile = new MapTileBuilder(salFrame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(salTile);
+            
+            Frame sal1Frame = new FrameBuilder(getSubImage(40, 1))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder sal1Tile = new MapTileBuilder(sal1Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(sal1Tile);
+            
+            Frame sal2Frame = new FrameBuilder(getSubImage(40, 2))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder sal2Tile = new MapTileBuilder(sal2Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(sal2Tile);
+            
+            Frame sal3Frame = new FrameBuilder(getSubImage(40, 3))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder sal3Tile = new MapTileBuilder(sal3Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(sal3Tile);
+            
+            Frame sal4Frame = new FrameBuilder(getSubImage(41, 0))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder sal4Tile = new MapTileBuilder(sal4Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(sal4Tile);
+            
+            Frame sal5Frame = new FrameBuilder(getSubImage(41, 1))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder sal5Tile = new MapTileBuilder(sal5Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(sal5Tile);
+            
+            Frame sal6Frame = new FrameBuilder(getSubImage(41, 2))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder sal6Tile = new MapTileBuilder(sal6Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(sal6Tile);
+            
+            Frame sal7Frame = new FrameBuilder(getSubImage(41, 3))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder sal7Tile = new MapTileBuilder(sal7Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(sal7Tile);
+            
+            Frame sal8Frame = new FrameBuilder(getSubImage(42, 0))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder sal8Tile = new MapTileBuilder(sal8Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(sal8Tile);
+            
+            Frame sal9Frame = new FrameBuilder(getSubImage(42, 1))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder sal9Tile = new MapTileBuilder(sal9Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(sal9Tile);
+            
+            Frame sal10Frame = new FrameBuilder(getSubImage(42, 2))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder sal10Tile = new MapTileBuilder(sal10Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(sal10Tile);
+            
+            Frame sal11Frame = new FrameBuilder(getSubImage(42, 3))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder sal11Tile = new MapTileBuilder(sal11Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(sal11Tile);
+            
+      //side building blue
+            
+            Frame rightbFrame = new FrameBuilder(getSubImage(43, 0))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder rightbTile = new MapTileBuilder(rightbFrame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(rightbTile);
+            
+            Frame rightb1Frame = new FrameBuilder(getSubImage(43, 1))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder rightb1Tile = new MapTileBuilder(rightb1Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(rightb1Tile);
+            
+            Frame rightb2Frame = new FrameBuilder(getSubImage(43, 2))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder rightb2Tile = new MapTileBuilder(rightb2Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(rightb2Tile);
+            
+            Frame rightb3Frame = new FrameBuilder(getSubImage(43, 3))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder rightb3Tile = new MapTileBuilder(rightb3Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(rightb3Tile);
+            
+            Frame rightb4Frame = new FrameBuilder(getSubImage(43, 4))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder rightb4Tile = new MapTileBuilder(rightb4Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(rightb4Tile);
+            
+            Frame rightb5Frame = new FrameBuilder(getSubImage(44, 0))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder rightb5Tile = new MapTileBuilder(rightb5Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(rightb5Tile);
+            
+  //side building red
+            
+            Frame rightrFrame = new FrameBuilder(getSubImage(44, 1))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder rightrTile = new MapTileBuilder(rightrFrame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(rightrTile);
+            
+            Frame rightr1Frame = new FrameBuilder(getSubImage(44, 2))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder rightr1Tile = new MapTileBuilder(rightr1Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(rightr1Tile);
+            
+            Frame rightr2Frame = new FrameBuilder(getSubImage(44, 3))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder rightr2Tile = new MapTileBuilder(rightr2Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(rightr2Tile);
+            
+            Frame rightr3Frame = new FrameBuilder(getSubImage(44, 4))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder rightr3Tile = new MapTileBuilder(rightr3Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(rightr3Tile);
+            
+            Frame rightr4Frame = new FrameBuilder(getSubImage(45, 0))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder rightr4Tile = new MapTileBuilder(rightr4Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(rightr4Tile);
+            
+            Frame rightr5Frame = new FrameBuilder(getSubImage(45, 1))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder rightr5Tile = new MapTileBuilder(rightr5Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(rightr5Tile);
+            
+            
+ //side building green
+            
+            Frame rightgFrame = new FrameBuilder(getSubImage(45, 2))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder rightgTile = new MapTileBuilder(rightgFrame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(rightgTile);
+            
+            Frame rightg1Frame = new FrameBuilder(getSubImage(45, 3))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder rightg1Tile = new MapTileBuilder(rightg1Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(rightg1Tile);
+            
+            Frame rightg2Frame = new FrameBuilder(getSubImage(45, 4))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder rightg2Tile = new MapTileBuilder(rightg2Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(rightg2Tile);
+            
+            Frame rightg3Frame = new FrameBuilder(getSubImage(46, 0))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder rightg3Tile = new MapTileBuilder(rightg3Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(rightg3Tile);
+            
+            Frame rightg4Frame = new FrameBuilder(getSubImage(46, 1))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder rightg4Tile = new MapTileBuilder(rightg4Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(rightg4Tile);
+            
+            Frame rightg5Frame = new FrameBuilder(getSubImage(46, 2))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder rightg5Tile = new MapTileBuilder(rightg5Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(rightg5Tile);
+            
+            Frame rightg6Frame = new FrameBuilder(getSubImage(46, 3))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder rightg6Tile = new MapTileBuilder(rightg6Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(rightg6Tile);
+            
+            Frame rightg7Frame = new FrameBuilder(getSubImage(46, 4))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder rightg7Tile = new MapTileBuilder(rightg7Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(rightg7Tile);
+            
+            Frame rightg8Frame = new FrameBuilder(getSubImage(47, 0))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder rightg8Tile = new MapTileBuilder(rightg8Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(rightg8Tile);
+            
+            Frame rightg9Frame = new FrameBuilder(getSubImage(47, 1))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder rightg9Tile = new MapTileBuilder(rightg9Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(rightg9Tile);
+            
+            Frame rightg10Frame = new FrameBuilder(getSubImage(47, 2))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder rightg10Tile = new MapTileBuilder(rightg10Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(rightg10Tile);
+            
+            Frame rightg11Frame = new FrameBuilder(getSubImage(47, 3))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder rightg11Tile = new MapTileBuilder(rightg11Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(rightg11Tile);
+            
+            Frame rightg12Frame = new FrameBuilder(getSubImage(47, 4))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder rightg12Tile = new MapTileBuilder(rightg12Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(rightg12Tile);
+            
+            //side building green
+            
+            Frame leftgFrame = new FrameBuilder(getSubImage(0, 2))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder leftgTile = new MapTileBuilder(leftgFrame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(leftgTile);
+            
+            Frame leftg1Frame = new FrameBuilder(getSubImage(1, 2))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder leftg1Tile = new MapTileBuilder(leftg1Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(leftg1Tile);
+            
+            Frame leftg2Frame = new FrameBuilder(getSubImage(2, 0))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder leftg2Tile = new MapTileBuilder(leftg2Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(leftg2Tile);
+            
+            Frame leftg3Frame = new FrameBuilder(getSubImage(2, 1))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder leftg3Tile = new MapTileBuilder(leftg3Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(leftg3Tile);
+            
+            Frame leftg4Frame = new FrameBuilder(getSubImage(2, 2))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder leftg4Tile = new MapTileBuilder(leftg4Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(leftg4Tile);
+            
+            Frame leftg5Frame = new FrameBuilder(getSubImage(4, 0))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder leftg5Tile = new MapTileBuilder(leftg5Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(leftg5Tile);
+            
+            
+            
+     //side building red
+            
+            Frame leftrFrame = new FrameBuilder(getSubImage(3, 3))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder leftrTile = new MapTileBuilder(leftrFrame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(leftrTile);
+            
+            Frame leftr1Frame = new FrameBuilder(getSubImage(3, 4))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder leftr1Tile = new MapTileBuilder(leftr1Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(leftr1Tile);
+            
+            Frame leftr2Frame = new FrameBuilder(getSubImage(4, 1))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder leftr2Tile = new MapTileBuilder(leftr2Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(leftr2Tile);
+            
+            Frame leftr3Frame = new FrameBuilder(getSubImage(4, 2))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder leftr3Tile = new MapTileBuilder(leftr3Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(leftr3Tile);
+            
+            Frame leftr4Frame = new FrameBuilder(getSubImage(4, 3))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder leftr4Tile = new MapTileBuilder(leftr4Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(leftr4Tile);
+            
+            Frame leftr5Frame = new FrameBuilder(getSubImage(4, 4))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder leftr5Tile = new MapTileBuilder(leftr5Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(leftr5Tile);
+            
+     //side building blue
+            
+            Frame leftbFrame = new FrameBuilder(getSubImage(0, 3))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder leftbTile = new MapTileBuilder(leftbFrame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(leftbTile);
+            
+            Frame leftb1Frame = new FrameBuilder(getSubImage(0, 4))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder leftb1Tile = new MapTileBuilder(leftb1Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(leftb1Tile);
+            
+            Frame leftb2Frame = new FrameBuilder(getSubImage(1, 3))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder leftb2Tile = new MapTileBuilder(leftb2Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(leftb2Tile);
+            
+            Frame leftb3Frame = new FrameBuilder(getSubImage(1, 4))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder leftb3Tile = new MapTileBuilder(leftb3Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(leftb3Tile);
+            
+            Frame leftb4Frame = new FrameBuilder(getSubImage(2, 3))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder leftb4Tile = new MapTileBuilder(leftb4Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(leftb4Tile);
+            
+            Frame leftb5Frame = new FrameBuilder(getSubImage(2, 4))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder leftb5Tile = new MapTileBuilder(leftb5Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(leftb5Tile);
+            
+     //entrence 
+            Frame entFrame = new FrameBuilder(getSubImage(48, 0))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder entTile = new MapTileBuilder(entFrame)
+                    .withTileType(TileType.PASSABLE);
+            mapTiles.add(entTile);
+            
+            Frame ent1Frame = new FrameBuilder(getSubImage(48, 1))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder ent1Tile = new MapTileBuilder(ent1Frame)
+                    .withTileType(TileType.PASSABLE);
+            mapTiles.add(ent1Tile);
+            
+            Frame ent2Frame = new FrameBuilder(getSubImage(48, 2))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder ent2Tile = new MapTileBuilder(ent2Frame)
+                    .withTileType(TileType.PASSABLE);
+            mapTiles.add(ent2Tile);
+            
+            Frame ent3Frame = new FrameBuilder(getSubImage(48, 3))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder ent3Tile = new MapTileBuilder(ent3Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(ent3Tile);
+            
+            Frame ent4Frame = new FrameBuilder(getSubImage(48, 4))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder ent4Tile = new MapTileBuilder(ent4Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(ent4Tile);
+            
+            Frame ent5Frame = new FrameBuilder(getSubImage(49, 0))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder ent5Tile = new MapTileBuilder(ent5Frame)
+                    .withTileType(TileType.PASSABLE);
+            mapTiles.add(ent5Tile);
+            
+            Frame ent6Frame = new FrameBuilder(getSubImage(49, 1))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder ent6Tile = new MapTileBuilder(ent6Frame)
+                    .withTileType(TileType.PASSABLE);
+            mapTiles.add(ent6Tile);
+            
+            Frame ent7Frame = new FrameBuilder(getSubImage(49, 2))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder ent7Tile = new MapTileBuilder(ent7Frame)
+                    .withTileType(TileType.PASSABLE);
+            mapTiles.add(ent7Tile);
+            
+            Frame ent8Frame = new FrameBuilder(getSubImage(49, 3))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder ent8Tile = new MapTileBuilder(ent8Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(ent8Tile);
+            
+            Frame ent9Frame = new FrameBuilder(getSubImage(49, 4))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder ent9Tile = new MapTileBuilder(ent9Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(ent9Tile);
+            
+            Frame ent10Frame = new FrameBuilder(getSubImage(50, 0))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder ent10Tile = new MapTileBuilder(ent10Frame)
+                    .withTileType(TileType.PASSABLE);
+            mapTiles.add(ent10Tile);
+            
+            Frame ent11Frame = new FrameBuilder(getSubImage(50, 1))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder ent11Tile = new MapTileBuilder(ent11Frame)
+                    .withTileType(TileType.PASSABLE);
+            mapTiles.add(ent11Tile);
+            
+            Frame ent12Frame = new FrameBuilder(getSubImage(50, 2))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder ent12Tile = new MapTileBuilder(ent12Frame)
+                    .withTileType(TileType.PASSABLE);
+            mapTiles.add(ent12Tile);
+            
+            Frame ent13Frame = new FrameBuilder(getSubImage(50, 3))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder ent13Tile = new MapTileBuilder(ent13Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(ent13Tile);
+            
+            Frame ent14Frame = new FrameBuilder(getSubImage(50, 4))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder ent14Tile = new MapTileBuilder(ent14Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(ent14Tile);
+            
+      //left buildings 
+            Frame bildFrame = new FrameBuilder(getSubImage(51, 0))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder bildTile = new MapTileBuilder(bildFrame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(bildTile);
+            
+            Frame bild1Frame = new FrameBuilder(getSubImage(51, 1))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder bild1Tile = new MapTileBuilder(bild1Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(bild1Tile);
+            
+            Frame bild2Frame = new FrameBuilder(getSubImage(51, 2))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder bild2Tile = new MapTileBuilder(bild2Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(bild2Tile);
+            
+            Frame bild3Frame = new FrameBuilder(getSubImage(51, 3))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder bild3Tile = new MapTileBuilder(bild3Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(bild3Tile);
+            
+            Frame bild4Frame = new FrameBuilder(getSubImage(51, 4))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder bild4Tile = new MapTileBuilder(bild4Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(bild4Tile);
+            
+            Frame bild5Frame = new FrameBuilder(getSubImage(52, 0))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder bild5Tile = new MapTileBuilder(bild5Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(bild5Tile);
+            
+            Frame bild6Frame = new FrameBuilder(getSubImage(52, 1))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder bild6Tile = new MapTileBuilder(bild6Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(bild6Tile);
+            
+            Frame bild7Frame = new FrameBuilder(getSubImage(52, 2))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder bild7Tile = new MapTileBuilder(bild7Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(bild7Tile);
+            
+            Frame bild8Frame = new FrameBuilder(getSubImage(52, 3))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder bild8Tile = new MapTileBuilder(bild8Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(bild8Tile);
+            
+            Frame bild9Frame = new FrameBuilder(getSubImage(52, 4))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder bild9Tile = new MapTileBuilder(bild9Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(bild9Tile);
+            
+            Frame bild10Frame = new FrameBuilder(getSubImage(53, 0))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder bild10Tile = new MapTileBuilder(bild10Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(bild10Tile);
+            
+            Frame bild11Frame = new FrameBuilder(getSubImage(53, 1))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder bild11Tile = new MapTileBuilder(bild11Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(bild11Tile);
+            
+            Frame bild12Frame = new FrameBuilder(getSubImage(53, 2))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder bild12Tile = new MapTileBuilder(bild12Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(bild12Tile);
+            
+            Frame bild13Frame = new FrameBuilder(getSubImage(53, 3))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder bild13Tile = new MapTileBuilder(bild13Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(bild13Tile);
+            
+            Frame bild14Frame = new FrameBuilder(getSubImage(53, 4))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder bild14Tile = new MapTileBuilder(bild14Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(bild14Tile);
+            
+            Frame bild15Frame = new FrameBuilder(getSubImage(54, 0))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder bild15Tile = new MapTileBuilder(bild15Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(bild15Tile);
+            
+            Frame bild16Frame = new FrameBuilder(getSubImage(54, 1))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder bild16Tile = new MapTileBuilder(bild16Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(bild16Tile);
+            
+            Frame bild17Frame = new FrameBuilder(getSubImage(54, 2))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder bild17Tile = new MapTileBuilder(bild17Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(bild17Tile);
+            
+            Frame bild18Frame = new FrameBuilder(getSubImage(54, 3))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder bild18Tile = new MapTileBuilder(bild18Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(bild18Tile);
+            
+            Frame bild19Frame = new FrameBuilder(getSubImage(54, 4))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder bild19Tile = new MapTileBuilder(bild19Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(bild19Tile);
+            
+            Frame bild20Frame = new FrameBuilder(getSubImage(55, 0))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder bild20Tile = new MapTileBuilder(bild20Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(bild20Tile);
+            
+            Frame bild21Frame = new FrameBuilder(getSubImage(55, 1))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder bild21Tile = new MapTileBuilder(bild21Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(bild21Tile);
+            
+            Frame bild22Frame = new FrameBuilder(getSubImage(55, 2))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder bild22Tile = new MapTileBuilder(bild22Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(bild22Tile);
+            
+            
+            
+            
+            
      // Sign 
             
             Frame sign1Frame = new FrameBuilder(getSubImage(5, 0))
                     .withScale(tileScale)
                     .build();
             MapTileBuilder sign1Tile = new MapTileBuilder(sign1Frame)
-                    .withTileType(TileType.NOT_PASSABLE);
+                    .withTileType(TileType.PASSABLE);
             mapTiles.add(sign1Tile);
             
             Frame sign2Frame = new FrameBuilder(getSubImage(5, 1))
                     .withScale(tileScale)
                     .build();
             MapTileBuilder sign2Tile = new MapTileBuilder(sign2Frame)
-                    .withTileType(TileType.NOT_PASSABLE);
+                    .withTileType(TileType.PASSABLE);
             mapTiles.add(sign2Tile);
             
             Frame sign3Frame = new FrameBuilder(getSubImage(5, 2))
                     .withScale(tileScale)
                     .build();
             MapTileBuilder sign3Tile = new MapTileBuilder(sign3Frame)
-                    .withTileType(TileType.NOT_PASSABLE);
+                    .withTileType(TileType.PASSABLE);
             mapTiles.add(sign3Tile);
             
             Frame sign4Frame = new FrameBuilder(getSubImage(5, 3))
                     .withScale(tileScale)
                     .build();
             MapTileBuilder sign4Tile = new MapTileBuilder(sign4Frame)
-                    .withTileType(TileType.NOT_PASSABLE);
+                    .withTileType(TileType.PASSABLE);
             mapTiles.add(sign4Tile);
             
             Frame sign5Frame = new FrameBuilder(getSubImage(5, 4))
                     .withScale(tileScale)
                     .build();
             MapTileBuilder sign5Tile = new MapTileBuilder(sign5Frame)
-                    .withTileType(TileType.NOT_PASSABLE);
+                    .withTileType(TileType.PASSABLE);
             mapTiles.add(sign5Tile);
                   
         return mapTiles;

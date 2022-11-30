@@ -10,7 +10,7 @@ import java.util.HashMap;
 // it is basically a game object with a few extra features for handling things what to do upon the player interacting with them
 public class MapEntity extends GameObject {
     protected MapEntityStatus mapEntityStatus = MapEntityStatus.ACTIVE;
-
+    protected boolean isRespawnable = true;
     // if true, entity cannot go out of camera's update range
     protected boolean isUpdateOffScreen = false;
 
@@ -49,6 +49,13 @@ public class MapEntity extends GameObject {
 
     public void setMapEntityStatus(MapEntityStatus mapEntityStatus) {
         this.mapEntityStatus = mapEntityStatus;
+    }
+    public boolean isRespawnable() {
+        return isRespawnable;
+    }
+
+    public void setIsRespawnable(boolean isRespawnable) {
+        this.isRespawnable = isRespawnable;
     }
 
     public boolean isUpdateOffScreen() {
