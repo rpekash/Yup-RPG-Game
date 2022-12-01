@@ -49,7 +49,7 @@ public class TestMap extends Map {
         } else if (screenCoordinator.puzzleJustCompleted[PuzzleIndex.PUZZLE_FOUR_INDEX]) {
         	this.playerStartPosition = getMapTile(18, 10).getLocation();
         } else {
-            this.playerStartPosition = getMapTile(17, 20).getLocation();
+            this.playerStartPosition = getMapTile(1, 2).getLocation();
         }
     }
 
