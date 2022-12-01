@@ -5,6 +5,7 @@ import Engine.GraphicsHandler;
 import Engine.Screen;
 import Screens.CreditsScreen;
 import Screens.FinalPuzzleScreen;
+import Screens.HowToPlayScreen;
 import Screens.MenuScreen;
 import Screens.PlayLevelScreen;
 import Screens.PuzzleFourScreen;
@@ -70,6 +71,10 @@ public class ScreenCoordinator extends Screen {
 						break;
 					case CREDITS:
 						currentScreen = new CreditsScreen(this);
+						break;
+						
+					case HOWTOPLAY:
+						currentScreen = new HowToPlayScreen(this);
 						break;
 				}
 				currentScreen.initialize();
