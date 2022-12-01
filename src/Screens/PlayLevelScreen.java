@@ -158,14 +158,24 @@ public class PlayLevelScreen extends Screen {
 	public static void goToPuzzleFour() {
 		 screenCoordinator.setGameState(GameState.PUZZLE_4);	
 	}
+	
+	public static void goToFinalWinningScreen() {
+		 screenCoordinator.setGameState(GameState.FINAL_WINNING_SCREEN);	
+	}
+	
 	public static void goToFinalPuzzle() {
-		if(player.hasCompletedPuzzles() == true) {
-		 screenCoordinator.setGameState(GameState.PUZZLE_final);	
-		}
-		else {
+		//if(player.hasCompletedPuzzles() == true) {
+		screenCoordinator.setGameState(GameState.PUZZLE_final);	
+		//}
+		//else {
 			// Add Message For user to complete all puzzles.
-			 screenCoordinator.setGameState(GameState.LEVEL);	
-		}
+
+			// screenCoordinator.setGameState(GameState.LEVEL);	
+		//}
+
+		// screenCoordinator.setGameState(GameState.LEVEL);	
+		//}
+
 	}
     
     

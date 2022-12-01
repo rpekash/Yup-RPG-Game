@@ -11,6 +11,7 @@ import Level.NPC;
 import Level.Player;
 import Level.Trigger;
 import NPCs.Dinosaur;
+import NPCs.Filmer;
 import NPCs.OJ;
 import NPCs.Walrus;
 import NPCs.UFO;
@@ -22,6 +23,7 @@ import Scripts.SimpleTextScript;
 import Scripts.TestMap.ArowScript;
 import Scripts.TestMap.Arrow2Script;
 import Scripts.TestMap.DinoScript;
+import Scripts.TestMap.FilmerScript;
 import Scripts.TestMap.LostBallScript;
 import Scripts.TestMap.OJScript;
 import Scripts.TestMap.Puzzle2Script;
@@ -51,7 +53,7 @@ public class FinalPuzzleMap extends Map {
     @Override
     public ArrayList<Enemy> loadEnemies() {
         ArrayList<Enemy> enemies = new ArrayList<>();
-        enemies.add(new Ufo(getMapTile(4, 7).getLocation().addY(30), Direction.LEFT));
+        enemies.add(new Ufo(getMapTile(4, 7).getLocation(), Direction.LEFT));
         
         return enemies;
     }
@@ -71,9 +73,9 @@ public class FinalPuzzleMap extends Map {
 
         
         
-      /* UFO ufo = new UFO(4, getMapTile(4,8).getLocation());
-        ufo.setInteractScript(new UFOScript());
-        npcs.add(ufo);*/
+     //  UFO ufo = new UFO(4, getMapTile(4,8).getLocation());
+       // ufo.setInteractScript(new UFOScript());
+       // npcs.add(ufo);
         
         
         
@@ -87,9 +89,8 @@ public class FinalPuzzleMap extends Map {
 
         triggers.add(new Trigger(393, 395, 30, 55, new FinalPuzzleFinish(), "hasFinishedMaze"));
         
-
-        
         //triggers.add(new Trigger(100, 900, 1900, 1900, new FinalPuzzleFinish(), "hasFinishedMaze"));
+
 
 //        triggers.add(new Trigger(20, 1190, 30, 70, new Puzzle2Script(), "hasFinishedMaze"));
 //        triggers.add(new Trigger(885, 965, 5, 40, new SpikeScript(), "hasHitSpike"));
