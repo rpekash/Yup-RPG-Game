@@ -85,7 +85,7 @@ public class FinalPuzzleMap extends Map {
     public ArrayList<Trigger> loadTriggers() {
         ArrayList<Trigger> triggers = new ArrayList<>();
 
-        triggers.add(new Trigger(393, 395, 30, 55, new Puzzle2Script(), "hasFinishedMaze"));
+        triggers.add(new Trigger(393, 395, 30, 55, new FinalPuzzleFinish(), "hasFinishedMaze"));
         
 
         
