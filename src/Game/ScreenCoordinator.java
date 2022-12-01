@@ -1,10 +1,12 @@
 package Game;
 
 import Engine.DefaultScreen;
+import Engine.GamePanel;
 import Engine.GraphicsHandler;
 import Engine.Screen;
 import Screens.CreditsScreen;
 import Screens.FinalPuzzleScreen;
+import Screens.FinalWinningScreen;
 import Screens.LosingScreen;
 import Screens.MenuScreen;
 import Screens.PlayLevelScreen;
@@ -25,8 +27,11 @@ public class ScreenCoordinator extends Screen {
 	// keep track of gameState so ScreenCoordinator knows which Screen to show
 	protected GameState gameState;
 	protected GameState previousGameState;
+	private GamePanel gamePanel;
+	
 	public boolean[] completedPuzzles = new boolean[PuzzleIndex.NUMBER_OF_PUZZLES];
 	
+	// create constructor and link 
 	public GameState getGameState() {
 		return gameState;
 	}
@@ -78,6 +83,9 @@ public class ScreenCoordinator extends Screen {
 						break;
 					case WINNING_SCREEN:
 						currentScreen = new WinningScreen(this);
+						break;
+					case FINAL_WINNING_SCREEN:
+						currentScreen = new FinalWinningScreen(this, gamePanel);
 						break;
 				}
 				currentScreen.initialize();

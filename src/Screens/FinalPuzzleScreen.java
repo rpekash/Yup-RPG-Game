@@ -133,7 +133,8 @@ public class FinalPuzzleScreen extends Screen {
     
     public static void goBackToLevel() {
     	screenCoordinator.completedPuzzles[PuzzleIndex.PUZZLE_FINAL_INDEX] = true;
-        screenCoordinator.setGameState(GameState.LEVEL);
+    	// TODO change game state to final winning(displaying the video) screen.
+        screenCoordinator.setGameState(GameState.FINAL_WINNING_SCREEN);
     }
 
     // This enum represents the different states this screen can be in
