@@ -71,9 +71,9 @@ public class FinalPuzzleMap extends Map {
 
         
         
-      /* UFO ufo = new UFO(4, getMapTile(4,8).getLocation());
+       UFO ufo = new UFO(4, getMapTile(4,8).getLocation());
         ufo.setInteractScript(new UFOScript());
-        npcs.add(ufo);*/
+        npcs.add(ufo);
         
         
         
