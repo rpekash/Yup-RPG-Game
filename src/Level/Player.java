@@ -313,6 +313,10 @@ public abstract class Player extends GameObject {
     	
     }
     
+    public void deadPlayer() {
+        screenCoordinator.setGameState(GameState.LOSING_SCREEN);
+    }
+    
     public boolean hasCompletedPuzzles() {
     	if (screenCoordinator.completedPuzzles[PuzzleIndex.PUZZLE_ONE_INDEX] == true && 
     		screenCoordinator.completedPuzzles[PuzzleIndex.PUZZLE_TWO_INDEX] == true && 
