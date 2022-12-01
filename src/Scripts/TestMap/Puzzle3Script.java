@@ -12,8 +12,7 @@ public class Puzzle3Script extends Script {
     @Override
     protected void setup() {
         lockPlayer();
-        showTextbox();
-        addTextToTextboxQueue("You Made it Out!");
+       
         
         
         
@@ -22,7 +21,6 @@ public class Puzzle3Script extends Script {
     @Override
     protected void cleanup() {
         setFlag("hasFinishedPuzzle3");
-        hideTextbox();
         unlockPlayer();
     }
 

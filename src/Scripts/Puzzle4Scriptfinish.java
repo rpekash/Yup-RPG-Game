@@ -10,8 +10,7 @@ public class Puzzle4Scriptfinish extends Script {
     @Override
     protected void setup() {
         lockPlayer();
-        showTextbox();
-        addTextToTextboxQueue("You Made it Out!");
+        
         
         
         

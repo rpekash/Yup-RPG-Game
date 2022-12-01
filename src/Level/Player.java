@@ -296,7 +296,8 @@ public abstract class Player extends GameObject {
     public void takeDamage(int damageValue) {
         setHealth(getHealth()-damageValue);
         if(getHealth() <= 0) {	
-            screenCoordinator.setGameState(GameState.LEVEL);
+        	// TODO change gamestate to losing screen 
+            screenCoordinator.setGameState(GameState.LOSING_SCREEN);
     	}
     	
     }

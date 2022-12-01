@@ -78,6 +78,8 @@ public class PuzzleFourScreen extends Screen {
         }
     }
     
+  
+    
 
     public void update() {
         // based on screen state, perform specific actions
@@ -122,7 +124,9 @@ public class PuzzleFourScreen extends Screen {
     
     public static void goBackToLevel() {
     	screenCoordinator.completedPuzzles[PuzzleIndex.PUZZLE_FOUR_INDEX] = true;
-        screenCoordinator.setGameState(GameState.LEVEL);
+    	// TODO change this to the winning screen.
+        screenCoordinator.setGameState(GameState.WINNING_SCREEN);
+        
     }
 
     // This enum represents the different states this screen can be in
