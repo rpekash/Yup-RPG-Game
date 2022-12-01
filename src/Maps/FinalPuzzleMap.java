@@ -86,13 +86,18 @@ public class FinalPuzzleMap extends Map {
     @Override
     public ArrayList<Trigger> loadTriggers() {
         ArrayList<Trigger> triggers = new ArrayList<>();
+
+        triggers.add(new Trigger(393, 395, 30, 55, new FinalPuzzleFinish(), "hasFinishedMaze"));
         
+        //triggers.add(new Trigger(100, 900, 1900, 1900, new FinalPuzzleFinish(), "hasFinishedMaze"));
+
 
 //        triggers.add(new Trigger(20, 1190, 30, 70, new Puzzle2Script(), "hasFinishedMaze"));
 //        triggers.add(new Trigger(885, 965, 5, 40, new SpikeScript(), "hasHitSpike"));
 //        triggers.add(new Trigger(455, 1205, 5, 40, new Spike2Script(), "hasHitSpike2"));
 //        triggers.add(new Trigger(570, 1085, 50, 50, new ArowScript(), "hasHitArrow"));
 //        triggers.add(new Trigger(275, 790, 20, 20, new Arrow2Script(), "hasHitArrow2"));
+
         return triggers;
     } 
 

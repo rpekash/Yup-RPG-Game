@@ -164,13 +164,13 @@ public class PlayLevelScreen extends Screen {
 	}
 	
 	public static void goToFinalPuzzle() {
-		if(player.hasCompletedPuzzles() == true) {
+//		if(player.hasCompletedPuzzles() == true) {
 		 screenCoordinator.setGameState(GameState.PUZZLE_final);	
-		}
-		else {
-			// Add Message For user to complete all puzzles.
-		 screenCoordinator.setGameState(GameState.LEVEL);	
-		}
+//		}
+//		else {
+//			// Add Message For user to complete all puzzles.
+//		 screenCoordinator.setGameState(GameState.LEVEL);	
+//		}
 	}
     
     

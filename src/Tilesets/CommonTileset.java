@@ -1912,14 +1912,14 @@ public class CommonTileset extends Tileset {
                     .withScale(tileScale)
                     .build();
             MapTileBuilder ent3Tile = new MapTileBuilder(ent3Frame)
-                    .withTileType(TileType.NOT_PASSABLE);
+                    .withTileType(TileType.PASSABLE);
             mapTiles.add(ent3Tile);
             
             Frame ent4Frame = new FrameBuilder(getSubImage(48, 4))
                     .withScale(tileScale)
                     .build();
             MapTileBuilder ent4Tile = new MapTileBuilder(ent4Frame)
-                    .withTileType(TileType.NOT_PASSABLE);
+                    .withTileType(TileType.PASSABLE);
             mapTiles.add(ent4Tile);
             
             Frame ent5Frame = new FrameBuilder(getSubImage(49, 0))
@@ -1947,14 +1947,14 @@ public class CommonTileset extends Tileset {
                     .withScale(tileScale)
                     .build();
             MapTileBuilder ent8Tile = new MapTileBuilder(ent8Frame)
-                    .withTileType(TileType.NOT_PASSABLE);
+                    .withTileType(TileType.PASSABLE);
             mapTiles.add(ent8Tile);
             
             Frame ent9Frame = new FrameBuilder(getSubImage(49, 4))
                     .withScale(tileScale)
                     .build();
             MapTileBuilder ent9Tile = new MapTileBuilder(ent9Frame)
-                    .withTileType(TileType.NOT_PASSABLE);
+                    .withTileType(TileType.PASSABLE);
             mapTiles.add(ent9Tile);
             
             Frame ent10Frame = new FrameBuilder(getSubImage(50, 0))
@@ -1982,7 +1982,7 @@ public class CommonTileset extends Tileset {
                     .withScale(tileScale)
                     .build();
             MapTileBuilder ent13Tile = new MapTileBuilder(ent13Frame)
-                    .withTileType(TileType.NOT_PASSABLE);
+                    .withTileType(TileType.PASSABLE);
             mapTiles.add(ent13Tile);
             
             Frame ent14Frame = new FrameBuilder(getSubImage(50, 4))
@@ -2101,35 +2101,35 @@ public class CommonTileset extends Tileset {
                     .withScale(tileScale)
                     .build();
             MapTileBuilder ent30Tile = new MapTileBuilder(ent30Frame)
-                    .withTileType(TileType.NOT_PASSABLE);
+                    .withTileType(TileType.PASSABLE);
             mapTiles.add(ent30Tile);
             
             Frame ent31Frame = new FrameBuilder(getSubImage(54, 1))
                     .withScale(tileScale)
                     .build();
             MapTileBuilder ent31Tile = new MapTileBuilder(ent31Frame)
-                    .withTileType(TileType.NOT_PASSABLE);
+                    .withTileType(TileType.PASSABLE);
             mapTiles.add(ent31Tile);
             
             Frame ent32Frame = new FrameBuilder(getSubImage(54, 2))
                     .withScale(tileScale)
                     .build();
             MapTileBuilder ent32Tile = new MapTileBuilder(ent32Frame)
-                    .withTileType(TileType.NOT_PASSABLE);
+                    .withTileType(TileType.PASSABLE);
             mapTiles.add(ent32Tile);
             
             Frame ent33Frame = new FrameBuilder(getSubImage(54, 3))
                     .withScale(tileScale)
                     .build();
             MapTileBuilder ent33Tile = new MapTileBuilder(ent33Frame)
-                    .withTileType(TileType.NOT_PASSABLE);
+                    .withTileType(TileType.PASSABLE);
             mapTiles.add(ent33Tile);
             
             Frame ent34Frame = new FrameBuilder(getSubImage(54, 4))
                     .withScale(tileScale)
                     .build();
             MapTileBuilder ent34Tile = new MapTileBuilder(ent34Frame)
-                    .withTileType(TileType.NOT_PASSABLE);
+                    .withTileType(TileType.PASSABLE);
             mapTiles.add(ent34Tile);
             
       //left buildings 
@@ -2329,6 +2329,78 @@ public class CommonTileset extends Tileset {
                     .withTileType(TileType.NOT_PASSABLE);
             mapTiles.add(bild27Tile);
             
+            
+     // horses 
+            
+            Frame horseFrame = new FrameBuilder(getSubImage(61, 0))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder horseTile = new MapTileBuilder(horseFrame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(horseTile);
+            
+            Frame horse1Frame = new FrameBuilder(getSubImage(61, 1))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder horse1Tile = new MapTileBuilder(horse1Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(horse1Tile);
+            
+            Frame horse2Frame = new FrameBuilder(getSubImage(61, 2))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder horse2Tile = new MapTileBuilder(horse2Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(horse2Tile);
+            
+            Frame horse3Frame = new FrameBuilder(getSubImage(61, 3))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder horse3Tile = new MapTileBuilder(horse3Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(horse3Tile);
+            
+            Frame horse4Frame = new FrameBuilder(getSubImage(61, 4))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder horse4Tile = new MapTileBuilder(horse4Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(horse4Tile);
+            
+            Frame horse5Frame = new FrameBuilder(getSubImage(62, 0))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder horse5Tile = new MapTileBuilder(horse5Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(horse5Tile);
+            
+            Frame horse6Frame = new FrameBuilder(getSubImage(62, 1))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder horse6Tile = new MapTileBuilder(horse6Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(horse6Tile);
+            
+            Frame horse7Frame = new FrameBuilder(getSubImage(62, 2))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder horse7Tile = new MapTileBuilder(horse7Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(horse7Tile);
+            
+            Frame horse8Frame = new FrameBuilder(getSubImage(62, 3))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder horse8Tile = new MapTileBuilder(horse8Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(horse8Tile);
+            
+            Frame horse9Frame = new FrameBuilder(getSubImage(62, 4))
+                    .withScale(tileScale)
+                    .build();
+            MapTileBuilder horse9Tile = new MapTileBuilder(horse9Frame)
+                    .withTileType(TileType.NOT_PASSABLE);
+            mapTiles.add(horse9Tile);
             
             
             
