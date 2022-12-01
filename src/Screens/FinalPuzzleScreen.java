@@ -36,6 +36,7 @@ public class FinalPuzzleScreen extends Screen {
         // setup state
         flagManager = new FlagManager();
         flagManager.addFlag("hasFinishedFinalPuzzle", false);
+        flagManager.addFlag("hasFinishedFinalPuzzletalk", false);
 
 
         // define/setup map

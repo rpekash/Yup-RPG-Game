@@ -30,7 +30,7 @@ public class GamePanel extends JPanel {
 	// used to draw graphics to the panel
 	private GraphicsHandler graphicsHandler;
 	
-
+private GameWindow gameWindow;
 	protected int currentMenuItemHovered = 0;
     protected int menuItemSelected = -1;
 	private boolean doPaint = false;
