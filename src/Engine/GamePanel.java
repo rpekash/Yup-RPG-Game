@@ -44,7 +44,7 @@ public class GamePanel extends JPanel {
 	private final Key pauseKey = Key.P;
     protected Stopwatch keyTimer = new Stopwatch();
     protected int pointerLocationX, pointerLocationY;
-    protected ScreenCoordinator screenCoordinator = new ScreenCoordinator();
+    protected ScreenCoordinator screenCoordinator = new ScreenCoordinator(null);
     private LoopMusicJavaUpdated mControl = new LoopMusicJavaUpdated();
 
 	/*
