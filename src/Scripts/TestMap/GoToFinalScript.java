@@ -18,7 +18,7 @@ public class GoToFinalScript extends Script {
 
     @Override
     protected void cleanup() {
-       // setFlag("hasFinishedMaze");
+        setFlag("hasFinishedMaze");
         hideTextbox();
         unlockPlayer();
     }

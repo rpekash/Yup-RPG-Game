@@ -156,6 +156,7 @@ public class PuzzleOneScreen extends Screen {
         }
         if (!isRunning) {
         	puzzleOneScreenState = PuzzleOneScreenState.PUZZLE_FAILED;
+        	screenCoordinator.puzzleCompleted(PuzzleIndex.PUZZLE_ONE_INDEX);
             screenCoordinator.setGameState(GameState.LOSING_SCREEN);
         }
     }
