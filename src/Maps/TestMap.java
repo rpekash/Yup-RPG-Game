@@ -40,17 +40,17 @@ public class TestMap extends Map {
 
     public TestMap(Player player, ScreenCoordinator screenCoordinator) {
         super("test_map.txt", new CommonTileset(), player, screenCoordinator);
-       /* if (screenCoordinator.puzzleJustCompleted[PuzzleIndex.PUZZLE_ONE_INDEX]) {
-        	this.playerStartPosition = getMapTile(10, 21).getLocation();
+        if (screenCoordinator.puzzleJustCompleted[PuzzleIndex.PUZZLE_ONE_INDEX]) {
+        	this.playerStartPosition = getMapTile(19, 15).getLocation();
         } else if (screenCoordinator.puzzleJustCompleted[PuzzleIndex.PUZZLE_TWO_INDEX]) {
-        	this.playerStartPosition = getMapTile(5, 6).getLocation();
+        	this.playerStartPosition = getMapTile(10, 22).getLocation();
         } else if (screenCoordinator.puzzleJustCompleted[PuzzleIndex.PUZZLE_THREE_INDEX]) {
-        	this.playerStartPosition = getMapTile(10, 11).getLocation();
+        	this.playerStartPosition = getMapTile(14, 29).getLocation();
         } else if (screenCoordinator.puzzleJustCompleted[PuzzleIndex.PUZZLE_FOUR_INDEX]) {
-        	this.playerStartPosition = getMapTile(10, 6).getLocation();
+        	this.playerStartPosition = getMapTile(18, 10).getLocation();
         } else {
             this.playerStartPosition = getMapTile(17, 20).getLocation();
-        }*/
+        }
     }
 
     @Override
