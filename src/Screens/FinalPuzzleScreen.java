@@ -24,11 +24,9 @@ public class FinalPuzzleScreen extends Screen {
     protected Map map;
     protected Player player;
     protected NPC ufo;
-    
-
     protected FinalPuzzleScreenState finalpuzzleScreenState;
     protected FlagManager flagManager;
-    private static Boolean completed;
+    private static Boolean completed = false;
 
     public FinalPuzzleScreen(ScreenCoordinator screenCoordinator) {
         this.screenCoordinator = screenCoordinator;
@@ -37,10 +35,12 @@ public class FinalPuzzleScreen extends Screen {
     public void initialize() {
         // setup state
         flagManager = new FlagManager();
+        flagManager.addFlag("hasFinishedFinalPuzzle", false);
+
 
         // define/setup map
         this.map = new FinalPuzzleMap(null, screenCoordinator);
-        //map.reset();
+        map.reset();
         map.setFlagManager(flagManager);
 
         // setup player
@@ -93,7 +93,6 @@ public class FinalPuzzleScreen extends Screen {
             // if level is "running" update player and map to keep game logic for the platformer level going
             case RUNNING:
                 player.update();
-          
               //  enemy.update();
                 map.update(player);
                 break;

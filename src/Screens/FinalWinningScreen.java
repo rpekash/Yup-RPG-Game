@@ -3,14 +3,17 @@ package Screens;
 import java.awt.Color;
 import java.util.concurrent.TimeUnit;
 
+import javax.print.attribute.standard.Media;
 import javax.swing.JPanel;
 
 import Engine.GamePanel;
+import Engine.GameWindow;
 import Engine.GraphicsHandler;
 import Engine.Key;
 import Engine.KeyLocker;
 import Engine.Keyboard;
 import Engine.Screen;
+import Engine.ScreenManager;
 import Game.GameState;
 import Game.ScreenCoordinator;
 import Level.Map;
@@ -34,25 +37,25 @@ public class FinalWinningScreen extends Screen {
 	    private Map map;
 	    private Key interactKey = Key.SPACE;
 		private Player player;
-		private GamePanel gamePanel;
+		private GameWindow gameWindow;
 		
 		
-	    public FinalWinningScreen(ScreenCoordinator screenCoordinator, GamePanel gamePanel) {
+	    public FinalWinningScreen(ScreenCoordinator screenCoordinator, GameWindow gameWindow) {
 	        this.screenCoordinator = screenCoordinator;
-	        this.gamePanel = gamePanel;
+	        this.gameWindow = gameWindow;
 	    }
 
-	    public void initialize() {
+		public void initialize() {
 	    	
-//		            playGame = new SpriteFont("FINAL SCREEN", 150, 150, "Comic Sans", 20, new Color(49, 207, 240));
-//			        playGame.setOutlineColor(Color.black);
-//			        playGame.setOutlineThickness(3);
-//			        background = new WinningMap(null, screenCoordinator);
-//			        background.setAdjustCamera(false);
+            playGame = new SpriteFont("FINAL SCREEN", 150, 150, "Comic Sans", 20, new Color(49, 207, 240));
+	        playGame.setOutlineColor(Color.black);
+	        playGame.setOutlineThickness(3);
+	        background = new WinningMap(null, screenCoordinator);
+	        background.setAdjustCamera(false);
 	    	
-	    	JPanel videoPlayer = new JPanel();
-		
-			        }
+	        gameWindow.playVideo();
+	        
+		}
 
 	    
 	    public void update() {

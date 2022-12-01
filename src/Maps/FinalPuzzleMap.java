@@ -16,6 +16,8 @@ import NPCs.Walrus;
 import NPCs.UFO;
 
 import NPCs.SpikeTrap;
+import Scripts.FinalPuzzleFinish;
+import Scripts.Puzzle4Scriptfinish;
 import Scripts.SimpleTextScript;
 import Scripts.TestMap.ArowScript;
 import Scripts.TestMap.Arrow2Script;
@@ -40,7 +42,7 @@ import Enemies.Ufo;
 
 // Represents a test map to be used in a level
 public class FinalPuzzleMap extends Map {
-	Boolean run = true;
+	
     public FinalPuzzleMap(Player player, ScreenCoordinator screenCoordinator ) {
         super("finalpuzzle.txt", new CommonTileset(), player, screenCoordinator);
         this.playerStartPosition = getMapTile(1, 3).getLocation();
@@ -82,11 +84,14 @@ public class FinalPuzzleMap extends Map {
     @Override
     public ArrayList<Trigger> loadTriggers() {
         ArrayList<Trigger> triggers = new ArrayList<>();
-        triggers.add(new Trigger(20, 1190, 30, 70, new Puzzle2Script(), "hasFinishedMaze"));
-        triggers.add(new Trigger(885, 965, 5, 40, new SpikeScript(), "hasHitSpike"));
-        triggers.add(new Trigger(455, 1205, 5, 40, new Spike2Script(), "hasHitSpike2"));
-        triggers.add(new Trigger(570, 1085, 50, 50, new ArowScript(), "hasHitArrow"));
-        triggers.add(new Trigger(275, 790, 20, 20, new Arrow2Script(), "hasHitArrow2"));
+        
+        triggers.add(new Trigger(100, 900, 1900, 1900, new FinalPuzzleFinish(), "hasFinishedMaze"));
+
+//        triggers.add(new Trigger(20, 1190, 30, 70, new Puzzle2Script(), "hasFinishedMaze"));
+//        triggers.add(new Trigger(885, 965, 5, 40, new SpikeScript(), "hasHitSpike"));
+//        triggers.add(new Trigger(455, 1205, 5, 40, new Spike2Script(), "hasHitSpike2"));
+//        triggers.add(new Trigger(570, 1085, 50, 50, new ArowScript(), "hasHitArrow"));
+//        triggers.add(new Trigger(275, 790, 20, 20, new Arrow2Script(), "hasHitArrow2"));
         return triggers;
     } 
 

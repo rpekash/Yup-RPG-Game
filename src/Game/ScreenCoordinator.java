@@ -1,7 +1,7 @@
 package Game;
 
 import Engine.DefaultScreen;
-import Engine.GamePanel;
+import Engine.GameWindow;
 import Engine.GraphicsHandler;
 import Engine.Screen;
 import Screens.CreditsScreen;
@@ -22,14 +22,21 @@ import Screens.WinningScreen;
  * There can only be one "currentScreen", although screens can have "nested" screens
  */
 public class ScreenCoordinator extends Screen {
+	
+	
 	// currently shown Screen
 	protected Screen currentScreen = new DefaultScreen();
 
 	// keep track of gameState so ScreenCoordinator knows which Screen to show
 	protected GameState gameState;
 	protected GameState previousGameState;
-	private GamePanel gamePanel;
+//	private GamePanel gamePanel;
+	private GameWindow gameWindow;
 	
+	public ScreenCoordinator(GameWindow gameWindow) {
+	this.gameWindow = gameWindow;	
+	}
+
 	public boolean[] completedPuzzles = new boolean[PuzzleIndex.NUMBER_OF_PUZZLES];
 	
 	// create constructor and link 
@@ -92,7 +99,7 @@ public class ScreenCoordinator extends Screen {
 
 						break;
 					case FINAL_WINNING_SCREEN:
-						currentScreen = new FinalWinningScreen(this, gamePanel);
+						currentScreen = new FinalWinningScreen(this, gameWindow);
 						break;
 				}
 				currentScreen.initialize();
