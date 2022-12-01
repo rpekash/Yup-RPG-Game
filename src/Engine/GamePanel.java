@@ -43,7 +43,7 @@ public class GamePanel extends JPanel {
 	private final Key pauseKey = Key.P;
     protected Stopwatch keyTimer = new Stopwatch();
     protected int pointerLocationX, pointerLocationY;
-    protected ScreenCoordinator screenCoordinator;
+    protected ScreenCoordinator screenCoordinator = new ScreenCoordinator();
     private LoopMusicJavaUpdated mControl = new LoopMusicJavaUpdated();
 
 	/*
@@ -53,7 +53,7 @@ public class GamePanel extends JPanel {
 		super();
 		this.setDoubleBuffered(true);
 		
-		this.screenCoordinator = new ScreenCoordinator();
+		this.screenCoordinator = screenCoordinator;
 
 		// attaches Keyboard class's keyListener to this JPanel
 		this.addKeyListener(Keyboard.getKeyListener());
@@ -92,6 +92,8 @@ public class GamePanel extends JPanel {
 			}
 		});
 		timer.setRepeats(true);
+		
+		mControl.playMusicInScreen("src/SciFi.wav");
 	}
 
 	// this is called later after instantiation, and will initialize screenManager
@@ -111,6 +113,10 @@ public class GamePanel extends JPanel {
 		return screenManager;
 	}
 
+	public ScreenCoordinator getScreenCoordinator() {
+		return screenCoordinator;
+	}
+	
 	public void update() {
 		if (Keyboard.isKeyDown(pauseKey) && !keyLocker.isKeyLocked(pauseKey)) {
 			isGamePaused = !isGamePaused;
@@ -146,29 +152,29 @@ public class GamePanel extends JPanel {
 	            menuLabel.setColor(new Color(49, 207, 240));
 	            plus.setColor(new Color(49, 207, 240));
 	            minus.setColor(new Color(49, 207, 240));
-	            pointerLocationX = 170;
-	            pointerLocationY = 130;
+	            //pointerLocationX = 170;
+	            //pointerLocationY = 130;
 			} else if (currentMenuItemHovered == 1) {
 				playLabel.setColor(new Color(49, 207, 240));
 	            menuLabel.setColor(new Color(255, 215, 0));
 	            plus.setColor(new Color(49, 207, 240));
 	            minus.setColor(new Color(49, 207, 240));
-	            pointerLocationX = 170;
-	            pointerLocationY = 230;
+	            //pointerLocationX = 170;
+	            //pointerLocationY = 230;
 			} else if (currentMenuItemHovered == 2) {
 				playLabel.setColor(new Color(49, 207, 240));
 	            menuLabel.setColor(new Color(49, 207, 240));
 	            plus.setColor(new Color(255, 215, 0));
 	            minus.setColor(new Color(49, 207, 240));
-	            pointerLocationX = 170;
-	            pointerLocationY = 230;
+	           //pointerLocationX = 170;
+	            //pointerLocationY = 230;
 			} else if (currentMenuItemHovered == 3) {
 				playLabel.setColor(new Color(49, 207, 240));
 	            menuLabel.setColor(new Color(49, 207, 240));
 	            plus.setColor(new Color(49, 207, 240));
 	            minus.setColor(new Color(255, 215, 0));
-	            pointerLocationX = 170;
-	            pointerLocationY = 230;
+	            //pointerLocationX = 170;
+	            //pointerLocationY = 230;
 			}
 			
 			if (Keyboard.isKeyUp(Key.SPACE)) {

@@ -1,7 +1,7 @@
 package Music;
 
 public class LoopMusicJavaUpdated {
-	private PlayMusic pM= new PlayMusic();
+	private PlayMusic pM = new PlayMusic();
     
     public void playMusicInScreen(String music) {
         String filepath = music; 

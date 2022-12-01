@@ -45,4 +45,5 @@ public class ScreenManager {
     public static Rectangle getScreenBounds() {
         return screenBounds;
     }
+    
 }

@@ -8,8 +8,9 @@ import javax.sound.sampled.FloatControl;
 
 public class PlayMusic {
 
+	private Clip clip;
 	private boolean exist = false;
-	FloatControl fc;
+	private FloatControl fc;
 	public float currVol;
 
     public void playMusic(String musicLocation)
@@ -24,7 +25,7 @@ public class PlayMusic {
             if(musicPath.exists())
             {
                 AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);
-                Clip clip = AudioSystem.getClip();
+                clip = AudioSystem.getClip();
                 clip.open(audioInput);
                 clip.start(); 
                 clip.loop(Clip.LOOP_CONTINUOUSLY);
