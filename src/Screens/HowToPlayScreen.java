@@ -29,17 +29,17 @@ public class HowToPlayScreen extends Screen {
         // setup graphics on screen (background map, spritefont text)
         background = new TitleScreenMap(null, screenCoordinator);
         background.setAdjustCamera(false);
-        creditsLabel = new SpriteFont("How To Play:", 40, 60, "Times New Roman", 30, Color.WHITE);
+        creditsLabel = new SpriteFont("How To Play:", 40, 60, "Times New Roman", 30, Color.BLACK);
         creditsLabel.setOutlineColor(Color.black);
         creditsLabel.setOutlineThickness(3);
-        createdByLabel = new SpriteFont("space key: interact with npcs or items", 45, 110, "Times New Roman", 30, Color.WHITE);
+        createdByLabel = new SpriteFont("space key: interact with npcs or items", 45, 110, "Times New Roman", 30, Color.BLACK);
         createdByLabel.setOutlineColor(Color.black);
         createdByLabel.setOutlineThickness(3);
-        one = new SpriteFont("movement: use the arrow keys", 45, 180, "Times New Roman", 30, Color.WHITE);
+        one = new SpriteFont("movement: use the arrow keys", 45, 180, "Times New Roman", 30, Color.BLACK);
         one.setOutlineColor(Color.black);
         one.setOutlineThickness(3);
         
-        returnInstructionsLabel = new SpriteFont("Press Space to return to the menu", 40, 530, "Times New Roman", 30, Color.white);
+        returnInstructionsLabel = new SpriteFont("Press Space to return to the menu", 40, 530, "Times New Roman", 30, Color.BLACK);
         returnInstructionsLabel.setOutlineColor(Color.black);
         returnInstructionsLabel.setOutlineThickness(3);
         keyLocker.lockKey(Key.SPACE);
