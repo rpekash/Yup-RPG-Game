@@ -2,6 +2,8 @@ package Engine;
 
 import javax.swing.*;
 
+import Game.ScreenCoordinator;
+
 /*
  * The JFrame that holds the GamePanel
  * Just does some setup and exposes the gamePanel's screenManager to allow an external class to setup their own content and attach it to this engine.
@@ -31,5 +33,9 @@ public class GameWindow {
 
 	public ScreenManager getScreenManager() {
 		return gamePanel.getScreenManager();
+	}
+	
+	public ScreenCoordinator getScreenCoordinator() {
+		return gamePanel.screenCoordinator;
 	}
 }

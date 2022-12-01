@@ -31,6 +31,7 @@ public class ScreenCoordinator extends Screen {
 	private GamePanel gamePanel;
 	
 	public boolean[] completedPuzzles = new boolean[PuzzleIndex.NUMBER_OF_PUZZLES];
+	public boolean[] puzzleJustCompleted = new boolean[PuzzleIndex.NUMBER_OF_PUZZLES];
 	
 	// create constructor and link 
 	public GameState getGameState() {
@@ -113,6 +114,15 @@ public class ScreenCoordinator extends Screen {
 	    		}
 	    	}
 	    	return puzzlesCompletedCounter;
+	    }
+	   
+	   public void puzzleCompleted(int puzzle) {
+	    	for(int i = 0; i < PuzzleIndex.NUMBER_OF_PUZZLES; i++ ) {
+	    		if (completedPuzzles[i] == true) {
+		    		puzzleJustCompleted[i] = false;
+	    		}
+	    	}
+	    	puzzleJustCompleted[puzzle] = true;
 	    }
 
 

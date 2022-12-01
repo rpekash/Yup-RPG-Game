@@ -153,6 +153,7 @@ public class PuzzleThreeScreen extends Screen {
     
     public static void goBackToLevel() {
     	screenCoordinator.completedPuzzles[PuzzleIndex.PUZZLE_THREE_INDEX] = true;
+    	screenCoordinator.puzzleCompleted(PuzzleIndex.PUZZLE_THREE_INDEX);
         screenCoordinator.setGameState(GameState.FINAL_WINNING_SCREEN);
     }
 
