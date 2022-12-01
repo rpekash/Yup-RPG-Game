@@ -2,6 +2,7 @@ package Maps;
 
 import EnhancedMapTiles.Rock;
 import EnhancedMapTiles.TextTile;
+import Game.PuzzleIndex;
 import Game.ScreenCoordinator;
 import Level.EnhancedMapTile;
 import Level.Map;
@@ -39,7 +40,17 @@ public class TestMap extends Map {
 
     public TestMap(Player player, ScreenCoordinator screenCoordinator) {
         super("test_map.txt", new CommonTileset(), player, screenCoordinator);
-        this.playerStartPosition = getMapTile(17, 20).getLocation();
+        if (screenCoordinator.puzzleJustCompleted[PuzzleIndex.PUZZLE_ONE_INDEX]) {
+        	this.playerStartPosition = getMapTile(10, 21).getLocation();
+        } else if (screenCoordinator.puzzleJustCompleted[PuzzleIndex.PUZZLE_TWO_INDEX]) {
+        	this.playerStartPosition = getMapTile(5, 6).getLocation();
+        } else if (screenCoordinator.puzzleJustCompleted[PuzzleIndex.PUZZLE_THREE_INDEX]) {
+        	this.playerStartPosition = getMapTile(10, 11).getLocation();
+        } else if (screenCoordinator.puzzleJustCompleted[PuzzleIndex.PUZZLE_FOUR_INDEX]) {
+        	this.playerStartPosition = getMapTile(10, 6).getLocation();
+        } else {
+            this.playerStartPosition = getMapTile(17, 20).getLocation();
+        }
     }
 
     @Override

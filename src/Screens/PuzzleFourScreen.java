@@ -124,6 +124,7 @@ public class PuzzleFourScreen extends Screen {
     
     public static void goBackToLevel() {
     	screenCoordinator.completedPuzzles[PuzzleIndex.PUZZLE_FOUR_INDEX] = true;
+    	screenCoordinator.puzzleCompleted(PuzzleIndex.PUZZLE_FOUR_INDEX);
     	// TODO change this to the winning screen.
         screenCoordinator.setGameState(GameState.WINNING_SCREEN);
         

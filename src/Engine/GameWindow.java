@@ -10,7 +10,6 @@ import java.awt.event.KeyListener;
 import java.awt.event.WindowEvent;
 
 import javax.swing.*;
-
 import Game.GameState;
 import Game.ScreenCoordinator;
 
@@ -114,6 +113,8 @@ public class GameWindow implements KeyListener {
 		// TODO Auto-generated method stub
 		
 	}
-
-
+	
+	public ScreenCoordinator getScreenCoordinator() {
+		return gamePanel.screenCoordinator;
+	}
 }

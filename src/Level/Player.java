@@ -295,9 +295,26 @@ public abstract class Player extends GameObject {
     
     public void takeDamage(int damageValue) {
         setHealth(getHealth()-damageValue);
-        if(getHealth() <= 0) {	
-        	// TODO change gamestate to losing screen 
+        if(getHealth() <= 0) {
             screenCoordinator.setGameState(GameState.LOSING_SCREEN);
+
+        	if (screenCoordinator.getGameState() == GameState.PUZZLE_1) {
+            	screenCoordinator.puzzleCompleted(PuzzleIndex.PUZZLE_ONE_INDEX);
+                screenCoordinator.setGameState(GameState.LOSING_SCREEN);
+
+        	} else if (screenCoordinator.getGameState() == GameState.PUZZLE_2) {
+            	screenCoordinator.puzzleCompleted(PuzzleIndex.PUZZLE_TWO_INDEX);
+                screenCoordinator.setGameState(GameState.LOSING_SCREEN);
+
+        	} else if (screenCoordinator.getGameState() == GameState.PUZZLE_3) {
+            	screenCoordinator.puzzleCompleted(PuzzleIndex.PUZZLE_THREE_INDEX);
+                screenCoordinator.setGameState(GameState.LOSING_SCREEN);
+
+        	} else if (screenCoordinator.getGameState() == GameState.PUZZLE_4) {
+            	screenCoordinator.puzzleCompleted(PuzzleIndex.PUZZLE_FOUR_INDEX);
+                screenCoordinator.setGameState(GameState.LOSING_SCREEN);
+
+        	}
     	}
     	
     }
