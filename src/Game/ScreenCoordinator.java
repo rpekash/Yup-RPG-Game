@@ -7,6 +7,7 @@ import Engine.Screen;
 import Screens.CreditsScreen;
 import Screens.FinalPuzzleScreen;
 import Screens.FinalWinningScreen;
+import Screens.HowToPlayScreen;
 import Screens.LosingScreen;
 import Screens.MenuScreen;
 import Screens.PlayLevelScreen;
@@ -78,11 +79,17 @@ public class ScreenCoordinator extends Screen {
 					case CREDITS:
 						currentScreen = new CreditsScreen(this);
 						break;
+						
+					case HOWTOPLAY:
+						currentScreen = new HowToPlayScreen(this);
+						break;
+
 					case LOSING_SCREEN:
 						currentScreen = new LosingScreen(this);
 						break;
 					case WINNING_SCREEN:
 						currentScreen = new WinningScreen(this);
+
 						break;
 					case FINAL_WINNING_SCREEN:
 						currentScreen = new FinalWinningScreen(this, gamePanel);

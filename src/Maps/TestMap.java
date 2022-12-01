@@ -80,7 +80,7 @@ public class TestMap extends Map {
         em.setInteractScript(new EmeraldScript());
         npcs.add(em);
         
-        Cowboy cowboy = new Cowboy(3, getMapTile(6, 9).getLocation());
+        Cowboy cowboy = new Cowboy(3, getMapTile(0, 9).getLocation());
         cowboy.setInteractScript(new CowboyScript());
         npcs.add(cowboy);
         

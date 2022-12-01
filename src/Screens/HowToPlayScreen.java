@@ -10,17 +10,17 @@ import SpriteFont.SpriteFont;
 import java.awt.*;
 
 // This class is for the credits screen
-public class CreditsScreen extends Screen {
+public class HowToPlayScreen extends Screen {
     protected ScreenCoordinator screenCoordinator;
     protected Map background;
     protected KeyLocker keyLocker = new KeyLocker();
     protected SpriteFont creditsLabel;
     protected SpriteFont createdByLabel;
-    protected SpriteFont createdByLabels;
-    protected SpriteFont createdByLabelss;
+    protected SpriteFont one;
+    protected SpriteFont two;
     protected SpriteFont returnInstructionsLabel;
 
-    public CreditsScreen(ScreenCoordinator screenCoordinator) {
+    public HowToPlayScreen(ScreenCoordinator screenCoordinator) {
         this.screenCoordinator = screenCoordinator;
     }
 
@@ -29,11 +29,19 @@ public class CreditsScreen extends Screen {
         // setup graphics on screen (background map, spritefont text)
         background = new TitleScreenMap(null, screenCoordinator);
         background.setAdjustCamera(false);
-        creditsLabel = new SpriteFont("Credits", 40, 60, "Times New Roman", 30, Color.black);
-        createdByLabel = new SpriteFont("Original game Created by Alex Thimineur", 130, 140, "Times New Roman", 20, Color.black);
-        createdByLabels = new SpriteFont("Created by Mia, Kash, Dylan", 130, 240, "Times New Roman", 20, Color.black);
-        createdByLabelss = new SpriteFont("Game based off of the move NOPE", 130, 340, "Times New Roman", 20, Color.black);
-        returnInstructionsLabel = new SpriteFont("Press Space to return to the menu", 40, 530, "Times New Roman", 30, Color.black);
+        creditsLabel = new SpriteFont("How To Play:", 40, 60, "Times New Roman", 30, Color.WHITE);
+        creditsLabel.setOutlineColor(Color.black);
+        creditsLabel.setOutlineThickness(3);
+        createdByLabel = new SpriteFont("space key: interact with npcs or items", 45, 110, "Times New Roman", 30, Color.WHITE);
+        createdByLabel.setOutlineColor(Color.black);
+        createdByLabel.setOutlineThickness(3);
+        one = new SpriteFont("movement: use the arrow keys", 45, 180, "Times New Roman", 30, Color.WHITE);
+        one.setOutlineColor(Color.black);
+        one.setOutlineThickness(3);
+        
+        returnInstructionsLabel = new SpriteFont("Press Space to return to the menu", 40, 530, "Times New Roman", 30, Color.white);
+        returnInstructionsLabel.setOutlineColor(Color.black);
+        returnInstructionsLabel.setOutlineThickness(3);
         keyLocker.lockKey(Key.SPACE);
     }
 
@@ -54,8 +62,8 @@ public class CreditsScreen extends Screen {
         background.draw(graphicsHandler);
         creditsLabel.draw(graphicsHandler);
         createdByLabel.drawWithParsedNewLines(graphicsHandler);
-        createdByLabels.drawWithParsedNewLines(graphicsHandler);
-        createdByLabelss.drawWithParsedNewLines(graphicsHandler);
+        one.draw(graphicsHandler);
         returnInstructionsLabel.draw(graphicsHandler);
     }
 }
+
