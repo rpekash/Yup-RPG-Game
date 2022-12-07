@@ -25,9 +25,5 @@ Kastrijot Syla
 
 Dylan Bellinger
 
-Alexander Goriup
-
-Andrew Kulowski
-
-Joseph Noga
+Mia Troiano
 
