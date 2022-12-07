@@ -22,7 +22,7 @@ public class Ufo extends Enemy {
 
   
 	private float gravity = .5f;
-    private float movementSpeed = 1.5f;
+    private float movementSpeed = 2.5f;
     private Direction startFacingDirection;
     private Direction facingDirection;
     private AirGroundState airGroundState;

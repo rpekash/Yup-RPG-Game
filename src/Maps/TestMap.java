@@ -97,7 +97,7 @@ public class TestMap extends Map {
         
        
         
-        Portal portal = new Portal(5, getMapTile (10, 21).getLocation());
+        Portal portal = new Portal(5, getMapTile (10, 20).getLocation());
         portal.setInteractScript(new PortalScript());
         npcs.add(portal);
         
@@ -105,7 +105,7 @@ public class TestMap extends Map {
         p1portal.setInteractScript(new Portal3Script());
         npcs.add(p1portal);
         
-        Portal portal2 = new Portal(5, getMapTile (13, 29).getLocation());
+        Portal portal2 = new Portal(5, getMapTile (13, 26).getLocation());
         portal2.setInteractScript(new Portal2Script());
         npcs.add(portal2);
         
